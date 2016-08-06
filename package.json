@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "Getting started with Express 4 using TypeScript",
   "scripts": {
-    "start": "npm run clean && npm run tsc && concurrently \"npm run tsc:w\" \"npm run nodemon\"",
-    "clean": "rimraf dist",
+    "start": "npm run tsc && concurrently \"npm run tsc:w\" \"npm run nodemon\"",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "nodemon": "nodemon dist/app.js",
+    "nodemon": "nodemon src/app.js",
     "reset": "git reset --hard HEAD && git clean -df",
     "postinstall": "npm run typings -- install",
     "typings": "typings"
@@ -28,12 +27,12 @@
   "homepage": "https://github.com/Shyam-Chen/Express4TS-Quick-Start#readme",
   "dependencies": {
     "express": "^4.14.0",
-    "open": "0.0.5"
+    "open": "0.0.5",
+    "pug": "^2.0.0-beta4"
   },
   "devDependencies": {
     "concurrently": "^2.2.0",
     "nodemon": "^1.10.0",
-    "rimraf": "^2.5.4",
     "typescript": "^1.8.10",
     "typings": "^1.3.2"
   }

@@ -1,16 +1,15 @@
 import * as express from 'express';
+import { join } from 'path';
 
 import open = require('open');
 
 const app = express();
 
+app.set('views', join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
 app.get('/', (req: any, res: any) => {
-  res.send(`
-    <a href="/">Express</a>
-    <a href="/home">Home</a>
-    <a href="/about">About</a>
-    <p>Hello Express</p>
-  `);
+  res.render('index', { title: 'Express4TS Quick Start' });
 });
 
 app.get('/home', (req: any, res: any) => {
