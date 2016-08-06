@@ -1,8 +1,7 @@
 {
   "globalDependencies": {
     "express": "registry:dt/express#4.0.0+20160708185218",
-    "node": "registry:dt/node#6.0.0+20160802155038",
-    "open": "registry:dt/open#0.0.3+20160316155526"
+    "node": "registry:dt/node#6.0.0+20160802155038"
   },
   "globalDevDependencies": {
     "express-serve-static-core": "registry:dt/express-serve-static-core#4.0.0+20160715232503",

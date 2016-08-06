@@ -27,7 +27,6 @@
   "homepage": "https://github.com/Shyam-Chen/Express4TS-Quick-Start#readme",
   "dependencies": {
     "express": "^4.14.0",
-    "open": "0.0.5",
     "pug": "^2.0.0-beta4",
     "stylus": "^0.54.5"
   },
