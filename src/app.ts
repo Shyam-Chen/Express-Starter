@@ -1,5 +1,6 @@
 import * as express from 'express';
-import * as open from 'open';
+
+import open = require('open');
 
 const app = express();
 
