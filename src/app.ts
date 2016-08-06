@@ -1,4 +1,5 @@
 import * as express from 'express';
+import * as open from 'open';
 
 const app = express();
 
@@ -36,5 +37,6 @@ app.use((req: any, res: any) => {
 
 const server = app.listen(3000, 'localhost', () => {
   const { address, port } = server.address();
+  open(`http://localhost:${port}`);
   console.log(`Listening on http://localhost:${port}`);
 });
