@@ -8,6 +8,8 @@ const app = express();
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+app.use(require('stylus').middleware(join(__dirname, 'styles')));
+
 app.get('/', (req: any, res: any) => {
   res.render('index', { title: 'Express4TS Quick Start' });
 });
