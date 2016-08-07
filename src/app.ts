@@ -1,7 +1,10 @@
 import * as express from 'express';
+import * as logger from 'morgan';
 import { join } from 'path';
 
 const app = express();
+
+app.use(logger('dev'));
 
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'pug');

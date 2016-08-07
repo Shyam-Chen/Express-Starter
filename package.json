@@ -4,6 +4,7 @@
   "description": "Getting started with Express 4 using TypeScript",
   "scripts": {
     "start": "npm run tsc && concurrently \"npm run tsc:w\" \"npm run nodemon\"",
+    "test": "mocha",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "nodemon": "nodemon src/app.js",
@@ -27,6 +28,7 @@
   "homepage": "https://github.com/Shyam-Chen/Express4TS-Quick-Start#readme",
   "dependencies": {
     "express": "^4.14.0",
+    "morgan": "^1.7.0",
     "pug": "^2.0.0-beta4",
     "stylus": "^0.54.5"
   },
