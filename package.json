@@ -31,7 +31,9 @@
     "stylus": "^0.54.5"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "concurrently": "^2.2.0",
+    "mocha": "^3.0.1",
     "nodemon": "^1.10.0",
     "typescript": "^1.8.10",
     "typings": "^1.3.2"
