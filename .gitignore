@@ -1,6 +1,5 @@
 node_modules
 typings
-dist
 *.js
 *.css
 *.log
