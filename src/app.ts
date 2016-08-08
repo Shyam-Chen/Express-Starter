@@ -1,7 +1,8 @@
 import * as express from 'express';
 import * as logger from 'morgan';
-
 import { join } from 'path';
+
+import { title } from './controllers';
 
 const app = express();
 
@@ -12,9 +13,7 @@ app.use(logger('dev'));
 app.use(require('stylus').middleware(join(__dirname, 'public')));
 app.use(express.static(join(__dirname, 'public')));
 
-app.get('/', (req: any, res: any) => {
-  res.render('index', { title: 'Express4TS Quick Start' });
-});
+app.get('/', title);
 
 app.get('/home', (req: any, res: any) => {
   res.send(`
