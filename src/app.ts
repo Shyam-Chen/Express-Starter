@@ -15,27 +15,9 @@ app.use(express.static(join(__dirname, 'public')));
 
 app.get('/', title);
 
-app.get('/home', (req: any, res: any) => {
-  res.send(`
-    <a href="/">Express</a>
-    <a href="/home">Home</a>
-    <a href="/about">About</a>
-    <p>Home Page</p>
-  `);
-});
-
-app.get('/about', (req: any, res: any) => {
-  res.send(`
-    <a href="/">Express</a>
-    <a href="/home">Home</a>
-    <a href="/about">About</a>
-    <p>About Page</p>
-  `);
-});
-
 app.use((req: any, res: any) => {
   res.status(404);
-  res.send('Not found!');
+  res.send('Not Found!');
 });
 
 const server = app.listen(3000, 'localhost', () => {
