@@ -1,7 +1,11 @@
 import * as express from 'express';
+// import * as mongoose from 'mongoose';
+const mongoose = require('mongoose');
 import * as logger from 'morgan';
 import { join } from 'path';
 
+import { } from './routes';
+import { } from './models';
 import { title } from './controllers';
 
 const app = express();
