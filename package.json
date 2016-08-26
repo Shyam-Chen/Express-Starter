@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/Shyam-Chen/Express4TS-Quick-Start#readme",
   "dependencies": {
-    "express": "^4.14.0",
+    "express": "^5.0.0-alpha.2",
     "mongoose": "^4.5.9",
     "morgan": "^1.7.0",
     "pug": "^2.0.0-beta4",
