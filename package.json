@@ -1,7 +1,7 @@
 {
-  "name": "Express4TS-Quick-Start",
+  "name": "Express5TS-Quick-Start",
   "version": "1.0.0",
-  "description": "Getting started with Express 4 using TypeScript",
+  "description": "Getting started with Express 5 using TypeScript",
   "scripts": {
     "start": "npm run tsc && concurrently \"npm run tsc:w\" \"npm run nodemon\"",
     "tsc": "tsc",
@@ -13,18 +13,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shyam-Chen/Express4TS-Quick-Start.git"
+    "url": "git+https://github.com/Shyam-Chen/Express5TS-Quick-Start.git"
   },
   "keywords": [
-    "Express 4",
+    "Express 5",
     "TypeScript"
   ],
   "author": "Shyam Chen, 陳彥澄",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Shyam-Chen/Express4TS-Quick-Start/issues"
+    "url": "https://github.com/Shyam-Chen/Express5TS-Quick-Start/issues"
   },
-  "homepage": "https://github.com/Shyam-Chen/Express4TS-Quick-Start#readme",
+  "homepage": "https://github.com/Shyam-Chen/Express5TS-Quick-Start#readme",
   "dependencies": {
     "express": "^5.0.0-alpha.2",
     "mongoose": "^4.5.9",
