@@ -2,6 +2,7 @@ import * as express from 'express';
 // import * as mongoose from 'mongoose';
 const mongoose = require('mongoose');
 import * as logger from 'morgan';
+const serveStatic = require('serve-static');
 import { join } from 'path';
 
 import { } from './routes';
@@ -15,7 +16,7 @@ app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(require('stylus').middleware(join(__dirname, 'public')));
-app.use(express.static(join(__dirname, 'public')));
+app.use(serveStatic(join(__dirname, 'public')));
 
 app.get('/', title);
 
