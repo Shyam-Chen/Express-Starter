@@ -1,5 +1,5 @@
 export const title = (req: any, res: any) => {
   res.render('index', {
-    title: 'Express4TS Quick Start'
+    title: 'Express5TS Quick Start'
   });
 };
