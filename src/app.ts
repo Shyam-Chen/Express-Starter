@@ -1,9 +1,8 @@
-import * as express from 'express';
-// import * as mongoose from 'mongoose';
-const mongoose = require('mongoose');
-import * as logger from 'morgan';
-const serveStatic = require('serve-static');
 import { join } from 'path';
+import * as express from 'express';
+const mongoose = require('mongoose');  // import * as mongoose from 'mongoose';
+import * as logger from 'morgan';
+import * as serveStatic from 'serve-static';
 
 import { } from './routes';
 import { } from './models';
