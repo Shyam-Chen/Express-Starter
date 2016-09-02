@@ -27,7 +27,7 @@ app.use((req: any, res: any) => {
   res.send('Not Found!');
 });
 
-const server = app.listen(3000, 'localhost', () => {
+const server = app.listen(3001, 'localhost', () => {
   const { address, port } = server.address();
   console.log(`Listening on http://localhost:${port}`);
 });
