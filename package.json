@@ -6,7 +6,8 @@
     "start": "npm run tsc && concurrently \"npm run tsc:w\" \"gulp\"",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "reset": "git reset --hard HEAD && git clean -df"
+    "reset": "git reset --hard HEAD && git clean -df",
+    "reinstall": "npm cache clean && git clean -dfx -e '.*' && npm install"
   },
   "repository": {
     "type": "git",
