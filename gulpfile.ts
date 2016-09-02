@@ -2,17 +2,16 @@ import * as gulp from 'gulp';
 import * as nodemon from 'gulp-nodemon';
 import * as browserSync from 'browser-sync';
 
-gulp.task('default', ['browser-sync'], () => {
-
-});
+gulp.task('default', ['browser-sync'], () => { });
 
 gulp.task('browser-sync', ['nodemon'], () => {
   let config: any = {
     proxy: 'http://localhost:3001',
     port: 3000,
-  }
+  };
 	browserSync(config);
 });
+
 gulp.task('nodemon', (done: any) => {
 	let started: boolean = false;
 	return nodemon({
@@ -25,9 +24,6 @@ gulp.task('nodemon', (done: any) => {
 		}
 	})
   .on('restart', () => {
-    // TODO: Promises
-    setTimeout(() => {
-      browserSync.reload();
-    }, 500);
+    setTimeout(() => browserSync.reload(), 500);
   });
 });

@@ -17,7 +17,8 @@
     "noFallthroughCasesInSwitch": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "gulpfile.ts"
   ],
   "compileOnSave": false
 }
