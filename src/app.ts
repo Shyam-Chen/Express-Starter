@@ -1,12 +1,11 @@
 import { join } from 'path';
 import * as express from 'express';
-const mongoose = require('mongoose');  // import * as mongoose from 'mongoose';
 import * as logger from 'morgan';
 import * as serveStatic from 'serve-static';
 
 import { } from './routes';
 import { } from './models';
-import { title } from './controllers';
+import { } from './controllers';
 
 const app = express();
 
@@ -17,7 +16,11 @@ app.use(logger('dev'));
 app.use(require('stylus').middleware(join(__dirname, 'public')));
 app.use(serveStatic(join(__dirname, 'public')));
 
-app.get('/', title);
+app.get('/', (req: any, res: any) => {
+  res.render('index', {
+    title: 'Express5TS Quick Start'
+  });
+});
 
 app.use((req: any, res: any) => {
   res.status(404);
