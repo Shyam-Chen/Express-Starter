@@ -19,8 +19,8 @@ gulp.task('nodemon', (done: any) => {
 	})
   .on('start', () => {
 		if (!started) {
-			done();
 			started = true;
+      done();
 		}
 	})
   .on('restart', () => {
