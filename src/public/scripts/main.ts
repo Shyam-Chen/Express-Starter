@@ -1,1 +1,1 @@
-console.log('Express4TS Quick Start!');
+console.log('Express5TS Quick Start');
