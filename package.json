@@ -51,7 +51,6 @@
     "@types/express": "^4.0.32",
     "@types/gulp": "^3.8.31",
     "@types/gulp-nodemon": "0.0.28",
-    "@types/mongoose": "^4.5.33",
     "@types/morgan": "^1.7.31",
     "@types/node": "^6.0.38",
     "browser-sync": "^2.14.3",
