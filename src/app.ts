@@ -6,30 +6,17 @@ const mongoose = require('mongoose');
 import * as bodyParser from 'body-parser';
 import * as logger from 'morgan';
 
-
 import * as routes from './routes';
-import { User } from './models';
+
+import { } from './models';
 import { } from './controllers';
 
 const app = express();
-
-mongoose.connect('mongodb://localhost/test');
-
 const db = mongoose.connection;
 
+mongoose.connect('mongodb://localhost/test');
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {
-  // ...
-});
-
-const account = new User({ name: '陳彥澄' });
-console.log(account.name);  // 陳彥澄
-
-account.save();
-
-User.find((err: any, users: any) => {
-  console.log(users);  // [ { _id: 57cbd9b75132e81c9ce56077, name: '陳彥澄', __v: 0 } ]
-});
+db.once('open', () => console.log('Connection Succeeded.'));
 
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'pug');
