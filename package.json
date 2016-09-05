@@ -34,7 +34,7 @@
     "express": "^5.0.0-alpha.2",
     "express-session": "^1.14.1",
     "method-override": "^2.3.6",
-    "mongoose": "^4.5.9",
+    "mongoose": "^4.6.0",
     "morgan": "^1.7.0",
     "pug": "^2.0.0-beta4",
     "response-time": "^2.3.1",
