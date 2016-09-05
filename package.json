@@ -40,7 +40,6 @@
     "response-time": "^2.3.1",
     "serve-favicon": "^2.3.0",
     "serve-index": "^1.8.0",
-    "serve-static": "^1.11.1",
     "stylus": "^0.54.5",
     "typescript": "^2.0.2",
     "vhost": "^3.0.2"

@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 
 import * as bodyParser from 'body-parser';
 import * as logger from 'morgan';
-import * as serveStatic from 'serve-static';
 
 
 import * as routes from './routes';
@@ -40,7 +39,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 
 app.use(require('stylus').middleware(join(__dirname, 'public')));
-app.use(serveStatic(join(__dirname, 'public')));
+app.use(express.static(join(__dirname, 'public')));
 
 app.use(routes);
 
