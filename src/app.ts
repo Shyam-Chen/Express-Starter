@@ -9,7 +9,7 @@ import * as serveStatic from 'serve-static';
 
 
 import * as routes from './routes';
-import { } from './models';
+import { User } from './models';
 import { } from './controllers';
 
 const app = express();
@@ -23,13 +23,6 @@ db.once('open', () => {
   // ...
 });
 
-const Schema = mongoose.Schema;
-
-const userSchema = Schema({
-  name: String
-});
-
-const User = mongoose.model('User', userSchema);
 const account = new User({ name: '陳彥澄' });
 console.log(account.name);  // 陳彥澄
 
