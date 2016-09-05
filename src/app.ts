@@ -6,8 +6,7 @@ const mongoose = require('mongoose');
 import * as bodyParser from 'body-parser';
 import * as logger from 'morgan';
 
-import * as routes from './routes';
-
+import { route } from './routes';
 import { } from './models';
 import { } from './controllers';
 
@@ -28,7 +27,7 @@ app.use(bodyParser.json());
 app.use(require('stylus').middleware(join(__dirname, 'public')));
 app.use(express.static(join(__dirname, 'public')));
 
-app.use(routes);
+app.use(route);
 
 app.use((req: any, res: any) => {
   res.status(404);
