@@ -7,8 +7,6 @@ import * as bodyParser from 'body-parser';
 import * as logger from 'morgan';
 
 import { route } from './routes';
-import { } from './models';
-import { } from './controllers';
 
 const app = express();
 const db = mongoose.connection;
