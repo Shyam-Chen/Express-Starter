@@ -31,7 +31,8 @@ app.use(express.static(join(__dirname, 'public')));
 app.use(route);
 
 app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
-  const err: any = new Error('Not Found');
+  interface Error { status?: number; }
+  const err: Error = new Error('Not Found');
   err.status = 404;
   next(err);
 });
