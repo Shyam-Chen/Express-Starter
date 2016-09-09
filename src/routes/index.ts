@@ -2,7 +2,7 @@ import * as express from 'express';
 
 import { Index } from '../controllers';
 
-const router = express.Router();
+const router: express.Router = express.Router();
 
 router.get('/', new Index().ctrl);
 
