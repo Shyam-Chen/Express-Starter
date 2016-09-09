@@ -1,9 +1,9 @@
 import * as express from 'express';
 
-import { ctrl } from '../controllers';
+import { Index } from '../controllers';
 
 const router = express.Router();
 
-router.get('/', ctrl);
+router.get('/', new Index().ctrl);
 
 export const route = router;
