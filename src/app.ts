@@ -19,7 +19,7 @@ db.once('open', () => console.log('Connection Succeeded.'));
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
@@ -29,6 +29,9 @@ app.use(require('stylus').middleware(join(__dirname, 'public')));
 app.use(express.static(join(__dirname, 'public')));
 
 app.use(route);
+
+const errorhandler = require('errorhandler');
+app.use(errorhandler());
 
 app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
   interface Error { status?: number; }
