@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
 import * as logger from 'morgan';
+import * as errorhandler from 'errorhandler';
 
 import { route } from './routes';
 
@@ -30,7 +31,6 @@ app.use(express.static(join(__dirname, 'public')));
 
 app.use(route);
 
-const errorhandler = require('errorhandler');
 app.use(errorhandler());
 
 app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {

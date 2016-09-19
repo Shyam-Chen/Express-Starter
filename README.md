@@ -12,5 +12,6 @@ $ npm install
 
 ##### 3. Run the Application
 ```bash
+$ mongod
 $ npm start
 ```
