@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Getting started with Express 5 using TypeScript",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"gulp\"",
+    "start": "concurrently \"tsc -w\" \"gulp\"",
     "prod": "tsc && pm2 start src/app.js -i 0 --name \"app\"",
     "reset": "git reset --hard HEAD && git clean -df",
     "reinstall": "npm cache clean && git clean -dfx -e '.*' && npm install"
