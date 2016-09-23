@@ -1,6 +1,7 @@
 import { join } from 'path';
 
 import * as express from 'express';
+import * as mongoose from 'mongoose';
 
 import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
@@ -13,6 +14,10 @@ class Server {
   public app: express.Express;
 
   public static bootstrap(): Server {
+    // const db = mongoose.connection;
+    // mongoose.connect('mongodb://localhost/test');
+    // db.on('error', console.error.bind(console, 'connection error:'));
+    // db.once('open', () => console.log('Connection Succeeded.'));
     return new Server();
   }
 
@@ -51,16 +56,6 @@ class Server {
     });
   }
 }
-
-/*
-const mongoose = require('mongoose');
-
-const db = mongoose.connection;
-
-mongoose.connect('mongodb://localhost/test');
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => console.log('Connection Succeeded.'));
-*/
 
 const server = Server.bootstrap();
 export = server.app;
