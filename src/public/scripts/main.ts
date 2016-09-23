@@ -1,1 +1,1 @@
-console.log('Express5TS Quick Start');
+console.log('ExpressTS MongooseTS Starter');
