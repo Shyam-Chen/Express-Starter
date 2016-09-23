@@ -13,7 +13,8 @@
     "url": "git+https://github.com/Shyam-Chen/ExpressTS-MongooseTS-Starter.git"
   },
   "keywords": [
-    "Express 5",
+    "Express",
+    "Mongoose",
     "TypeScript"
   ],
   "author": "Shyam Chen, 陳彥澄",
@@ -33,10 +34,10 @@
     "express": "^5.0.0-alpha.2",
     "express-session": "^1.14.1",
     "method-override": "^2.3.6",
-    "mongoose": "^4.6.0",
+    "mongoose": "^4.6.1",
     "morgan": "^1.7.0",
     "pm2": "^2.0.12",
-    "pug": "^2.0.0-beta4",
+    "pug": "^2.0.0-beta6",
     "response-time": "^2.3.1",
     "serve-favicon": "^2.3.0",
     "serve-index": "^1.8.0",
