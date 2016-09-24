@@ -58,8 +58,10 @@
     "@types/morgan": "^1.7.31",
     "@types/node": "^6.0.38",
     "browser-sync": "^2.14.3",
+    "chai": "^3.5.0",
     "concurrently": "^2.2.0",
     "gulp-nodemon": "^2.1.0",
+    "mocha": "^3.0.2",
     "ts-node": "^1.3.0"
   }
 }
