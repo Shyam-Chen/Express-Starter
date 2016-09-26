@@ -59,6 +59,7 @@
     "@types/node": "^6.0.38",
     "browser-sync": "^2.14.3",
     "chai": "^3.5.0",
+    "chai-spies": "^0.7.1",
     "concurrently": "^2.2.0",
     "gulp-nodemon": "^2.1.0",
     "mocha": "^3.0.2",
