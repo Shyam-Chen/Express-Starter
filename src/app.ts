@@ -14,10 +14,10 @@ class Server {
   public app: express.Express;
 
   public static bootstrap(): Server {
-    // const db = mongoose.connection;
-    // mongoose.connect('mongodb://localhost/test');
-    // db.on('error', console.error.bind(console, 'connection error:'));
-    // db.once('open', () => console.log('Connection Succeeded.'));
+    const db = mongoose.connection;
+    mongoose.connect('mongodb://localhost/test');
+    db.on('error', console.error.bind(console, 'connection error:'));
+    db.once('open', () => console.log('Connection Succeeded.'));
     return new Server();
   }
 
@@ -27,7 +27,7 @@ class Server {
   }
 
   private config(): void {
-    this.app.set('port', (process.env.PORT || 3001));
+    this.app.set('port', (process.env.PORT || 2999));
     this.app.set('views', join(__dirname, 'views'));
     this.app.set('view engine', 'pug');
 
@@ -52,7 +52,7 @@ class Server {
     });
 
     this.app.listen(this.app.get('port'), () => {
-      console.log('App is running on port', this.app.get('port'));
+      console.log('Bootstrap Succeeded.');
     });
   }
 }
