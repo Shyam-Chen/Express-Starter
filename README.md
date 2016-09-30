@@ -3,6 +3,15 @@
 ## Project Status
 
 ## Key Features
+* Express, Mongoose, MDL, Heroku and MLab
+* Ubuntu, Atom, Git, NPM and Docker
+* Pug, Stylus and TypeScript
+* Gulp, PostStylus, Types and BrowserSync
+* PugLint, Stylint and TSLint
+* Mocha and Chai
+* Nodemon and PM2
+* Mongo and Robomongo
+* Nginx and Varnish
 
 ## Getting Started
 
