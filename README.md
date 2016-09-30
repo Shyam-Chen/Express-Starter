@@ -1,17 +1,36 @@
 # ExpressTS MongooseTS Starter
 
-### Getting Started
+## Project Status
 
-##### 1. Download ZIP
-:point_right: [Download](https://github.com/Shyam-Chen/ExpressTS-MongooseTS-Starter/archive/master.zip) :point_left:
+## Key Features
 
-##### 2. Install the Dependency
+## Getting Started
+
+### Clone ExpressTS-MongooseTS-Starter
+```bash
+$ git clone --depth 1 https://github.com/Shyam-Chen/ExpressTS-MongooseTS-Starter.git
+$ cd expressts-mongoosets-starter
+```
+
+### Install Dependencies
 ```bash
 $ npm install
 ```
 
-##### 3. Run the Application
+### Run the Application
 ```bash
 $ mongod
 $ npm start
 ```
+
+## Using Docker
+
+### Run the Application
+```bash
+```
+
+### Run the Application with Compose
+```bash
+```
+
+## Other Commands
