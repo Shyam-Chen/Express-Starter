@@ -1,23 +1,20 @@
-# ExpressTS MongooseTS Starter
+# ExpressMongoose Starter Kit
 
 ## Project Status
 
 ## Key Features
 * Express, Mongoose, Material, Heroku and MLab
 * Ubuntu, Atom, Git, NPM and Docker
-* Pug, Stylus and TypeScript
-* Gulp, Webpack, PostStylus, Types and BrowserSync
-* PugLint, Stylint and TSLint
-* Mocha, Chai and Travis
-* Nodemon, PM2, Mongo and Robomongo
-* Nginx and Varnish
+* Pug, Stylus, TypeScript, PugLint, Stylint and TSLint
+* Gulp, Webpack, PostStylus, Types, Nodemon, Robomongo and BrowserSync
+* Mocha, Chai, Travis, PM2, Nginx and Varnish
 
 ## Getting Started
 
-### Clone ExpressTS-MongooseTS-Starter
+### Clone ExpressMongoose-Starter-Kit
 ```bash
-$ git clone --depth 1 https://github.com/Shyam-Chen/ExpressTS-MongooseTS-Starter.git
-$ cd expressts-mongoosets-starter
+$ git clone --depth 1 https://github.com/Shyam-Chen/ExpressMongoose-Starter-Kit.git
+$ cd expressmongoose-starter-kit
 ```
 
 ### Install Dependencies

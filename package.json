@@ -1,5 +1,5 @@
 {
-  "name": "ExpressTS-MongooseTS-Starter",
+  "name": "ExpressMongoose-Starter-Kit",
   "version": "1.0.0",
   "description": "Express and Mongoose starter using TypeScript",
   "scripts": {
@@ -10,19 +10,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shyam-Chen/ExpressTS-MongooseTS-Starter.git"
+    "url": "git+https://github.com/Shyam-Chen/ExpressMongoose-Starter-Kit.git"
   },
   "keywords": [
     "Express",
-    "Mongoose",
-    "TypeScript"
+    "Mongoose"
   ],
   "author": "Shyam Chen, 陳彥澄",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Shyam-Chen/ExpressTS-MongooseTS-Starter/issues"
+    "url": "https://github.com/Shyam-Chen/ExpressMongoose-Starter-Kit/issues"
   },
-  "homepage": "https://github.com/Shyam-Chen/ExpressTS-MongooseTS-Starter#readme",
+  "homepage": "https://github.com/Shyam-Chen/ExpressMongoose-Starter-Kit#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
