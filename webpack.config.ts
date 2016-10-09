@@ -1,1 +1,1 @@
-const webpack = require('require');
+import * as webpack from 'require';
