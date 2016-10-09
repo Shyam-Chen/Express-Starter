@@ -5,8 +5,9 @@
 ## Key Features
 * Express, Mongoose, Material, Heroku and MLab
 * Ubuntu, Atom, Git, NPM and Docker
-* Pug, Stylus, TypeScript, PugLint, Stylint and TSLint
+* Pug, Stylus and TypeScript
 * Gulp, Webpack, PostStylus, Types, Nodemon, Robomongo and BrowserSync
+* PugLint, Stylint and TSLint
 * Mocha, Chai, Travis, PM2, Nginx and Varnish
 
 ## Getting Started
