@@ -6,7 +6,7 @@
     "start": "tsc && concurrently \"tsc -w\" \"gulp\"",
     "prod": "tsc && pm2 start src/app.js -i 0 --name \"app\"",
     "reset": "git reset --hard HEAD && git clean -df",
-    "reinstall": "npm cache clean && git clean -dfx -e '.*' && npm install"
+    "reinstall": "yarn cache clean && git clean -dfx -e '.*' && yarn install"
   },
   "repository": {
     "type": "git",
