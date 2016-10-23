@@ -50,6 +50,7 @@ const buffer = require('vinyl-buffer');
 gulp.task('compile-typescript', () => {
   rollup({
     entry: './src/public/scripts/main.ts',
+    format: 'iife',
     plugins: [
       typescript()
     ]
