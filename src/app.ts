@@ -3,9 +3,6 @@ import { join } from 'path';
 import * as express from 'express';
 import * as mongoose from 'mongoose';
 
-const stylus = require('stylus');
-const postStylus = require('postStylus');
-const rucksack = require('rucksack-css');
 import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
 import * as logger from 'morgan';
@@ -39,21 +36,6 @@ class Server {
     this.app.use(cookieParser());
 
     this.app.use(logger('dev'));
-
-    this.app.use(stylus
-      .middleware({
-        src: join(__dirname, 'public'),
-        dest: join(__dirname, 'public'),
-        compile(css: any) {
-          return stylus(css)
-            .use(postStylus([
-              rucksack({
-                fallbacks: true,
-                autoprefixer: true
-              })
-            ]));
-        }
-      }));
 
     this.app.use(express.static(join(__dirname, 'public')));
 

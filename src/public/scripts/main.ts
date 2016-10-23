@@ -1,1 +1,1 @@
-console.log('ExpressTS MongooseTS Starter');
+import 'material-design-lite/material.js';

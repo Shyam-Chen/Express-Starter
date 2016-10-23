@@ -2,3 +2,11 @@ os: linux
 
 sudo: required
 services: docker
+
+
+
+deploy:
+  app: expressmongoose-starter-kit
+  provider: heroku
+  api_key:
+    secure: 
