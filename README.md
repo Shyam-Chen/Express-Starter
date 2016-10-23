@@ -33,13 +33,9 @@ $ yarn start
 ## Using Docker
 
 ### Run the Application
-**Work in Progress**
+
 
 ### Run the Application with Compose
-**Work in Progress**
+
 
 ## Other Commands
-**Work in Progress**
-
-## More ...
-**Work in Progress**
