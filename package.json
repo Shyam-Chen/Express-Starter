@@ -54,9 +54,7 @@
     "serve-index": "^1.8.0",
     "stylus": "^0.54.5",
     "typescript": "^2.0.2",
-    "vhost": "^3.0.2"
-  },
-  "devDependencies": {
+    "vhost": "^3.0.2",
     "browser-sync": "^2.14.3",
     "chai": "^3.5.0",
     "chai-spies": "^0.7.1",
