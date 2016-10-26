@@ -11,6 +11,7 @@ const rollup = require('rollup-stream');
 const typescript = require('rollup-plugin-typescript');
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
+const uglify = require('rollup-plugin-uglify');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 
@@ -40,7 +41,8 @@ gulp.task('compile-ts-vendor', () => {
         main: true,
         browser: true
       }),
-      commonjs()
+      commonjs(),
+      uglify()
     ]
   })
   .pipe(source('vendor.js', './src/public/scripts'))
