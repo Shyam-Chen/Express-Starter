@@ -1,7 +1,7 @@
 {
   "name": "ExpressMongoose-Starter-Kit",
   "version": "1.0.0",
-  "description": "Express and Mongoose starter using TypeScript",
+  "description": "A starter kit for Express/Mongoose apps",
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"gulp\"",
     "prod": "tsc && pm2 start src/app.js -i 0 --name \"app\"",
@@ -61,7 +61,10 @@
     "chai": "^3.5.0",
     "chai-spies": "^0.7.1",
     "concurrently": "^2.2.0",
+    "gulp-changed": "^1.3.2",
     "gulp-nodemon": "^2.1.0",
+    "gulp-typescript": "^3.0.2",
+    "merge2": "^1.0.2",
     "mocha": "^3.0.2",
     "poststylus": "^0.2.3",
     "rollup-plugin-typescript": "^0.8.1",

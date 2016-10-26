@@ -14,10 +14,21 @@ class Server {
   public app: express.Express;
 
   public static bootstrap(): Server {
-    const db = mongoose.connection;
-    mongoose.connect('mongodb://localhost/test');
-    db.on('error', console.error.bind(console, 'connection error:'));
-    db.once('open', () => console.log('Connection Succeeded.'));
+    const dbuser = process.env.DBUSER || 'expressmongoose';
+    const dbpassword = process.env.DBPASSWORD || 'expressmongoose';
+    const dburl = process.env.DBURL || 'ds031167.mlab.com:31167/expressmongoose-starter-kit';
+    const mongodbUri = `mongodb://${dbuser}:${dbpassword}@${dburl}`;
+    const options = {
+      server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
+      replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } }
+    };
+
+    mongoose.connect(mongodbUri, options);
+
+    const conn = mongoose.connection;
+    conn.on('error', console.error.bind(console, 'connection error:'));
+    conn.once('open', () => console.log('Connection Succeeded.'));
+
     return new Server();
   }
 

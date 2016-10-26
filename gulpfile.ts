@@ -2,6 +2,7 @@ import * as gulp from 'gulp';
 import * as nodemon from 'gulp-nodemon';
 import * as browserSync from 'browser-sync';
 
+// ToDo: es2015 modules
 const stylus = require('stylus');
 const poststylus = require('poststylus');
 const rucksack = require('rucksack-css');
@@ -10,6 +11,8 @@ const rollup = require('rollup-stream');
 const typescript = require('rollup-plugin-typescript');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
+
+// ToDo: Source Maps
 
 /*gulp.task('compile-stylus', () => {
   let shared = (vendor, map) => {
@@ -47,6 +50,8 @@ const buffer = require('vinyl-buffer');
   return merge(vendor, main);
 });*/
 
+// ToDo: Vendor (thing about)
+// Client-side
 gulp.task('compile-typescript', () => {
   rollup({
     entry: './src/public/scripts/main.ts',
@@ -59,6 +64,18 @@ gulp.task('compile-typescript', () => {
   .pipe(buffer())
   .pipe(gulp.dest('./src/public/scripts'));
 });
+
+// ToDo: merge stream
+// Server-side
+//gulp.task('compile-typescript-2', () => {
+  //let tsProject = typescript.createProject('tsconfig.json', { });
+
+  //gulp
+    // .src(SCRIPTS_SRC)
+    //.pipe(changed(APP_DEST))
+    //.pipe(typescript(tsProject))
+    //.pipe(gulp.dest(APP_DEST));
+//});
 
 gulp.task('nodemon', () => {
   nodemon({
