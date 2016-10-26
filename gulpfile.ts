@@ -3,55 +3,51 @@ import * as nodemon from 'gulp-nodemon';
 import * as browserSync from 'browser-sync';
 
 // ToDo: es2015 modules
-const stylus = require('stylus');
+const stylus = require('gulp-stylus');
 const poststylus = require('poststylus');
 const rucksack = require('rucksack-css');
 
 const rollup = require('rollup-stream');
 const typescript = require('rollup-plugin-typescript');
+const resolve = require('rollup-plugin-node-resolve');
+const commonjs = require('rollup-plugin-commonjs');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 
 // ToDo: Source Maps
 
-/*gulp.task('compile-stylus', () => {
-  let shared = (vendor, map) => {
-    let opts = {
+gulp.task('compile-stylus-vendor', () => {
+  gulp
+    .src('./src/public/styles/vendor.styl')
+    .pipe(stylus({
       'include css': true,
       'include': 'node_modules',
-      use: [
-        poststylus([
-          rucksack({
-            fallbacks: true,
-            autoprefixer: true
-          })
-        ])
-      ]
-    };
+      use: [poststylus([rucksack({ fallbacks: true, autoprefixer: true })])]
+    }))
+    .pipe(gulp.dest('./src/public/styles'));
+});
 
-    let combined = combiner(
-      changed(STYLES_DEST),
-      gulpif(map, sourcemaps.init({ loadMaps: true })),
-      gulpif(vendor, cache('vendor')),
-      stylus(opts), nano(),
-      gulpif(vendor, remember('vendor')),
-      gulpif(vendor, concat('vendor.css')),
-      gulpif(map, sourcemaps.write('./')),
-      gulp.dest(STYLES_DEST),
-      browserSync.stream()
-    );
-
-    return combined.on('error', CompileError.handle);
-  };
-
-  let vendor = gulp.src(path.join(STYLES_SRC, 'vendor.styl')).pipe(shared(true, false));
-  let main = gulp.src(path.join(STYLES_SRC, 'main.styl')).pipe(shared(false, ENV === 'dev'));
-
-  return merge(vendor, main);
-});*/
-
-// ToDo: Vendor (thing about)
+// ToDo: merge stream
 // Client-side
+gulp.task('compile-ts-vendor', () => {
+  rollup({
+    entry: './src/public/scripts/vendor.ts',
+    format: 'iife',
+    plugins: [
+      typescript(),
+      resolve({
+        jsnext: true,
+        main: true,
+        browser: true
+      }),
+      commonjs()
+    ]
+  })
+  .pipe(source('vendor.js', './src/public/scripts'))
+  .pipe(buffer())
+  .pipe(gulp.dest('./src/public/scripts'));
+});
+
 gulp.task('compile-typescript', () => {
   rollup({
     entry: './src/public/scripts/main.ts',
@@ -67,15 +63,27 @@ gulp.task('compile-typescript', () => {
 
 // ToDo: merge stream
 // Server-side
-//gulp.task('compile-typescript-2', () => {
-  //let tsProject = typescript.createProject('tsconfig.json', { });
-
-  //gulp
-    // .src(SCRIPTS_SRC)
-    //.pipe(changed(APP_DEST))
-    //.pipe(typescript(tsProject))
-    //.pipe(gulp.dest(APP_DEST));
-//});
+gulp.task('compile-ts-2', () => {
+  rollup({
+    entry: './src/app.ts',
+    format: 'cjs',
+    plugins: [
+      typescript(),
+      resolve({
+        jsnext: true,
+        main: true,
+        browser: false
+      }),
+      commonjs({
+        include: 'node_modules/**',
+        sourceMap: false
+      })
+    ]
+  })
+  .pipe(source('app.js', './src'))
+  .pipe(buffer())
+  .pipe(gulp.dest('./src'));
+});
 
 gulp.task('nodemon', () => {
   nodemon({

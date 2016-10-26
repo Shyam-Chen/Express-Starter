@@ -18,7 +18,8 @@
   },
   "exclude": [
     "node_modules",
-    "gulpfile.ts"
+    "gulpfile.ts",
+    "./src/public"
   ],
   "compileOnSave": false
 }
