@@ -1,12 +1,8 @@
-os: linux
+language: node_js
+node_js:
+  - stable
 
-sudo: required
-services: docker
+sudo: false
 
-
-
-deploy:
-  app: expressmongoose-starter-kit
-  provider: heroku
-  api_key:
-    secure: 
+script:
+  - npm test

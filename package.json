@@ -4,6 +4,7 @@
   "description": "A starter kit for Express/Mongoose apps",
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"gulp\"",
+    "test": "tsc test/empty.ts && mocha",
     "prod": "tsc && pm2 start src/app.js -i 0 --name \"app\"",
     "reset": "git reset --hard HEAD && git clean -df",
     "reinstall": "yarn cache clean && git clean -dfx -e '.*' && yarn install"
