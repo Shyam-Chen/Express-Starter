@@ -6,6 +6,7 @@ import * as browserSync from 'browser-sync';
 const stylus = require('gulp-stylus');
 const poststylus = require('poststylus');
 const rucksack = require('rucksack-css');
+const cssnano = require('gulp-cssnano');
 
 const rollup = require('rollup-stream');
 const typescript = require('rollup-plugin-typescript');
@@ -15,16 +16,21 @@ const uglify = require('rollup-plugin-uglify');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 
+// ToDo: Rollup PostCSS
+
 // ToDo: Source Maps
 
 gulp.task('compile-stylus-vendor', () => {
-  gulp
+  return gulp
     .src('./src/public/styles/vendor.styl')
     .pipe(stylus({
       'include css': true,
       'include': 'node_modules',
-      use: [poststylus([rucksack({ fallbacks: true, autoprefixer: true })])]
+      use: [poststylus([
+        rucksack({ fallbacks: true, autoprefixer: true })
+      ])]
     }))
+    .pipe(cssnano())
     .pipe(gulp.dest('./src/public/styles'));
 });
 
