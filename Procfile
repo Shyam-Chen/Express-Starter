@@ -1,1 +1,1 @@
-web: web: node src/app.js
+web: tsc && pm2 start src/app.js -i 0 --name "app"
