@@ -1,5 +1,5 @@
 {
-  "name": "ExpressMongoose-Starter-Kit",
+  "name": "Express-Starter-Kit",
   "version": "1.0.0",
   "description": "A starter kit for Express/Mongoose apps",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shyam-Chen/ExpressMongoose-Starter-Kit.git"
+    "url": "git+https://github.com/Shyam-Chen/Express-Starter-Kit.git"
   },
   "keywords": [
     "Express",
@@ -20,9 +20,9 @@
   "author": "Shyam Chen, 陳彥澄",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Shyam-Chen/ExpressMongoose-Starter-Kit/issues"
+    "url": "https://github.com/Shyam-Chen/Express-Starter-Kit/issues"
   },
-  "homepage": "https://github.com/Shyam-Chen/ExpressMongoose-Starter-Kit#readme",
+  "homepage": "https://github.com/Shyam-Chen/Express-Starter-Kit#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
