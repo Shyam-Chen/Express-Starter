@@ -6,6 +6,9 @@ Example:
 * [Socket.IO](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/socket)
 * [PayPal API](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/paypal-rest-sdk)
 
+ToDo:
+* Travis - Continuous Deployment to Heroku
+
 ## Project Status
 [![Build Status](https://travis-ci.org/Shyam-Chen/Express-Starter-Kit.svg?branch=master)](https://travis-ci.org/Shyam-Chen/Express-Starter-Kit)
  //
@@ -14,10 +17,10 @@ Example:
 
 ## Key Features
 * Express, Mongoose, Material, Heroku, and MLab
-* Linux, Atom, Git, Yarn, and Docker
+* Linux, Atom, Git, Yarn, and ~~Docker~~
 * Pug, Stylus, TypeScript, PugLint, Stylint, and TSLint
 * Gulp, Rollup, PostStylus, Types, and BrowserSync
-* Mocha, Chai, Travis, Nodemon, PM2, Nginx, and Varnish
+* Mocha, Chai, Travis, Nodemon, ~~PM2~~, ~~Nginx~~, and ~~Varnish~~
 
 ## Getting Started
 
