@@ -1,32 +1,40 @@
-# Express Starter Kit (alpha)
+# Express Quick Start (Alpha)
 
-Example:
-* [Local Authentication](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/auth-local)
-* [RESTful API](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/rest)
-* [Socket.IO](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/socket)
-* [PayPal API](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/paypal-rest-sdk)
+> Getting started with Express using TypeScript. ([Live Demo](https://expressmongoose-live-demo.herokuapp.com/))
 
-ToDo:
-* Travis - Continuous Deployment to Heroku
-
-## Project Status
-[![Build Status](https://travis-ci.org/Shyam-Chen/Express-Starter-Kit.svg?branch=master)](https://travis-ci.org/Shyam-Chen/Express-Starter-Kit)
+[![Build Status](https://travis-ci.org/Shyam-Chen/Express-Quick-Start.svg?branch=master)](https://travis-ci.org/Shyam-Chen/Express-Quick-Start)
  //
-[![Dependency Status](https://david-dm.org/Shyam-Chen/Express-Starter-Kit.svg)](https://david-dm.org/Shyam-Chen/Express-Starter-Kit)
-[![devDependency Status](https://david-dm.org/Shyam-Chen/Express-Starter-Kit/dev-status.svg)](https://david-dm.org/Shyam-Chen/Express-Starter-Kit?type=dev)
+[![Dependency Status](https://david-dm.org/Shyam-Chen/Express-Quick-Start.svg)](https://david-dm.org/Shyam-Chen/Express-Quick-Start)
+[![devDependency Status](https://david-dm.org/Shyam-Chen/Express-Quick-Start/dev-status.svg)](https://david-dm.org/Shyam-Chen/Express-Quick-Start?type=dev)
 
-## Key Features
-* Express, Mongoose, Material, Heroku, and MLab
-* Linux, Atom, Git, Yarn, and ~~Docker~~
-* Pug, Stylus, TypeScript, PugLint, Stylint, and TSLint
-* Gulp, Rollup, PostStylus, Types, and BrowserSync
-* Mocha, Chai, Travis, Nodemon, ~~PM2~~, ~~Nginx~~, and ~~Varnish~~
+This repository provides the following features:
+* [x] Start coding **Pug/Stylus/TypeScript** right now.
+* [x] Web framework with **Express**.
+* [x] Mongodb object modeling with **Mongoose**.
+* [x] Cloud application hosting with **Heroku**.
+* [x] MongoDB cloud hosting with **mLab**.
+* [ ] Build system using **Gulp** and **Rollup** for working.
+* [x] UI components with **Material Design Lite** (Without any library).
+* [x] Version control with **Git**.
+* [x] Fast and determinsitic builds with **Yarn**.
+* [x] CSS superpowers with **PostStylus**.
+* [x] Static code analyzer with **PugLint**, **Stylint**, and **TSLint**.
+* [x] Type definitions with **Types**.
+* [x] Development server with **Nodemon** and **BrowserSync**.
+* [ ] Unit tests with **Mocha** and **Chai**.
+* [ ] Continuous Integration and Continous Delivery with **Travis**.
+
+This repository provides the practical examples:
+* [Local Authentication](https://github.com/Shyam-Chen/Express-Quick-Start/tree/auth-local)
+* [RESTful Web API](https://github.com/Shyam-Chen/Express-Quick-Start/tree/rest)
+* [WebSocket and Socket.IO](https://github.com/Shyam-Chen/Express-Quick-Start/tree/socket)
+* [PayPal REST API](https://github.com/Shyam-Chen/Express-Quick-Start/tree/paypal-rest-sdk)
 
 ## Getting Started
 
-### Clone Express-Starter-Kit
+### Clone Express-Quick-Start
 ```bash
-$ git clone --depth 1 https://github.com/Shyam-Chen/Express-Starter-Kit.git <PROJECT_NAME>
+$ git clone --depth 1 https://github.com/Shyam-Chen/Express-Quick-Start.git <PROJECT_NAME>
 $ cd <PROJECT_NAME>
 ```
 
@@ -39,10 +47,3 @@ $ yarn install
 ```bash
 $ yarn start
 ```
-
-## Using Docker
-
-### Run the Application
-
-
-### Run the Application with Compose

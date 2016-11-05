@@ -1,8 +1,12 @@
 language: node_js
-node_js:
-  - stable
+node_js: stable
 
 sudo: false
 
 script:
   - npm test
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: ${HEROKU_TOKEN}
