@@ -8,21 +8,22 @@
 [![devDependency Status](https://david-dm.org/Shyam-Chen/Express-Starter-Kit/dev-status.svg)](https://david-dm.org/Shyam-Chen/Express-Starter-Kit?type=dev)
 
 This repository provides the following features:
-* [x] Start coding **Pug/Stylus/TypeScript** right now.
 * [x] Web framework with **Express**.
-* [x] Mongodb object modeling with **Mongoose**.
+* [x] Mongo object modeling with **Mongoose**.
+* [x] UI components with **Material Design Lite**.
 * [x] Cloud application hosting with **Heroku**.
-* [x] MongoDB cloud hosting with **mLab**.
-* [ ] Build system using **Gulp** and **Rollup** for working.
-* [x] UI components with **Material Design Lite** (Without any library).
-* [x] CSS superpowers with **PostStylus**.
+* [x] Dadabase cloud hosting with **mLab**.
+* [x] Start coding **Pug/Stylus/TypeScript** right now.
 * [x] Static code analyzer with **PugLint**, **Stylint**, and **TSLint**.
-* [x] Type definitions with **Types**.
-* [x] Development server with **Nodemon** and **BrowserSync**.
-* [ ] PM2
-* [ ] Nginx
-* [ ] Varnish
+* [ ] Build system using **Gulp** and **Rollup** for working.
+* [x] Stylus super powers with **PostStylus**.
+* [x] TypeScript type definitions with **Types**.
+* [x] Auto-refresh the server on code change with **Nodemon**.
+* [x] Development server with **BrowserSync**.
 * [ ] Unit tests with **Mocha** and **Chai**.
+* [ ] Keeping application alive with **PM2**.
+* [ ] Serving static resources with **Nginx**.
+* [ ] Caching with **Varnish**.
 * [x] Version control with **Git**.
 * [x] Fast and determinsitic builds with **Yarn**.
 * [ ] Virtual machine with **Docker** and **Compose**.
