@@ -1,16 +1,17 @@
 {
-  "name": "Express-Quick-Start",
+  "name": "Express-Starter-Kit",
   "version": "1.0.0",
   "description": "Getting started with Express using TypeScript ",
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"gulp\"",
     "test": "tsc test/empty.ts && mocha",
+    "prod": "tsc && pm2 start src/app.js -i 0 --name \"app\"",
     "reset": "git reset --hard HEAD && git clean -df",
     "reinstall": "yarn cache clean && git clean -dfx -e '.*' && yarn install"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shyam-Chen/Express-Quick-Start.git"
+    "url": "git+https://github.com/Shyam-Chen/Express-Starter-Kit.git"
   },
   "keywords": [
     "Express"
@@ -18,9 +19,9 @@
   "author": "Shyam Chen, 陳彥澄",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Shyam-Chen/Express-Quick-Start/issues"
+    "url": "https://github.com/Shyam-Chen/Express-Starter-Kit/issues"
   },
-  "homepage": "https://github.com/Shyam-Chen/Express-Quick-Start#readme",
+  "homepage": "https://github.com/Shyam-Chen/Express-Starter-Kit#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
