@@ -6,7 +6,7 @@ sudo: false
 script:
   - npm test
 
-deploy:
-  provider: heroku
-  api_key:
-    secure: ${HEROKU_TOKEN}
+# deploy:
+#   provider: heroku
+#   api_key:
+#     secure: ${HEROKU_TOKEN}
