@@ -9,13 +9,13 @@
 
 This repository provides the following features:
 * [x] Start coding **Pug/Stylus/TypeScript** right now.
-* [ ] Build system using **Gulp** and **Rollup** for working.
 * [x] Web framework with **Express**.
 * [x] Mongo object modeling with **Mongoose**.
 * [x] UI components with **Material**.
-* [ ] Client-side routing with **Page.js**.
 * [x] Cloud application hosting with **Heroku**.
 * [x] Dadabase cloud hosting with **mLab**.
+* [ ] Build system with **Gulp**.
+* [ ] Module bundler with **Rollup**.
 * [x] Stylus super powers with **PostStylus**.
 * [x] TypeScript type definitions with **Types**.
 * [x] Auto-refresh the server on code change with **Nodemon**.
@@ -33,8 +33,8 @@ This repository provides the following features:
 This repository provides the practical examples:
 * [x] [Local Authentication](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/auth-local)
 * [x] [RESTful Web API](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/rest)
-* [x] [WebSocket and Socket.IO](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/socket) (TODO: enhancement)
-* [x] [PayPal REST API](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/paypal-rest-sdk)
+* [x] [WebSocket and Socket.IO](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/socket) (TODO: *enhancement*)
+* [x] [PayPal REST API](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/paypal-rest-sdk) (TODO: *enhancement*)
 * [ ] [Message Notifications]
 
 ## Getting Started
