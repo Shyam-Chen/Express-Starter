@@ -1,17 +1,19 @@
 # Express Starter Kit (Alpha)
 
-> Getting started with Express using TypeScript. ([Live Demo](https://expressmongoose-live-demo.herokuapp.com/))
+> A boilerplate written in Pug, Stylus, and TypeScript using Express, Material, Heroku, mLab, Gulp, and Rollup.
 
 [![Build Status](https://travis-ci.org/Shyam-Chen/Express-Starter-Kit.svg?branch=master)](https://travis-ci.org/Shyam-Chen/Express-Starter-Kit)
  //
 [![Dependency Status](https://david-dm.org/Shyam-Chen/Express-Starter-Kit.svg)](https://david-dm.org/Shyam-Chen/Express-Starter-Kit)
 [![devDependency Status](https://david-dm.org/Shyam-Chen/Express-Starter-Kit/dev-status.svg)](https://david-dm.org/Shyam-Chen/Express-Starter-Kit?type=dev)
 
+[Live Demo](https://expressmongoose-live-demo.herokuapp.com/)
+
 This seed repository provides the following features:
 * [x] Start coding **Pug/Stylus/TypeScript** right now.
 * [x] App framework with **Express**.
 * [x] UI components with **Material**.
-* [x] Cloud application hosting with **Heroku**.
+* [x] Cloud app hosting with **Heroku**.
 * [x] Dadabase cloud hosting with **mLab**.
 * [x] Mongo Dadabase object modeling with **Mongoose**.
 * [x] Build system with **Gulp**.
@@ -24,7 +26,7 @@ This seed repository provides the following features:
 * [x] Stylus static code analyzer with **Stylint**.
 * [x] TypeScript static code analyzer with **TSLint**.
 * [x] Unit tests with **Mocha** and **Chai**.
-* [ ] Keeping application alive with **PM2**.
+* [ ] Keeping app alive with **PM2**.
 * [ ] Serving static resources with **Nginx**.
 * [ ] Caching with **Varnish**.
 * [x] Version control with **Git**.
