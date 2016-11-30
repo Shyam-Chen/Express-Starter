@@ -15,7 +15,7 @@ This seed repository provides the following features:
 * [x] UI components with **Material**.
 * [x] Cloud app hosting with **Heroku**.
 * [x] Dadabase cloud hosting with **mLab**.
-* [x] Mongo Dadabase object modeling with **Mongoose**.
+* [x] Dadabase object modeling with **Mongoose**.
 * [x] Build system with **Gulp**.
 * [ ] Module bundler with **Rollup**.
 * [x] Stylus superpowers with **PostStylus**.

@@ -1,7 +1,7 @@
 {
   "name": "Express-Starter-Kit",
   "version": "1.0.0",
-  "description": "Getting started with Express using TypeScript ",
+  "description": "A boilerplate written in Pug, Stylus, and TypeScript using Express, Material, Heroku, mLab, Gulp, and Rollup.",
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"gulp\"",
     "test": "tsc test/empty.ts && mocha",
@@ -16,7 +16,7 @@
   "keywords": [
     "Express"
   ],
-  "author": "Shyam Chen, 陳彥澄",
+  "author": "陳彥澄",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Shyam-Chen/Express-Starter-Kit/issues"
