@@ -13,7 +13,7 @@ This seed repository provides the following features:
 * [x] Start coding **Pug/Stylus/TypeScript** right now.
 * [x] App framework with **Express**.
 * [x] UI components with **Material**.
-* [x] Cloud app hosting with **Heroku**.
+* [x] Cloud application hosting with **Heroku**.
 * [x] Dadabase cloud hosting with **mLab**.
 * [x] Dadabase object modeling with **Mongoose**.
 * [x] Build system with **Gulp**.
@@ -26,7 +26,7 @@ This seed repository provides the following features:
 * [x] Stylus static code analyzer with **Stylint**.
 * [x] TypeScript static code analyzer with **TSLint**.
 * [x] Unit tests with **Mocha** and **Chai**.
-* [ ] Keeping app alive with **PM2**.
+* [ ] Keeping application alive with **PM2**.
 * [ ] Serving static resources with **Nginx**.
 * [ ] Caching with **Varnish**.
 * [x] Version control with **Git**.
