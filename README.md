@@ -34,12 +34,6 @@ This seed repository provides the following features:
 * [ ] Virtual machine with **Docker**.
 * [ ] Continuous integration and delivery with **Travis**.
 
-This seed repository provides the practical examples:
-* [x] [Auth](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/auth-local)
-* [x] [Database](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/rest)
-* [x] [Storage](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/rest)
-* [ ] [Messaging]
-
 ## Getting Started
 
 1) Clone this Boilerplate
