@@ -35,11 +35,10 @@ This seed repository provides the following features:
 * [ ] Continuous integration and delivery with **Travis**.
 
 This seed repository provides the practical examples:
-* [x] [Local Authentication](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/auth-local)
-* [x] [RESTful Web API](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/rest)
-* [x] [WebSocket and Socket.IO](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/socket) (TODO: *enhancement*)
-* [x] [PayPal REST API](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/paypal-rest-sdk) (TODO: *enhancement*)
-* [ ] [Message Notifications]
+* [x] [Auth](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/auth-local)
+* [x] [Database](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/rest)
+* [x] [Storage](https://github.com/Shyam-Chen/Express-Starter-Kit/tree/rest)
+* [ ] [Messaging]
 
 ## Getting Started
 
