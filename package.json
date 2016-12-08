@@ -1,7 +1,7 @@
 {
-  "name": "Express-Starter-Kit",
+  "name": "Expressed-Boilerplate",
   "version": "1.0.0",
-  "description": "A boilerplate written in Pug, Stylus, and TypeScript using Express, Material, Heroku, mLab, Gulp, and Rollup.",
+  "description": "...",
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"gulp\"",
     "test": "tsc test/empty.ts && mocha",
