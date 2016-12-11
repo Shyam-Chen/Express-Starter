@@ -48,7 +48,7 @@ class Server {
 
     this.app.use(logger('dev'));
 
-    this.app.use(express.static(join(__dirname, 'public')));
+    // this.app.use(express.static(join(__dirname, 'public')));
 
     this.app.use(route);
 
@@ -67,5 +67,4 @@ class Server {
   }
 }
 
-const server = Server.bootstrap();
-export = server.app;
+export = Server.bootstrap().app;
