@@ -1,44 +1,46 @@
-# Expressed Boilerplate (Alpha)
+# Backend Starter Kit (Alpha)
 
 > ...
 
-[![Build Status](https://travis-ci.org/Shyam-Chen/Expressed-Boilerplate.svg?branch=master)](https://travis-ci.org/Shyam-Chen/Expressed-Boilerplate)
+[![Build Status](https://travis-ci.org/Shyam-Chen/Backend-Starter-Kit.svg?branch=master)](https://travis-ci.org/Shyam-Chen/Backend-Starter-Kit)
  //
-[![Dependency Status](https://david-dm.org/Shyam-Chen/Expressed-Boilerplate.svg)](https://david-dm.org/Shyam-Chen/Expressed-Boilerplate)
-[![devDependency Status](https://david-dm.org/Shyam-Chen/Expressed-Boilerplate/dev-status.svg)](https://david-dm.org/Shyam-Chen/Expressed-Boilerplate?type=dev)
+[![Dependency Status](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit.svg)](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit)
+[![devDependency Status](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit/dev-status.svg)](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit?type=dev)
 
 [Live Demo](https://expressmongoose-live-demo.herokuapp.com/)
 
 This seed repository provides the following features:
-* [x] Start coding **TypeScript** right now.
+* [x] JavaScript.
+* [x] Node.
 * [x] App framework with **Express**.
+* [x] Dadabase object modeling with **Mongoose**.
 * [x] ~~UI components with **Material**.~~
 * [x] Cloud application hosting with **Heroku**.
 * [x] Dadabase cloud hosting with **mLab**.
-* [x] Dadabase object modeling with **Mongoose**.
 * [x] Build system with **Gulp**.
 * [ ] Module bundler with **Rollup**.
+* [ ] Babel.
 * [x] ~~Stylus superpowers with **PostStylus**.~~
-* [x] TypeScript type definitions with **Types**.
+* [x] ~~TypeScript type definitions with **Types**.~~
 * [x] Auto-refresh the server on code change with **Nodemon**.
 * [x] Development server with **BrowserSync**.
-* [x] Pug static code analyzer with **PugLint**.
-* [x] Stylus static code analyzer with **Stylint**.
-* [x] TypeScript static code analyzer with **TSLint**.
+* [x] ~~Pug static code analyzer with **PugLint**.~~
+* [x] ~~Stylus static code analyzer with **Stylint**.~~
+* [x] ~~TypeScript static code analyzer with **TSLint**.~~
 * [ ] Unit tests with **Mocha** and **Chai**.
-* [ ] ~~Keeping application alive with **PM2**.~~
+* [ ] Keeping application alive with **PM2**.
 * [ ] ~~Serving static resources with **Nginx**.~~
 * [ ] ~~Caching with **Varnish**.~~
 * [x] Version control with **Git**.
 * [x] Fast and deterministic builds with **Yarn**.
-* [ ] ~~Virtual machine with **Docker**.~~
-* [ ] Continuous integration and delivery with **Travis**.
+* [ ] Containers with **Docker**.
+* [ ] Continuous integration with **Travis**.
 
 ## Getting Started
 
 1) Clone this Boilerplate
 ```bash
-$ git clone --depth 1 https://github.com/Shyam-Chen/Expressed-Boilerplate.git <PROJECT_NAME>
+$ git clone --depth 1 https://github.com/Shyam-Chen/Backend-Starter-Kit.git <PROJECT_NAME>
 $ cd <PROJECT_NAME>
 ```
 

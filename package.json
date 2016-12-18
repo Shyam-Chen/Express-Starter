@@ -1,5 +1,5 @@
 {
-  "name": "Expressed-Boilerplate",
+  "name": "Backend-Starter-Kit",
   "version": "1.0.0",
   "description": "...",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shyam-Chen/Express-Starter-Kit.git"
+    "url": "git+https://github.com/Shyam-Chen/Backend-Starter-Kit.git"
   },
   "keywords": [
     "Express"
@@ -19,9 +19,9 @@
   "author": "陳彥澄",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Shyam-Chen/Express-Starter-Kit/issues"
+    "url": "https://github.com/Shyam-Chen/Backend-Starter-Kit/issues"
   },
-  "homepage": "https://github.com/Shyam-Chen/Express-Starter-Kit#readme",
+  "homepage": "https://github.com/Shyam-Chen/Backend-Starter-Kit#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
