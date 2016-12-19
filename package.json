@@ -4,7 +4,7 @@
   "description": "...",
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"gulp\"",
-    "test": "tsc test/empty.ts && mocha",
+    "test": "mocha",
     "prod": "tsc && pm2 start src/app.js -i 0 --name \"app\"",
     "reset": "git reset --hard HEAD && git clean -df",
     "reinstall": "yarn cache clean && git clean -dfx -e '.*' && yarn install"
@@ -22,6 +22,11 @@
     "url": "https://github.com/Shyam-Chen/Backend-Starter-Kit/issues"
   },
   "homepage": "https://github.com/Shyam-Chen/Backend-Starter-Kit#readme",
+  "babel": {
+    "presets": [
+      "latest"
+    ]
+  },
   "dependencies": {
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
@@ -57,6 +62,8 @@
     "@types/mongoose": "^4.5.35",
     "@types/morgan": "^1.7.31",
     "@types/node": "^6.0.38",
+    "babel-core": "^6.21.0",
+    "babel-preset-latest": "^6.16.0",
     "browser-sync": "^2.14.3",
     "chai": "^3.5.0",
     "chai-spies": "^0.7.1",

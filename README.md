@@ -10,7 +10,7 @@
 [Live Demo](https://expressmongoose-live-demo.herokuapp.com/)
 
 This seed repository provides the following features:
-* [x] JavaScript.
+* [x] JavaScript EJS
 * [x] Node.
 * [x] App framework with **Express**.
 * [x] Dadabase object modeling with **Mongoose**.
@@ -19,7 +19,7 @@ This seed repository provides the following features:
 * [x] Dadabase cloud hosting with **mLab**.
 * [x] Build system with **Gulp**.
 * [ ] Module bundler with **Rollup**.
-* [ ] Babel.
+* [ ] PostCSS Babel
 * [x] ~~Stylus superpowers with **PostStylus**.~~
 * [x] ~~TypeScript type definitions with **Types**.~~
 * [x] Auto-refresh the server on code change with **Nodemon**.

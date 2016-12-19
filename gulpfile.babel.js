@@ -1,14 +1,14 @@
-import * as gulp from 'gulp';
-import * as nodemon from 'gulp-nodemon';
-import * as browserSync from 'browser-sync';
+import gulp from 'gulp';
+import nodemon from 'gulp-nodemon';
+import browserSync from 'browser-sync';
 
-const rollup = require('rollup-stream');
-const typescript = require('rollup-plugin-typescript');
-const resolve = require('rollup-plugin-node-resolve');
-const commonjs = require('rollup-plugin-commonjs');
-const uglify = require('rollup-plugin-uglify');
-const source = require('vinyl-source-stream');
-const buffer = require('vinyl-buffer');
+import rollup from 'rollup-stream';
+import typescript from 'rollup-plugin-typescript';
+import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
+import uglify from 'rollup-plugin-uglify';
+import source from 'vinyl-source-stream';
+import buffer from 'vinyl-buffer';
 
 gulp.task('public', () => {
   rollup({
