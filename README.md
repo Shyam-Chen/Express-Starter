@@ -19,7 +19,6 @@ This seed repository provides the following features:
 * [x] Dadabase cloud hosting with **mLab**.
 * ---------- **Dev Tools** ----------
 * [x] Build system with Gulp.
-* [ ] Module bundler with Rollup.
 * [ ] Next generation JavaScript with Babel.
 * ---------- **Test Tools** ----------
 * [x] JavaScript static code analyzer with ESLint.
