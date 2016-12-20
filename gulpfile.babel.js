@@ -23,21 +23,6 @@ gulp.task('public', () => {
   .pipe(gulp.dest('./src/public'));
 });
 
-gulp.task('app', () => {
-  rollup({
-    entry: './src/app.ts',
-    format: 'cjs',
-    plugins: [
-      typescript(),
-      resolve({ jsnext: true, main: true, browser: false }),
-      commonjs({ include: 'node_modules/**' })
-    ]
-  })
-  .pipe(source('app.js'))
-  .pipe(buffer())
-  .pipe(gulp.dest('./src'));
-});
-
 gulp.task('nodemon', () => {
   nodemon({
     script: 'src/app.js'

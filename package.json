@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "...",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"gulp\"",
-    "test": "mocha",
-    "prod": "tsc && pm2 start src/app.js -i 0 --name \"app\"",
+    "start": "nodemon src/app.js --exec babel-node",
+    "test": "mocha --compilers js:babel-register",
+    "build": "babel src -d dist",
+    "serve": "node dist/app.js",
+    "prod": "pm2 start dist/app.js -i 0 --name \"app\"",
     "reset": "git reset --hard HEAD && git clean -df",
     "reinstall": "yarn cache clean && git clean -dfx -e '.*' && yarn install"
   },
@@ -14,7 +16,7 @@
     "url": "git+https://github.com/Shyam-Chen/Backend-Starter-Kit.git"
   },
   "keywords": [
-    "Express"
+    "Node"
   ],
   "author": "陳彥澄",
   "license": "MIT",
@@ -62,6 +64,7 @@
     "@types/mongoose": "^4.5.35",
     "@types/morgan": "^1.7.31",
     "@types/node": "^6.0.38",
+    "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
     "babel-preset-latest": "^6.16.0",
     "browser-sync": "^2.14.3",
@@ -75,6 +78,7 @@
     "merge2": "^1.0.2",
     "mocha": "^3.0.2",
     "poststylus": "^0.2.3",
+    "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-commonjs": "^5.0.5",
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-typescript": "^0.8.1",
