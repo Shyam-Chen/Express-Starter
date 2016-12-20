@@ -11,27 +11,25 @@
 
 This seed repository provides the following features:
 * ---------- **Primary Key** ----------
-* [x] JavaScript coding.
-* [x] Server-side platform with **Node**.
-* [x] App framework with **Express**.
-* [x] Dadabase object modeling with **Mongoose**.
-* [x] Cloud application hosting with **Heroku**.
-* [x] Dadabase cloud hosting with **mLab**.
+* [x] Server-side platform with Node.
+* [x] Application framework with Express.
+* [x] Dadabase object modeling with Mongoose.
+* [x] Application cloud hosting with Heroku.
+* [x] Dadabase cloud hosting with mLab.
 * ---------- **Dev Tools** ----------
 * [x] Build system with Gulp.
-* [ ] Next generation JavaScript with Babel.
+* [x] Next generation JavaScript with Babel.
 * ---------- **Test Tools** ----------
 * [x] JavaScript static code analyzer with ESLint.
-* [ ] Unit tests with Mocha, Chai and Sinon.
+* [x] Unit tests with Mocha, Chai and Sinon.
 * ---------- **Environment** ----------
-* [ ] Keeping application alive with PM2.
-* [ ] Caching with Varnish.
+* [x] Keeping application alive with PM2.
 * [x] Operating system with Linux.
 * [x] Text editor with Atom.
 * [x] Version control with Git.
 * [x] Fast and deterministic builds with Yarn.
-* [x] Containers with Docker.
-* [x] Continuous integration with Travis.
+* [ ] Containers with Docker.
+* [ ] Continuous integration with Travis.
 
 ## Getting Started
 
