@@ -21,9 +21,9 @@ This seed repository provides the following features:
 * [x] Next generation JavaScript with Babel.
 * ---------- **Test Tools** ----------
 * [x] JavaScript static code analyzer with ESLint.
-* [x] Unit tests with Mocha, Chai and Sinon.
+* [ ] Unit tests with Mocha, Chai and Sinon.
 * ---------- **Environment** ----------
-* [x] Keeping application alive with PM2.
+* [ ] Keeping application alive with PM2.
 * [x] Operating system with Linux.
 * [x] Text editor with Atom.
 * [x] Version control with Git.
