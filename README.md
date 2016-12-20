@@ -22,7 +22,7 @@ This seed repository provides the following features:
 * [ ] Module bundler with Rollup.
 * [ ] Next generation JavaScript with Babel.
 * ---------- **Test Tools** ----------
-* [ ] JavaScript static code analyzer with ESLint.
+* [x] JavaScript static code analyzer with ESLint.
 * [ ] Unit tests with Mocha, Chai and Sinon.
 * ---------- **Environment** ----------
 * [ ] Keeping application alive with PM2.

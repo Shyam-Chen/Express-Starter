@@ -1,0 +1,41 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "commonjs": true,
+    "es6": true,
+    "jasmine": true,
+    "protractor": true
+  },
+  "globals": {
+    "componentHandler": true,
+    "firebase": true,
+    "page": true,
+    "Chart": true,
+    "webdriver": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    // Possible Errors
+
+    // Best Practices
+
+    // Variables
+
+    // Node.js and CommonJS
+
+    // Stylistic Issues
+
+    // JS.Next
+    "arrow-spacing": ["error"],
+    "no-useless-constructor": "error",
+    "no-var": "error",
+    "prefer-template": "error",
+    "symbol-description": "error",
+    "template-curly-spacing": ["error", "never"],
+    "yield-star-spacing": ["error", "after"]
+  }
+}

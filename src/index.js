@@ -25,5 +25,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(app.get('port'), () => {
-  console.log('App listening on port 8000!');
+  console.log('Bootstrap Succeeded.');
 });
