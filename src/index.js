@@ -1,8 +1,11 @@
-import http from 'http';
+import express from 'express';
 
-http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello World');
-}).listen(8000);
+const app = express();
 
-console.log('Bootstrap Succeeded.');
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+app.listen(8000, () => {
+  console.log('App listening on port 8000!');
+});
