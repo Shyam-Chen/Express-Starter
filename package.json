@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "...",
   "scripts": {
-    "start": "nodemon src/app.js --exec babel-node",
+    "start": "nodemon src/index.js --exec babel-node",
     "test": "mocha --compilers js:babel-register",
     "build": "babel src -d dist",
-    "serve": "node dist/app.js",
-    "prod": "pm2 start dist/app.js -i 0 --name \"app\"",
+    "serve": "node dist/index.js",
+    "prod": "pm2 start dist/index.js -i 0 --name \"app\"",
     "reset": "git reset --hard HEAD && git clean -df",
     "reinstall": "yarn cache clean && git clean -dfx -e '.*' && yarn install"
   },
