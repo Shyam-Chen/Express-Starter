@@ -10,31 +10,29 @@
 [Live Demo](https://expressmongoose-live-demo.herokuapp.com/)
 
 This seed repository provides the following features:
-* [x] JavaScript EJS
-* [x] Node.
+* ---------- **Primary Key** ----------
+* [x] JavaScript coding.
+* [x] Server-side platform with **Node**.
 * [x] App framework with **Express**.
 * [x] Dadabase object modeling with **Mongoose**.
-* [x] ~~UI components with **Material**.~~
 * [x] Cloud application hosting with **Heroku**.
 * [x] Dadabase cloud hosting with **mLab**.
-* [x] Build system with **Gulp**.
-* [ ] Module bundler with **Rollup**.
-* [ ] PostCSS Babel
-* [x] ~~Stylus superpowers with **PostStylus**.~~
-* [x] ~~TypeScript type definitions with **Types**.~~
-* [x] Auto-refresh the server on code change with **Nodemon**.
-* [x] Development server with **BrowserSync**.
-* [x] ~~Pug static code analyzer with **PugLint**.~~
-* [x] ~~Stylus static code analyzer with **Stylint**.~~
-* [x] ~~TypeScript static code analyzer with **TSLint**.~~
-* [ ] Unit tests with **Mocha** and **Chai**.
-* [ ] Keeping application alive with **PM2**.
-* [ ] ~~Serving static resources with **Nginx**.~~
-* [ ] ~~Caching with **Varnish**.~~
-* [x] Version control with **Git**.
-* [x] Fast and deterministic builds with **Yarn**.
-* [ ] Containers with **Docker**.
-* [ ] Continuous integration with **Travis**.
+* ---------- **Dev Tools** ----------
+* [x] Build system with Gulp.
+* [ ] Module bundler with Rollup.
+* [ ] Next generation JavaScript with Babel.
+* ---------- **Test Tools** ----------
+* [ ] JavaScript static code analyzer with ESLint.
+* [ ] Unit tests with Mocha, Chai and Sinon.
+* ---------- **Environment** ----------
+* [ ] Keeping application alive with PM2.
+* [ ] Caching with Varnish.
+* [x] Operating system with Linux.
+* [x] Text editor with Atom.
+* [x] Version control with Git.
+* [x] Fast and deterministic builds with Yarn.
+* [x] Containers with Docker.
+* [x] Continuous integration with Travis.
 
 ## Getting Started
 
