@@ -1,9 +1,9 @@
 {
   "name": "Backend-Starter-Kit",
   "version": "1.0.0",
-  "description": "...",
+  "description": "A boilerplate for Node, Express, Mongoose, Heroku, and mLab.",
   "scripts": {
-    "start": "concurrently \"nodemon src/index.js --exec babel-node\" \"gulp\"",
+    "start": "nodemon src/index.js --exec babel-node",
     "test": "mocha --compilers js:babel-register",
     "build": "babel src -d dist",
     "serve": "node dist/index.js",

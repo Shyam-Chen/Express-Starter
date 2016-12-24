@@ -1,6 +1,6 @@
 # Backend Starter Kit (Alpha)
 
-> ...
+> A boilerplate for Node, Express, Mongoose, Heroku, and mLab.
 
 [![Build Status](https://travis-ci.org/Shyam-Chen/Backend-Starter-Kit.svg?branch=master)](https://travis-ci.org/Shyam-Chen/Backend-Starter-Kit)
  //
@@ -17,13 +17,13 @@ This seed repository provides the following features:
 * [x] Application cloud hosting with Heroku.
 * [x] Dadabase cloud hosting with mLab.
 * ---------- **Dev Tools** ----------
-* [x] Build system with Gulp.
+* [x] Auto-refresh the server on code change with Nodemon.
+* [x] Keeping application alive with PM2.
 * [x] Next generation JavaScript with Babel.
 * ---------- **Test Tools** ----------
 * [x] JavaScript static code analyzer with ESLint.
 * [ ] Unit tests with Mocha, Chai and Sinon.
 * ---------- **Environment** ----------
-* [ ] Keeping application alive with PM2.
 * [x] Operating system with Linux.
 * [x] Text editor with Atom.
 * [x] Version control with Git.
