@@ -17,19 +17,21 @@ This seed repository provides the following features:
 * [x] Application cloud hosting with Heroku.
 * [x] Dadabase cloud hosting with mLab.
 * ---------- **Dev Tools** ----------
-* [x] Auto-refresh the server on code change with Nodemon.
+* [x] Automatically restart the server with Nodemon.
 * [x] Keeping application alive with PM2.
 * [x] Next generation JavaScript with Babel.
 * ---------- **Test Tools** ----------
-* [x] JavaScript static code analyzer with ESLint.
-* [x] Unit tests with Mocha, Chai and Sinon.
+* [x] Static code analyzer with ESLint.
+* [x] Test framework with Mocha.
+* [x] Assertion library with Chai.
+* [x] Test spies with Sinon.
 * ---------- **Environment** ----------
 * [x] Operating system with Linux.
 * [x] Text editor with Atom.
 * [x] Version control with Git.
 * [x] Fast and deterministic builds with Yarn.
-* [ ] Containers with Docker.
-* [ ] Continuous integration with Travis.
+* [x] Containers with Docker.
+* [x] Continuous integration with Travis.
 
 ## Getting Started
 
