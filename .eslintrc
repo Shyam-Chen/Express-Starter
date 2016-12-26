@@ -1,11 +1,8 @@
 {
   "env": {
-    "browser": true,
     "node": true,
-    "commonjs": true,
     "es6": true,
-    "jasmine": true,
-    "protractor": true
+    "mocha": true
   },
   "globals": {
     "componentHandler": true,

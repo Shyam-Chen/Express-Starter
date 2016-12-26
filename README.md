@@ -1,4 +1,4 @@
-# Backend Starter Kit (Alpha)
+# Backend Starter Kit (Beta)
 
 > A boilerplate for Node, Express, Mongoose, Heroku, and mLab.
 
@@ -22,7 +22,7 @@ This seed repository provides the following features:
 * [x] Next generation JavaScript with Babel.
 * ---------- **Test Tools** ----------
 * [x] JavaScript static code analyzer with ESLint.
-* [ ] Unit tests with Mocha, Chai and Sinon.
+* [x] Unit tests with Mocha, Chai and Sinon.
 * ---------- **Environment** ----------
 * [x] Operating system with Linux.
 * [x] Text editor with Atom.
@@ -47,4 +47,9 @@ $ yarn install
 3) Run the Application
 ```bash
 $ yarn start
+```
+
+4) Test the Application
+```bash
+$ yarn test
 ```
