@@ -18,7 +18,7 @@
   "keywords": [
     "Node"
   ],
-  "author": "陳彥澄",
+  "author": "Yen-cheng Chen, 陳彥澄",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Shyam-Chen/Backend-Starter-Kit/issues"
@@ -38,9 +38,7 @@
     "babel-cli": "^6.18.0",
     "babel-preset-latest": "^6.16.0",
     "babel-register": "^6.18.0",
-    "browser-sync": "^2.14.3",
     "chai": "^3.5.0",
-    "concurrently": "^2.2.0",
     "mocha": "^3.0.2",
     "sinon": "^1.17.6"
   }
