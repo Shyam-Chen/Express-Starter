@@ -14,6 +14,7 @@
   },
   "rules": {
     // Possible Errors
+    "no-console": "off",
 
     // Best Practices
 
