@@ -11,27 +11,27 @@
 
 This seed repository provides the following features:
 * ---------- **Primary Key** ----------
-* [x] Server-side platform with Node.
-* [x] Application framework with Express.
-* [x] Dadabase object modeling with Mongoose.
-* [x] Application cloud hosting with Heroku.
-* [x] Dadabase cloud hosting with mLab.
+* [x] Server-side platform with **Node**.
+* [x] Application framework with **Express**.
+* [x] Dadabase object modeling with **Mongoose**.
+* [x] Application cloud hosting with **Heroku**.
+* [x] Dadabase cloud hosting with **mLab**.
 * ---------- **Dev Tools** ----------
-* [x] Automatically restart the server with Nodemon.
-* [x] Keeping application alive with PM2.
-* [x] Next generation JavaScript with Babel.
+* [x] Automatically restart the server with **Nodemon**.
+* [x] Keeping application alive with **PM2**.
+* [x] Next generation JavaScript with **Babel**.
 * ---------- **Test Tools** ----------
-* [x] Static code analyzer with ESLint.
-* [x] Test framework with Mocha.
-* [x] Assertion library with Chai.
-* [x] Test spies with Sinon.
+* [x] Static code analyzer with **ESLint**.
+* [x] Test framework with **Mocha**.
+* [x] Assertion library with **Chai**.
+* [x] Test spies with **Sinon**.
 * ---------- **Environment** ----------
-* [x] Operating system with Linux.
-* [x] Text editor with Atom.
-* [x] Version control with Git.
-* [x] Fast and deterministic builds with Yarn.
-* [x] Containers with Docker.
-* [x] Continuous integration with Travis.
+* [x] Operating system with **Linux**.
+* [x] Text editor with **Atom**.
+* [x] Version control with **Git**.
+* [x] Fast and deterministic builds with **Yarn**.
+* [x] Containers with **Docker**.
+* [x] Continuous integration with **Travis**.
 
 ## Getting Started
 
@@ -51,7 +51,13 @@ $ yarn install
 $ yarn start
 ```
 
-4) Test the Application
+## Other Commands
+
 ```bash
-$ yarn test
+$ yarn run dev
+$ yarn run test
+$ yarn run prod
+
+$ yarn run reset
+$ yarn run reinstall
 ```

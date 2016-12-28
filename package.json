@@ -4,10 +4,9 @@
   "description": "A boilerplate for Node, Express, Mongoose, Heroku, and mLab.",
   "scripts": {
     "start": "nodemon src/index.js --exec babel-node",
+    "dev": "nodemon src/index.js --exec babel-node",
     "test": "mocha --compilers js:babel-register",
-    "build": "babel src -d dist",
-    "serve": "node dist/index.js",
-    "prod": "pm2 start dist/index.js -i 0 --name \"app\"",
+    "prod": "babel src -d dist && pm2 start dist/index.js -i 0 --name \"app\"",
     "reset": "git reset --hard HEAD && git clean -df",
     "reinstall": "yarn cache clean && git clean -dfx -e '.*' && yarn install"
   },
@@ -30,16 +29,18 @@
     ]
   },
   "dependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-latest": "^6.16.0",
     "express": "^4.14.0",
     "mongoose": "^4.7.4",
     "pm2": "^2.2.2"
   },
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-preset-latest": "^6.16.0",
+    "babel-eslint": "^7.1.1",
     "babel-register": "^6.18.0",
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
+    "nodemon": "^1.11.0",
     "sinon": "^1.17.6"
   }
 }

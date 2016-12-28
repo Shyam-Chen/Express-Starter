@@ -5,13 +5,10 @@
     "mocha": true
   },
   "globals": {
-    "componentHandler": true,
-    "firebase": true,
-    "page": true,
-    "Chart": true,
-    "webdriver": true
+    // ...
   },
   "extends": "eslint:recommended",
+  "parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module"
   },
