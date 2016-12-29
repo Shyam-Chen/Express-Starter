@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "A boilerplate for Node, Express, Mongoose, Heroku, and mLab.",
   "scripts": {
-    "start": "nodemon src/index.js --exec babel-node",
-    "dev": "nodemon src/index.js --exec babel-node",
+    "start": "nodemon lib/index.js --exec babel-node",
+    "dev": "nodemon lib/index.js --exec babel-node",
     "test": "mocha --compilers js:babel-register",
-    "prod": "babel src -d dist && pm2 start dist/index.js -i 0 --name \"app\"",
+    "prod": "babel lib -d dist && pm2 start dist/index.js -i 0 --name \"app\"",
     "reset": "git reset --hard HEAD && git clean -df",
     "reinstall": "yarn cache clean && git clean -dfx -e '.*' && yarn install"
   },

@@ -1,12 +1,12 @@
 FROM node:argon
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir -p /Backend-Starter-Kit
+WORKDIR /Backend-Starter-Kit
 
-COPY package.json /usr/src/app/
+COPY package.json /Backend-Starter-Kit/
 RUN npm install
 
-COPY . /usr/src/app
+COPY . /Backend-Starter-Kit
 
 EXPOSE 8000
 CMD [ "npm", "start" ]
