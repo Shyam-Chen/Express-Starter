@@ -11,27 +11,27 @@
 
 This seed repository provides the following features:
 * ---------- **Primary Key** ----------
-* [x] Server-side platform with **Node**.
-* [x] Application framework with **Express**.
-* [x] Dadabase object modeling with **Mongoose**.
-* [x] Application cloud hosting with **Heroku**.
-* [x] Dadabase cloud hosting with **mLab**.
+* [x] Server-side platform with [**Node**](https://nodejs.org/en/).
+* [x] Application framework with [**Express**](http://expressjs.com/).
+* [x] Dadabase object modeling with [**Mongoose**](http://mongoosejs.com/).
+* [x] Application cloud hosting with [**Heroku**](https://www.heroku.com/).
+* [x] Dadabase cloud hosting with [**mLab**](https://mlab.com/).
 * ---------- **Dev Tools** ----------
-* [x] Automatically restart the server with **Nodemon**.
-* [x] Keeping application alive with **PM2**.
-* [x] Next generation JavaScript with **Babel**.
+* [x] Automatically restart the server with [**Nodemon**](https://github.com/remy/nodemon).
+* [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
+* [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
 * ---------- **Test Tools** ----------
-* [x] Static code analyzer with **ESLint**.
-* [x] Test framework with **Mocha**.
-* [x] Assertion library with **Chai**.
-* [x] Test spies with **Sinon**.
+* [x] Static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
+* [x] Test framework with [**Mocha**](https://github.com/mochajs/mocha).
+* [x] Assertion library with [**Chai**](https://github.com/chaijs/chai).
+* [x] Test spies with [**Sinon**](https://github.com/sinonjs/sinon).
 * ---------- **Environment** ----------
-* [x] Operating system with **Linux**.
-* [x] Text editor with **Atom**.
-* [x] Version control with **Git**.
-* [x] Fast and deterministic builds with **Yarn**.
-* [x] Containers with **Docker**.
-* [x] Continuous integration with **Travis**.
+* [x] Operating system with [**Linux**](https://github.com/torvalds/linux).
+* [x] Text editor with [**Atom**](https://github.com/atom/atom).
+* [x] Version control with [**Git**](https://github.com/git/git).
+* [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
+* [x] Software container with [**Docker**](https://github.com/docker/docker).
+* [x] Continuous integration with [**Travis CI**](https://github.com/travis-ci/travis-ci).
 
 ## Getting Started
 
