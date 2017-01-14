@@ -33,6 +33,14 @@ This seed repository provides the following features:
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**Travis CI**](https://github.com/travis-ci/travis-ci).
 
+This repository provides the practical examples:
+* [Authentication](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/auth-local)
+* [Database](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/rest)
+* [Storage](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/rest)
+* Messaging
+* [Socket](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/socket)
+* [PayPal](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/paypal-rest-sdk)
+
 ## Getting Started
 
 1) Clone this Boilerplate
