@@ -1,7 +1,7 @@
 {
   "name": "Backend-Starter-Kit",
   "version": "1.0.0",
-  "description": "A boilerplate for Node, Express, Mongoose, Heroku, and mLab.",
+  "description": "A boilerplate for Node, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.",
   "scripts": {
     "start": "nodemon lib/index.js --exec babel-node",
     "dev": "nodemon lib/index.js --exec babel-node",
