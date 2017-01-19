@@ -1,6 +1,6 @@
 # Backend Starter Kit (Beta)
 
-> A boilerplate for Node, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.
+:truck: A boilerplate for :star2: Node.js :star2:, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.
 
 [![Build Status](https://travis-ci.org/Shyam-Chen/Backend-Starter-Kit.svg?branch=master)](https://travis-ci.org/Shyam-Chen/Backend-Starter-Kit)
  //
@@ -39,7 +39,7 @@ This repository provides the practical examples:
   * Google
   * Facebook
   * Twitter
-  * JSON Web Token
+  * JSON Web Tokens
 * **Database**
   * [RESTful API](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/rest)
 * **Storage**
@@ -47,6 +47,7 @@ This repository provides the practical examples:
 * **Messaging**
   * Email
   * RabbitMQ
+  * Push Notifications
 * **WebSockets**
   * [Socket.IO](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/socket)
 * **PayPal**

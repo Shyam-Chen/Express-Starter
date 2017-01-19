@@ -1,12 +1,13 @@
 {
   "name": "Backend-Starter-Kit",
   "version": "1.0.0",
-  "description": "A boilerplate for Node, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.",
+  "description": "A boilerplate for Node.js, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.",
   "scripts": {
     "start": "nodemon lib/index.js --exec babel-node",
     "dev": "nodemon lib/index.js --exec babel-node",
     "test": "mocha --compilers js:babel-register",
     "prod": "babel lib -d dist && pm2 start dist/index.js -i 0 --name \"app\"",
+    "clean": "rimraf dist",
     "reset": "git reset --hard HEAD && git clean -df",
     "reinstall": "yarn cache clean && git clean -dfx -e '.*' && yarn install"
   },
@@ -42,6 +43,7 @@
     "eslint": "^3.12.2",
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
+    "rimraf": "^2.5.4",
     "sinon": "^1.17.6"
   }
 }
