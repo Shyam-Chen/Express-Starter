@@ -16,6 +16,13 @@ This seed repository provides the following features:
 * [x] Dadabase object modeling with [**Mongoose**](http://mongoosejs.com/).
 * [x] Application cloud hosting with [**Heroku**](https://www.heroku.com/).
 * [x] Dadabase cloud hosting with [**mLab**](https://mlab.com/).
+* ---------- **Secondary Key** ----------
+* [x] Utility functions with [**Lodash**](https://lodash.com/).
+* [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
+* [x] State container with [**Redux**](http://redux.js.org/).
+* [x] Immutable generic collections with [**Immutable**](http://facebook.github.io/immutable-js/).
+* [x] Data visualization with [**D3**](https://d3js.org/).
+* [x] 3D scenes with [**Three**](https://threejs.org/).
 * ---------- **Dev Tools** ----------
 * [x] Automatically restart with [**Nodemon**](https://github.com/remy/nodemon).
 * [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
@@ -47,7 +54,9 @@ This repository provides the practical examples:
 * **Messaging**
   * Email
   * RabbitMQ
+  * Server-sent events
   * Push Notifications
+  * WebRTC
 * **WebSockets**
   * [Socket.IO](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/socket)
 * **PayPal**

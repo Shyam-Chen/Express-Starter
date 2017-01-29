@@ -27,23 +27,29 @@
   "babel": {
     "presets": [
       "latest"
+    ],
+    "plugins": [
+      "transform-function-bind"
     ]
   },
   "dependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-preset-latest": "^6.16.0",
-    "express": "^4.14.0",
-    "mongoose": "^4.7.4",
-    "pm2": "^2.2.2"
+    "babel-cli": "6.22.2",
+    "babel-plugin-transform-function-bind": "6.22.0",
+    "babel-preset-latest": "6.22.0",
+    "express": "4.14.1",
+    "lodash": "4.17.4",
+    "mongoose": "4.8.0",
+    "pm2": "2.3.0",
+    "rxjs": "5.0.3"
   },
   "devDependencies": {
-    "babel-eslint": "^7.1.1",
-    "babel-register": "^6.18.0",
-    "chai": "^3.5.0",
-    "eslint": "^3.12.2",
-    "mocha": "^3.2.0",
-    "nodemon": "^1.11.0",
-    "rimraf": "^2.5.4",
-    "sinon": "^1.17.6"
+    "babel-eslint": "7.1.1",
+    "babel-register": "6.22.0",
+    "chai": "3.5.0",
+    "eslint": "3.14.1",
+    "mocha": "3.2.0",
+    "nodemon": "1.11.0",
+    "rimraf": "2.5.4",
+    "sinon": "1.17.7"
   }
 }
