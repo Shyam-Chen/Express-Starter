@@ -20,7 +20,7 @@ This seed repository provides the following features:
 * [x] Utility functions with [**Lodash**](https://lodash.com/).
 * [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
 * [x] State container with [**Redux**](http://redux.js.org/).
-* [x] Immutable generic collections with [**Immutable**](http://facebook.github.io/immutable-js/).
+* [x] Immutable collections with [**Immutable**](http://facebook.github.io/immutable-js/).
 * [x] Data visualization with [**D3**](https://d3js.org/).
 * [x] 3D scenes with [**Three**](https://threejs.org/).
 * ---------- **Dev Tools** ----------
