@@ -16,7 +16,7 @@
     "url": "git+https://github.com/Shyam-Chen/Backend-Starter-Kit.git"
   },
   "keywords": [
-    "Node"
+    "Node.js"
   ],
   "author": "Yen-cheng Chen, 陳彥澄",
   "license": "MIT",
@@ -41,6 +41,7 @@
     "lodash": "4.17.4",
     "mongoose": "4.8.0",
     "pm2": "2.3.0",
+    "redux": "3.6.0",
     "rxjs": "5.0.3"
   },
   "devDependencies": {
