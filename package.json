@@ -42,6 +42,7 @@
     "mongoose": "4.8.0",
     "pm2": "2.3.0",
     "redux": "3.6.0",
+    "redux-observable": "0.13.0",
     "rxjs": "5.0.3"
   },
   "devDependencies": {
