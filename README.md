@@ -38,30 +38,6 @@ This seed repository provides the following features:
 * [ ] Software container with [**Docker**](https://github.com/docker/docker).
 * [ ] Continuous integration with [**Travis**](https://github.com/travis-ci/travis-ci).
 
-This repository provides the practical examples:
-* **Authentication**
-  * [Local](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/auth-local)
-  * Google
-  * Facebook
-  * Twitter
-  * JSON Web Tokens
-* **Database**
-  * [RESTful API](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/rest)
-* **Storage**
-  * [File Upload](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/rest)
-* **Messaging**
-  * Email
-  * RabbitMQ
-  * Server-sent events
-  * Push Notifications
-  * WebRTC
-* **WebSockets**
-  * [Socket.IO](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/socket)
-* **PayPal**
-  * [REST SDK](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/paypal-rest-sdk)
-  * [Adaptive](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/paypal-adaptive)
-  * [Express Checkout](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/paypal-express-checkout)
-
 ## Getting Started
 
 1) Clone this Boilerplate
@@ -80,6 +56,145 @@ $ yarn install
 $ yarn start
 ```
 
+## Using Docker
+
+1) Build the Image
+```bash
+$ docker build -t Backend-Starter-Kit .
+```
+
+2) Run the Container
+```bash
+$ docker run -it -p 8000:8000 --name app Backend-Starter-Kit
+```
+
+3) Just Compose
+```bash
+$ docker-compose up
+```
+
+## Using Libraries
+
+1) Example of Lodash
+```js
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+import { lowerFirst } from 'lodash';
+
+Observable::of(lowerFirst('Hello'), lowerFirst('World'))
+  .subscribe(result => console.log(result));
+  // hello
+  // world
+```
+
+2) Example of ReactiveX
+```js
+import { Observable } from 'rxjs/Observable';
+import { timer } from 'rxjs/observable/timer';
+import { of } from 'rxjs/observable/of';
+import { mapTo } from 'rxjs/operator/mapTo';
+import { combineAll } from 'rxjs/operator/combineAll';
+
+Observable::timer(2000)
+  ::mapTo(Observable::of('Hello', 'World'))
+  ::combineAll()
+  .subscribe(result => console.log(result));
+  // ["Hello"]
+  // ["World"]
+```
+
+3) Example of Redux
+```js
+import { filter } from 'rxjs/operator/filter';
+import { map } from 'rxjs/operator/map';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
+import { combineEpics, createEpicMiddleware } from 'redux-observable';
+
+// Types
+const INCREMENT = 'INCREMENT';
+const DECREMENT = 'DECREMENT';
+const RESET = 'RESET';
+const INCREMENT_IF_ODD = 'INCREMENT_IF_ODD';
+const DECREMENT_IF_EVEN = 'DECREMENT_IF_EVEN';
+
+// Reducers
+const counterReducer = (state = 0, action) => {
+  switch (action.type) {
+    case INCREMENT:
+      return state + 1;
+    case DECREMENT:
+      return state - 1;
+    case RESET:
+      return 0;
+    default:
+      return state;
+  }
+};
+
+// Actions
+const increment = () => ({ type: INCREMENT });
+const decrement = () => ({ type: DECREMENT });
+const reset = () => ({ type: RESET });
+const incrementIfOdd = () => ({ type: INCREMENT_IF_ODD });
+const decrementIfEven = () => ({ type: DECREMENT_IF_EVEN });
+
+// Epics
+const incrementIfOddEpic = (action$, store) =>
+  action$.ofType(INCREMENT_IF_ODD)
+    ::filter(() => store.getState().counterReducer % 2 === 1)
+    ::map(increment);
+
+const decrementIfEvenEpic = (action$, store) =>
+  action$.ofType(DECREMENT_IF_EVEN)
+    ::filter(() => store.getState().counterReducer % 2 === 0)
+    ::map(decrement);
+
+const rootEpic = combineEpics(incrementIfOddEpic, decrementIfEvenEpic);
+const epicMiddleware = createEpicMiddleware(rootEpic);
+
+// Store
+const rootReducer = combineReducers({ counterReducer });
+const store = createStore(rootReducer, applyMiddleware(epicMiddleware));
+
+store.subscribe(() => {
+  const { counterReducer } = store.getState();
+  console.log(counterReducer);
+});
+
+store.dispatch(increment());
+// 1
+
+store.dispatch(incrementIfOdd());
+// 1
+// 2
+
+store.dispatch(decrementIfEven());
+// 2
+// 1
+
+store.dispatch(reset());
+// 0
+
+store.dispatch(decrement());
+// -1
+```
+
+4) Example of Immutable
+```js
+import { Observable } from 'rxjs/Observable';
+import { from } from 'rxjs/observable/from';
+import { Map } from 'immutable';
+
+const map1 = Map({ a: 1, b: 2, c: 3 });
+const map2 = map1.set('b', 4);
+
+Observable::from(map2)
+  .subscribe(val => console.log(val));
+  // ["a", 1]
+  // ["b", 4]
+  // ["c", 3]
+```
+
 ## Other Commands
 
 ```bash
@@ -87,6 +202,28 @@ $ yarn run dev
 $ yarn run test
 $ yarn run prod
 
+$ yarn run clean
 $ yarn run reset
 $ yarn run reinstall
+```
+
+## Directory Structure
+
+```
+.
+├── lib
+│   ├── ctrls
+│   │   └── ...
+│   ├── models
+│   │   └── ...
+│   ├── routes
+│   │   └── ...
+│   ├── utils
+│   │   └── ...
+│   └── index.js
+├── scripts
+│   └── build|deploy|install|test.sh
+├── test
+│   └── ...
+└── package.json
 ```
