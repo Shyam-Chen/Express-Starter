@@ -211,7 +211,9 @@ $ yarn run reinstall
 
 ```
 .
-├── lib
+├── scripts
+│   └── build|deploy|install|test.sh
+├── src
 │   ├── ctrls
 │   │   └── ...
 │   ├── models
@@ -221,8 +223,6 @@ $ yarn run reinstall
 │   ├── utils
 │   │   └── ...
 │   └── index.js
-├── scripts
-│   └── build|deploy|install|test.sh
 ├── test
 │   └── ...
 └── package.json
