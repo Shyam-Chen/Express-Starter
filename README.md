@@ -23,7 +23,6 @@ This seed repository provides the following features:
 * [x] Immutable collections with [**Immutable**](http://facebook.github.io/immutable-js/).
 * ---------- **Dev Tools** ----------
 * [x] Automatically restart with [**Nodemon**](https://github.com/remy/nodemon).
-* [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
 * [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
 * ---------- **Test Tools** ----------
 * [x] Static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
@@ -33,6 +32,9 @@ This seed repository provides the following features:
 * ---------- **Environment** ----------
 * [x] Operating system with [**Linux**](https://github.com/torvalds/linux).
 * [x] Text editor with [**Atom**](https://github.com/atom/atom).
+* [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
+* [ ] Serving static resources with [**Nginx**](https://github.com/nginx/nginx).
+* [ ] HTTP caching with [**Varnish**](https://github.com/varnishcache/varnish-cache).
 * [x] Version control with [**Git**](https://github.com/git/git).
 * [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
 * [ ] Software container with [**Docker**](https://github.com/docker/docker).

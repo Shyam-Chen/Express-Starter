@@ -1,5 +1,9 @@
+// import { join } from 'path';
+
 import express from 'express';
 import mongoose from 'mongoose';
+
+import { route } from './routes';
 
 const app = express();
 
@@ -16,9 +20,8 @@ conn.once('open', () => console.log('Connection Succeeded.'));
 
 app.set('port', (process.env.PORT || 8000));
 
-app.get('/', (req, res) => {
-  res.send('Backend Starter Kit');
-});
+// app.use(express.static(join(__dirname, '..', 'public')));
+app.use(route);
 
 app.listen(app.get('port'), () => {
   console.log('Bootstrap Succeeded.');
