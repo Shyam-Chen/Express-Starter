@@ -41,17 +41,17 @@
     "immutable": "3.8.1",
     "jsdom": "9.10.0",
     "lodash": "4.17.4",
-    "mongoose": "4.8.0",
-    "pm2": "2.3.0",
+    "mongoose": "4.8.1",
+    "pm2": "2.4.0",
     "redux": "3.6.0",
     "redux-observable": "0.13.0",
-    "rxjs": "5.0.3"
+    "rxjs": "5.1.0"
   },
   "devDependencies": {
     "babel-eslint": "7.1.1",
     "babel-register": "6.22.0",
     "chai": "3.5.0",
-    "eslint": "3.14.1",
+    "eslint": "3.15.0",
     "mocha": "3.2.0",
     "nodemon": "1.11.0",
     "rimraf": "2.5.4",
