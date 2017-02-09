@@ -21,6 +21,7 @@ This seed repository provides the following features:
 * [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
 * [x] State container with [**Redux**](http://redux.js.org/).
 * [x] Immutable collections with [**Immutable**](http://facebook.github.io/immutable-js/).
+* [x] Data visualizations with [**D3**](https://d3js.org/).
 * ---------- **Dev Tools** ----------
 * [x] Automatically restart with [**Nodemon**](https://github.com/remy/nodemon).
 * [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
@@ -195,6 +196,17 @@ Observable::from(map2)
   // ["a", 1]
   // ["b", 4]
   // ["c", 3]
+```
+
+5) Example of D3
+```js
+import { select } from 'd3-selection';
+import { jsdom } from 'jsdom';
+
+const document = jsdom();
+
+select(document.body)
+  .append('svg');
 ```
 
 ## Other Commands
