@@ -41,6 +41,14 @@ This seed repository provides the following features:
 * [ ] Software container with [**Docker**](https://github.com/docker/docker).
 * [ ] Continuous integration with [**Travis**](https://github.com/travis-ci/travis-ci).
 
+## Table of Contents
+* [Getting Started](#getting-started)
+* [Dockerization](#dockerization)
+* [Configuration](#configuration)
+* [Using Libraries](#using-libraries)
+* [All Commands](#all-commands)
+* [Directory Structure](#directory-structure)
+
 ## Getting Started
 
 1) Clone this Boilerplate
@@ -59,7 +67,13 @@ $ yarn install
 $ yarn start
 ```
 
-## Using Docker
+4) Stay up-to-date
+```bash
+$ git remote add upstream https://github.com/Shyam-Chen/Backend-Starter-Kit.git
+$ git pull upstream master
+```
+
+## Dockerization
 
 1) Build the Image
 ```bash
@@ -76,9 +90,18 @@ $ docker run -it -p 8000:8000 --name app Backend-Starter-Kit
 $ docker-compose up
 ```
 
+## Configuration
+
+Server configuration
+
+```js
+app.set('port', (process.env.PORT || 8000));
+```
+
 ## Using Libraries
 
-1) Example of Lodash
+Example of Lodash
+
 ```js
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
@@ -90,7 +113,8 @@ Observable::of(lowerFirst('Hello'), lowerFirst('World'))
   // world
 ```
 
-2) Example of ReactiveX
+Example of ReactiveX
+
 ```js
 import { Observable } from 'rxjs/Observable';
 import { timer } from 'rxjs/observable/timer';
@@ -106,21 +130,20 @@ Observable::timer(2000)
   // ["World"]
 ```
 
-3) Example of Redux
+Example of Redux
+
 ```js
 import { filter } from 'rxjs/operator/filter';
 import { map } from 'rxjs/operator/map';
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { combineEpics, createEpicMiddleware } from 'redux-observable';
 
-// Types
 const INCREMENT = 'INCREMENT';
 const DECREMENT = 'DECREMENT';
 const RESET = 'RESET';
 const INCREMENT_IF_ODD = 'INCREMENT_IF_ODD';
 const DECREMENT_IF_EVEN = 'DECREMENT_IF_EVEN';
 
-// Reducers
 const counterReducer = (state = 0, action) => {
   switch (action.type) {
     case INCREMENT:
@@ -134,14 +157,12 @@ const counterReducer = (state = 0, action) => {
   }
 };
 
-// Actions
 const increment = () => ({ type: INCREMENT });
 const decrement = () => ({ type: DECREMENT });
 const reset = () => ({ type: RESET });
 const incrementIfOdd = () => ({ type: INCREMENT_IF_ODD });
 const decrementIfEven = () => ({ type: DECREMENT_IF_EVEN });
 
-// Epics
 const incrementIfOddEpic = (action$, store) =>
   action$.ofType(INCREMENT_IF_ODD)
     ::filter(() => store.getState().counterReducer % 2 === 1)
@@ -155,7 +176,6 @@ const decrementIfEvenEpic = (action$, store) =>
 const rootEpic = combineEpics(incrementIfOddEpic, decrementIfEvenEpic);
 const epicMiddleware = createEpicMiddleware(rootEpic);
 
-// Store
 const rootReducer = combineReducers({ counterReducer });
 const store = createStore(rootReducer, applyMiddleware(epicMiddleware));
 
@@ -182,7 +202,8 @@ store.dispatch(decrement());
 // -1
 ```
 
-4) Example of Immutable
+Example of Immutable
+
 ```js
 import { Observable } from 'rxjs/Observable';
 import { from } from 'rxjs/observable/from';
@@ -198,7 +219,8 @@ Observable::from(map2)
   // ["c", 3]
 ```
 
-5) Example of D3
+Example of D3
+
 ```js
 import { select } from 'd3-selection';
 import { jsdom } from 'jsdom';
@@ -209,7 +231,7 @@ select(document.body)
   .append('svg');
 ```
 
-## Other Commands
+## All Commands
 
 ```bash
 $ yarn run dev
