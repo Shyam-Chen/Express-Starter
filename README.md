@@ -251,15 +251,29 @@ $ yarn run reinstall
 │   └── build|deploy|install|test.sh
 ├── src
 │   ├── ctrls
-│   │   └── ...
+│   │   └── index.js ...
 │   ├── models
-│   │   └── ...
+│   │   └── index.js ...
 │   ├── routes
-│   │   └── ...
+│   │   └── index.js ...
 │   ├── utils
-│   │   └── ...
-│   └── index.js
+│   │   └── index.js ...
+│   ├── index.js
+│   └── server.js
 ├── test
-│   └── ...
-└── package.json
+│   └── test.js ...
+├── .editorconfig
+├── .eslintrc
+├── .gitattributes
+├── .gitignore
+├── .travis.yml
+├── Dockerfile
+├── LICENSE
+├── Procfile
+├── README.md
+├── default.vcl
+├── docker-compose.yml
+├── nginx.conf
+├── package.json
+└── yarn.lock
 ```
