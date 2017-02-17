@@ -1,5 +1,7 @@
 import { Router } from 'express';
 
+import { User } from '../models';
+
 const router = Router();
 
 router.get('/', (req, res) => {
@@ -7,27 +9,11 @@ router.get('/', (req, res) => {
 });
 
 router.get('/api', (req, res) => {
-  res.json({
-    notes: '...'
+  User.find({}, (err, users) => {
+    if(err) throw err;
+    console.log(users);
+    res.end(JSON.stringify(users));
   });
-});
-
-router.post('/api', (req, res) => {
-	if(!req.body.notes || typeof req.body.notes !== 'string') {
-    res.status(400).send('400 Bad Request');
-	}
-
-	req.user.customData.notes = req.body.notes;
-	req.user.customData.save();
-	res.status(200).end();
-})
-
-router.put('/api/:coll', (req, res) => {
-  res.send();
-});
-
-router.delete('/api/:coll', (req, res) => {
-  res.send();
 });
 
 export const route = router;
