@@ -3,6 +3,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import prerender from 'prerender-node';
+import bodyParser from 'body-parser';
 
 import { route } from './routes';
 
@@ -23,6 +24,8 @@ app.set('port', (process.env.PORT || 8000));
 
 // app.use(express.static(join(__dirname, '..', 'public')));
 app.use(prerender);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(route);
 
 app.listen(app.get('port'), () => {
@@ -43,7 +46,7 @@ app.listen(app.get('port'), () => {
 //   (err) => {
 //     if (err) return console.error(`Error while launching applications ${err.stack || err}.`);
 //     console.log('PM2 and application has been succesfully started.');
-// 
+//
 //     pm2.launchBus((err, bus) => {
 //       console.log('PM2: Log streaming started.');
 //       bus.on('log:out', (packet) => console.log(`App (out): ${packet.process.name} - ${packet.data}`));
