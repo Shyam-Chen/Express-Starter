@@ -8,6 +8,11 @@ router.get('/', (req, res) => {
   res.send('Backend Starter Kit');
 });
 
+// router.get('/protected', (req, res) => {
+//   if (!req.user.admin) return res.sendStatus(401);
+//   res.sendStatus(200);
+// });
+
 router.get('/api', (req, res) => {
   User.find({}, (err, users) => {
     if(err) throw err;
