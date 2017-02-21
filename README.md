@@ -48,6 +48,7 @@ This seed repository provides the following features:
 * [Using Libraries](#using-libraries)
 * [All Commands](#all-commands)
 * [Directory Structure](#directory-structure)
+* [TODO List](#todo-list)
 
 ## Getting Started
 
@@ -108,7 +109,7 @@ import { of } from 'rxjs/observable/of';
 import { lowerFirst } from 'lodash';
 
 Observable::of(lowerFirst('Hello'), lowerFirst('World'))
-  .subscribe(result => console.log(result));
+  .subscribe(value => console.log(value));
   // hello
   // world
 ```
@@ -175,7 +176,6 @@ const decrementIfEvenEpic = (action$, store) =>
 
 const rootEpic = combineEpics(incrementIfOddEpic, decrementIfEvenEpic);
 const epicMiddleware = createEpicMiddleware(rootEpic);
-
 const rootReducer = combineReducers({ counterReducer });
 const store = createStore(rootReducer, applyMiddleware(epicMiddleware));
 
@@ -213,7 +213,7 @@ const map1 = Map({ a: 1, b: 2, c: 3 });
 const map2 = map1.set('b', 4);
 
 Observable::from(map2)
-  .subscribe(val => console.log(val));
+  .subscribe(value => console.log(value));
   // ["a", 1]
   // ["b", 4]
   // ["c", 3]
@@ -222,13 +222,27 @@ Observable::from(map2)
 Example of D3
 
 ```js
+import { Observable } from 'rxjs/Observable';
+import { fromEvent } from 'rxjs/observable/fromEvent';
 import { select } from 'd3-selection';
-import { jsdom } from 'jsdom';
+import { transition } from 'd3-transition';
 
-const document = jsdom();
+Observable::fromEvent(document, 'click')
+  .subscribe(() => {
+    const exEl = select('#ex');
 
-select(document.body)
-  .append('svg');
+    exEl.text('Hello!')
+      .style('text-align', 'center')
+      .style('line-height', '10rem')
+      .style('font-size', '7rem')
+      ::transition()
+      .duration(500)
+      .style('color', '#F44336');
+  });
+```
+
+```html
+<div id="ex"></div>
 ```
 
 ## All Commands
@@ -277,3 +291,7 @@ $ yarn run reinstall
 ├── package.json
 └── yarn.lock
 ```
+
+## TODO List
+* JSON Web Token
+* Representational State Transfer
