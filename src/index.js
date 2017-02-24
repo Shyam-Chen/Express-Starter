@@ -1,4 +1,4 @@
-// import { join } from 'path';
+import { join } from 'path';
 
 import express from 'express';
 import mongoose from 'mongoose';
@@ -22,7 +22,7 @@ conn.once('open', () => console.log('Connection Succeeded.'));
 
 app.set('port', (process.env.PORT || 8000));
 
-// app.use(express.static(join(__dirname, '..', 'public')));
+app.use(express.static(join(__dirname, '..', 'public')));
 app.use(prerender);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

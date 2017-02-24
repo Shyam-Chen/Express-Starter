@@ -5,7 +5,7 @@ import { User } from '../models';
 const router = Router();
 
 router.get('/', (req, res) => {
-  res.send('Backend Starter Kit');
+  res.render('index.html');
 });
 
 // router.get('/protected', (req, res) => {
