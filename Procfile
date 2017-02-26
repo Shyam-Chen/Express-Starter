@@ -1,1 +1,1 @@
-web: node dist/index.js
+web: babel src -d dist && node dist/index.js
