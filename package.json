@@ -44,6 +44,7 @@
     "jsdom": "9.11.0",
     "lodash": "4.17.4",
     "mongoose": "4.8.5",
+    "morgan": "1.8.1",
     "pm2": "2.4.0",
     "prerender-node": "2.7.0",
     "redux": "3.6.0",
