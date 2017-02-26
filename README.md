@@ -48,7 +48,6 @@ This seed repository provides the following features:
 * [Using Libraries](#using-libraries)
 * [All Commands](#all-commands)
 * [Directory Structure](#directory-structure)
-* [TODO List](#todo-list)
 
 ## Getting Started
 
@@ -106,12 +105,12 @@ Example of Lodash
 ```js
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-import { lowerFirst } from 'lodash';
+import { lowerFirst, pad } from 'lodash';
 
-Observable::of(lowerFirst('Hello'), lowerFirst('World'))
+Observable::of(lowerFirst('Hello'), pad('World', 5))
   .subscribe(value => console.log(value));
   // hello
-  // world
+  // World
 ```
 
 Example of ReactiveX
@@ -140,41 +139,26 @@ import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { combineEpics, createEpicMiddleware } from 'redux-observable';
 
 const INCREMENT = 'INCREMENT';
-const DECREMENT = 'DECREMENT';
-const RESET = 'RESET';
 const INCREMENT_IF_ODD = 'INCREMENT_IF_ODD';
-const DECREMENT_IF_EVEN = 'DECREMENT_IF_EVEN';
 
 const counterReducer = (state = 0, action) => {
   switch (action.type) {
     case INCREMENT:
       return state + 1;
-    case DECREMENT:
-      return state - 1;
-    case RESET:
-      return 0;
     default:
       return state;
   }
 };
 
 const increment = () => ({ type: INCREMENT });
-const decrement = () => ({ type: DECREMENT });
-const reset = () => ({ type: RESET });
 const incrementIfOdd = () => ({ type: INCREMENT_IF_ODD });
-const decrementIfEven = () => ({ type: DECREMENT_IF_EVEN });
 
 const incrementIfOddEpic = (action$, store) =>
   action$.ofType(INCREMENT_IF_ODD)
     ::filter(() => store.getState().counterReducer % 2 === 1)
     ::map(increment);
 
-const decrementIfEvenEpic = (action$, store) =>
-  action$.ofType(DECREMENT_IF_EVEN)
-    ::filter(() => store.getState().counterReducer % 2 === 0)
-    ::map(decrement);
-
-const rootEpic = combineEpics(incrementIfOddEpic, decrementIfEvenEpic);
+const rootEpic = combineEpics(incrementIfOddEpic);
 const epicMiddleware = createEpicMiddleware(rootEpic);
 const rootReducer = combineReducers({ counterReducer });
 const store = createStore(rootReducer, applyMiddleware(epicMiddleware));
@@ -184,22 +168,8 @@ store.subscribe(() => {
   console.log(counterReducer);
 });
 
-store.dispatch(increment());
-// 1
-
-store.dispatch(incrementIfOdd());
-// 1
-// 2
-
-store.dispatch(decrementIfEven());
-// 2
-// 1
-
-store.dispatch(reset());
-// 0
-
-store.dispatch(decrement());
-// -1
+store.dispatch(increment());  // 1
+store.dispatch(incrementIfOdd());  // 1 -> 2
 ```
 
 Example of Immutable
@@ -231,7 +201,7 @@ Observable::fromEvent(document, 'click')
   .subscribe(() => {
     const exEl = select('#ex');
 
-    exEl.text('Hello!')
+    exEl.text('Hello World')
       .style('text-align', 'center')
       .style('line-height', '10rem')
       .style('font-size', '7rem')
@@ -291,7 +261,3 @@ $ yarn run reinstall
 ├── package.json
 └── yarn.lock
 ```
-
-## TODO List
-* JSON Web Token
-* Representational State Transfer
