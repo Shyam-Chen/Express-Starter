@@ -9,21 +9,13 @@
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <style media="screen">
-      :root {
-        --mdc-theme-primary: #9C27B0;  /* Purple - 500 */
-        --mdc-theme-accent: #009688;  /* Teal - 500 */
-      }
-
       main {
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-      }
-
-      .mdc-ripple-surface.mdc-ripple-upgraded.mdc-button--accent::before,
-      .mdc-ripple-surface.mdc-ripple-upgraded.mdc-button--accent::after {
-        background-color: rgba(0, 77, 64, .2);  /* 900 */
+        max-width: 22rem;
+        min-width: 15rem;
       }
     </style>
   </head>
@@ -37,7 +29,9 @@
           A boilerplate for Node.js, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.
         </section>
         <section class="mdc-card__actions">
-          <button class="mdc-button mdc-button--compact mdc-button--accent mdc-ripple-surface mdc-card__action" data-mdc-auto-init="MDCRipple">Get Started</button>
+          <a href="https://github.com/Shyam-Chen/Backend-Starter-Kit"
+            class="mdc-button mdc-button--compact mdc-button--accent mdc-ripple-surface mdc-card__action"
+            data-mdc-auto-init="MDCRipple">Get Started</a>
         </section>
       </div>
     </main>
