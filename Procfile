@@ -1,1 +1,1 @@
-web: npm run prod
+web: babel src -d dist && node dist/index.js

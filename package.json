@@ -7,9 +7,11 @@
     "dev": "nodemon src/index.js --exec babel-node",
     "test": "mocha --compilers js:babel-register",
     "prod": "babel src -d dist && pm2 start dist/index.js -i 0 --name \"app\"",
+    "lint": "eslint src && eslint test",
     "clean": "rimraf dist",
     "reset": "git reset --hard HEAD && git clean -df",
-    "reinstall": "yarn cache clean && git clean -dfx -e '.*' && yarn install"
+    "reinstall": "yarn cache clean && git clean -dfx -e '.*' && yarn install",
+    "deploy": "git push heroku master"
   },
   "repository": {
     "type": "git",
