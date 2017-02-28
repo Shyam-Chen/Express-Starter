@@ -24,7 +24,7 @@ This seed repository provides the following features:
 * [x] Data visualizations with [**D3**](https://d3js.org/).
 * ---------- **Dev Tools** ----------
 * [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
-* [ ] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
+* [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
 * [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
 * ---------- **Test Tools** ----------
 * [x] Static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
