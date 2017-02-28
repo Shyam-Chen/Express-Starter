@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "A boilerplate for Node.js, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.",
   "scripts": {
-    "start": "nodemon src/index.js --exec babel-node",
-    "dev": "nodemon src/index.js --exec babel-node",
+    "start": "nodemon src/server.js --exec babel-node",
+    "dev": "nodemon src/server.js --exec babel-node",
     "test": "mocha --compilers js:babel-register",
     "prod": "babel src -d dist && pm2 start dist/index.js -i 0 --name \"app\"",
     "lint": "eslint src && eslint test",
