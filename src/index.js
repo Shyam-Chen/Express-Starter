@@ -2,7 +2,7 @@ import pm2 from 'pm2';
 
 pm2.connect(() => {
   pm2.start({
-    script: './server.js',
+    script: './dist/server.js',
     name: 'Backend-Starter-Kit',
     exec_mode: 'cluster',
     instances: process.env.WEB_CONCURRENCY || -1,

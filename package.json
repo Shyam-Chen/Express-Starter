@@ -6,7 +6,7 @@
     "start": "nodemon src/server.js --exec babel-node",
     "dev": "nodemon src/server.js --exec babel-node",
     "test": "mocha --compilers js:babel-register",
-    "prod": "babel src -d dist && pm2 start dist/index.js -i 0 --name \"app\"",
+    "build": "babel src -d dist",
     "lint": "eslint src && eslint test",
     "clean": "rimraf dist",
     "reset": "git reset --hard HEAD && git clean -df",
