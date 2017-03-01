@@ -26,14 +26,6 @@
     "url": "https://github.com/Shyam-Chen/Backend-Starter-Kit/issues"
   },
   "homepage": "https://github.com/Shyam-Chen/Backend-Starter-Kit#readme",
-  "babel": {
-    "presets": [
-      "latest"
-    ],
-    "plugins": [
-      "transform-function-bind"
-    ]
-  },
   "dependencies": {
     "babel-cli": "6.23.0",
     "babel-plugin-transform-function-bind": "6.22.0",
