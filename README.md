@@ -19,9 +19,9 @@ This seed repository provides the following features:
 * ---------- **Secondary Key** ----------
 * [x] Utility functions with [**Lodash**](https://lodash.com/).
 * [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
-* [x] State container with [**Redux**](http://redux.js.org/).
-* [x] Immutable collections with [**Immutable**](http://facebook.github.io/immutable-js/).
-* [x] Data visualizations with [**D3**](https://d3js.org/).
+* [x] Authentication and information exchange with [**JWT**](https://jwt.io/).
+* [x] Data query language with [**GraphQL**](http://graphql.org/).
+* [x] Realtime application with [**Socket.IO**](https://socket.io/).
 * ---------- **Dev Tools** ----------
 * [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
 * [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
@@ -124,94 +124,9 @@ import { combineAll } from 'rxjs/operator/combineAll';
 Observable::timer(2000)
   ::mapTo(Observable::of('Hello', 'World'))
   ::combineAll()
-  .subscribe(result => console.log(result));
+  .subscribe(value => console.log(value));
   // ["Hello"]
   // ["World"]
-```
-
-Example of Redux
-
-```js
-import { filter } from 'rxjs/operator/filter';
-import { map } from 'rxjs/operator/map';
-import { combineReducers, createStore, applyMiddleware } from 'redux';
-import { combineEpics, createEpicMiddleware } from 'redux-observable';
-
-const INCREMENT = 'INCREMENT';
-const INCREMENT_IF_ODD = 'INCREMENT_IF_ODD';
-
-const counterReducer = (state = 0, action) => {
-  switch (action.type) {
-    case INCREMENT:
-      return state + 1;
-    default:
-      return state;
-  }
-};
-
-const increment = () => ({ type: INCREMENT });
-const incrementIfOdd = () => ({ type: INCREMENT_IF_ODD });
-
-const incrementIfOddEpic = (action$, store) =>
-  action$.ofType(INCREMENT_IF_ODD)
-    ::filter(() => store.getState().counterReducer % 2 === 1)
-    ::map(increment);
-
-const rootEpic = combineEpics(incrementIfOddEpic);
-const epicMiddleware = createEpicMiddleware(rootEpic);
-const rootReducer = combineReducers({ counterReducer });
-const store = createStore(rootReducer, applyMiddleware(epicMiddleware));
-
-store.subscribe(() => {
-  const { counterReducer } = store.getState();
-  console.log(counterReducer);
-});
-
-store.dispatch(increment());  // 1
-store.dispatch(incrementIfOdd());  // 1 -> 2
-```
-
-Example of Immutable
-
-```js
-import { Observable } from 'rxjs/Observable';
-import { from } from 'rxjs/observable/from';
-import { Map } from 'immutable';
-
-const map1 = Map({ a: 1, b: 2, c: 3 });
-const map2 = map1.set('b', 4);
-
-Observable::from(map2)
-  .subscribe(value => console.log(value));
-  // ["a", 1]
-  // ["b", 4]
-  // ["c", 3]
-```
-
-Example of D3
-
-```js
-import { Observable } from 'rxjs/Observable';
-import { fromEvent } from 'rxjs/observable/fromEvent';
-import { select } from 'd3-selection';
-import { transition } from 'd3-transition';
-
-Observable::fromEvent(document, 'click')
-  .subscribe(() => {
-    const exEl = select('#ex');
-
-    exEl.text('Hello World')
-      .style('text-align', 'center')
-      .style('line-height', '10rem')
-      .style('font-size', '7rem')
-      ::transition()
-      .duration(500)
-      .style('color', '#F44336');
-  });
-```
-
-```html
-<div id="ex"></div>
 ```
 
 ## All Commands
