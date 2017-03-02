@@ -129,6 +129,42 @@ Observable::timer(2000)
   // ["World"]
 ```
 
+Example of JWT
+
+```js
+import jwt from 'express-jwt';
+```
+
+Example of GraphQL
+
+```js
+import graphql from 'express-graphql';
+```
+
+Example of Socket.IO
+
+```js
+import io from 'socket.io';
+
+const socket = io.listen(server);
+
+socket.on('connection', (client) => {
+  console.log('Establish a connection');
+  client.on('B', (message) => {
+    console.log(message);
+    socket.emit('A', 'A: Hi, B!');
+  });
+});
+```
+
+```js
+const socket = io.connect('http://localhost:8000');
+
+socket.on('connect', () => console.log('Accept a connection'));
+socket.on('A', (message) => console.log(message));
+socket.emit('B', 'B: What\'s up?');
+```
+
 ## All Commands
 
 ```bash
