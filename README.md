@@ -7,7 +7,7 @@
 [![Dependency Status](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit.svg)](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit)
 [![devDependency Status](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit/dev-status.svg)](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit?type=dev)
 
-[Live Demo](https://expressmongoose-live-demo.herokuapp.com/)
+[Live Demo](https://backend-sk.herokuapp.com/)
 
 This seed repository provides the following features:
 * ---------- **Primary Key** ----------
