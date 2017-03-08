@@ -2,7 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 
 const userSchema = new Schema({
   name: String,
-  user_name: { type: String, required: true, unique: true },
+  account: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   image: String,
   created_at: { type: Date, default: Date.now },

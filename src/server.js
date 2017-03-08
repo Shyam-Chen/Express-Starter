@@ -9,7 +9,7 @@ import bodyParser from 'body-parser';
 import { route } from './routes';
 
 const app = express();
-mongoose.connect('mongodb://expressmongoose:expressmongoose@ds031167.mlab.com:31167/expressmongoose-starter-kit');
+mongoose.connect('mongodb://backend-sk:backend-sk@ds157258.mlab.com:57258/backend-starter-kit');
 
 app.set('port', (process.env.PORT || 8000));
 
