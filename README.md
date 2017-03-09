@@ -21,7 +21,7 @@ This seed repository provides the following features:
 * [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
 * [x] Authentication and information exchange with [**JWT**](https://jwt.io/).
 * [x] Data query language with [**GraphQL**](http://graphql.org/).
-* [x] Realtime application with [**Socket.IO**](https://socket.io/).
+* [x] Realtime application with [**Socket**](https://socket.io/).
 * ---------- **Dev Tools** ----------
 * [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
 * [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
