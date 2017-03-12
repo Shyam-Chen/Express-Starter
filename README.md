@@ -107,6 +107,18 @@ app.set('port', (process.env.PORT || 8000));
 
 ## Using Libraries
 
+Example of Controller
+
+```js
+import express from 'express';
+```
+
+Example of Model
+
+```js
+import mongoose, { Schema } from 'mongoose';
+```
+
 Example of Lodash
 
 ```js
