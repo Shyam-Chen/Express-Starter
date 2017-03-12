@@ -19,7 +19,7 @@ This seed repository provides the following features:
 * ---------- **Secondary Key** ----------
 * [x] Utility functions with [**Lodash**](https://lodash.com/).
 * [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
-* [x] Authentication and information exchange with [**JWT**](https://jwt.io/).
+* [x] Authentication with [**JWT**](https://jwt.io/).
 * [x] Data query language with [**GraphQL**](http://graphql.org/).
 * [x] Realtime application with [**Socket**](https://socket.io/).
 * ---------- **Dev Tools** ----------
@@ -47,26 +47,31 @@ This seed repository provides the following features:
 * [Using Libraries](#using-libraries)
 * [All Commands](#all-commands)
 * [Directory Structure](#directory-structure)
+* [To-Do List](#to-do-list)
 
 ## Getting Started
 
 1) Clone this Boilerplate
+
 ```bash
 $ git clone --depth 1 https://github.com/Shyam-Chen/Backend-Starter-Kit.git <PROJECT_NAME>
 $ cd <PROJECT_NAME>
 ```
 
 2) Install Dependencies
+
 ```bash
 $ yarn install
 ```
 
 3) Run the Application
+
 ```bash
 $ yarn start
 ```
 
 4) Stay up-to-date
+
 ```bash
 $ git remote add upstream https://github.com/Shyam-Chen/Backend-Starter-Kit.git
 $ git pull upstream master
@@ -75,23 +80,26 @@ $ git pull upstream master
 ## Dockerization
 
 1) Build the Image
+
 ```bash
 $ docker build -t Backend-Starter-Kit .
 ```
 
 2) Run the Container
+
 ```bash
 $ docker run -it -p 8000:8000 --name app Backend-Starter-Kit
 ```
 
 3) Just Compose
+
 ```bash
 $ docker-compose up
 ```
 
 ## Configuration
 
-Server configuration
+Application configuration
 
 ```js
 app.set('port', (process.env.PORT || 8000));
@@ -181,6 +189,9 @@ $ yarn run reinstall
 
 ```
 .
+├── public
+│   ├── favicon.ico
+│   └── index.html
 ├── scripts
 │   └── build|deploy|install|test.sh
 ├── src
@@ -190,12 +201,16 @@ $ yarn run reinstall
 │   │   └── index.js ...
 │   ├── routes
 │   │   └── index.js ...
+│   ├── types
+│   │   └── index.js ...
 │   ├── utils
 │   │   └── index.js ...
 │   ├── index.js
+│   ├── schema.js
 │   └── server.js
 ├── test
 │   └── test.js ...
+├── .babelrc
 ├── .editorconfig
 ├── .eslintrc
 ├── .gitattributes
@@ -205,9 +220,11 @@ $ yarn run reinstall
 ├── LICENSE
 ├── Procfile
 ├── README.md
-├── default.vcl
 ├── docker-compose.yml
 ├── nginx.conf
 ├── package.json
 └── yarn.lock
 ```
+
+## To-Do List
+* ...
