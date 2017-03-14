@@ -6,7 +6,7 @@ import compression from 'compression';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 
-import { route } from './routes';
+import { routes, listRoutes } from './routes';
 
 const app = express();
 mongoose.connect('mongodb://backend-sk:backend-sk@ds157258.mlab.com:57258/backend-starter-kit');
@@ -19,7 +19,9 @@ app.use(compression());
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(route);
+
+app.use(routes);
+app.use('/list', listRoutes);
 
 app.listen(app.get('port'), () => {
   console.log('Bootstrap Succeeded.');
