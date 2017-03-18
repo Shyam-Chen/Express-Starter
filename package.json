@@ -27,9 +27,9 @@
   },
   "homepage": "https://github.com/Shyam-Chen/Backend-Starter-Kit#readme",
   "dependencies": {
-    "babel-cli": "6.23.0",
+    "babel-cli": "6.24.0",
     "babel-plugin-transform-function-bind": "6.22.0",
-    "babel-preset-latest": "6.22.0",
+    "babel-preset-latest": "6.24.0",
     "body-parser": "1.17.1",
     "compression": "1.6.2",
     "express": "4.15.2",
@@ -38,7 +38,7 @@
     "graphql": "0.9.1",
     "jsonwebtoken": "7.3.0",
     "lodash": "4.17.4",
-    "mongoose": "4.8.6",
+    "mongoose": "4.9.0",
     "morgan": "1.8.1",
     "pm2": "2.4.2",
     "rxjs": "5.2.0",
@@ -46,12 +46,12 @@
   },
   "devDependencies": {
     "babel-eslint": "7.1.1",
-    "babel-register": "6.23.0",
+    "babel-register": "6.24.0",
     "chai": "3.5.0",
-    "eslint": "3.17.1",
+    "eslint": "3.18.0",
     "mocha": "3.2.0",
     "nodemon": "1.11.0",
     "rimraf": "2.6.1",
-    "sinon": "1.17.7"
+    "sinon": "2.0.0"
   }
 }
