@@ -1,7 +1,6 @@
 import { join } from 'path';
 import express from 'express';
 import mongoose from 'mongoose';
-import prerender from 'prerender-node';
 import compression from 'compression';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
@@ -14,7 +13,6 @@ mongoose.connect('mongodb://backend-sk:backend-sk@ds157258.mlab.com:57258/backen
 app.set('port', (process.env.PORT || 8000));
 
 app.use(express.static(join(__dirname, '..', 'public')));
-app.use(prerender);
 app.use(compression());
 app.use(morgan('tiny'));
 app.use(bodyParser.json());

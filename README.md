@@ -107,7 +107,7 @@ app.set('port', (process.env.PORT || 8000));
 
 ## Using Libraries
 
-Example of Controller
+Example of Route
 
 ```js
 import express from 'express';
@@ -207,8 +207,6 @@ $ yarn run reinstall
 ├── scripts
 │   └── build|deploy|install|test.sh
 ├── src
-│   ├── ctrls
-│   │   └── index.js ...
 │   ├── models
 │   │   └── index.js ...
 │   ├── routes
