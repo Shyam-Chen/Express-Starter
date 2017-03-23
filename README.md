@@ -47,7 +47,7 @@ This seed repository provides the following features:
 * [Using Libraries](#using-libraries)
 * [All Commands](#all-commands)
 * [Directory Structure](#directory-structure)
-* [To-Do List](#to-do-list)
+* [Known Issues](#known-issues)
 
 ## Getting Started
 
@@ -202,10 +202,9 @@ $ yarn run reinstall
 ```
 .
 ├── public
-│   ├── favicon.ico
-│   └── index.html
+│   └── client-side rules ...
 ├── scripts
-│   └── build|deploy|install|test.sh
+│   └── build|deploy|test.sh
 ├── src
 │   ├── models
 │   │   └── index.js ...
@@ -236,5 +235,5 @@ $ yarn run reinstall
 └── yarn.lock
 ```
 
-## To-Do List
+## Known Issues
 * ...
