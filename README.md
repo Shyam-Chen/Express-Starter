@@ -38,7 +38,7 @@ This seed repository provides the following features:
 * [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
 * [ ] Reverse proxy and caching with [**Nginx**](https://github.com/nginx/nginx).
 * [ ] Software container with [**Docker**](https://github.com/docker/docker).
-* [ ] Continuous integration with [**Travis**](https://github.com/travis-ci/travis-ci).
+* [x] Continuous integration with [**Travis**](https://github.com/travis-ci/travis-ci).
 
 ## Table of Contents
 * [Getting Started](#getting-started)

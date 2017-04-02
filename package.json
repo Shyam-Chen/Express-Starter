@@ -4,9 +4,9 @@
   "description": "A boilerplate for Node.js, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.",
   "scripts": {
     "start": "nodemon src/server.js --exec babel-node",
-    "dev": "nodemon src/server.js --exec babel-node",
     "test": "mocha --compilers js:babel-register",
-    "prod": "babel src -d dist && node dist/index.js",
+    "dev": "nodemon src/server.js --exec babel-node",
+    "prod": "babel src -d dist",
     "lint": "eslint src && eslint test",
     "clean": "rimraf dist",
     "reset": "git reset --hard HEAD && git clean -df",

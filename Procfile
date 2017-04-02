@@ -1,1 +1,1 @@
-web: npm run prod
+web: node_modules/.bin/babel-node src/index.js
