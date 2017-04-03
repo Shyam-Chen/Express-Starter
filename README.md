@@ -236,4 +236,12 @@ $ yarn run reinstall
 ```
 
 ## Known Issues
+* ---------- **Easy** ----------
+* Add CRUD example (REST)
+* Add CRUD test (REST)
+* ---------- **Medium** ----------
+* ...
+* ---------- **Hard** ----------
+* ...
+* ---------- **Other** ----------
 * ...
