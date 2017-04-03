@@ -36,8 +36,8 @@ This seed repository provides the following features:
 * [x] Text editor with [**Atom**](https://github.com/atom/atom).
 * [x] Version control with [**Git**](https://github.com/git/git).
 * [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
-* [ ] Reverse proxy and caching with [**Nginx**](https://github.com/nginx/nginx).
-* [ ] Software container with [**Docker**](https://github.com/docker/docker).
+* [x] Reverse proxy and caching with [**Nginx**](https://github.com/nginx/nginx).
+* [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**Travis**](https://github.com/travis-ci/travis-ci).
 
 ## Table of Contents

@@ -4,11 +4,10 @@ pm2.connect(() => {
   pm2.start(
     {
       name: 'Backend-Starter-Kit',
-      script: 'server.js',
-      args: '--interpreter node_modules/.bin/babel-node',
-      cwd: process.cwd(),
-      maxMemoryRestart: `${process.env.WEB_MEMORY || 512}M`,
-      execMode: 'cluster',
+      script: `${__dirname}/server.js`,
+      interpreter: 'babel-node',
+      max_memory_restart: `${process.env.WEB_MEMORY || 512}M`,
+      exec_mode: 'fork',
       instances: process.env.WEB_CONCURRENCY || -1
     },
     err => {

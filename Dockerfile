@@ -8,17 +8,15 @@ ENV PATH $HOME/.yarn/bin:$PATH
 WORKDIR ${HOME}
 ADD . $HOME
 
+# node
 RUN curl -sL https://deb.nodesource.com/setup_$NODE.x | bash - && \
     curl -o- -L https://yarnpkg.com/install.sh | bash && \
-    apt-get update && \
-    apt-get install -y \
-      nodejs \
-      nginx \
-      --no-install-recommends && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get update && apt-get install -y nodejs
 
-COPY . /Backend-Starter-Kit
+# cleanup
+RUN rm -rf /var/lib/apt/lists/*
 
+# install
 RUN yarn
 
 EXPOSE 8000
