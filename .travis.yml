@@ -9,7 +9,9 @@ cache: yarn
 branches:
   only: master
 
-script: npm test
+script:
+  - npm run lint
+  - npm run unit
 
 deploy:
   provider: heroku

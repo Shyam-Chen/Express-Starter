@@ -4,8 +4,9 @@
   "description": "A boilerplate for Node.js, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.",
   "scripts": {
     "start": "nodemon src/server.js --exec babel-node",
-    "test": "mocha --compilers js:babel-register",
+    "test": "mocha --compilers js:babel-register --watch",
     "lint": "eslint src && eslint test",
+    "unit": "mocha --compilers js:babel-register",
     "reset": "git reset --hard HEAD && git clean -df",
     "reinstall": "yarn cache clean && git clean -dfx -e '.*' && yarn install",
     "deploy": "git push heroku master"
