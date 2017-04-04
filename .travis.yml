@@ -27,6 +27,13 @@ branches:
 script:
   - npm run lint
   - npm run unit
+  # - docker-compose up -d
+  # - docker-compose exec app yarn run lint
+  # - docker-compose exec app yarn run unit
+
+# after_success:
+  # - docker-compose exec app heroku container:login
+  # - docker-compose exec app heroku container:push web
 
 deploy:
   provider: heroku
