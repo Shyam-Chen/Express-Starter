@@ -9,6 +9,21 @@ cache: yarn
 branches:
   only: master
 
+# env:
+#   matrix:
+#     - MODE=lint
+#     - MODE=unit
+
+# matrix:
+#   include:
+#     - env: MODE=docker
+#       services: docker
+#       install: true
+#       cache: docker
+#   exclude:
+#     - env: MODE=docker
+#       cache: yarn
+
 script:
   - npm run lint
   - npm run unit

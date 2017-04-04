@@ -8,7 +8,12 @@ import bodyParser from 'body-parser';
 import { routes, listRoutes } from './routes';
 
 const app = express();
-mongoose.connect('mongodb://backend-sk:backend-sk@ds157258.mlab.com:57258/backend-starter-kit');
+
+if (process.env.NODE_ENV === 'production') {
+  mongoose.connect('mongodb://backend-sk:backend-sk@ds157258.mlab.com:57258/backend-starter-kit');
+} else {
+  mongoose.connect('mongodb://backend-sk:backend-sk@ds157258.mlab.com:57258/backend-starter-kit');
+}
 
 app.set('port', (process.env.PORT || 8000));
 
@@ -16,7 +21,7 @@ app.use(express.static(join(__dirname, '..', 'public')));
 app.use(compression());
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(routes);
 app.use('/list', listRoutes);
