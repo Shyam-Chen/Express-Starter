@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backend Starter Kit</title>
     <meta name="description" content="A boilerplate for Node.js, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <style media="screen">
       body {
         background: #F5F5F5;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
       }
 
       main {
@@ -22,10 +26,73 @@
         min-width: 15rem;
         background: #FFFFFF;
       }
+
+      .menu-btn {
+        background: none;
+        border: none;
+        width: 24px;
+        height: 24px;
+        padding: 0;
+        margin: 0;
+        color: #FFF;
+        box-sizing: border-box;
+      }
+
+      .title {
+        display: block;
+        position: relative;
+        font-family: Roboto,Helvetica,Arial,sans-serif;
+        font-size: 20px;
+        line-height: 1;
+        letter-spacing: .02em;
+        font-weight: 400;
+        box-sizing: border-box;
+        color: #424242;
+        line-height: 56px;
+        padding-left: 16px;
+      }
+
+      .toolbar-btn {
+        color: #FFFFFF;
+        margin: -.5rem .5rem 0;
+      }
     </style>
   </head>
   <body>
-    <main>
+    <div class="mdc-toolbar mdc-toolbar--fixed">
+      <div class="mdc-toolbar__row">
+        <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+          <button class="menu-btn material-icons">menu</button>
+          <span class="mdc-toolbar__title" style="margin-left: 1rem">Backend Starter Kit</span>
+        </section>
+        <section class="mdc-toolbar__section mdc-toolbar__section--align-end">
+          <a href="#" class="mdc-button mdc-ripple-surface toolbar-btn" data-mdc-auto-init="MDCRipple">Home</a>
+          <a href="#" class="mdc-button mdc-ripple-surface toolbar-btn" data-mdc-auto-init="MDCRipple">About</a>
+          <a href="#" class="mdc-button mdc-ripple-surface toolbar-btn" data-mdc-auto-init="MDCRipple">Contact</a>
+        </section>
+      </div>
+    </div>
+
+    <aside class="mdc-temporary-drawer">
+       <nav class="mdc-temporary-drawer__drawer">
+         <span class="title">Backend Starter Kit</span>
+         <nav class="mdc-temporary-drawer__content mdc-list-group">
+           <div class="mdc-list">
+             <a class="mdc-list-item mdc-temporary-drawer--selected" href="#">
+               <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">home</i>Home
+             </a>
+             <a class="mdc-list-item" href="#">
+               <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">face</i>About
+             </a>
+             <a class="mdc-list-item" href="#">
+               <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">comment</i>Contact
+             </a>
+           </div>
+         </nav>
+       </nav>
+     </aside>
+
+    <main class="mdc-toolbar-fixed-adjust">
       <div class="mdc-card">
         <section class="mdc-card__primary">
           <h1 class="mdc-card__title">Backend Starter Kit</h1>
@@ -42,6 +109,14 @@
     </main>
     <script>
       window.mdc.autoInit();
+
+      var MDCTemporaryDrawer = mdc.drawer.MDCTemporaryDrawer;
+      var drawer = new MDCTemporaryDrawer(document.querySelector('.mdc-temporary-drawer'));
+
+      document.querySelector('.menu-btn')
+        .onclick = function() {
+          drawer.open = true
+        };
     </script>
   </body>
 </html>
