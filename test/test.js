@@ -39,3 +39,30 @@ describe('hello', () => {
     expect(cb).to.have.been.calledWith('hello foo');
   });
 });
+
+// ------------------------------
+
+const once = fn => {
+  let returnValue;
+  let called = false;
+
+  return function () {
+    if (!called) {
+      called = true;
+      returnValue = fn.apply(this, arguments);
+    }
+
+    return returnValue;
+  };
+};
+
+describe('once', () => {
+  it('calls the original function', () => {
+    let cb = spy();
+    let proxy = once(cb);
+
+    proxy();
+
+    expect(cb).to.have.been.called;
+  });
+});

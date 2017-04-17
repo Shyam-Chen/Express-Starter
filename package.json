@@ -51,6 +51,6 @@
     "nodemon": "1.11.0",
     "rimraf": "2.6.1",
     "sinon": "2.1.0",
-    "sinon-chai": "^2.9.0"
+    "sinon-chai": "2.9.0"
   }
 }
