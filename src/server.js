@@ -32,3 +32,5 @@ app.listen(app.get('port'), () => {
   mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
   mongoose.connection.once('open', () => console.log('Connection Succeeded.'));
 });
+
+export default app;
