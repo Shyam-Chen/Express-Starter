@@ -57,12 +57,31 @@ const once = fn => {
 };
 
 describe('once', () => {
-  it('calls the original function', () => {
-    let cb = spy();
-    let proxy = once(cb);
+  let cb, proxy;
 
+  beforeEach(() => {
+    cb = spy();
+    proxy = once(cb);
+  });
+
+  it('calls the original function', () => {
     proxy();
 
     expect(cb).to.have.been.called;
+  });
+
+  it('calls the original function only once', () => {
+    proxy();
+    proxy();
+
+    expect(cb).to.have.been.calledOnce;
+  });
+
+  it('calls original function with right this and args', () => {
+    const obj = {};
+    proxy.call(obj, 1, 2, 3);
+
+    expect(cb).to.have.been.calledOn(obj);
+    expect(cb).to.have.been.calledWith(1, 2, 3);
   });
 });
