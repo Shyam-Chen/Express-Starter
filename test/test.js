@@ -1,16 +1,14 @@
-import { expect } from 'chai';
+import chai, { expect } from 'chai';
+import { spy } from 'sinon';
+import sinonChai from 'sinon-chai';
+
+chai.use(sinonChai);
 
 // import server from '../src/server';
 
 describe('test', () => {
   it('true is true', () => expect(true).to.equal(true));
 });
-
-// import { spy } from 'sinon';
-
-// spy();
-// spy(func);
-// spy(object, 'method');
 
 // ------------------------------
 
@@ -25,5 +23,19 @@ describe('capitalize', () => {
   it('leaves strings with no words alone', () => {
     expect(capitalize('')).to.equal('');
     expect(capitalize('123')).to.equal('123');
+  });
+});
+
+// ------------------------------
+
+const hello = (name, cb) => {
+  cb(`hello ${name}`);
+};
+
+describe('hello', () => {
+  it('should call callback with correct greeting', () => {
+    const cb = spy();
+    hello('foo', cb);
+    expect(cb).to.have.been.calledWith('hello foo');
   });
 });
