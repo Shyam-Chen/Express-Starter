@@ -161,7 +161,7 @@ Example of GraphQL
 import graphql from 'express-graphql';
 ```
 
-Example of Socket.IO
+Example of Socket
 
 ```js
 import io from 'socket.io';
@@ -170,7 +170,7 @@ const socket = io.listen(server);
 
 socket.on('connection', (client) => {
   console.log('Establish a connection');
-  client.on('B', (message) => {
+  client.on('B', message => {
     console.log(message);
     socket.emit('A', 'A: Hi, B!');
   });
@@ -181,7 +181,7 @@ socket.on('connection', (client) => {
 const socket = io.connect('http://localhost:8000');
 
 socket.on('connect', () => console.log('Accept a connection'));
-socket.on('A', (message) => console.log(message));
+socket.on('A', message => console.log(message));
 socket.emit('B', 'B: What\'s up?');
 ```
 
@@ -201,10 +201,8 @@ $ yarn run reinstall
 
 ```
 .
-├── public
-│   └── client-side rules ...
-├── scripts
-│   └── build|deploy|test.sh
+├── public  -> client-side rules ...
+├── scripts  -> shell scripts ...
 ├── src
 │   ├── models
 │   │   └── index.js ...
@@ -237,8 +235,7 @@ $ yarn run reinstall
 
 ## Known Issues
 * ---------- **Easy** ----------
-* Add CRUD example (REST)
-* Add CRUD test (REST)
+* ...
 * ---------- **Medium** ----------
 * ...
 * ---------- **Hard** ----------
