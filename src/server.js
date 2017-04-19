@@ -9,11 +9,9 @@ import { routes, listRoutes } from './routes';
 
 const app = express();
 
-if (process.env.NODE_ENV === 'production') {
-  mongoose.connect('mongodb://backend-sk:backend-sk@ds157258.mlab.com:57258/backend-starter-kit');
-} else {
-  mongoose.connect('mongodb://backend-sk:backend-sk@ds157258.mlab.com:57258/backend-starter-kit');
-}
+process.env.NODE_ENV === 'production'
+  ? mongoose.connect('mongodb://backend-sk:backend-sk@ds157258.mlab.com:57258/backend-starter-kit')
+  : mongoose.connect('mongodb://localhost/test');
 
 app.set('port', (process.env.PORT || 8000));
 

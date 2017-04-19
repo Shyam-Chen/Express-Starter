@@ -67,6 +67,7 @@ $ yarn install
 3) Run the Application
 
 ```bash
+$ mongod
 $ yarn start
 ```
 

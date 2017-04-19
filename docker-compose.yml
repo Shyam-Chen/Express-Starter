@@ -1,21 +1,14 @@
 version: '2'
 
 services:
-  nginx:
-    image: nginx:1.11.12-alpine
-    read_only: true
-    tmpfs:
-      - /var/cache/nginx
-      - /var/log/nginx
-      - /var/run
-    depends_on:
-      - app
-    ports:
-      - "8000:80"
-    volumes:
-      - /nginx.conf:/etc/nginx/conf.d/default.conf:ro
   app:
     build: .
     ports:
       - "8000:8000"
     tty: true
+    links:
+      - db
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
