@@ -9,6 +9,10 @@ import { routes, listRoutes } from './routes';
 
 const app = express();
 
+// heroku config:set MONGODB_URI=mongodb://backend-sk:backend-sk@ds157258.mlab.com:57258/backend-starter-kit
+// export MONGODB_URI=mongodb://localhost/test
+// mongoose.connect(process.env.MONGODB_URI)
+
 process.env.NODE_ENV === 'production'
   ? mongoose.connect('mongodb://backend-sk:backend-sk@ds157258.mlab.com:57258/backend-starter-kit')
   : mongoose.connect('mongodb://localhost/test');
