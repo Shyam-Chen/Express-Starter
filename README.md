@@ -10,6 +10,7 @@
 [Live Demo](https://backend-starter-kit.herokuapp.com/)
 
 This seed repository provides the following features:
+
 * ---------- **Primary Key** ----------
 * [x] Server-side platform with [**Node**](https://nodejs.org/en/).
 * [x] Application framework with [**Express**](http://expressjs.com/).
@@ -19,9 +20,9 @@ This seed repository provides the following features:
 * ---------- **Secondary Key** ----------
 * [x] Utility functions with [**Lodash**](https://lodash.com/).
 * [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
-* [x] Authentication with [**JWT**](https://jwt.io/).
+* [x] Securely authentication with [**JWT**](https://jwt.io/).
 * [x] Data query language with [**GraphQL**](http://graphql.org/).
-* [x] Realtime application with [**Socket**](https://socket.io/).
+* [x] Real-time bidirectional communication with [**Socket**](https://socket.io/).
 * ---------- **Dev Tools** ----------
 * [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
 * [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
@@ -41,6 +42,7 @@ This seed repository provides the following features:
 * [x] Continuous integration with [**Travis**](https://github.com/travis-ci/travis-ci).
 
 ## Table of Contents
+
 * [Getting Started](#getting-started)
 * [Dockerization](#dockerization)
 * [Configuration](#configuration)
@@ -186,6 +188,17 @@ socket.on('A', message => console.log(message));
 socket.emit('B', 'B: What\'s up?');
 ```
 
+The practical examples:
+
+* Authentication
+  * Google
+  * Facebook
+  * Twitter
+* RESTful API
+* File Upload
+* Email
+* PayPal
+
 ## All Commands
 
 ```bash
@@ -235,6 +248,7 @@ $ yarn run reinstall
 ```
 
 ## Known Issues
+
 * ---------- **Easy** ----------
 * ...
 * ---------- **Medium** ----------
