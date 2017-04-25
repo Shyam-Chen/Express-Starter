@@ -10,12 +10,12 @@ import { routes, listRoutes } from './routes';
 
 const app = express();
 
-// heroku config:set MONGODB_URI=mongodb://backend-sk:backend-sk@ds157258.mlab.com:57258/backend-starter-kit
+// heroku config:set MONGODB_URI=mongodb://backend-go:backend-go@ds113871.mlab.com:13871/backend-go-demo
 // export MONGODB_URI=mongodb://localhost/backend-go-demo
 // mongoose.connect(process.env.MONGODB_URI)
 
 process.env.NODE_ENV === 'production'
-  ? mongoose.connect('mongodb://backend-sk:backend-sk@ds157258.mlab.com:57258/backend-starter-kit')
+  ? mongoose.connect('mongodb://backend-go:backend-go@ds113871.mlab.com:13871/backend-go-demo')
   : mongoose.connect('mongodb://localhost/backend-go-demo');
 
 app.set('port', (process.env.PORT || 8000));

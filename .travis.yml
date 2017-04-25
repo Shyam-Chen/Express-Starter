@@ -34,7 +34,7 @@ deploy:
   provider: heroku
   api_key:
     secure: ${HEROKU_TOKEN}
-  app: backend-starter-kit
+  app: backend-go-demo
   on:
     branch: master
 

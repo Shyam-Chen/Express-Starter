@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Backend Starter Kit</title>
+    <title>Backend GO</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="description" content="A boilerplate for Node.js, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-    <style media="screen">
+    <style>
       body {
         background: #F5F5F5;
         padding: 0;
@@ -63,7 +64,7 @@
       <div class="mdc-toolbar__row">
         <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
           <button class="menu-btn material-icons">menu</button>
-          <span class="mdc-toolbar__title" style="margin-left: 1rem">Backend Starter Kit</span>
+          <span class="mdc-toolbar__title" style="margin-left: 1rem">Backend GO</span>
         </section>
         <section class="mdc-toolbar__section mdc-toolbar__section--align-end">
           <a href="#" class="mdc-button mdc-ripple-surface toolbar-btn" data-mdc-auto-init="MDCRipple">Home</a>
@@ -75,7 +76,7 @@
 
     <aside class="mdc-temporary-drawer">
        <nav class="mdc-temporary-drawer__drawer">
-         <span class="title">Backend Starter Kit</span>
+         <span class="title">Backend GO</span>
          <nav class="mdc-temporary-drawer__content mdc-list-group">
            <div class="mdc-list">
              <a class="mdc-list-item mdc-temporary-drawer--selected" href="#">
@@ -95,7 +96,7 @@
     <main class="mdc-toolbar-fixed-adjust">
       <div class="mdc-card">
         <section class="mdc-card__primary">
-          <h1 class="mdc-card__title">Backend Starter Kit</h1>
+          <h1 class="mdc-card__title">Welcome to Backend GO</h1>
         </section>
         <section class="mdc-card__supporting-text">
           A boilerplate for Node.js, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.
@@ -110,13 +111,10 @@
     <script>
       window.mdc.autoInit();
 
-      var MDCTemporaryDrawer = mdc.drawer.MDCTemporaryDrawer;
-      var drawer = new MDCTemporaryDrawer(document.querySelector('.mdc-temporary-drawer'));
+      const MDCTemporaryDrawer = window.mdc.drawer.MDCTemporaryDrawer;
+      const drawer = new MDCTemporaryDrawer(document.querySelector('.mdc-temporary-drawer'));
 
-      document.querySelector('.menu-btn')
-        .onclick = function() {
-          drawer.open = true
-        };
+      document.querySelector('.menu-btn').onclick = () => drawer.open = true;
     </script>
   </body>
 </html>
