@@ -2,13 +2,25 @@ import { Router } from 'express';
 
 import { List } from '../models';
 
-const listRouter = Router();
+const router = Router();
 
-listRouter.get('/', (req, res, next) => {
+router.get('/', (req, res, next) => {
   List.find({}, (err, data) => {
     if (err) return next(err);
     res.json(data);
   });
 });
 
-export const listRoutes = listRouter;
+router.get('/:text', (req, res, next) => {
+  const list = new List({
+    text: req.params.text,
+    created: new Date()
+  });
+
+  list.save(err => {
+    if (err) return next(err);
+    res.redirect('/list');
+  });
+});
+
+export const listRoutes = router;
