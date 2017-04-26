@@ -14,9 +14,11 @@ const app = express();
 // export MONGODB_URI=mongodb://localhost/backend-go-demo
 // mongoose.connect(process.env.MONGODB_URI)
 
-process.env.NODE_ENV === 'production'
-  ? mongoose.connect('mongodb://backend-go:backend-go@ds113871.mlab.com:13871/backend-go-demo')
-  : mongoose.connect('mongodb://localhost/backend-go-demo');
+// process.env.NODE_ENV === 'production'
+//   ? mongoose.connect('mongodb://backend-go:backend-go@ds113871.mlab.com:13871/backend-go-demo')
+//   : mongoose.connect('mongodb://localhost/backend-go-demo');
+
+mongoose.connect('mongodb://backend-go:backend-go@ds113871.mlab.com:13871/backend-go-demo');
 
 app.set('port', (process.env.PORT || 8000));
 
