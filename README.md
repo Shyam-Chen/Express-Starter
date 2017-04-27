@@ -69,7 +69,6 @@ $ yarn install
 3) Run the Application
 
 ```bash
-$ mongod
 $ yarn start
 ```
 
@@ -106,6 +105,15 @@ Application configuration
 
 ```js
 app.set('port', (process.env.PORT || 8000));
+app.set('database', (process.env.MONGODB_URI || 'mongodb://backend-go:backend-go@ds113871.mlab.com:13871/backend-go-demo'));
+```
+
+Mongo configuration
+
+```bash
+$ heroku config:set MONGODB_URI=<MONGODB_URI>
+# or
+$ export MONGODB_URI=<MONGODB_URI>
 ```
 
 ## Using Libraries
@@ -190,14 +198,11 @@ socket.emit('B', 'B: What\'s up?');
 
 The practical examples:
 
-* Authentication
-  * Google
-  * Facebook
-  * Twitter
-* RESTful API
-* File Upload
-* Email
-* PayPal
+* Authentication - Google OAuth 2.0
+* Datastore - CRUD data stored
+* Storage - Store images
+* Notification - Send email
+* Payment - PayPal REST
 
 ## All Commands
 
