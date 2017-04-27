@@ -198,11 +198,11 @@ socket.emit('B', 'B: What\'s up?');
 
 The practical examples:
 
-* Authentication - Google OAuth 2.0
-* Datastore - CRUD data stored
-* Storage - Store images
+* [Authentication - Google OAuth 2.0](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/auth-google)
+* [Datastore - CRUD data stored](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/rest)
+* [Storage - Store images](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/rest)
 * Notification - Send email
-* Payment - PayPal REST
+* [Payment - PayPal REST](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/paypal-rest-sdk)
 
 ## All Commands
 
