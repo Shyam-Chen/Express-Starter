@@ -12,6 +12,7 @@ const app = express();
 
 app.set('port', (process.env.PORT || 8000));
 app.set('database', (process.env.MONGODB_URI || 'mongodb://backend-go:backend-go@ds113871.mlab.com:13871/backend-go-demo'));
+app.set('secret', process.env.SECRET || 'backendgo');
 
 mongoose.connect(app.get('database'));
 

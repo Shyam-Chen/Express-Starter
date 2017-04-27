@@ -19,8 +19,9 @@ router.get('/:text', (req, res, next) => {
 
   list.save(err => {
     if (err) return next(err);
-    console.log('List saved.');
+    console.log('List saved successfully.');
     res.redirect('/list');
+    // res.json({ success: true });
   });
 });
 
