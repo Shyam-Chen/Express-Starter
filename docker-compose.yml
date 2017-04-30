@@ -6,9 +6,9 @@ services:
     ports:
       - "8000:8000"
     tty: true
-    links:
-      - db
-  db:
-    image: mongo
-    ports:
-      - "27017:27017"
+  #   links:
+  #     - db
+  # db:
+  #   image: mongo
+  #   ports:
+  #     - "27017:27017"
