@@ -1,14 +1,31 @@
 version: '2'
 
 services:
+  # nginx:
+  #   image: nginx
+  #   read_only: true
+  #   tmpfs:
+  #     - /var/cache/nginx
+  #     - /var/log/nginx
+  #     - /var/run
+  #   depends_on:
+  #     - app
+  #   ports:
+  #     - "8000:80"
+  #   volumes:
+  #     - /nginx.conf:/etc/nginx/conf.d/default.conf:ro
   app:
     build: .
     ports:
       - "8000:8000"
     tty: true
+    environment:
+      - MONGODB_URI=mongodb://backend-go:backend-go@ds113871.mlab.com:13871/backend-go-demo
+      - GOOGLE_ID=<ID>.apps.googleusercontent.com
+      - GOOGLE_SECRET=<SECRET>
     links:
-      - db
-  db:
+      - mongo
+  mongo:
     image: mongo
     ports:
       - "27017:27017"

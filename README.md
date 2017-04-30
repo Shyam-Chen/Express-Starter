@@ -81,22 +81,16 @@ $ git pull upstream master
 
 ## Dockerization
 
-1) Build the Image
-
-```bash
-$ docker build -t Backend-Starter-Kit .
-```
-
-2) Run the Container
-
-```bash
-$ docker run -it -p 8000:8000 --name app Backend-Starter-Kit
-```
-
-3) Just Compose
+1) Build and run the Container
 
 ```bash
 $ docker-compose up
+```
+
+2) Run a command in a running container
+
+```bash
+$ docker-compose exec app <COMMAND>
 ```
 
 ## Configuration
