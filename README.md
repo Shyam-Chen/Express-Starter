@@ -37,7 +37,6 @@ This seed repository provides the following features:
 * [x] Text editor with [**Atom**](https://github.com/atom/atom).
 * [x] Version control with [**Git**](https://github.com/git/git).
 * [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
-* [x] Reverse proxy and caching with [**Nginx**](https://github.com/nginx/nginx).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**Travis**](https://github.com/travis-ci/travis-ci).
 
@@ -105,8 +104,6 @@ app.set('database', (process.env.MONGODB_URI || 'mongodb://backend-go:backend-go
 Mongo configuration
 
 ```bash
-$ heroku config:set MONGODB_URI=<MONGODB_URI>
-# or
 $ export MONGODB_URI=<MONGODB_URI>
 ```
 
@@ -253,7 +250,7 @@ $ yarn run reinstall
 * ---------- **P1: Urgent** ----------
 * ...
 * ---------- **P2: Required** ----------
-* Deploy in Docker container
+* ...
 * ---------- **P3: Important** ----------
 * ...
 * ---------- **P4: Nice to have** ----------
