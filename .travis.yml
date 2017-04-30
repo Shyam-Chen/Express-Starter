@@ -24,18 +24,11 @@ matrix:
     - env: MODE=docker
       cache: yarn
 
-# before_install: chmod +x scripts/*.sh
+before_install: chmod +x scripts/*.sh
 
-before_script:
-  - if [[ "$MODE" == "docker" ]]; then docker-compose up -d; fi
-
-script:
-  - if [[ "$MODE" == "docker" ]]; then docker-compose exec app yarn run lint; fi
-  - if [[ "$MODE" == "docker" ]]; then docker-compose exec app yarn run unit; fi
-  - if [[ "$MODE" == "lint" ]]; then yarn run lint; fi
-  - if [[ "$MODE" == "unit" ]]; then yarn run unit; fi
-
-# after_success:
+before_script: scripts/build.sh
+script: scripts/test.sh
+# after_success: scripts/deploy.sh
 
 deploy:
   provider: heroku
