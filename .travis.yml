@@ -28,15 +28,15 @@ before_install: chmod +x scripts/*.sh
 
 before_script: scripts/build.sh
 script: scripts/test.sh
-# after_success: scripts/deploy.sh
+after_success: scripts/deploy.sh
 
-deploy:
-  provider: heroku
-  api_key:
-    secure: ${HEROKU_TOKEN}
-  app: backend-go-demo
-  on:
-    branch: master
+# deploy:
+#   provider: heroku
+#   api_key:
+#     secure: ${HEROKU_TOKEN}
+#   app: backend-go-demo
+#   on:
+#     branch: master
 
 notifications:
   email:
