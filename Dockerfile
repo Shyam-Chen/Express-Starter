@@ -14,10 +14,9 @@ RUN curl -sL https://deb.nodesource.com/setup_$NODE.x | bash - && \
     curl -o- -L https://yarnpkg.com/install.sh | bash && \
     apt-get update && apt-get install -y nodejs
 
-# heroku
-RUN echo "deb http://toolbelt.heroku.com/ubuntu ./" > /etc/apt/sources.list.d/heroku.list && \
-    wget -O- https://toolbelt.heroku.com/apt/release.key | apt-key add - && \
-    apt-get update && apt-get install -y heroku-toolbelt
+# ruby
+RUN apt-get update && apt-get install -y ruby && \
+    gem install dpl
 
 # cleanup
 RUN rm -rf /var/lib/apt/lists/*
