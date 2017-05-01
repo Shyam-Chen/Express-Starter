@@ -4,7 +4,7 @@ pm2.connect(() => {
   pm2.start(
     {
       name: 'Backend-Starter-Kit',
-      script: `${__dirname}/server.js`,
+      script: `${__dirname}/app.js`,
       interpreter: 'babel-node',
       max_memory_restart: `${process.env.WEB_MEMORY || 512}M`,
       exec_mode: 'fork',

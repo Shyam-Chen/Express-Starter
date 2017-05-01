@@ -1,1 +1,1 @@
-web: babel-node src/index.js
+web: babel-node src/pm2.js

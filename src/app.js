@@ -9,7 +9,7 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 
 import { routes, listRoutes } from './routes';
-import schema from './schema';
+import schema from './graphql';
 
 const app = express();
 
