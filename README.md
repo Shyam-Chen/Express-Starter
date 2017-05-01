@@ -101,12 +101,6 @@ app.set('port', (process.env.PORT || 8000));
 app.set('database', (process.env.MONGODB_URI || 'mongodb://backend-go:backend-go@ds113871.mlab.com:13871/backend-go-demo'));
 ```
 
-Mongo configuration
-
-```bash
-$ export MONGODB_URI=<MONGODB_URI>
-```
-
 ## Using Libraries
 
 Example of Route

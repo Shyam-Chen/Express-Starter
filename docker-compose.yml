@@ -6,7 +6,3 @@ services:
     ports:
       - "8000:8000"
     tty: true
-    environment:
-      - MONGODB_URI=mongodb://backend-go:backend-go@ds113871.mlab.com:13871/backend-go-demo
-      - GOOGLE_ID=<ID>.apps.googleusercontent.com
-      - GOOGLE_SECRET=<SECRET>
