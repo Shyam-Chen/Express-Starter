@@ -7,7 +7,7 @@
 [![Dependency Status](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit.svg)](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit)
 [![devDependency Status](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit/dev-status.svg)](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit?type=dev)
 
-[Live Demo](https://backend-go-demo.herokuapp.com/)
+[Live Demo](https://web-go-demo.herokuapp.com/)
 
 This seed repository provides the following features:
 

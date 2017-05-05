@@ -1,0 +1,32 @@
+{
+  "version": "1.0.0",
+  "name": "Web GO",
+  "launch_path": "/",
+  "description": "A boilerplate for HTML5 and Node.js.",
+  "icons": {
+  },
+  "developer": {
+    "name": "",
+    "url": ""
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+  },
+  "locales": {
+    "en": {
+      "name": "Web GO",
+      "description": "A boilerplate for HTML5 and Node.js."
+    },
+    "zh": {
+      "name": "Web GO",
+      "description": "HTML5 和 Node.js 的樣板"
+    },
+    "ja": {
+      "name": "Web GO",
+      "description": "HTML5 と Node.js のための定型文"
+    }
+  }
+}
