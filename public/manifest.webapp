@@ -4,6 +4,7 @@
   "launch_path": "/",
   "description": "A boilerplate for HTML5 and Node.js.",
   "icons": {
+    "128": "icon-128x128.png"
   },
   "developer": {
     "name": "",
