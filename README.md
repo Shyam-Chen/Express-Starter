@@ -14,13 +14,13 @@ This seed repository provides the following features:
 * ---------- **Primary Key** ----------
 * [x] Server-side platform with [**Node**](https://nodejs.org/en/).
 * [x] Application framework with [**Express**](http://expressjs.com/).
-* [x] Dadabase object modeling with [**Mongoose**](http://mongoosejs.com/).
+* [x] Database object modeling with [**Mongoose**](http://mongoosejs.com/).
 * [x] Application cloud hosting with [**Heroku**](https://www.heroku.com/).
-* [x] Dadabase cloud hosting with [**mLab**](https://mlab.com/).
+* [x] Database cloud hosting with [**mLab**](https://mlab.com/).
 * ---------- **Secondary Key** ----------
 * [x] Utility functions with [**Lodash**](https://lodash.com/).
 * [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
-* [x] Securely authentication with [**JWT**](https://jwt.io/).
+* [x] Secure authentication with [**JWT**](https://jwt.io/).
 * [x] Data query language with [**GraphQL**](http://graphql.org/).
 * [x] Real-time bidirectional communication with [**Socket**](https://socket.io/).
 * ---------- **Dev Tools** ----------
