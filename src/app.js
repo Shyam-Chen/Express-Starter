@@ -23,14 +23,6 @@ mongoose.connect(app.get('mongodb-uri'));
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
 mongoose.connection.once('open', () => console.log('Connection Succeeded.'));
 
-app.use(express.static(root));
-app.use(history('index.html', { root }));
-app.use(compression());
-app.use(cors());
-app.use(morgan('tiny'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }))
-
 app.use('/', jwt({
   secret: app.get('secret'),
   credentialsRequired: false
@@ -45,6 +37,14 @@ app.use('/graphql', graphql(req => ({
 })));
 
 app.use('/list', listRoutes);
+
+app.use(express.static(root));
+app.use(history('index.html', { root }));
+app.use(compression());
+app.use(cors());
+app.use(morgan('tiny'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.listen(app.get('port'), () => {
   console.log('Bootstrap Succeeded.');
