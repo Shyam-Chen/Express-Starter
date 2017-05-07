@@ -33,6 +33,7 @@
     "cors": "2.8.3",
     "express": "4.15.2",
     "express-graphql": "0.6.4",
+    "express-history-api-fallback": "2.1.0",
     "express-jwt": "5.3.0",
     "graphql": "0.9.3",
     "jsonwebtoken": "7.4.0",
