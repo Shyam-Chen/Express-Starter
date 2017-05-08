@@ -16,8 +16,8 @@ const app = express();
 const root = join(__dirname, '..', 'public');
 
 app.set('port', (process.env.PORT || 8000));
-app.set('mongodb-uri', (process.env.MONGODB_URI || 'mongodb://backend-go:backend-go@ds113871.mlab.com:13871/backend-go-demo'));
-app.set('secret', process.env.SECRET || 'backendgo');
+app.set('mongodb-uri', (process.env.MONGODB_URI || 'mongodb://web-go:web-go@ds133961.mlab.com:33961/web-go-demo'));
+app.set('secret', process.env.SECRET || 'webgo');
 
 mongoose.connect(app.get('mongodb-uri'));
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
