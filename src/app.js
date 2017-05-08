@@ -2,6 +2,7 @@ import { join } from 'path';
 import express from 'express';
 import jwt from 'express-jwt';
 import graphql from 'express-graphql';
+// import socket from 'socket.io';
 import mongoose from 'mongoose';
 import history from 'express-history-api-fallback';
 import compression from 'compression';
@@ -23,7 +24,13 @@ mongoose.connect(app.get('mongodb-uri'));
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
 mongoose.connection.once('open', () => console.log('Connection Succeeded.'));
 
-app.use('/', jwt({
+app.use(compression());
+app.use(cors());
+app.use(morgan('tiny'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use('/jwt', jwt({
   secret: app.get('secret'),
   credentialsRequired: false
 }));
@@ -40,15 +47,12 @@ app.use('/list', listRoutes);
 
 app.use(express.static(root));
 app.use(history('index.html', { root }));
-app.use(compression());
-app.use(cors());
-app.use(morgan('tiny'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }))
 
-app.listen(app.get('port'), () => {
+/* const server = */app.listen(app.get('port'), () => {
   console.log('Bootstrap Succeeded.');
   console.log(`Port: ${app.get('port')}.`);
 });
+
+// const io = socket.listen(server);
 
 export default app;
