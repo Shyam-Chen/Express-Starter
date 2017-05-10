@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["app-b01c26153a.js","b01c26153a17b763bdf7bfce43d21cdc"],["apple-touch-icon.png","7326f54bfe6776293f08b34c3a5fde7b"],["chrome-touch-icon-192x192.png","571f134f59f14a6d298ddd66c015b293"],["favicon.ico","1378625ad714e74eebcfa67bb2f61d81"],["icon-128x128.png","7c46d686765c49b813ac5eb34fabf712"],["index.html","770f7eaae6c048c8c4275bb1bc9d301c"],["manifest.json","8c03d19afa4ea2659b3c9abb05d7b95d"],["manifest.webapp","fc3f4e7f4f615e1b2abd2f2c036f11f3"],["ms-touch-icon-144x144-precomposed.png","452d90b250d6f41a0c8f9db729113ffd"],["polyfills-1d75c182c4.js","1d75c182c4bf00d1b7dd2dc30de984d4"],["robots.txt","987497bfb623e1059632e5a607d56454"],["sitemap.xml","2e691f3611392f6c8151365153afc206"],["vendor-7944c7a226.js","7944c7a2260c0fbff87eaa92a86b400d"]];
+var precacheConfig = [["app-2c51b96106.js","2c51b9610666fa1cdbc1a7f468435058"],["apple-touch-icon.png","7326f54bfe6776293f08b34c3a5fde7b"],["chrome-touch-icon-192x192.png","571f134f59f14a6d298ddd66c015b293"],["favicon.ico","1378625ad714e74eebcfa67bb2f61d81"],["icon-128x128.png","7c46d686765c49b813ac5eb34fabf712"],["index.html","fa0df8683ac4851e837a34e2bcf89f80"],["manifest.json","487b7e46f07d04404cdab47ba2a98c90"],["manifest.webapp","5233b778b882b3ce17b2f69d78d4d722"],["ms-touch-icon-144x144-precomposed.png","452d90b250d6f41a0c8f9db729113ffd"],["polyfills-1d75c182c4.js","1d75c182c4bf00d1b7dd2dc30de984d4"],["robots.txt","987497bfb623e1059632e5a607d56454"],["sitemap.xml","ffefca433806303b5f7228378fcb14d8"],["vendor-7944c7a226.js","7944c7a2260c0fbff87eaa92a86b400d"]];
 var cacheName = 'sw-precache-v3-Frontend-Starter-Kit-' + (self.registration ? self.registration.scope : '');
 
 
@@ -107,6 +107,8 @@ var isPathWhitelisted = function (whitelist, absoluteUrlString) {
 var stripIgnoredUrlParameters = function (originalUrl,
     ignoreUrlParametersMatching) {
     var url = new URL(originalUrl);
+    // Remove the hash; see https://github.com/GoogleChrome/sw-precache/issues/290
+    url.hash = '';
 
     url.search = url.search.slice(1) // Exclude initial '?'
       .split('&') // Split into an array of 'key=value' strings
@@ -212,8 +214,8 @@ self.addEventListener('fetch', function(event) {
     // handlers a chance to handle the request if need be.
     var shouldRespond;
 
-    // First, remove all the ignored parameter and see if we have that URL
-    // in our cache. If so, great! shouldRespond will be true.
+    // First, remove all the ignored parameters and hash fragment, and see if we
+    // have that URL in our cache. If so, great! shouldRespond will be true.
     var url = stripIgnoredUrlParameters(event.request.url, ignoreUrlParametersMatching);
     shouldRespond = urlsToCacheKeys.has(url);
 
@@ -227,7 +229,7 @@ self.addEventListener('fetch', function(event) {
 
     // If shouldRespond is still false, check to see if this is a navigation
     // request, and if so, whether the URL matches navigateFallbackWhitelist.
-    var navigateFallback = '';
+    var navigateFallback = '/index.html';
     if (!shouldRespond &&
         navigateFallback &&
         (event.request.mode === 'navigate') &&
@@ -283,7 +285,9 @@ self.addEventListener('fetch', function(event) {
 
 // Runtime cache configuration, using the sw-toolbox library.
 
-toolbox.router.get(/runtime-caching/, toolbox.cacheFirst, {"cache":{"maxEntries":1,"name":"runtime-cache"}});
+toolbox.router.get(/\.com/, toolbox.fastest, {});
+toolbox.router.get(/runtime-caching/, toolbox.cacheFirst, {"cache":{"maxEntries":50,"name":"runtime-cache"}});
+toolbox.router.default = toolbox.networkFirst;
 
 
 
