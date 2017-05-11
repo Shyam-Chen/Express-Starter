@@ -24,4 +24,27 @@ router.get('/:text', (req, res, next) => {
   });
 });
 
+router.route('/:id')
+  .put((req, res, next) => {
+    List.findById(req.params.id,
+      (err, list) => {
+        if (err) return next(err);
+        list.text = req.params.text;
+        list.updated = new Date();
+        list.save(err => {
+          if (err) return next(err);
+          res.redirect('/');
+        });
+      }
+    );
+  })
+  .get((req, res, next) => {
+    List.findByIdAndRemove(req.params.id,
+      err => {
+        if (err) return next(err);
+        res.redirect('/list');
+      }
+    );
+});
+
 export const listRoutes = router;
