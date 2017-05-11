@@ -26,7 +26,8 @@ router.get('/:text', (req, res, next) => {
 
 router.route('/:id')
   .put((req, res, next) => {
-    List.findById(req.params.id,
+    List.findById(
+      req.params.id,
       (err, list) => {
         if (err) return next(err);
         list.text = req.params.text;
@@ -39,7 +40,8 @@ router.route('/:id')
     );
   })
   .get((req, res, next) => {
-    List.findByIdAndRemove(req.params.id,
+    List.findByIdAndRemove(
+      req.params.id,
       err => {
         if (err) return next(err);
         res.redirect('/list');
