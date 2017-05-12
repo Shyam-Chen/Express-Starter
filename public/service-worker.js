@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["app-2c51b96106.js","2c51b9610666fa1cdbc1a7f468435058"],["apple-touch-icon.png","7326f54bfe6776293f08b34c3a5fde7b"],["chrome-touch-icon-192x192.png","571f134f59f14a6d298ddd66c015b293"],["favicon.ico","1378625ad714e74eebcfa67bb2f61d81"],["icon-128x128.png","7c46d686765c49b813ac5eb34fabf712"],["index.html","fa0df8683ac4851e837a34e2bcf89f80"],["manifest.json","487b7e46f07d04404cdab47ba2a98c90"],["manifest.webapp","5233b778b882b3ce17b2f69d78d4d722"],["ms-touch-icon-144x144-precomposed.png","452d90b250d6f41a0c8f9db729113ffd"],["polyfills-1d75c182c4.js","1d75c182c4bf00d1b7dd2dc30de984d4"],["robots.txt","987497bfb623e1059632e5a607d56454"],["sitemap.xml","ffefca433806303b5f7228378fcb14d8"],["vendor-7944c7a226.js","7944c7a2260c0fbff87eaa92a86b400d"]];
+var precacheConfig = [["app-2c51b96106.js","2c51b9610666fa1cdbc1a7f468435058"],["apple-touch-icon.png","7326f54bfe6776293f08b34c3a5fde7b"],["chrome-touch-icon-192x192.png","571f134f59f14a6d298ddd66c015b293"],["favicon.ico","1378625ad714e74eebcfa67bb2f61d81"],["icon-128x128.png","7c46d686765c49b813ac5eb34fabf712"],["index.html","79f256286d1c617c76bbc1ada393a2ae"],["manifest.json","e5c37bc008562ef13b4e43c668db7e06"],["manifest.webapp","121227d30c98561214a43b4120416e37"],["ms-touch-icon-144x144-precomposed.png","452d90b250d6f41a0c8f9db729113ffd"],["polyfills-1d75c182c4.js","1d75c182c4bf00d1b7dd2dc30de984d4"],["robots.txt","987497bfb623e1059632e5a607d56454"],["sitemap.xml","ffefca433806303b5f7228378fcb14d8"],["vendor-7944c7a226.js","7944c7a2260c0fbff87eaa92a86b400d"]];
 var cacheName = 'sw-precache-v3-Frontend-Starter-Kit-' + (self.registration ? self.registration.scope : '');
 
 
@@ -229,7 +229,7 @@ self.addEventListener('fetch', function(event) {
 
     // If shouldRespond is still false, check to see if this is a navigation
     // request, and if so, whether the URL matches navigateFallbackWhitelist.
-    var navigateFallback = '/index.html';
+    var navigateFallback = '';
     if (!shouldRespond &&
         navigateFallback &&
         (event.request.mode === 'navigate') &&

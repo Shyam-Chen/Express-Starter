@@ -34,7 +34,7 @@ router.route('/:id')
         list.updated = new Date();
         list.save(err => {
           if (err) return next(err);
-          res.redirect('/');
+          res.redirect('/list');
         });
       }
     );
