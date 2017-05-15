@@ -2,6 +2,7 @@ import { join } from 'path';
 import express from 'express';
 import jwt from 'express-jwt';
 import graphql from 'express-graphql';
+import { buildSchema } from 'graphql';
 // import socket from 'socket.io';
 import mongoose from 'mongoose';
 import history from 'express-history-api-fallback';
@@ -11,10 +12,10 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 
 import { listRoutes } from './routes';
-import schema from './graphql';
+// import schema from './graphql';
 
 const app = express();
-const root = join(__dirname, '..', 'public');
+const root = join(__dirname, '../public');
 
 app.set('port', (process.env.PORT || 8000));
 app.set('mongodb-uri', (process.env.MONGODB_URI || 'mongodb://web-go:web-go@ds133961.mlab.com:33961/web-go-demo'));
@@ -30,16 +31,24 @@ app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/jwt', jwt({
-  secret: app.get('secret'),
+app.use(jwt({
+  secret: Buffer.from(app.get('secret'), 'base64'),
   credentialsRequired: false
 }));
 
-app.use('/graphql', graphql(req => ({
+const schema = buildSchema(`
+  type Query {
+    helloWorld: String
+  }
+`);
+
+app.use('/graphql', graphql(() => ({
   schema,
   graphiql: true,
   rootValue: {
-    db: req.app.locals.db
+    helloWorld() {
+      return 'Hello World';
+    }
   }
 })));
 
