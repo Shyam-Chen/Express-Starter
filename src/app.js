@@ -22,7 +22,7 @@ app.set('secret', process.env.SECRET || 'webgo');
 
 mongoose.connect(app.get('mongodb-uri'));
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
-mongoose.connection.once('open', () => console.log('Connection Succeeded.'));
+mongoose.connection.once('open', () => console.log('DB: Connection Succeeded.'));
 
 app.use(compression());
 app.use(cors());
@@ -47,14 +47,18 @@ app.use(express.static(root));
 app.use(history('index.html', { root }));
 
 const server = app.listen(app.get('port'), () => {
-  console.log('Bootstrap Succeeded.');
+  console.log('App: Bootstrap Succeeded.');
   console.log(`Port: ${app.get('port')}.`);
 });
 
 const io = socket.listen(server);
 
-io.on('connection', () => {
-  console.log('Establish a connection.');
+io.on('connection', socket => {
+  console.log('WS: Establish a connection.');
+  socket.on('disconnect', () => console.log('WS: Disconnected'));
+
+  socket.emit('A', { foo: 'bar' });
+  socket.on('B', data => console.log(data));
 });
 
 export default app;
