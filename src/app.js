@@ -2,8 +2,7 @@ import { join } from 'path';
 import express from 'express';
 import jwt from 'express-jwt';
 import graphql from 'express-graphql';
-import { buildSchema } from 'graphql';
-// import socket from 'socket.io';
+import socket from 'socket.io';
 import mongoose from 'mongoose';
 import history from 'express-history-api-fallback';
 import compression from 'compression';
@@ -12,7 +11,7 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 
 import { listRoutes } from './routes';
-// import schema from './graphql';
+import { schema, rootValue } from './graphql';
 
 const app = express();
 const root = join(__dirname, '../public');
@@ -36,20 +35,10 @@ app.use(jwt({
   credentialsRequired: false
 }));
 
-const schema = buildSchema(`
-  type Query {
-    helloWorld: String
-  }
-`);
-
 app.use('/graphql', graphql(() => ({
   schema,
-  graphiql: true,
-  rootValue: {
-    helloWorld() {
-      return 'Hello World';
-    }
-  }
+  rootValue,
+  graphiql: true
 })));
 
 app.use('/list', listRoutes);
@@ -57,11 +46,15 @@ app.use('/list', listRoutes);
 app.use(express.static(root));
 app.use(history('index.html', { root }));
 
-/* const server = */app.listen(app.get('port'), () => {
+const server = app.listen(app.get('port'), () => {
   console.log('Bootstrap Succeeded.');
   console.log(`Port: ${app.get('port')}.`);
 });
 
-// const io = socket.listen(server);
+const io = socket.listen(server);
+
+io.on('connection', () => {
+  console.log('Establish a connection.');
+});
 
 export default app;
