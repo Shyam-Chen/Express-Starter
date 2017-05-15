@@ -30,10 +30,7 @@ app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(jwt({
-  secret: Buffer.from(app.get('secret'), 'base64'),
-  credentialsRequired: false
-}));
+app.use(jwt({ secret: Buffer.from(app.get('secret'), 'base64'), credentialsRequired: false }));
 
 app.use('/graphql', graphql(() => ({
   schema,
