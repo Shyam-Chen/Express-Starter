@@ -78,6 +78,12 @@ $ git remote add upstream https://github.com/Shyam-Chen/Backend-Starter-Kit.git
 $ git pull upstream master
 ```
 
+5) Usage the Mongo Shell
+
+```bash
+$ mongo ds133961.mlab.com:33961/web-go-demo -u web-go -p web-go
+```
+
 ## Dockerization
 
 1) Build and run the Container
@@ -160,25 +166,7 @@ import graphql from 'express-graphql';
 Example of Socket
 
 ```js
-import io from 'socket.io';
-
-const socket = io.listen(server);
-
-socket.on('connection', (client) => {
-  console.log('Establish a connection');
-  client.on('B', message => {
-    console.log(message);
-    socket.emit('A', 'A: Hi, B!');
-  });
-});
-```
-
-```js
-const socket = io.connect('http://localhost:8000');
-
-socket.on('connect', () => console.log('Accept a connection'));
-socket.on('A', message => console.log(message));
-socket.emit('B', 'B: What\'s up?');
+import socket from 'socket.io';
 ```
 
 The practical examples:

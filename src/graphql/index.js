@@ -12,24 +12,6 @@ export const rootValue = {
   }
 };
 
-// import { GraphQLSchema, GraphQLObjectType, GraphQLString, GraphQLList } from 'graphql';
-//
-// export default new GraphQLSchema({
-//   query: new GraphQLObjectType({
-//     name: 'Query',
-//     fields: {
-//       list: {
-//         type: new GraphQLList(GraphQLString),
-//         async resolve({ db }) {
-//           const items = await db.collection('list').find().toArray();
-//           return items.map(data => `${data.text}`);
-//         }
-//       }
-//     }
-//   })
-// });
-
-
 // import { GraphQLSchema, GraphQLObjectType } from 'graphql';
 //
 // import queries from './queries';
@@ -37,11 +19,11 @@ export const rootValue = {
 //
 // export default new GraphQLSchema({
 //   query: new GraphQLObjectType({
-//     name: 'Query',
+//     name: 'RootQueryType',
 //     fields: queries
 //   }),
 //   mutation: new GraphQLObjectType({
-//     name: 'Mutation',
+//     name: 'MutationRootType',
 //     fields: mutations
 //   })
 // });
