@@ -1,7 +1,7 @@
-import foo from './foo';
-import bar from './bar';
-
-export default {
-  ...foo,
-  ...bar
-};
+// import foo from './foo';
+// import bar from './bar';
+//
+// export default {
+//   ...foo,
+//   ...bar
+// };

@@ -1,1 +1,1 @@
-web: babel-node src/pm2.js
+web: node dist/pm2.js

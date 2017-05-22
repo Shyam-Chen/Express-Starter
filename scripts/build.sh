@@ -2,6 +2,4 @@
 
 set -eux
 
-# if [[ "$MODE" == "docker" ]]; then
-  docker-compose up -d
-# fi
+docker-compose up -d
