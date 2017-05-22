@@ -23,11 +23,11 @@ This seed repository provides the following features:
 * [x] Secure authentication with [**JWT**](https://jwt.io/).
 * [x] Data query language with [**GraphQL**](http://graphql.org/).
 * [x] Real-time bidirectional communication with [**Socket**](https://socket.io/).
-* ---------- **Dev Tools** ----------
+* ---------- **Tools** ----------
 * [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
 * [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
 * [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
-* ---------- **Test Tools** ----------
+* [ ] Type checking wit [**Flow**](https://github.com/facebook/flow).
 * [x] Static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
 * [x] Test framework with [**Jest**](https://github.com/facebook/jest).
 * ---------- **Environment** ----------
@@ -226,7 +226,7 @@ $ yarn run reinstall
 ## Known Issues
 
 * ---------- **P0: Critical** ----------
-* Type checking wit [Flow](https://flow.org/)
+* ...
 * ---------- **P1: Urgent** ----------
 * ...
 * ---------- **P2: Required** ----------
