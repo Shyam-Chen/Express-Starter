@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["app-2c51b96106.js","2c51b9610666fa1cdbc1a7f468435058"],["apple-touch-icon.png","7326f54bfe6776293f08b34c3a5fde7b"],["chrome-touch-icon-192x192.png","571f134f59f14a6d298ddd66c015b293"],["favicon.ico","1378625ad714e74eebcfa67bb2f61d81"],["icon-128x128.png","7c46d686765c49b813ac5eb34fabf712"],["index.html","79f256286d1c617c76bbc1ada393a2ae"],["manifest.json","e5c37bc008562ef13b4e43c668db7e06"],["manifest.webapp","121227d30c98561214a43b4120416e37"],["ms-touch-icon-144x144-precomposed.png","452d90b250d6f41a0c8f9db729113ffd"],["polyfills-1d75c182c4.js","1d75c182c4bf00d1b7dd2dc30de984d4"],["robots.txt","987497bfb623e1059632e5a607d56454"],["sitemap.xml","ffefca433806303b5f7228378fcb14d8"],["vendor-7944c7a226.js","7944c7a2260c0fbff87eaa92a86b400d"]];
+var precacheConfig = [["app-551a27aae2.js","551a27aae20cd59e9f689c5aa3fcaa9c"],["apple-touch-icon.png","7326f54bfe6776293f08b34c3a5fde7b"],["chrome-touch-icon-192x192.png","571f134f59f14a6d298ddd66c015b293"],["favicon.ico","1378625ad714e74eebcfa67bb2f61d81"],["icon-128x128.png","7c46d686765c49b813ac5eb34fabf712"],["index.html","fefc5ba546f9aa344cda6d65f71241c1"],["manifest.json","d969a515fc7718b6360451dad3cd05dc"],["ms-touch-icon-144x144-precomposed.png","452d90b250d6f41a0c8f9db729113ffd"],["polyfills-6acfe84151.js","6acfe8415132d23c60f088f15623b121"],["robots.txt","5e0bd1c281a62a380d7a948085bfe2d1"],["sitemap.xml","9ae5f85a0284d47373260f0d5ff3cc2e"],["vendor-34350dbb94.js","34350dbb943688755e351c7550055650"]];
 var cacheName = 'sw-precache-v3-Frontend-Starter-Kit-' + (self.registration ? self.registration.scope : '');
 
 
@@ -285,9 +285,7 @@ self.addEventListener('fetch', function(event) {
 
 // Runtime cache configuration, using the sw-toolbox library.
 
-toolbox.router.get(/\.com/, toolbox.fastest, {});
-toolbox.router.get(/runtime-caching/, toolbox.cacheFirst, {"cache":{"maxEntries":50,"name":"runtime-cache"}});
-toolbox.router.default = toolbox.networkFirst;
+toolbox.router.get(/runtime-caching/, toolbox.cacheFirst, {"cache":{"maxEntries":1,"name":"runtime-cache"}});
 
 
 

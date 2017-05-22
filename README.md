@@ -26,10 +26,10 @@ This seed repository provides the following features:
 * ---------- **Tools** ----------
 * [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
 * [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
-* [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
+* [x] ES modules with [**Babel**](https://github.com/babel/babel).
 * [ ] Type checking wit [**Flow**](https://github.com/facebook/flow).
 * [x] Static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
-* [x] Test framework with [**Jest**](https://github.com/facebook/jest).
+* [x] Testing framework with [**Jest**](https://github.com/facebook/jest).
 * ---------- **Environment** ----------
 * [x] Operating system with [**Linux**](https://github.com/torvalds/linux).
 * [x] Text editor with [**Atom**](https://github.com/atom/atom).
