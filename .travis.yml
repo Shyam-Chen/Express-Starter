@@ -4,7 +4,6 @@ sudo: required
 
 language: node_js
 node_js: stable
-# cache: yarn
 
 services: docker
 install: true
@@ -12,21 +11,6 @@ cache: docker
 
 branches:
   only: master
-
-# env:
-#   matrix:
-#     - MODE=lint
-#     - MODE=unit
-
-# matrix:
-#   include:
-#     - env: MODE=docker
-#       services: docker
-#       install: true
-#       cache: docker
-#   exclude:
-#     - env: MODE=docker
-#       cache: yarn
 
 before_install: chmod +x scripts/*.sh
 
