@@ -4,9 +4,9 @@
   "description": "A boilerplate for Node.js, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.",
   "scripts": {
     "start": "nodemon src/app.js --exec babel-node",
-    "test": "mocha --compilers js:babel-register --watch",
+    "test": "jest --watchAll --coverage",
     "lint": "eslint src && eslint test",
-    "unit": "mocha --compilers js:babel-register",
+    "unit": "jest --coverage",
     "reset": "git reset --hard HEAD && git clean -df",
     "reinstall": "yarn cache clean && git clean -dfx -e '.*' && yarn install",
     "deploy": "git push heroku master"
@@ -46,13 +46,17 @@
   },
   "devDependencies": {
     "babel-eslint": "7.2.3",
+    "babel-jest": "^20.0.3",
     "babel-register": "6.24.1",
-    "chai": "3.5.0",
     "eslint": "3.19.0",
-    "mocha": "3.3.0",
+    "jest": "^20.0.3",
     "nodemon": "1.11.0",
-    "rimraf": "2.6.1",
-    "sinon": "2.2.0",
-    "sinon-chai": "2.10.0"
+    "regenerator-runtime": "^0.10.5",
+    "rimraf": "2.6.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js?$": "babel-jest"
+    }
   }
 }

@@ -1,13 +1,9 @@
-import chai, { expect } from 'chai';
-import { spy } from 'sinon';
-import sinonChai from 'sinon-chai';
-
-chai.use(sinonChai);
-
 // import server from '../src/server';
 
+import { sum } from './sum';
+
 describe('test', () => {
-  it('true is true', () => expect(true).to.equal(true));
+  test('adds 1 + 2 to equal 3', () => expect(sum(1, 2)).toBe(3));
 });
 
 // ------------------------------
@@ -15,14 +11,14 @@ describe('test', () => {
 const capitalize = str => `${str.charAt(0).toUpperCase()}${str.slice(1).toLowerCase()}`;
 
 describe('capitalize', () => {
-  it('capitalizes single words', () => {
-    expect(capitalize('express')).to.equal('Express');
-    expect(capitalize('mongoose')).to.equal('Mongoose');
+  test('capitalizes single words', () => {
+    expect(capitalize('express')).toEqual('Express');
+    expect(capitalize('mongoose')).toEqual('Mongoose');
   });
 
-  it('leaves strings with no words alone', () => {
-    expect(capitalize('')).to.equal('');
-    expect(capitalize('123')).to.equal('123');
+  test('leaves strings with no words alone', () => {
+    expect(capitalize('')).toEqual('');
+    expect(capitalize('123')).toEqual('123');
   });
 });
 
@@ -34,9 +30,9 @@ const hello = (name, cb) => {
 
 describe('hello', () => {
   it('should call callback with correct greeting', () => {
-    const cb = spy();
+    const cb = jest.fn();
     hello('foo', cb);
-    expect(cb).to.have.been.calledWith('hello foo');
+    expect(cb).toHaveBeenCalledWith('hello foo');
   });
 });
 
@@ -60,28 +56,27 @@ describe('once', () => {
   let cb, proxy;
 
   beforeEach(() => {
-    cb = spy();
+    cb = jest.fn();
     proxy = once(cb);
   });
 
   it('calls the original function', () => {
     proxy();
 
-    expect(cb).to.have.been.called;
+    expect(cb).toHaveBeenCalled();
   });
 
   it('calls the original function only once', () => {
     proxy();
     proxy();
 
-    expect(cb).to.have.been.calledOnce;
+    expect(cb).toHaveBeenCalledTimes(1);
   });
 
   it('calls original function with right this and args', () => {
     const obj = {};
     proxy.call(obj, 1, 2, 3);
 
-    expect(cb).to.have.been.calledOn(obj);
-    expect(cb).to.have.been.calledWith(1, 2, 3);
+    expect(cb).toHaveBeenCalledWith(1, 2, 3);
   });
 });

@@ -29,9 +29,7 @@ This seed repository provides the following features:
 * [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
 * ---------- **Test Tools** ----------
 * [x] Static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
-* [x] Test framework with [**Mocha**](https://github.com/mochajs/mocha).
-* [x] Assertion library with [**Chai**](https://github.com/chaijs/chai).
-* [x] Test spies with [**Sinon**](https://github.com/sinonjs/sinon).
+* [x] Test framework with [**Jest**](https://github.com/facebook/jest).
 * ---------- **Environment** ----------
 * [x] Operating system with [**Linux**](https://github.com/torvalds/linux).
 * [x] Text editor with [**Atom**](https://github.com/atom/atom).
@@ -228,7 +226,7 @@ $ yarn run reinstall
 ## Known Issues
 
 * ---------- **P0: Critical** ----------
-* ...
+* Type checking wit [Flow](https://flow.org/)
 * ---------- **P1: Urgent** ----------
 * ...
 * ---------- **P2: Required** ----------
