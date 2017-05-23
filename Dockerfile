@@ -6,9 +6,9 @@ WORKDIR ${HOME}
 ADD . $HOME
 
 # git
-RUN \
-  apt-get update && \
-  apt-get install -y git-core
+# RUN \
+#   apt-get update && \
+#   apt-get install -y git-core
 
 # node
 RUN \
