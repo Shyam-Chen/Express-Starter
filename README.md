@@ -11,13 +11,12 @@
 
 This seed repository provides the following features:
 
-* ---------- **Primary Key** ----------
+* ---------- **Essentials** ----------
 * [x] Server-side platform with [**Node**](https://nodejs.org/en/).
 * [x] Application framework with [**Express**](http://expressjs.com/).
 * [x] Database object modeling with [**Mongoose**](http://mongoosejs.com/).
 * [x] Application cloud hosting with [**Heroku**](https://www.heroku.com/).
 * [x] Database cloud hosting with [**mLab**](https://mlab.com/).
-* ---------- **Secondary Key** ----------
 * [x] Utility functions with [**Lodash**](https://lodash.com/).
 * [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
 * [x] Secure authentication with [**JWT**](https://jwt.io/).
@@ -27,10 +26,10 @@ This seed repository provides the following features:
 * [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
 * [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
 * [x] ES modules with [**Babel**](https://github.com/babel/babel).
-* [ ] Type checking wit [**Flow**](https://github.com/facebook/flow).
+* [ ] Type checking with [**Flow**](https://github.com/facebook/flow).
 * [x] Static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
 * [x] Testing framework with [**Jest**](https://github.com/facebook/jest).
-* ---------- **Environment** ----------
+* ---------- **Environments** ----------
 * [x] Operating system with [**Linux**](https://github.com/torvalds/linux).
 * [x] Text editor with [**Atom**](https://github.com/atom/atom).
 * [x] Version control with [**Git**](https://github.com/git/git).
