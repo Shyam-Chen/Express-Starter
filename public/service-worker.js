@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["app-551a27aae2.js","551a27aae20cd59e9f689c5aa3fcaa9c"],["apple-touch-icon.png","7326f54bfe6776293f08b34c3a5fde7b"],["chrome-touch-icon-192x192.png","571f134f59f14a6d298ddd66c015b293"],["favicon.ico","1378625ad714e74eebcfa67bb2f61d81"],["icon-128x128.png","7c46d686765c49b813ac5eb34fabf712"],["index.html","fefc5ba546f9aa344cda6d65f71241c1"],["manifest.json","d969a515fc7718b6360451dad3cd05dc"],["ms-touch-icon-144x144-precomposed.png","452d90b250d6f41a0c8f9db729113ffd"],["polyfills-6acfe84151.js","6acfe8415132d23c60f088f15623b121"],["robots.txt","5e0bd1c281a62a380d7a948085bfe2d1"],["sitemap.xml","9ae5f85a0284d47373260f0d5ff3cc2e"],["vendor-34350dbb94.js","34350dbb943688755e351c7550055650"]];
+var precacheConfig = [["app-f4bf24e065.js","f4bf24e06584fb44c90ece79d14f2fec"],["apple-touch-icon.png","7326f54bfe6776293f08b34c3a5fde7b"],["chrome-touch-icon-192x192.png","571f134f59f14a6d298ddd66c015b293"],["favicon.ico","1378625ad714e74eebcfa67bb2f61d81"],["icon-128x128.png","7c46d686765c49b813ac5eb34fabf712"],["index.html","fcc6e2ec64e0412a79b465cece92980a"],["manifest.json","d969a515fc7718b6360451dad3cd05dc"],["manifest.webapp","83eb6c356759bb1483179b4236e4fa12"],["ms-touch-icon-144x144-precomposed.png","452d90b250d6f41a0c8f9db729113ffd"],["polyfills-bab11296cc.js","bab11296cca9fff60b9aff0573f00682"],["robots.txt","5e0bd1c281a62a380d7a948085bfe2d1"],["sitemap.xml","72b6a4e701d95504b33b764f3bf4bae8"],["vendor-faa3d9c48c.js","faa3d9c48c7dedfb6ae3bd4e8fa30aa9"]];
 var cacheName = 'sw-precache-v3-Frontend-Starter-Kit-' + (self.registration ? self.registration.scope : '');
 
 
@@ -229,11 +229,11 @@ self.addEventListener('fetch', function(event) {
 
     // If shouldRespond is still false, check to see if this is a navigation
     // request, and if so, whether the URL matches navigateFallbackWhitelist.
-    var navigateFallback = '';
+    var navigateFallback = 'index.html';
     if (!shouldRespond &&
         navigateFallback &&
         (event.request.mode === 'navigate') &&
-        isPathWhitelisted([], event.request.url)) {
+        isPathWhitelisted(["^(?!\\/__).*"], event.request.url)) {
       url = new URL(navigateFallback, self.location).toString();
       shouldRespond = urlsToCacheKeys.has(url);
     }

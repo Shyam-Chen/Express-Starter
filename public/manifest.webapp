@@ -1,0 +1,27 @@
+{
+  "name": "Web GO",
+  "description": "Professional templates for frontend and backend development with HTML5 and Node.js.",
+  "launch_path": "/",
+  "icons": {
+    "128": "icon-128x128.png"
+  },
+  "developer": {
+    "name": "",
+    "url": ""
+  },
+  "default_locale": "en",
+  "type": "web",
+  "installs_allowed_from": [
+    "*"
+  ],
+  "locales": {
+    "zh": {
+      "name": "Web GO",
+      "description": "對於前端和後端的開發使用 HTML5 和 Node.js 的專業模板"
+    },
+    "ja": {
+      "name": "Web GO",
+      "description": "HTML5 および Node.js を使用したフロントエンドおよびバックエンド開発用のプロフェッショナルテンプレート"
+    }
+  }
+}

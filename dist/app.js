@@ -73,7 +73,7 @@ app.use(_bodyParser2.default.urlencoded({ extended: false }));
 
 app.use((0, _expressJwt2.default)({ secret: Buffer.from(app.get('secret'), 'base64'), credentialsRequired: false }));
 
-app.use('/graphql', (0, _expressGraphql2.default)(function () {
+app.use('/__/graphql', (0, _expressGraphql2.default)(function () {
   return {
     schema: _graphql.schema,
     rootValue: _graphql.rootValue,
@@ -81,7 +81,7 @@ app.use('/graphql', (0, _expressGraphql2.default)(function () {
   };
 }));
 
-app.use('/list', _routes.listRoutes);
+app.use('/__/list', _routes.listRoutes);
 
 app.use(_express2.default.static(root));
 app.use((0, _expressHistoryApiFallback2.default)('index.html', { root: root }));
@@ -116,13 +116,13 @@ exports.default = app;
 //   xhr.onload = () => console.log('GraphQL:', xhr.response);
 //   xhr.send(JSON.stringify({ query: '{ helloWorld }' }));
 // </script>
-//
+
 // <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
 // <script>
 //   const socket = io();
-//
+
 //   socket.on('connect', () => console.log('WS: Accept a connection.'));
-//
+
 //   socket.on('A', data => {
 //     console.log(data);
 //     socket.emit('B', { foo: 'baz' });
