@@ -43,7 +43,7 @@ app.use('/__/list', listRoutes);
 app.use(express.static(root));
 app.use(history('index.html', { root }));
 
-const server = app.listen(app.get('port'), () => {
+const server = app.listen(app.get('port'), (): void => {
   console.log('App: Bootstrap Succeeded.');
   console.log(`Port: ${app.get('port')}.`);
 });

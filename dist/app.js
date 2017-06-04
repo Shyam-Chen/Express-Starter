@@ -110,7 +110,7 @@ exports.default = app;
 // <script>
 //   const xhr = new XMLHttpRequest();
 //   xhr.responseType = 'json';
-//   xhr.open('POST', '/graphql');
+//   xhr.open('POST', '/__/graphql');
 //   xhr.setRequestHeader('Content-Type', 'application/json');
 //   xhr.setRequestHeader('Accept', 'application/json');
 //   xhr.onload = () => console.log('GraphQL:', xhr.response);

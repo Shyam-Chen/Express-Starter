@@ -26,7 +26,7 @@ This seed repository provides the following features:
 * [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
 * [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
 * [x] ES modules with [**Babel**](https://github.com/babel/babel).
-* [ ] Type checking with [**Flow**](https://github.com/facebook/flow).
+* [x] Type annotations with [**Flow**](https://github.com/facebook/flow).
 * [x] Static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
 * [x] Testing framework with [**Jest**](https://github.com/facebook/jest).
 * ---------- **Environments** ----------
