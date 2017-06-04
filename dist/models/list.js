@@ -11,9 +11,9 @@ var _mongoose2 = _interopRequireDefault(_mongoose);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var listSchema = (0, _mongoose.Schema)({
+const listSchema = (0, _mongoose.Schema)({
   text: String,
   created: Date
 });
 
-var List = exports.List = _mongoose2.default.model('List', listSchema);
+const List = exports.List = _mongoose2.default.model('List', listSchema);

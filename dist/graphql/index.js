@@ -7,10 +7,14 @@ exports.rootValue = exports.schema = undefined;
 
 var _graphql = require('graphql');
 
-var schema = exports.schema = (0, _graphql.buildSchema)('\n  type Query {\n    helloWorld: String\n  }\n');
+const schema = exports.schema = (0, _graphql.buildSchema)(`
+  type Query {
+    helloWorld: String
+  }
+`);
 
-var rootValue = exports.rootValue = {
-  helloWorld: function helloWorld() {
+const rootValue = exports.rootValue = {
+  helloWorld() {
     return 'Hello World';
   }
 };

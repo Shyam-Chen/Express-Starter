@@ -9,43 +9,43 @@ var _express = require('express');
 
 var _models = require('../models');
 
-var router = (0, _express.Router)();
+const router = (0, _express.Router)();
 
-router.get('/', function (req, res, next) {
-  _models.List.find({}, function (err, data) {
+router.get('/', (req, res, next) => {
+  _models.List.find({}, (err, data) => {
     if (err) return next(err);
     res.json(data);
   });
 });
 
-router.get('/:text', function (req, res, next) {
-  var list = new _models.List({
+router.get('/:text', (req, res, next) => {
+  const list = new _models.List({
     text: req.params.text,
     created: new Date()
   });
 
-  list.save(function (err) {
+  list.save(err => {
     if (err) return next(err);
     console.log('List saved successfully.');
     res.redirect('/list');
   });
 });
 
-router.route('/:id').put(function (req, res, next) {
-  _models.List.findById(req.params.id, function (err, list) {
+router.route('/:id').put((req, res, next) => {
+  _models.List.findById(req.params.id, (err, list) => {
     if (err) return next(err);
     list.text = req.params.text;
     list.updated = new Date();
-    list.save(function (err) {
+    list.save(err => {
       if (err) return next(err);
       res.redirect('/list');
     });
   });
-}).get(function (req, res, next) {
-  _models.List.findByIdAndRemove(req.params.id, function (err) {
+}).get((req, res, next) => {
+  _models.List.findByIdAndRemove(req.params.id, err => {
     if (err) return next(err);
     res.redirect('/list');
   });
 });
 
-var listRoutes = exports.listRoutes = router;
+const listRoutes = exports.listRoutes = router;

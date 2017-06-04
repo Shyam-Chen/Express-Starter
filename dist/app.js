@@ -52,8 +52,8 @@ var _graphql = require('./graphql');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var app = (0, _express2.default)();
-var root = (0, _path.join)(__dirname, '../public');
+const app = (0, _express2.default)();
+const root = (0, _path.join)(__dirname, '../public');
 
 app.set('port', process.env.PORT || 8000);
 app.set('mongodb-uri', process.env.MONGODB_URI || 'mongodb://web-go:web-go@ds133961.mlab.com:33961/web-go-demo');
@@ -61,9 +61,7 @@ app.set('secret', process.env.SECRET || 'webgo');
 
 _mongoose2.default.connect(app.get('mongodb-uri'));
 _mongoose2.default.connection.on('error', console.error.bind(console, 'connection error:'));
-_mongoose2.default.connection.once('open', function () {
-  return console.log('DB: Connection Succeeded.');
-});
+_mongoose2.default.connection.once('open', () => console.log('DB: Connection Succeeded.'));
 
 app.use((0, _compression2.default)());
 app.use((0, _cors2.default)());
@@ -73,36 +71,30 @@ app.use(_bodyParser2.default.urlencoded({ extended: false }));
 
 app.use((0, _expressJwt2.default)({ secret: Buffer.from(app.get('secret'), 'base64'), credentialsRequired: false }));
 
-app.use('/__/graphql', (0, _expressGraphql2.default)(function () {
-  return {
-    schema: _graphql.schema,
-    rootValue: _graphql.rootValue,
-    graphiql: true
-  };
-}));
+app.use('/__/graphql', (0, _expressGraphql2.default)(() => ({
+  schema: _graphql.schema,
+  rootValue: _graphql.rootValue,
+  graphiql: true
+})));
 
 app.use('/__/list', _routes.listRoutes);
 
 app.use(_express2.default.static(root));
-app.use((0, _expressHistoryApiFallback2.default)('index.html', { root: root }));
+app.use((0, _expressHistoryApiFallback2.default)('index.html', { root }));
 
-var server = app.listen(app.get('port'), function () {
+const server = app.listen(app.get('port'), () => {
   console.log('App: Bootstrap Succeeded.');
-  console.log('Port: ' + app.get('port') + '.');
+  console.log(`Port: ${app.get('port')}.`);
 });
 
-var io = _socket2.default.listen(server);
+const io = _socket2.default.listen(server);
 
-io.on('connection', function (socket) {
+io.on('connection', socket => {
   console.log('WS: Establish a connection.');
-  socket.on('disconnect', function () {
-    return console.log('WS: Disconnected');
-  });
+  socket.on('disconnect', () => console.log('WS: Disconnected'));
 
   socket.emit('A', { foo: 'bar' });
-  socket.on('B', function (data) {
-    return console.log(data);
-  });
+  socket.on('B', data => console.log(data));
 });
 
 exports.default = app;

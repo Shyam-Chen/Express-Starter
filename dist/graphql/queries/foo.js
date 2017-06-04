@@ -14,7 +14,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = {
   type: new _graphql.GraphQLList(_foo2.default),
-  resolve: function resolve() {
+  resolve() {
     console.log('model');
   }
 };
