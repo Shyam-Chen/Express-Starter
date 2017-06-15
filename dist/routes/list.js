@@ -27,29 +27,34 @@ router.get('/:text', (req, res, next) => {
   list.save(err => {
     if (err) return next(err);
     console.log('List saved successfully.');
+    res.json({ message: 'List saved' });
   });
 });
 
 router.post('/', (req, res, next) => {
   const list = new _models.List({
-    text: req.params.text,
+    text: req.body.text,
     created: new Date()
   });
 
   list.save(err => {
     if (err) return next(err);
     console.log('List saved successfully.');
-    res.send(req.params.text);
+    res.json({ message: 'List saved' });
   });
 });
 
 router.put('/:id', (req, res, next) => {
   _models.List.findById(req.params.id, (err, list) => {
     if (err) return next(err);
-    list.text = req.params.text;
-    list.updated = new Date();
+
+    for (let prop in req.body) {
+      list[prop] = req.body[prop];
+    }
+
     list.save(err => {
       if (err) return next(err);
+      res.json({ message: 'List updated' });
     });
   });
 });
@@ -57,6 +62,7 @@ router.put('/:id', (req, res, next) => {
 router.delete('/:id', (req, res, next) => {
   _models.List.findByIdAndRemove(req.params.id, err => {
     if (err) return next(err);
+    res.json({ message: 'List deleted' });
   });
 });
 
