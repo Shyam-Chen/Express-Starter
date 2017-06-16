@@ -32,10 +32,7 @@ router.get('/:text', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  const list = new _models.List({
-    text: req.body.text,
-    created: new Date()
-  });
+  const list = new _models.List(req.body);
 
   list.save(err => {
     if (err) return next(err);
