@@ -55,7 +55,8 @@
     "jest": "20.0.3",
     "nodemon": "1.11.0",
     "regenerator-runtime": "0.10.5",
-    "rimraf": "2.6.1"
+    "rimraf": "2.6.1",
+    "supertest": "3.0.0"
   },
   "jest": {
     "transform": {
