@@ -11,17 +11,14 @@ router.get('/', (req, res, next) => {
   });
 });
 
-router.get('/:text', (req, res, next) => {
-  const list = new List({
-    text: req.params.text,
-    created: new Date()
-  });
-
-  list.save(err => {
-    if (err) return next(err);
-    console.log('List saved successfully.');
-    res.json({ message: 'List saved' });
-  });
+router.get('/:id', (req, res, next) => {
+  List.findById(
+    req.params.id,
+    (err, data) => {
+      if (err) return next(err);
+      res.json(data);
+    }
+  );
 });
 
 router.post('/', (req, res, next) => {
@@ -37,14 +34,14 @@ router.post('/', (req, res, next) => {
 router.put('/:id', (req, res, next) => {
   List.findById(
     req.params.id,
-    (err, list) => {
+    (err, data) => {
       if (err) return next(err);
 
       for (let prop in req.body) {
-        list[prop] = req.body[prop];
+        data[prop] = req.body[prop];
       }
 
-      list.save(err => {
+      data.save(err => {
         if (err) return next(err);
         res.json({ message: 'List updated' });
       });
