@@ -4,12 +4,26 @@ export const schema = buildSchema(`
   type Query {
     helloWorld: String
   }
+
+  type User {
+    id: ID!
+    name: String!
+  }
+
+  type Query {
+    users: [User!]!
+  }
 `);
 
+const usersById = {
+  1: { id: 1, name: 'foo' },
+  2: { id: 2, name: 'bar' },
+  3: { id: 3, name: 'baz' },
+};
+
 export const rootValue = {
-  helloWorld() {
-    return 'Hello World';
-  }
+  helloWorld: () => 'Hello World',
+  users: () => Object.keys(usersById).map(id => usersById[id])
 };
 
 // import { GraphQLSchema, GraphQLObjectType } from 'graphql';
