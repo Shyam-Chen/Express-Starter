@@ -30,7 +30,6 @@ router.post('/', (req, res, next) => {
 
   list.save(err => {
     if (err) return next(err);
-    console.log('List saved successfully.');
     res.json({ message: 'List saved' });
   });
 });

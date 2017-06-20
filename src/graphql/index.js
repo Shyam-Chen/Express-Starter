@@ -3,15 +3,12 @@ import { buildSchema } from 'graphql';
 export const schema = buildSchema(`
   type Query {
     helloWorld: String
+    users: [User!]!
   }
 
   type User {
     id: ID!
     name: String!
-  }
-
-  type Query {
-    users: [User!]!
   }
 `);
 

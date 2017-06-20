@@ -10,13 +10,24 @@ var _graphql = require('graphql');
 const schema = exports.schema = (0, _graphql.buildSchema)(`
   type Query {
     helloWorld: String
+    users: [User!]!
+  }
+
+  type User {
+    id: ID!
+    name: String!
   }
 `);
 
+const usersById = {
+  1: { id: 1, name: 'foo' },
+  2: { id: 2, name: 'bar' },
+  3: { id: 3, name: 'baz' }
+};
+
 const rootValue = exports.rootValue = {
-  helloWorld() {
-    return 'Hello World';
-  }
+  helloWorld: () => 'Hello World',
+  users: () => Object.keys(usersById).map(id => usersById[id])
 };
 
 // import { GraphQLSchema, GraphQLObjectType } from 'graphql';
