@@ -1,8 +1,24 @@
-// import server from '../src/server';
+// import request from 'supertest';
+//
+// import { server } from '../src/app';
+//
+// describe('loading express', function () {
+//   afterEach(() => {
+//     server.close();
+//   });
+//
+//   it('responds to /__/list', done => {
+//     request(server)
+//       .get('/__/list')
+//       .expect(200, done);
+//   });
+// });
+
+// ------------------------------
 
 import { sum } from './sum';
 
-describe('test', () => {
+describe('sum', () => {
   test('adds 1 + 2 to equal 3', () => expect(sum(1, 2)).toBe(3));
 });
 

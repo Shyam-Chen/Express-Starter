@@ -58,7 +58,7 @@ io.on('connection', socket => {
   socket.on('B', data => console.log(data));
 });
 
-export default app;
+export { server, io };
 
 // <script>
 //   const xhr = new XMLHttpRequest();
