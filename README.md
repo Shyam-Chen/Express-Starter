@@ -50,33 +50,33 @@ This seed repository provides the following features:
 
 ## Getting Started
 
-1) Clone this Boilerplate
+1. Clone this Boilerplate
 
 ```bash
 $ git clone --depth 1 https://github.com/Shyam-Chen/Backend-Starter-Kit.git <PROJECT_NAME>
 $ cd <PROJECT_NAME>
 ```
 
-2) Install Dependencies
+2. Install Dependencies
 
 ```bash
 $ yarn install
 ```
 
-3) Run the Application
+3. Run the Application
 
 ```bash
 $ yarn start
 ```
 
-4) Stay up-to-date
+4. Stay up-to-date
 
 ```bash
 $ git remote add upstream https://github.com/Shyam-Chen/Backend-Starter-Kit.git
 $ git pull upstream master
 ```
 
-5) Usage the Mongo Shell
+5. Usage the Mongo Shell
 
 ```bash
 $ mongo ds133961.mlab.com:33961/web-go-demo -u web-go -p web-go
@@ -84,16 +84,22 @@ $ mongo ds133961.mlab.com:33961/web-go-demo -u web-go -p web-go
 
 ## Dockerization
 
-1) Build and run the Container
+1. Build and run the Container
 
 ```bash
 $ docker-compose up
 ```
 
-2) Run a command in a running container
+2. Run a command in a running container
 
 ```bash
 $ docker-compose exec app <COMMAND>
+```
+
+3. Remove the old container before creating the new one
+
+```bash
+$ docker-compose rm -fs
 ```
 
 ## Configuration
@@ -102,28 +108,44 @@ Application configuration
 
 ```js
 app.set('port', (process.env.PORT || 8000));
-app.set('database', (process.env.MONGODB_URI || 'mongodb://backend-go:backend-go@ds113871.mlab.com:13871/backend-go-demo'));
+app.set('mongodb-uri', (process.env.MONGODB_URI || 'mongodb://web-go:web-go@ds133961.mlab.com:33961/web-go-demo'));
+app.set('secret', process.env.SECRET || 'webgo');
 ```
 
 ## Using Libraries
 
-Example of Route
+1. Example of Route
 
 ```js
-import express from 'express';
+import { Router } from 'express';
+
+const router = Router();
+
+router.get('/', (req, res, next) => {
+  // ...
+});
+
+export const thingRoutes = router;
 ```
 
-Example of Model
+2. Example of Model
 
 ```js
 import mongoose, { Schema } from 'mongoose';
+
+const thingSchema = Schema({
+  // ...
+});
+
+export const Thing = mongoose.model('Thing', thingSchema);
+
 ```
 
-Example of Lodash
+3. Example of Lodash
 
 ```js
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
+import { Observable } from 'rxjs';
+import { of } from 'rxjs/observable';
 import { lowerFirst, pad } from 'lodash';
 
 Observable::of(lowerFirst('Hello'), pad('World', 5))
@@ -132,14 +154,12 @@ Observable::of(lowerFirst('Hello'), pad('World', 5))
   // World
 ```
 
-Example of ReactiveX
+4. Example of ReactiveX
 
 ```js
-import { Observable } from 'rxjs/Observable';
-import { timer } from 'rxjs/observable/timer';
-import { of } from 'rxjs/observable/of';
-import { mapTo } from 'rxjs/operator/mapTo';
-import { combineAll } from 'rxjs/operator/combineAll';
+import { Observable } from 'rxjs';
+import { timer, of } from 'rxjs/observable';
+import { mapTo, combineAll } from 'rxjs/operator';
 
 Observable::timer(2000)
   ::mapTo(Observable::of('Hello', 'World'))
@@ -149,31 +169,71 @@ Observable::timer(2000)
   // ["World"]
 ```
 
-Example of JWT
+5. Example of JWT
 
 ```js
 import jwt from 'express-jwt';
+
+app.set('secret', process.env.SECRET || 'webgo');
 ```
 
-Example of GraphQL
+```js
+req.app.get('secret');
+```
+
+6. Example of GraphQL
 
 ```js
 import graphql from 'express-graphql';
+
+app.use('/__/graphql', graphql(() => ({
+  schema,
+  rootValue,
+  graphiql: true
+})));
 ```
 
-Example of Socket
+```html
+<script>
+  const xhr = new XMLHttpRequest();
+  xhr.responseType = 'json';
+  xhr.open('POST', '/__/graphql');
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.setRequestHeader('Accept', 'application/json');
+  xhr.onload = () => console.log('GraphQL:', xhr.response);
+  xhr.send(JSON.stringify({ query: '{ helloWorld }' }));
+</script>
+```
+
+7. Example of Socket
 
 ```js
 import socket from 'socket.io';
+
+const io = socket.listen(server);
+
+io.on('connection', socket => {
+  console.log('WS: Establish a connection.');
+  socket.on('disconnect', () => console.log('WS: Disconnected'));
+
+  socket.emit('A', { foo: 'bar' });
+  socket.on('B', data => console.log(data));  // { foo: 'baz' }
+});
 ```
 
-The practical examples:
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
+<script>
+  const socket = io();
 
-* [Authentication - Google OAuth 2.0](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/auth-google)
-* [Datastore - CRUD data stored](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/rest)
-* [Storage - Store images](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/rest)
-* Notification - Send email
-* [Payment - PayPal REST](https://github.com/Shyam-Chen/Backend-Starter-Kit/tree/paypal-rest-sdk)
+  socket.on('connect', () => console.log('WS: Accept a connection.'));
+
+  socket.on('A', data => {
+    console.log(data);  // { foo: 'bar' }
+    socket.emit('B', { foo: 'baz' });
+  });
+</script>
+```
 
 ## All Commands
 
@@ -191,20 +251,20 @@ $ yarn run reinstall
 
 ```
 .
+├── dist  -> server-side rules ...
 ├── public  -> client-side rules ...
 ├── scripts  -> shell scripts ...
 ├── src
+│   ├── graphql
+│   │   └── index.js ...
 │   ├── models
 │   │   └── index.js ...
 │   ├── routes
 │   │   └── index.js ...
-│   ├── types
-│   │   └── index.js ...
 │   ├── utils
 │   │   └── index.js ...
-│   ├── index.js
-│   ├── schema.js
-│   └── server.js
+│   ├── app.js
+│   └── pm2.js
 ├── test
 │   └── test.js ...
 ├── .babelrc

@@ -5,12 +5,13 @@ ENV HOME /Backend-Starter-Kit
 WORKDIR ${HOME}
 ADD . $HOME
 
-# git
-# RUN \
-#   apt-get update && \
-#   apt-get install -y git-core
+# git --
+RUN \
+  apt-get update && \
+  apt-get install -y git-core
+# -- git
 
-# node
+# node --
 RUN \
   curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
   curl -o- -L https://yarnpkg.com/install.sh | bash && \
@@ -18,17 +19,24 @@ RUN \
   apt-get install -y nodejs
 
 ENV PATH $HOME/.yarn/bin:$PATH
+# -- node
 
-# ruby
+# ruby --
+# RUN \
+#   apt-get update && \
+#   apt-get install -y ruby && \
+#   gem install dpl
+# -- ruby
+
+# heroku --
 RUN \
-  apt-get update && \
-  apt-get install -y ruby && \
-  gem install dpl
+  echo "deb http://toolbelt.heroku.com/ubuntu ./" > /etc/apt/sources.list.d/heroku.list && \
+  wget -O- https://toolbelt.heroku.com/apt/release.key | apt-key add - && \
+  apt-get update && apt-get install -y heroku-toolbelt
+# -- heroku
 
-# cleanup
 RUN rm -rf /var/lib/apt/lists/*
 
-# install
 RUN yarn
 
 EXPOSE 8000

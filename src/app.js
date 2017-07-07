@@ -59,25 +59,3 @@ io.on('connection', socket => {
 });
 
 export { server, io };
-
-// <script>
-//   const xhr = new XMLHttpRequest();
-//   xhr.responseType = 'json';
-//   xhr.open('POST', '/__/graphql');
-//   xhr.setRequestHeader('Content-Type', 'application/json');
-//   xhr.setRequestHeader('Accept', 'application/json');
-//   xhr.onload = () => console.log('GraphQL:', xhr.response);
-//   xhr.send(JSON.stringify({ query: '{ helloWorld }' }));
-// </script>
-
-// <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
-// <script>
-//   const socket = io();
-
-//   socket.on('connect', () => console.log('WS: Accept a connection.'));
-
-//   socket.on('A', data => {
-//     console.log(data);
-//     socket.emit('B', { foo: 'baz' });
-//   });
-// </script>
