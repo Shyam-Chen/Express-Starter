@@ -25,7 +25,7 @@ ENV PATH $HOME/.yarn/bin:$PATH
 # RUN \
 #   apt-get update && \
 #   apt-get install -y ruby && \
-#   gem install dpl
+#   gem install dpl travis
 # -- ruby
 
 # heroku --
