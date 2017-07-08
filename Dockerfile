@@ -22,10 +22,10 @@ ENV PATH $HOME/.yarn/bin:$PATH
 # -- node
 
 # ruby --
-# RUN \
-#   apt-get update && \
-#   apt-get install -y ruby && \
-#   gem install dpl travis
+RUN \
+  apt-get update && \
+  apt-get install -y ruby && \
+  gem install dpl
 # -- ruby
 
 # heroku --
