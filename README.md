@@ -15,8 +15,6 @@ This seed repository provides the following features:
 * [x] Server-side platform with [**Node**](https://nodejs.org/en/).
 * [x] Application framework with [**Express**](http://expressjs.com/).
 * [x] Database object modeling with [**Mongoose**](http://mongoosejs.com/).
-* [x] Application cloud hosting with [**Heroku**](https://www.heroku.com/).
-* [x] Database cloud hosting with [**mLab**](https://mlab.com/).
 * [x] Utility functions with [**Lodash**](https://lodash.com/).
 * [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
 * [x] Secure authentication with [**JWT**](https://jwt.io/).
@@ -34,7 +32,9 @@ This seed repository provides the following features:
 * [x] Text editor with [**Atom**](https://github.com/atom/atom).
 * [x] Version control with [**Git**](https://github.com/git/git).
 * [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
-* [ ] Reverse proxy and caching with [**Nginx**](https://github.com/nginx/nginx).
+* [x] Application cloud hosting with [**Heroku**](https://www.heroku.com/).
+* [x] Database cloud hosting with [**mLab**](https://mlab.com/).
+* [x] Reverse proxy and caching with [**Nginx**](https://github.com/nginx/nginx).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**Travis**](https://github.com/travis-ci/travis-ci).
 
