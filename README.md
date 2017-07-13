@@ -290,7 +290,8 @@ $ yarn run reinstall
 * ---------- **P1: Urgent** ----------
 * ...
 * ---------- **P2: Required** ----------
-* ...
+* Do more examples
+* Write more tests
 * ---------- **P3: Important** ----------
 * ...
 * ---------- **P4: Nice to have** ----------
