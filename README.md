@@ -12,7 +12,6 @@
 This seed repository provides the following features:
 
 * ---------- **Essentials** ----------
-* [x] Server-side platform with [**Node**](https://nodejs.org/en/).
 * [x] Application framework with [**Express**](http://expressjs.com/).
 * [x] Database object modeling with [**Mongoose**](http://mongoosejs.com/).
 * [x] Utility functions with [**Lodash**](https://lodash.com/).
@@ -28,6 +27,7 @@ This seed repository provides the following features:
 * [x] Static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
 * [x] Testing framework with [**Jest**](https://github.com/facebook/jest).
 * ---------- **Environments** ----------
+* [x] Server-side platform with [**Node**](https://nodejs.org/en/).
 * [x] Operating system with [**Linux**](https://github.com/torvalds/linux).
 * [x] Text editor with [**Atom**](https://github.com/atom/atom).
 * [x] Version control with [**Git**](https://github.com/git/git).
@@ -107,7 +107,7 @@ $ docker-compose rm -fs
 Application configuration
 
 ```js
-app.set('port', (process.env.PORT || 8000));
+app.set('port', (process.env.PORT || 3000));
 app.set('mongodb-uri', (process.env.MONGODB_URI || 'mongodb://web-go:web-go@ds133961.mlab.com:33961/web-go-demo'));
 app.set('secret', process.env.SECRET || 'webgo');
 ```

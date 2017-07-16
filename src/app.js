@@ -16,7 +16,7 @@ import { schema, rootValue } from './graphql';
 const app = express();
 const root = join(__dirname, '../public');
 
-app.set('port', (process.env.PORT || 8000));
+app.set('port', (process.env.PORT || 3000));
 app.set('mongodb-uri', (process.env.MONGODB_URI || 'mongodb://web-go:web-go@ds133961.mlab.com:33961/web-go-demo'));
 app.set('secret', process.env.SECRET || 'webgo');
 

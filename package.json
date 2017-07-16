@@ -27,41 +27,36 @@
   },
   "homepage": "https://github.com/Shyam-Chen/Backend-Starter-Kit#readme",
   "dependencies": {
-    "babel-cli": "6.24.1",
-    "babel-plugin-transform-function-bind": "6.22.0",
-    "babel-preset-env": "1.5.2",
-    "babel-preset-flow": "6.23.0",
     "body-parser": "1.17.2",
-    "compression": "1.6.2",
-    "cors": "2.8.3",
+    "compression": "1.7.0",
+    "cors": "2.8.4",
     "express": "4.15.3",
     "express-graphql": "0.6.6",
     "express-history-api-fallback": "2.2.1",
     "express-jwt": "5.3.0",
-    "graphql": "0.10.3",
+    "graphql": "0.10.4",
     "graphql-tools": "1.1.0",
     "jsonwebtoken": "7.4.1",
     "lodash": "4.17.4",
-    "mongoose": "4.11.0",
+    "mongoose": "4.11.3",
     "morgan": "1.8.2",
     "pm2": "2.5.0",
     "rxjs": "5.4.1",
     "socket.io": "2.0.3"
   },
   "devDependencies": {
+    "babel-cli": "6.24.1",
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
+    "babel-plugin-transform-function-bind": "6.22.0",
     "babel-plugin-transform-imports": "1.4.0",
+    "babel-preset-env": "1.6.0",
+    "babel-preset-flow": "6.23.0",
     "eslint": "4.1.1",
     "jest": "20.0.4",
     "nodemon": "1.11.0",
     "regenerator-runtime": "0.10.5",
     "rimraf": "2.6.1",
     "supertest": "3.0.0"
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.js?$": "babel-jest"
-    }
   }
 }
