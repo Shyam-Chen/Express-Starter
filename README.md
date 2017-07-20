@@ -286,7 +286,7 @@ $ yarn run reinstall
 ## Known Issues
 
 * ---------- **P0: Critical** ----------
-* ...
+* TThe server can not be closed under unit tests
 * ---------- **P1: Urgent** ----------
 * ...
 * ---------- **P2: Required** ----------
