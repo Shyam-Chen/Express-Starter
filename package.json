@@ -42,7 +42,8 @@
     "morgan": "1.8.2",
     "pm2": "2.6.0",
     "rxjs": "5.4.2",
-    "socket.io": "2.0.3"
+    "socket.io": "2.0.3",
+    "zeromq": "4.5.0"
   },
   "devDependencies": {
     "babel-cli": "6.24.1",
