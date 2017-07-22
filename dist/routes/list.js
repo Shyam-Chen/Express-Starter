@@ -12,7 +12,11 @@ var _models = require('../models');
 const router = (0, _express.Router)();
 
 router.get('/', (req, res, next) => {
-  _models.List.find({}, (err, data) => {
+  const query = {};
+
+  if (req.query.text) query['text'] = req.query.text;
+
+  _models.List.find(query, (err, data) => {
     if (err) return next(err);
     res.json(data);
   });

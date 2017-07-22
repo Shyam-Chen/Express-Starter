@@ -5,7 +5,11 @@ import { List } from '../models';
 const router = Router();
 
 router.get('/', (req, res, next) => {
-  List.find({}, (err, data) => {
+  const query = {};
+
+  if (req.query.text) query['text'] = req.query.text;
+
+  List.find(query, (err, data) => {
     if (err) return next(err);
     res.json(data);
   });
