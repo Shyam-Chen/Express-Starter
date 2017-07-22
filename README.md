@@ -19,6 +19,7 @@ This seed repository provides the following features:
 * [x] Secure authentication with [**JWT**](https://jwt.io/).
 * [x] Data query language with [**GraphQL**](http://graphql.org/).
 * [x] Real-time bidirectional communication with [**Socket**](https://socket.io/).
+* [ ] Message queuing with [**RabbitMQ**](https://www.rabbitmq.com/).
 * ---------- **Tools** ----------
 * [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
 * [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
@@ -34,6 +35,7 @@ This seed repository provides the following features:
 * [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
 * [x] Application cloud hosting with [**Heroku**](https://www.heroku.com/).
 * [x] Database cloud hosting with [**mLab**](https://mlab.com/).
+* [ ] Message queuing cloud hosting with [**CloudAMQP**](https://www.cloudamqp.com/).
 * [x] Reverse proxy and caching with [**Nginx**](https://github.com/nginx/nginx).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**Travis**](https://github.com/travis-ci/travis-ci).

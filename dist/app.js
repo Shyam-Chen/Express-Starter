@@ -100,20 +100,3 @@ io.on('connection', socket => {
 
 exports.server = server;
 exports.io = io;
-
-// const zmq = require('zeromq');
-//
-// const pub = zmq.socket('pub');
-// const sub = zmq.socket('sub');
-//
-// pub.bindSync(`tcp://127.0.0.1:${app.get('port')}`);
-//
-// setTimeout(() => pub.send(['Foo', 'bar baz']), 1000);
-//
-// sub.connect(`tcp://127.0.0.1:${app.get('port')}`);
-//
-// sub.subscribe('Foo');
-//
-// sub.on('message', (topic, message) => {
-//   console.log(`Topic: ${topic.toString()}, Message: ${message.toString()}`);
-// });

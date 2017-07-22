@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/Shyam-Chen/Backend-Starter-Kit#readme",
   "dependencies": {
+    "amqplib": "0.5.1",
     "body-parser": "1.17.2",
     "compression": "1.7.0",
     "cors": "2.8.4",
@@ -42,8 +43,7 @@
     "morgan": "1.8.2",
     "pm2": "2.6.0",
     "rxjs": "5.4.2",
-    "socket.io": "2.0.3",
-    "zeromq": "4.5.0"
+    "socket.io": "2.0.3"
   },
   "devDependencies": {
     "babel-cli": "6.24.1",
