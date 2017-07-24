@@ -14,7 +14,7 @@ const router = (0, _express.Router)();
 router.get('/', (req, res, next) => {
   const query = {};
 
-  if (req.query.text) query['text'] = req.query.text;
+  if (req.query.text) query['text'] = { '$regex': req.query.text };
 
   _models.List.find(query, (err, data) => {
     if (err) return next(err);

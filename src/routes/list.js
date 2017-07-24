@@ -7,7 +7,7 @@ const router = Router();
 router.get('/', (req, res, next) => {
   const query = {};
 
-  if (req.query.text) query['text'] = req.query.text;
+  if (req.query.text) query['text'] = { '$regex': req.query.text };
 
   List.find(query, (err, data) => {
     if (err) return next(err);
