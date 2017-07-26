@@ -12,11 +12,16 @@ var _models = require('../models');
 const router = (0, _express.Router)();
 
 router.get('/', (req, res, next) => {
-  const query = {};
+  const data = {};
 
-  if (req.query.text) query['text'] = { '$regex': req.query.text };
+  if (req.query.text) {
+    data['text'] = {
+      $regex: req.query.text,
+      $options: 'i'
+    };
+  }
 
-  _models.List.find(query, (err, data) => {
+  _models.List.find(data, (err, data) => {
     if (err) return next(err);
     res.json(data);
   });
