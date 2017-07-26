@@ -28,6 +28,7 @@
   "homepage": "https://github.com/Shyam-Chen/Backend-Starter-Kit#readme",
   "dependencies": {
     "amqplib": "0.5.1",
+    "babel-plugin-transform-object-rest-spread": "6.23.0",
     "body-parser": "1.17.2",
     "compression": "1.7.0",
     "cors": "2.8.4",
