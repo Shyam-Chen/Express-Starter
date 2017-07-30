@@ -11,7 +11,7 @@ var _models = require('../models');
 
 const router = (0, _express.Router)();
 
-router.get('/', (req, res, next) => {
+router.get('/', async (req, res, next) => {
   const data = {};
 
   if (req.query.text) {
@@ -27,14 +27,12 @@ router.get('/', (req, res, next) => {
   });
 });
 
-router.get('/:id', (req, res, next) => {
-  _models.List.findById(req.params.id, (err, data) => {
-    if (err) return next(err);
-    res.json(data);
-  });
+router.get('/:id', async (req, res) => {
+  const data = await _models.List.findById(req.params.id).exec();
+  res.json(data);
 });
 
-router.post('/', (req, res, next) => {
+router.post('/', async (req, res, next) => {
   const list = new _models.List(req.body);
 
   list.save(err => {
@@ -43,7 +41,7 @@ router.post('/', (req, res, next) => {
   });
 });
 
-router.put('/:id', (req, res, next) => {
+router.put('/:id', async (req, res, next) => {
   _models.List.findById(req.params.id, (err, data) => {
     if (err) return next(err);
 
@@ -58,7 +56,7 @@ router.put('/:id', (req, res, next) => {
   });
 });
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
   _models.List.findByIdAndRemove(req.params.id, err => {
     if (err) return next(err);
     res.json({ message: 'List deleted' });
