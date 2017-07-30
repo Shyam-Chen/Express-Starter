@@ -2,6 +2,9 @@
   "name": "Backend-Starter-Kit",
   "version": "1.0.0",
   "description": "A boilerplate for Node.js, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.",
+  "engines": {
+    "node": "8.2.1"
+  },
   "scripts": {
     "start": "nodemon src/app.js --exec babel-node",
     "test": "jest --watchAll --coverage",
