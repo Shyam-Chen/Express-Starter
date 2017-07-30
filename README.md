@@ -288,7 +288,8 @@ $ yarn run reinstall
 ## Known Issues
 
 * ---------- **P0: Critical** ----------
-* TThe server can not be closed under unit tests
+* The server can not be closed under unit tests
+* Deploy the application in Docker containers
 * ---------- **P1: Urgent** ----------
 * ...
 * ---------- **P2: Required** ----------
