@@ -37,8 +37,8 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["app-77625f6177.js","77625f6177509ec01c85401aae8294a5"],["apple-touch-icon.png","7326f54bfe6776293f08b34c3a5fde7b"],["chrome-touch-icon-192x192.png","571f134f59f14a6d298ddd66c015b293"],["favicon.ico","1378625ad714e74eebcfa67bb2f61d81"],["icon-128x128.png","7c46d686765c49b813ac5eb34fabf712"],["icon-512x512.png","c785ae111f02d9778d76c54bc48fb5fc"],["index.html","dc390ba4a101fad130703c5c0134d155"],["manifest.json","3696e61d08d9dafd2fd1e5a92a8ee826"],["manifest.webapp","3790486c75e197b7a49e7ac6bdc5e594"],["ms-touch-icon-144x144-precomposed.png","452d90b250d6f41a0c8f9db729113ffd"],["polyfills-753118ee8e.js","753118ee8e06112067c32d626e20b6db"],["robots.txt","5e0bd1c281a62a380d7a948085bfe2d1"],["sitemap.xml","eba06b8a8649d5f0021bc3df520162c6"],["vendor-ed192c94a2.js","ed192c94a2aa27d06c44b11806d9f6e8"]];
-var cacheName = 'sw-precache-v3-Web-Starter-Kit-' + (self.registration ? self.registration.scope : '');
+var precacheConfig = [["app-f70c662a13.js","f70c662a1391b615c7ebf6404efcdece"],["apple-touch-icon.png","7326f54bfe6776293f08b34c3a5fde7b"],["chrome-touch-icon-192x192.png","571f134f59f14a6d298ddd66c015b293"],["favicon.ico","1378625ad714e74eebcfa67bb2f61d81"],["icon-128x128.png","7c46d686765c49b813ac5eb34fabf712"],["icon-512x512.png","c785ae111f02d9778d76c54bc48fb5fc"],["index.html","b34a86588c9d38415ab665292e5af9af"],["manifest.json","6da352942d5a3dd86cd7fd7cb40bd349"],["manifest.webapp","3790486c75e197b7a49e7ac6bdc5e594"],["ms-touch-icon-144x144-precomposed.png","452d90b250d6f41a0c8f9db729113ffd"],["polyfills-1a39eed957.js","1a39eed95742b16ec71d36726a08a83d"],["robots.txt","5e0bd1c281a62a380d7a948085bfe2d1"],["sitemap.xml","8364a7b917591cfc15edcbb4c0a70c53"],["vendor-6810a77a5c.js","6810a77a5c0d17d7fef94cd0a0a82901"]];
+var cacheName = 'sw-precache-v3-Frontend-Starter-Kit-' + (self.registration ? self.registration.scope : '');
 
 
 var ignoreUrlParametersMatching = [/^utm_/];
