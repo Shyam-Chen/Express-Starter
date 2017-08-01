@@ -71,14 +71,20 @@ $ yarn install
 $ yarn start
 ```
 
-4. Stay up-to-date
+4. Run the Test
+
+```bash
+$ yarn test
+```
+
+5. Stay up-to-date
 
 ```bash
 $ git remote add upstream https://github.com/Shyam-Chen/Backend-Starter-Kit.git
 $ git pull upstream master
 ```
 
-5. Usage the Mongo Shell
+6. Usage the Mongo Shell
 
 ```bash
 $ mongo ds133961.mlab.com:33961/web-go-demo -u web-go -p web-go
@@ -240,13 +246,15 @@ io.on('connection', socket => {
 ## All Commands
 
 ```bash
-$ yarn run dev
-$ yarn run test
-$ yarn run prod
+$ yarn build
 
-$ yarn run clean
-$ yarn run reset
-$ yarn run reinstall
+$ yarn lint
+$ yarn unit
+
+$ yarn reset
+$ yarn reinstall
+
+$ yarn deploy
 ```
 
 ## Directory Structure

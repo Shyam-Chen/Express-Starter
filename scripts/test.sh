@@ -2,5 +2,5 @@
 
 set -eux
 
-docker-compose exec app yarn run lint
-docker-compose exec app yarn run unit
+docker-compose exec app yarn lint
+docker-compose exec app yarn unit
