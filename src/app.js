@@ -73,7 +73,7 @@ amqp.connect('amqp://gnnwevxx:V1PhfxZSO_-CJ6agZGipEBVmFX508N0P@black-boar.rmq.cl
       });
 
       return ok.then(() => {
-        console.log(' [*] Waiting for messages. To exit press CMD + C.');
+        console.log(' [*] Waiting for messages. To exit press CTRL + C.');
       });
     });
   })
