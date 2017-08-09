@@ -13,10 +13,11 @@ const router = (0, _express.Router)();
 
 router.get('/', async (req, res, next) => {
   const data = {};
+  const { text } = req.query;
 
-  if (req.query.text) {
+  if (text) {
     data['text'] = {
-      $regex: req.query.text,
+      $regex: text,
       $options: 'i'
     };
   }
@@ -46,7 +47,7 @@ router.put('/:id', async (req, res, next) => {
     if (err) return next(err);
 
     for (let prop in req.body) {
-      data[prop] = req.body[prop];
+      if (req.body) data[prop] = req.body[prop];
     }
 
     data.save(err => {

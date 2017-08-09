@@ -23,6 +23,10 @@ var _socket = require('socket.io');
 
 var _socket2 = _interopRequireDefault(_socket);
 
+var _amqplib = require('amqplib');
+
+var _amqplib2 = _interopRequireDefault(_amqplib);
+
 var _mongoose = require('mongoose');
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
@@ -97,6 +101,24 @@ io.on('connection', socket => {
   socket.emit('A', { foo: 'bar' });
   socket.on('B', data => console.log(data));
 });
+
+_amqplib2.default.connect('amqp://gnnwevxx:V1PhfxZSO_-CJ6agZGipEBVmFX508N0P@black-boar.rmq.cloudamqp.com/gnnwevxx').then(conn => {
+  process.once('SIGINT', () => conn.close());
+
+  return conn.createChannel().then(channel => {
+    let ok = channel.assertQueue('hello', { durable: false });
+
+    ok = ok.then(() => {
+      return channel.consume('hello', msg => {
+        console.log(" [x] Received '%s'", msg.content.toString());
+      }, { noAck: true });
+    });
+
+    return ok.then(() => {
+      console.log(' [*] Waiting for messages. To exit press CTRL + C.');
+    });
+  });
+}).catch(console.warn);
 
 exports.server = server;
 exports.io = io;
