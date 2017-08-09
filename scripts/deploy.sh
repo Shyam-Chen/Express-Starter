@@ -6,9 +6,10 @@ docker-compose exec app dpl --provider=heroku --app=web-go-demo --api-key=${HERO
 
 # docker-compose exec app yarn run build
 
-# docker-compose exec app git config --global user.email "shyamchen1994@gmail.com"
-# docker-compose exec app git config --global user.name "Shyam Chen"
+# docker-compose exec app git config user.email "shyamchen1994@gmail.com"
+# docker-compose exec app git config user.name "Shyam Chen"
 # docker-compose exec app git add -f dist
+# docker-compose exec app git add .
 # docker-compose exec app git commit -m "Deploy - ${TRAVIS_BUILD_NUMBER} (${TRAVIS_BUILD_ID})"
 
 # docker-compose exec app git remote add heroku https://git.heroku.com/web-go-demo.git
@@ -26,6 +27,6 @@ docker-compose exec app dpl --provider=heroku --app=web-go-demo --api-key=${HERO
 
 # chmod +x ~/.netrc
 
-# docker-compose exec app git push "https://heroku:${HEROKU_TOKEN}@git.heroku.com/web-go-demo.git" master
+# docker-compose exec app git push "https://heroku:${HEROKU_TOKEN}@git.heroku.com/web-go-demo.git" master -f
 
 # docker-compose exec app yarn run deploy
