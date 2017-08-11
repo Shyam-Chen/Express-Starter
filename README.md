@@ -296,8 +296,9 @@ $ yarn deploy
 ## Known Issues
 
 * ---------- **P0: Critical** ----------
-* The server can not be closed under unit tests
 * Deploy the application in Docker containers
+* Push Docker image to Heroku
+* The server can not be closed under unit tests
 * ---------- **P1: Urgent** ----------
 * ...
 * ---------- **P2: Required** ----------
