@@ -28,9 +28,13 @@ router.get('/', async (req, res, next) => {
   });
 });
 
-router.get('/:id', async (req, res) => {
-  const data = await _models.List.findById(req.params.id).exec();
-  res.json(data);
+router.get('/:id', async (req, res, next) => {
+  try {
+    const data = await _models.List.findById(req.params.id).exec();
+    res.json(data);
+  } catch (err) {
+    next(err);
+  }
 });
 
 router.post('/', async (req, res, next) => {
