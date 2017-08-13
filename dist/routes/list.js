@@ -16,7 +16,7 @@ router.get('/', async (req, res, next) => {
   const { text } = req.query;
 
   if (text) {
-    data['text'] = {
+    data[Symbol('text')] = {
       $regex: text,
       $options: 'i'
     };
@@ -26,6 +26,18 @@ router.get('/', async (req, res, next) => {
     if (err) return next(err);
     res.json(data);
   });
+});
+
+router.get('/:page/:row', async (req, res) => {
+  const row = Number(req.params.row);
+  const list = await _models.List.find({}).exec();
+
+  for (let i = 0; i < list.length / row; i++) {
+    if (Number(req.params.page) === i + 1) {
+      const data = await _models.List.find({}).skip(i * row).limit(row).exec();
+      res.json(data);
+    }
+  }
 });
 
 router.get('/:id', async (req, res, next) => {
