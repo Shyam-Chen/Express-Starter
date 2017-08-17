@@ -45,8 +45,15 @@
     "lodash": "4.17.4",
     "mongoose": "4.11.6",
     "morgan": "1.8.2",
+    "passport": "0.4.0",
+    "passport-facebook": "2.1.1",
+    "passport-google-oauth20": "1.0.0",
+    "passport-twitter": "1.0.4",
+    "pg": "7.1.2",
+    "pg-hstore": "2.3.2",
     "pm2": "2.6.1",
     "rxjs": "5.4.2",
+    "sequelize": "4.5.0",
     "socket.io": "2.0.3"
   },
   "devDependencies": {

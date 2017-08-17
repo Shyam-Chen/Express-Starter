@@ -13,11 +13,13 @@ This seed repository provides the following features:
 
 * ---------- **Essentials** ----------
 * [x] Application framework with [**Express**](http://expressjs.com/).
-* [x] Database object modeling with [**Mongoose**](http://mongoosejs.com/).
+* [x] Data query language with [**GraphQL**](http://graphql.org/).
+* [x] Object modeling mapping with [**Mongoose**](http://mongoosejs.com/).
+* [ ] Object relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
 * [x] Utility functions with [**Lodash**](https://lodash.com/).
 * [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
 * [x] Secure authentication with [**JWT**](https://jwt.io/).
-* [x] Data query language with [**GraphQL**](http://graphql.org/).
+* [ ] Third-party authentication with [**Passport**](http://passportjs.org/).
 * [x] Real-time bidirectional communication with [**Socket**](https://socket.io/).
 * [x] Message queuing with [**RabbitMQ**](https://www.rabbitmq.com/).
 * ---------- **Tools** ----------
@@ -35,6 +37,7 @@ This seed repository provides the following features:
 * [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
 * [x] Application cloud hosting with [**Heroku**](https://www.heroku.com/).
 * [x] Database cloud hosting with [**mLab**](https://mlab.com/).
+* [ ] SQL Database cloud hosting with [**ElephantSQL**](https://www.elephantsql.com/).
 * [x] Message queuing cloud hosting with [**CloudAMQP**](https://www.cloudamqp.com/).
 * [x] Reverse proxy and caching with [**Nginx**](https://github.com/nginx/nginx).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
@@ -298,7 +301,7 @@ $ yarn deploy
 * ---------- **P0: Critical** ----------
 * Deploy the application in Docker containers
 * Push Docker image to Heroku
-* The server can not be closed under unit tests
+* In the unit test can not shut down the server
 * ---------- **P1: Urgent** ----------
 * ...
 * ---------- **P2: Required** ----------
