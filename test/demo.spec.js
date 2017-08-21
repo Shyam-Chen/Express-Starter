@@ -2,15 +2,15 @@
 //
 // import { server } from '../src/app';
 //
-// describe('loading express', function () {
-//   afterEach(() => {
-//     server.close();
+// describe('loading express', () => {
+//   afterEach(done => {
+//     server.close(done);
 //   });
 //
-//   it('responds to /__/list', done => {
-//     request(server)
-//       .get('/__/list')
-//       .expect(200, done);
+//   it('responds to /__/list', async () => {
+//     const { statusCode, body } = await request(server).get('/__/list');
+//     expect(statusCode).toBe(200);
+//     expect(body).toBeDefined();
 //   });
 // });
 
