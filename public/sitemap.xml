@@ -2,14 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://web-go-demo.firebaseapp.com/about</loc>
-        <lastmod>2017-07-31T07:58:54.000Z</lastmod>
+        <lastmod>2017-08-21T04:56:30.000Z</lastmod>
     </url>
     <url>
         <loc>https://web-go-demo.firebaseapp.com/contact</loc>
-        <lastmod>2017-07-31T07:58:54.000Z</lastmod>
+        <lastmod>2017-08-21T04:56:30.000Z</lastmod>
     </url>
     <url>
         <loc>https://web-go-demo.firebaseapp.com/</loc>
-        <lastmod>2017-07-31T07:58:54.000Z</lastmod>
+        <lastmod>2017-08-21T04:56:30.000Z</lastmod>
+    </url>
+    <url>
+        <loc>https://web-go-demo.firebaseapp.com/admin/users</loc>
+        <lastmod>2017-08-21T04:56:30.000Z</lastmod>
+    </url>
+    <url>
+        <loc>https://web-go-demo.firebaseapp.com/examples/counter</loc>
+        <lastmod>2017-08-21T04:56:30.000Z</lastmod>
     </url>
 </urlset>
