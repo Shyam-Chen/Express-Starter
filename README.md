@@ -34,11 +34,14 @@ This seed repository provides the following features:
 * [x] Operating system with [**Linux**](https://github.com/torvalds/linux).
 * [x] Text editor with [**Atom**](https://github.com/atom/atom).
 * [x] Version control with [**Git**](https://github.com/git/git).
+* [x] Code repository with [**GitHub**](https://github.com/).
 * [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
-* [x] Application cloud hosting with [**Heroku**](https://www.heroku.com/).
-* [x] Database cloud hosting with [**mLab**](https://mlab.com/).
-* [ ] SQL Database cloud hosting with [**ElephantSQL**](https://www.elephantsql.com/).
-* [x] Message queuing cloud hosting with [**CloudAMQP**](https://www.cloudamqp.com/).
+* [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
+* [x] Cloud NoSQL database hosting with [**mLab**](https://mlab.com/).
+* [ ] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
+* [x] Cloud message queuing services with [**CloudAMQP**](https://www.cloudamqp.com/).
+* [ ] Cloud logging services with [**Papertrail**](https://papertrailapp.com/).
+* [ ] Cloud monitoring services with [**UptimeRobot**](https://uptimerobot.com/).
 * [x] Reverse proxy and caching with [**Nginx**](https://github.com/nginx/nginx).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**Travis**](https://github.com/travis-ci/travis-ci).
