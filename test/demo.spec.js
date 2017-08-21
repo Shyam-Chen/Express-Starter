@@ -1,18 +1,14 @@
-// import request from 'supertest';
-//
-// import { server } from '../src/app';
-//
-// describe('loading express', () => {
-//   afterEach(done => {
-//     server.close(done);
-//   });
-//
-//   it('responds to /__/list', async () => {
-//     const { statusCode, body } = await request(server).get('/__/list');
-//     expect(statusCode).toBe(200);
-//     expect(body).toBeDefined();
-//   });
-// });
+import request from 'supertest';
+
+import { server } from '../src/app';
+
+describe('loading express', () => {
+  it('responds to /__/list', async () => {
+    const { statusCode, body } = await request(server).get('/__/list');
+    expect(statusCode).toBe(200);
+    expect(body).toBeDefined();
+  });
+});
 
 // ------------------------------
 

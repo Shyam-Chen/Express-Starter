@@ -304,7 +304,6 @@ $ yarn deploy
 * ---------- **P0: Critical** ----------
 * Deploy the application in Docker containers
 * Push Docker image to Heroku
-* In the unit test can not shut down the server
 * ---------- **P1: Urgent** ----------
 * ...
 * ---------- **P2: Required** ----------
