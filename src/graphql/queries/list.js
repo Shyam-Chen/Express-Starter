@@ -4,6 +4,15 @@ import { List } from '~/models';
 
 import listType from '../types/list';
 
+/**
+ * @example
+ * {
+ *   list {
+ *     _id
+ *     text
+ *   }
+ * }
+ */
 export default {
   list: {
     type: new GraphQLList(listType),

@@ -13,7 +13,7 @@ exports.default = new _graphql.GraphQLObjectType({
       type: new _graphql.GraphQLNonNull(_graphql.GraphQLID)
     },
     text: {
-      type: _graphql.GraphQLString
+      type: new _graphql.GraphQLNonNull(_graphql.GraphQLString)
     }
   }
 });

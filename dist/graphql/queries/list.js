@@ -14,6 +14,15 @@ var _list2 = _interopRequireDefault(_list);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * @example
+ * {
+ *   list {
+ *     _id
+ *     text
+ *   }
+ * }
+ */
 exports.default = {
   list: {
     type: new _graphql.GraphQLList(_list2.default),

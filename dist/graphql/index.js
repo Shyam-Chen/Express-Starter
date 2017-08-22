@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.schema = exports.rootQuery = undefined;
+exports.schema = exports.rootMutation = exports.rootQuery = undefined;
 
 var _graphql = require('graphql');
 
@@ -11,9 +11,18 @@ var _queries = require('./queries');
 
 var _queries2 = _interopRequireDefault(_queries);
 
+var _mutations = require('./mutations');
+
+var _mutations2 = _interopRequireDefault(_mutations);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import { buildSchema } from 'graphql';
+const rootQuery = exports.rootQuery = new _graphql.GraphQLObjectType({
+  name: 'Query',
+  fields: () => ({
+    list: _queries2.default.list
+  })
+}); // import { buildSchema } from 'graphql';
 //
 // export const schema = buildSchema(`
 //   type Query {
@@ -40,23 +49,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // -
 
-const rootQuery = exports.rootQuery = new _graphql.GraphQLObjectType({
-  name: 'Query',
-  description: 'Realize Root Query',
+const rootMutation = exports.rootMutation = new _graphql.GraphQLObjectType({
+  name: 'Mutation',
   fields: () => ({
-    list: _queries2.default.list
+    addText: _mutations2.default.addText
   })
 });
 
-// export const rootMutation = new GraphQLObjectType({
-//   name: 'Mutation',
-//   description: 'Realize Root Mutations',
-//   fields: () => ({
-//     // ...
-//   })
-// });
-
 const schema = exports.schema = new _graphql.GraphQLSchema({
-  query: rootQuery
-  // mutation: rootMutation
+  query: rootQuery,
+  mutation: rootMutation
 });

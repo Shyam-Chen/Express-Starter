@@ -7,7 +7,7 @@ export default new GraphQLObjectType({
       type: new GraphQLNonNull(GraphQLID)
     },
     text: {
-      type: GraphQLString
+      type: new GraphQLNonNull(GraphQLString)
     }
   }
 });

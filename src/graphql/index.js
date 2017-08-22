@@ -27,25 +27,24 @@
 
 import { GraphQLObjectType, GraphQLSchema } from 'graphql';
 
-import listQueries from './queries'
+import listQueries from './queries';
+import listMutations from './mutations';
 
 export const rootQuery = new GraphQLObjectType({
   name: 'Query',
-  description: 'Realize Root Query',
   fields: () => ({
     list: listQueries.list
   })
 });
 
-// export const rootMutation = new GraphQLObjectType({
-//   name: 'Mutation',
-//   description: 'Realize Root Mutations',
-//   fields: () => ({
-//     // ...
-//   })
-// });
+export const rootMutation = new GraphQLObjectType({
+  name: 'Mutation',
+  fields: () => ({
+    addText: listMutations.addText
+  })
+});
 
 export const schema = new GraphQLSchema({
   query: rootQuery,
-  // mutation: rootMutation
+  mutation: rootMutation
 })
