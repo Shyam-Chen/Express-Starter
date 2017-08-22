@@ -1,7 +1,8 @@
 import { GraphQLList } from 'graphql';
 
+import { List } from '~/models';
+
 import listType from '../types/list';
-import { List } from '../../models';
 
 export default {
   list: {

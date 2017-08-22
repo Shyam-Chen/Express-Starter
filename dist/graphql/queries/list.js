@@ -6,11 +6,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _graphql = require('graphql');
 
+var _models = require('../../models');
+
 var _list = require('../types/list');
 
 var _list2 = _interopRequireDefault(_list);
-
-var _models = require('../../models');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

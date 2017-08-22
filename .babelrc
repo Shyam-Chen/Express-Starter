@@ -13,6 +13,11 @@
     "transform-function-bind",
     "transform-object-rest-spread",
     [
+      "babel-plugin-root-import", {
+        "rootPathSuffix": "src"
+      }
+    ],
+    [
       "transform-imports", {
         "lodash": {
           "transform": "lodash/${member}",
