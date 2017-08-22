@@ -1,7 +1,5 @@
-// import foo from './foo';
-// import bar from './bar';
-//
-// export default {
-//   ...foo,
-//   ...bar
-// };
+import list from './list';
+
+export default {
+  ...list
+};

@@ -76,11 +76,7 @@ app.use(_bodyParser2.default.urlencoded({ extended: false }));
 
 app.use((0, _expressJwt2.default)({ secret: Buffer.from(app.get('secret'), 'base64'), credentialsRequired: false }));
 
-app.use('/__/graphql', (0, _expressGraphql2.default)(() => ({
-  schema: _graphql.schema,
-  rootValue: _graphql.rootValue,
-  graphiql: true
-})));
+app.use('/__/graphql', (0, _expressGraphql2.default)(() => ({ schema: _graphql.schema, graphiql: true })));
 
 app.use('/__/list', _routes.listRoutes);
 

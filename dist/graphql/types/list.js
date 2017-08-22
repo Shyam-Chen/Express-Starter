@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 var _graphql = require('graphql');
 
 exports.default = new _graphql.GraphQLObjectType({
-  name: 'Bar',
+  name: 'List',
   fields: {
     _id: {
       type: new _graphql.GraphQLNonNull(_graphql.GraphQLID)

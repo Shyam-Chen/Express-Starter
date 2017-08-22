@@ -1,7 +1,7 @@
 import { GraphQLObjectType, GraphQLNonNull, GraphQLID, GraphQLString } from 'graphql';
 
 export default new GraphQLObjectType({
-  name: 'Bar',
+  name: 'List',
   fields: {
     _id: {
       type: new GraphQLNonNull(GraphQLID)
