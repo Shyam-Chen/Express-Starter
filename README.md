@@ -1,4 +1,4 @@
-# Backend Starter Kit (Beta)
+# Backend Starter Kit
 
 :truck: A boilerplate for :star2: Node.js :star2:, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.
 

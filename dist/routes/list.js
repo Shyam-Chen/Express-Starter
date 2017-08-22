@@ -17,7 +17,7 @@ router.get('/', async (req, res, next) => {
     const { text } = req.query;
 
     if (text) {
-      find[Symbol('text')] = {
+      find['text'] = {
         $regex: text,
         $options: 'i'
       };
