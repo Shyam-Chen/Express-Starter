@@ -52,7 +52,9 @@ const rootQuery = exports.rootQuery = new _graphql.GraphQLObjectType({
 const rootMutation = exports.rootMutation = new _graphql.GraphQLObjectType({
   name: 'Mutation',
   fields: () => ({
-    addText: _mutations2.default.addText
+    addText: _mutations2.default.addText,
+    updateText: _mutations2.default.updateText,
+    deleteText: _mutations2.default.deleteText
   })
 });
 

@@ -33,8 +33,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(jwt({ secret: Buffer.from(app.get('secret'), 'base64'), credentialsRequired: false }));
 
+/**
+ * @name GraphQL
+ */
 app.use('/__/graphql', graphql(() => ({ schema, graphiql: true })));
 
+/**
+ * @name REST
+ */
 app.use('/__/list', listRoutes);
 
 app.use(express.static(root));

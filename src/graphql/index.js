@@ -40,7 +40,9 @@ export const rootQuery = new GraphQLObjectType({
 export const rootMutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: () => ({
-    addText: listMutations.addText
+    addText: listMutations.addText,
+    updateText: listMutations.updateText,
+    deleteText: listMutations.deleteText
   })
 });
 

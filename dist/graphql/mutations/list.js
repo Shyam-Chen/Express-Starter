@@ -22,6 +22,20 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *     text
  *   }
  * }
+ *
+ * mutation {
+ *   updateText(_id: "599b8fb525b689001eb19183", text: "Web GO") {
+ *     _id
+ *     text
+ *   }
+ * }
+ *
+ * mutation {
+ *   deleteText(_id: "599c03f34573776d764dc069") {
+ *     _id
+ *     text
+ *   }
+ * }
  */
 exports.default = {
   addText: {
@@ -40,11 +54,41 @@ exports.default = {
         throw err;
       }
     }
+  },
+  updateText: {
+    type: _list2.default,
+    args: {
+      _id: {
+        name: '_id',
+        type: new _graphql.GraphQLNonNull(_graphql.GraphQLID)
+      },
+      text: {
+        name: 'text',
+        type: new _graphql.GraphQLNonNull(_graphql.GraphQLString)
+      }
+    },
+    async resolve(root, { _id, text }) {
+      try {
+        return await _models.List.findOneAndUpdate({ _id }, { $set: { text } }, { new: true, upsert: true }).exec();
+      } catch (err) {
+        throw err;
+      }
+    }
+  },
+  deleteText: {
+    type: _list2.default,
+    args: {
+      _id: {
+        name: '_id',
+        type: new _graphql.GraphQLNonNull(_graphql.GraphQLID)
+      }
+    },
+    async resolve(root, { _id }) {
+      try {
+        return await _models.List.findByIdAndRemove(_id);
+      } catch (err) {
+        throw err;
+      }
+    }
   }
-  // updateText: {
-  //
-  // },
-  // deleteText: {
-  //
-  // }
 };
