@@ -86,7 +86,11 @@ app.use(_routes2.default);
 /**
  * @name GraphQL
  */
-app.use('/__/graphql', (0, _expressGraphql2.default)(() => ({ schema: _graphql.schema, graphiql: true })));
+app.use('/__/graphql', (0, _expressGraphql2.default)(() => ({
+  schema: _graphql.schema,
+  graphiql: process.env.NODE_ENV !== 'production',
+  pretty: process.env.NODE_ENV !== 'production'
+})));
 
 app.use(_express2.default.static(root));
 app.use((0, _expressHistoryApiFallback2.default)('index.html', { root }));
@@ -96,6 +100,9 @@ const server = app.listen(app.get('port'), () => {
   console.log(`Port: ${app.get('port')}.`);
 });
 
+/**
+ * @name Socket
+ */
 const io = _socket2.default.listen(server);
 
 io.on('connection', socket => {
@@ -106,6 +113,9 @@ io.on('connection', socket => {
   socket.on('B', data => console.log(data));
 });
 
+/**
+ * @name RabbitMQ
+ */
 _amqplib2.default.connect('amqp://gnnwevxx:V1PhfxZSO_-CJ6agZGipEBVmFX508N0P@black-boar.rmq.cloudamqp.com/gnnwevxx').then(conn => {
   process.once('SIGINT', () => conn.close());
 
