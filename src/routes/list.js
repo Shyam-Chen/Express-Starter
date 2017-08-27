@@ -6,6 +6,8 @@ const router = Router();
 
 router.get('/', async (req, res, next) => {
   try {
+    console.log(req.app.get('secret'));
+
     const find = {};
     const { text } = req.query;
 
@@ -50,9 +52,13 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    const list = await new List(req.body);
-    const message = await list.save().then(() => 'List saved');
-    res.json({ message });
+    if (req.body.text) {
+      const list = await new List(req.body);
+      const message = await list.save().then(() => 'List saved');
+      res.json({ message });
+    } else {
+      res.json({ message: 'Please pass text.' });
+    }
   } catch (err) {
     next(err);
   }
