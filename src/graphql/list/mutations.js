@@ -2,7 +2,7 @@ import { GraphQLNonNull, GraphQLString, GraphQLID } from 'graphql';
 
 import { List } from '~/models';
 
-import listType from '../types/list';
+import listType from './type';
 
 /**
  * @example

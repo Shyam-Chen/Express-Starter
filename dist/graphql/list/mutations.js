@@ -8,9 +8,9 @@ var _graphql = require('graphql');
 
 var _models = require('../../models');
 
-var _list = require('../types/list');
+var _type = require('./type');
 
-var _list2 = _interopRequireDefault(_list);
+var _type2 = _interopRequireDefault(_type);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -39,7 +39,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 exports.default = {
   addText: {
-    type: _list2.default,
+    type: _type2.default,
     args: {
       text: {
         name: 'text',
@@ -56,7 +56,7 @@ exports.default = {
     }
   },
   updateText: {
-    type: _list2.default,
+    type: _type2.default,
     args: {
       _id: {
         name: '_id',
@@ -76,7 +76,7 @@ exports.default = {
     }
   },
   deleteText: {
-    type: _list2.default,
+    type: _type2.default,
     args: {
       _id: {
         name: '_id',

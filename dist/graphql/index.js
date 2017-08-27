@@ -5,57 +5,20 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.schema = exports.rootMutation = exports.rootQuery = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _graphql = require('graphql');
 
-var _queries = require('./queries');
-
-var _queries2 = _interopRequireDefault(_queries);
-
-var _mutations = require('./mutations');
-
-var _mutations2 = _interopRequireDefault(_mutations);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _list = require('./list');
 
 const rootQuery = exports.rootQuery = new _graphql.GraphQLObjectType({
   name: 'Query',
-  fields: () => ({
-    list: _queries2.default.list
-  })
-}); // import { buildSchema } from 'graphql';
-//
-// export const schema = buildSchema(`
-//   type Query {
-//     helloWorld: String
-//     users: [User!]!
-//   }
-//
-//   type User {
-//     id: ID!
-//     name: String!
-//   }
-// `);
-//
-// const usersById = {
-//   1: { id: 1, name: 'foo' },
-//   2: { id: 2, name: 'bar' },
-//   3: { id: 3, name: 'baz' },
-// };
-//
-// export const rootValue = {
-//   helloWorld: () => 'Hello World',
-//   users: () => Object.keys(usersById).map(id => usersById[id])
-// };
-
-// -
+  fields: () => _extends({}, _list.listQueries)
+});
 
 const rootMutation = exports.rootMutation = new _graphql.GraphQLObjectType({
   name: 'Mutation',
-  fields: () => ({
-    addText: _mutations2.default.addText,
-    updateText: _mutations2.default.updateText,
-    deleteText: _mutations2.default.deleteText
-  })
+  fields: () => _extends({}, _list.listMutations)
 });
 
 const schema = exports.schema = new _graphql.GraphQLSchema({

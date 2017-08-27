@@ -8,9 +8,9 @@ var _graphql = require('graphql');
 
 var _models = require('../../models');
 
-var _list = require('../types/list');
+var _type = require('./type');
 
-var _list2 = _interopRequireDefault(_list);
+var _type2 = _interopRequireDefault(_type);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25,7 +25,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 exports.default = {
   list: {
-    type: new _graphql.GraphQLList(_list2.default),
+    type: new _graphql.GraphQLList(_type2.default),
     async resolve(root, { text }) {
       try {
         const find = {};
