@@ -53,6 +53,8 @@ var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
 var _routes = require('./routes');
 
+var _routes2 = _interopRequireDefault(_routes);
+
 var _graphql = require('./graphql');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -77,14 +79,14 @@ app.use(_bodyParser2.default.urlencoded({ extended: false }));
 app.use((0, _expressJwt2.default)({ secret: Buffer.from(app.get('secret'), 'base64'), credentialsRequired: false }));
 
 /**
+ * @name REST
+ */
+app.use(_routes2.default);
+
+/**
  * @name GraphQL
  */
 app.use('/__/graphql', (0, _expressGraphql2.default)(() => ({ schema: _graphql.schema, graphiql: true })));
-
-/**
- * @name REST
- */
-app.use('/__/list', _routes.listRoutes);
 
 app.use(_express2.default.static(root));
 app.use((0, _expressHistoryApiFallback2.default)('index.html', { root }));

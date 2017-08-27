@@ -3,7 +3,6 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.listRoutes = undefined;
 
 var _express = require('express');
 
@@ -89,4 +88,4 @@ router.delete('/:id', async (req, res, next) => {
   }
 });
 
-const listRoutes = exports.listRoutes = router;
+exports.default = router;
