@@ -1,6 +1,6 @@
 import request from 'supertest';
 
-import { server } from '../src/app';
+import { server } from '~/app';
 
 describe('API', () => {
   it('responds to /__/list', async () => {
