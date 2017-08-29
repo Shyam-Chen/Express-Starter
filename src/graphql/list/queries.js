@@ -16,7 +16,7 @@ import listType from './type';
 export default {
   list: {
     type: new GraphQLList(listType),
-    async resolve(root, { text }) {
+    async resolve(root, { text }): { text: string } {
       try {
         const find = {};
 

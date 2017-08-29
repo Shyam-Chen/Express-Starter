@@ -12,7 +12,7 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 
 import routes from './routes';
-import { schema } from './graphql';
+import schema from './graphql';
 
 const app = express();
 const root = join(__dirname, '../public');

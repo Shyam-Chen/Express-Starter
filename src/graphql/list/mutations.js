@@ -36,7 +36,7 @@ export default {
         type: new GraphQLNonNull(GraphQLString)
       }
     },
-    async resolve(root, { text }) {
+    async resolve(root, { text }): { text: string } {
       try {
         const list = await new List({ text });
         return await list.save();
@@ -57,7 +57,7 @@ export default {
         type: new GraphQLNonNull(GraphQLString)
       }
     },
-    async resolve(root, { _id, text }) {
+    async resolve(root, { _id, text }): { _id: string, text: string } {
       try {
         return await List.findOneAndUpdate(
           { _id },
@@ -77,7 +77,7 @@ export default {
         type: new GraphQLNonNull(GraphQLID)
       }
     },
-    async resolve(root, { _id }) {
+    async resolve(root, { _id }): { _id: string } {
       try {
         return await List.findByIdAndRemove(_id);
       } catch (err) {

@@ -42,7 +42,7 @@
     "graphql-tools": "1.2.1",
     "jsonwebtoken": "7.4.3",
     "lodash": "4.17.4",
-    "mongoose": "4.11.8",
+    "mongoose": "4.11.9",
     "morgan": "1.8.2",
     "passport": "0.4.0",
     "passport-facebook": "2.1.1",
@@ -52,7 +52,7 @@
     "pg-hstore": "2.3.2",
     "pm2": "2.6.1",
     "rxjs": "5.4.3",
-    "sequelize": "4.5.0",
+    "sequelize": "4.7.5",
     "socket.io": "2.0.3"
   },
   "devDependencies": {
