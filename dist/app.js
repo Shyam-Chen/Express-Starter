@@ -62,7 +62,6 @@ var _graphql2 = _interopRequireDefault(_graphql);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const app = (0, _express2.default)();
-const root = (0, _path.join)(__dirname, '../public');
 
 app.set('port', process.env.PORT || 3000);
 app.set('mongodb-uri', process.env.MONGODB_URI || 'mongodb://web-go:web-go@ds133961.mlab.com:33961/web-go-demo');
@@ -94,8 +93,15 @@ app.use('/__/graphql', (0, _expressGraphql2.default)(() => ({
   pretty: process.env.NODE_ENV !== 'production'
 })));
 
-app.use(_express2.default.static(root));
-app.use((0, _expressHistoryApiFallback2.default)('index.html', { root }));
+/**
+ * @name static
+ */
+if (process.env.NODE_ENV === 'production') {
+  const root = (0, _path.join)(__dirname, '../public');
+
+  app.use(_express2.default.static(root));
+  app.use((0, _expressHistoryApiFallback2.default)('index.html', { root }));
+}
 
 const server = app.listen(app.get('port'), () => {
   console.log('App: Bootstrap Succeeded.');

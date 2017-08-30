@@ -8,8 +8,13 @@ docker-compose exec app dpl --provider=heroku --app=web-go-demo --api-key=${HERO
 
 # docker-compose exec app git config user.email "shyamchen1994@gmail.com"
 # docker-compose exec app git config user.name "Shyam Chen"
+
+# docker-compose exec app git clone https://github.com/Shyam-Chen/Frontend-Starter-Kit
+# docker-compose exec app bash -c "cd Frontend-Starter-Kit && yarn && yarn prod && mv public ../"
+
 # docker-compose exec app git add -f dist
-# docker-compose exec app git add .
+# docker-compose exec app git add public
+
 # docker-compose exec app git commit -m "Deploy - ${TRAVIS_BUILD_NUMBER} (${TRAVIS_BUILD_ID})"
 
 # docker-compose exec app git remote add heroku https://git.heroku.com/web-go-demo.git

@@ -15,7 +15,6 @@ import routes from './routes';
 import schema from './graphql';
 
 const app = express();
-const root = join(__dirname, '../public');
 
 app.set('port', (process.env.PORT || 3000));
 app.set('mongodb-uri', (process.env.MONGODB_URI || 'mongodb://web-go:web-go@ds133961.mlab.com:33961/web-go-demo'));
@@ -47,8 +46,15 @@ app.use('/__/graphql', graphql(() => ({
   pretty: process.env.NODE_ENV !== 'production'
 })));
 
-app.use(express.static(root));
-app.use(history('index.html', { root }));
+/**
+ * @name static
+ */
+if (process.env.NODE_ENV === 'production') {
+  const root = join(__dirname, '../public');
+
+  app.use(express.static(root));
+  app.use(history('index.html', { root }));
+}
 
 const server = app.listen(app.get('port'), (): void => {
   console.log('App: Bootstrap Succeeded.');
