@@ -2,7 +2,7 @@
 
 set -eux
 
-docker-compose exec app dpl --provider=heroku --app=web-go-demo --api-key=${HEROKU_TOKEN} --strategy=git
+# docker-compose exec app dpl --provider=heroku --app=web-go-demo --api-key=${HEROKU_TOKEN} --strategy=git
 
 # docker-compose exec app yarn run build
 
@@ -35,3 +35,11 @@ docker-compose exec app dpl --provider=heroku --app=web-go-demo --api-key=${HERO
 # docker-compose exec app git push "https://heroku:${HEROKU_TOKEN}@git.heroku.com/web-go-demo.git" master -f
 
 # docker-compose exec app yarn run deploy
+
+
+
+
+docker login -u="Shyam Chen" -p="${HEROKU_TOKEN}" registry.heroku.com
+
+docker build -f Dockerfile.prod -t registry.heroku.com/web-go-demo/web .
+docker push registry.heroku.com/web-go-demo/web
