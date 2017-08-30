@@ -22,7 +22,7 @@ app.set('secret', process.env.SECRET || 'webgo');
 
 mongoose.connect(app.get('mongodb-uri'));
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
-mongoose.connection.once('open', () => console.log('DB: Connection Succeeded.'));
+mongoose.connection.once('open', () => console.log(' [*] DB: Connection Succeeded.'));
 
 app.use(compression());
 app.use(cors());
@@ -57,8 +57,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const server = app.listen(app.get('port'), (): void => {
-  console.log('App: Bootstrap Succeeded.');
-  console.log(`Port: ${app.get('port')}.`);
+  console.log(' [*] App: Bootstrap Succeeded.');
+  console.log(` [*] Port: ${app.get('port')}.`);
 });
 
 /**
@@ -68,7 +68,7 @@ const io = socket.listen(server);
 
 io.on('connection', socket => {
   console.log('WS: Establish a connection.');
-  socket.on('disconnect', () => console.log('WS: Disconnected'));
+  socket.on('disconnect', () => console.log('WS: Disconnected.'));
 
   socket.emit('A', { foo: 'bar' });
   socket.on('B', data => console.log(data));
@@ -77,23 +77,25 @@ io.on('connection', socket => {
 /**
  * @name RabbitMQ
  */
-amqp.connect('amqp://gnnwevxx:V1PhfxZSO_-CJ6agZGipEBVmFX508N0P@black-boar.rmq.cloudamqp.com/gnnwevxx')
+const rabbitmqUri = 'amqp://gnnwevxx:V1PhfxZSO_-CJ6agZGipEBVmFX508N0P@black-boar.rmq.cloudamqp.com/gnnwevxx';
+
+amqp.connect(rabbitmqUri)
   .then(conn => {
-    process.once('SIGINT', () => conn.close());
+    return conn.createChannel()
+      .then(channel => {
+        const queue = 'foo';
+        const message = 'Hello World!';
 
-    return conn.createChannel().then(channel => {
-      let ok = channel.assertQueue('hello', { durable: false });
+        const ok = channel.assertQueue(queue, { durable: false });
 
-      ok = ok.then(() => {
-        return channel.consume('hello', msg => {
-          console.log(" [x] Received '%s'", msg.content.toString());
-        }, { noAck: true });
-      });
+        return ok.then(() => {
+          channel.sendToQueue(queue, Buffer.from(message));
+          console.log(message);
 
-      return ok.then(() => {
-        console.log(' [*] Waiting for messages. To exit press CTRL + C.');
-      });
-    });
+          return channel.close();
+        });
+      })
+      .finally(() => conn.close());
   })
   .catch(console.warn);
 
