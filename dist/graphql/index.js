@@ -3,12 +3,15 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.schema = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _graphql = require('graphql');
 
 var _list = require('./list');
+
+var _graphqlTools = require('graphql-tools');
 
 exports.default = new _graphql.GraphQLSchema({
   query: new _graphql.GraphQLObjectType({
@@ -20,3 +23,17 @@ exports.default = new _graphql.GraphQLSchema({
     fields: () => _extends({}, _list.listMutations)
   })
 });
+
+// -
+
+// import { mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
+
+const typeDefs = // mergeTypes([
+_list.listTypeDefs;
+// ]);
+
+const resolvers = // mergeResolvers([
+_list.listResolvers;
+// ]);
+
+const schema = exports.schema = (0, _graphqlTools.makeExecutableSchema)({ typeDefs, resolvers });

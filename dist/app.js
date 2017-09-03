@@ -61,6 +61,8 @@ var _graphql2 = _interopRequireDefault(_graphql);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import { schema } from './graphql';
+
 const app = (0, _express2.default)();
 
 app.set('port', process.env.PORT || 3000);

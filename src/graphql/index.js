@@ -16,3 +16,20 @@ export default new GraphQLSchema({
     })
   })
 });
+
+// -
+
+import { makeExecutableSchema } from 'graphql-tools';
+// import { mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
+
+import { listTypeDefs, listResolvers } from './list';
+
+const typeDefs = // mergeTypes([
+  listTypeDefs
+// ]);
+
+const resolvers = // mergeResolvers([
+  listResolvers
+// ]);
+
+export const schema = makeExecutableSchema({ typeDefs, resolvers });
