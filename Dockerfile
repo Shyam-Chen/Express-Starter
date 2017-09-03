@@ -22,10 +22,10 @@ ENV PATH $HOME/.yarn/bin:$PATH
 # -- node
 
 # ruby --
-RUN \
-  apt-get update && \
-  apt-get install -y ruby && \
-  gem install dpl
+# RUN \
+#   apt-get update && \
+#   apt-get install -y ruby && \
+#   gem install dpl
 # -- ruby
 
 # heroku --
