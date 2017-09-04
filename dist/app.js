@@ -57,13 +57,11 @@ var _routes2 = _interopRequireDefault(_routes);
 
 var _graphql = require('./graphql');
 
-var _graphql2 = _interopRequireDefault(_graphql);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import { schema } from './graphql';
-
 const app = (0, _express2.default)();
+// import schema from './graphql';
+
 
 app.set('port', process.env.PORT || 3000);
 app.set('mongodb-uri', process.env.MONGODB_URI || 'mongodb://web-go:web-go@ds133961.mlab.com:33961/web-go-demo');
@@ -90,7 +88,7 @@ app.use(_routes2.default);
  * @name GraphQL
  */
 app.use('/__/graphql', (0, _expressGraphql2.default)(() => ({
-  schema: _graphql2.default,
+  schema: _graphql.schema,
   graphiql: process.env.NODE_ENV !== 'production',
   pretty: process.env.NODE_ENV !== 'production'
 })));

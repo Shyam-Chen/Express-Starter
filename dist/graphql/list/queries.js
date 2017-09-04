@@ -22,10 +22,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *     text
  *   }
  * }
+ *
+ * {
+ *   list(text: "a") {
+ *     _id
+ *     text
+ *   }
+ * }
  */
 exports.default = {
   list: {
     type: new _graphql.GraphQLList(_type2.default),
+    args: {
+      text: {
+        name: 'text',
+        type: _graphql.GraphQLString
+      }
+    },
     async resolve(root, { text }) {
       try {
         const find = {};

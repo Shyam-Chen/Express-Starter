@@ -37,6 +37,7 @@ const listTypeDefs = exports.listTypeDefs = `
 
   type Query {
     list: [List]
+    list(text: String): [List]
   }
 
   type Mutation {

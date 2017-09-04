@@ -1,4 +1,4 @@
-import { GraphQLList } from 'graphql';
+import { GraphQLList, GraphQLString } from 'graphql';
 
 import { List } from '~/models';
 
@@ -12,10 +12,23 @@ import listType from './type';
  *     text
  *   }
  * }
+ *
+ * {
+ *   list(text: "a") {
+ *     _id
+ *     text
+ *   }
+ * }
  */
 export default {
   list: {
     type: new GraphQLList(listType),
+    args: {
+      text: {
+        name: 'text',
+        type: GraphQLString
+      }
+    },
     async resolve(root, { text }): { text: string } {
       try {
         const find = {};
