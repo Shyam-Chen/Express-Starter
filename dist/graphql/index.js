@@ -15,6 +15,8 @@ var _graphqlTools = require('graphql-tools');
 
 var _mergeGraphqlSchemas = require('merge-graphql-schemas');
 
+var _sample = require('./sample');
+
 exports.default = new _graphql.GraphQLSchema({
   query: new _graphql.GraphQLObjectType({
     name: 'Query',
@@ -28,35 +30,8 @@ exports.default = new _graphql.GraphQLSchema({
 
 // -
 
-const userTypeDefs = `
-  type User {
-    id: ID!
-    name: String!
-  }
+const typeDefs = (0, _mergeGraphqlSchemas.mergeTypes)([_sample.userTypeDefs, _list.listTypeDefs]);
 
-  type Query {
-    users: [User]
-  }
-`;
-
-const userResolvers = {
-  Query: {
-    users() {
-      const usersById = {
-        1: { id: 1, name: 'Angular' },
-        2: { id: 2, name: 'React' },
-        3: { id: 3, name: 'Vue' }
-      };
-
-      return Object.keys(usersById).map(id => usersById[id]);
-    }
-  }
-};
-
-// -
-
-const typeDefs = (0, _mergeGraphqlSchemas.mergeTypes)([userTypeDefs, _list.listTypeDefs]);
-
-const resolvers = (0, _mergeGraphqlSchemas.mergeResolvers)([userResolvers, _list.listResolvers]);
+const resolvers = (0, _mergeGraphqlSchemas.mergeResolvers)([_sample.userResolvers, _list.listResolvers]);
 
 const schema = exports.schema = (0, _graphqlTools.makeExecutableSchema)({ typeDefs, resolvers });
