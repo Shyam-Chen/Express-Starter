@@ -15,7 +15,7 @@ var _graphqlTools = require('graphql-tools');
 
 var _mergeGraphqlSchemas = require('merge-graphql-schemas');
 
-var _sample = require('./sample');
+var _formControls = require('./form-controls');
 
 exports.default = new _graphql.GraphQLSchema({
   query: new _graphql.GraphQLObjectType({
@@ -30,8 +30,8 @@ exports.default = new _graphql.GraphQLSchema({
 
 // -
 
-const typeDefs = (0, _mergeGraphqlSchemas.mergeTypes)([_sample.userTypeDefs, _list.listTypeDefs]);
+const typeDefs = (0, _mergeGraphqlSchemas.mergeTypes)([_list.listTypeDefs, _formControls.selectTypeDefs]);
 
-const resolvers = (0, _mergeGraphqlSchemas.mergeResolvers)([_sample.userResolvers, _list.listResolvers]);
+const resolvers = (0, _mergeGraphqlSchemas.mergeResolvers)([_list.listResolvers, _formControls.selectResolvers]);
 
 const schema = exports.schema = (0, _graphqlTools.makeExecutableSchema)({ typeDefs, resolvers });

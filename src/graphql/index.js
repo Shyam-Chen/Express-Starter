@@ -22,17 +22,19 @@ export default new GraphQLSchema({
 import { makeExecutableSchema } from 'graphql-tools';
 import { mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
 
-import { userTypeDefs, userResolvers } from './sample';
 import { listTypeDefs, listResolvers } from './list';
+import { selectTypeDefs, selectResolvers } from './form-controls';
 
 const typeDefs = mergeTypes([
-  userTypeDefs,
-  listTypeDefs
+  listTypeDefs,
+  selectTypeDefs,
+
 ]);
 
 const resolvers = mergeResolvers([
-  userResolvers,
-  listResolvers
+  listResolvers,
+  selectResolvers,
+
 ]);
 
 export const schema = makeExecutableSchema({ typeDefs, resolvers });
