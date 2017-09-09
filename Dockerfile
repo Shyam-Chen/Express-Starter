@@ -12,7 +12,7 @@ ADD . $HOME
 # -- git
 
 # node --
-ENV NODE 7
+ENV NODE 8
 ENV PATH $HOME/.yarn/bin:$PATH
 
 RUN \
