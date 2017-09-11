@@ -41,7 +41,7 @@ export default {
         const list = await new List({ text });
         return await list.save();
       } catch (err) {
-        throw err;
+        console.error(err);
       }
     }
   },
@@ -65,7 +65,7 @@ export default {
           { new: true, upsert: true }
         ).exec();
       } catch (err) {
-        throw err;
+        console.error(err);
       }
     }
   },
@@ -81,7 +81,7 @@ export default {
       try {
         return await List.findByIdAndRemove(_id);
       } catch (err) {
-        throw err;
+        console.error(err);
       }
     }
   }

@@ -42,7 +42,7 @@ export default {
 
         return await List.find(find).exec();
       } catch (err) {
-        throw err;
+        console.error(err);
       }
     }
   }

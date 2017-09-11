@@ -51,7 +51,7 @@ exports.default = {
         const list = await new _models.List({ text });
         return await list.save();
       } catch (err) {
-        throw err;
+        console.error(err);
       }
     }
   },
@@ -71,7 +71,7 @@ exports.default = {
       try {
         return await _models.List.findOneAndUpdate({ _id }, { $set: { text } }, { new: true, upsert: true }).exec();
       } catch (err) {
-        throw err;
+        console.error(err);
       }
     }
   },
@@ -87,7 +87,7 @@ exports.default = {
       try {
         return await _models.List.findByIdAndRemove(_id);
       } catch (err) {
-        throw err;
+        console.error(err);
       }
     }
   }

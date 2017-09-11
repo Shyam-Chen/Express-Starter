@@ -52,7 +52,7 @@ exports.default = {
 
         return await _models.List.find(find).exec();
       } catch (err) {
-        throw err;
+        console.error(err);
       }
     }
   }
