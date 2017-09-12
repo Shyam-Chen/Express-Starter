@@ -13,7 +13,7 @@ ADD . $HOME
 
 # node --
 ENV NODE 8
-ENV PATH $HOME/.yarn/bin:$PATH
+# ENV PATH $HOME/.yarn/bin:$PATH
 
 RUN \
   curl -sL https://deb.nodesource.com/setup_$NODE.x | bash - && \
@@ -40,6 +40,7 @@ RUN \
 
 RUN rm -rf /var/lib/apt/lists/*
 
-RUN yarn
+# RUN
+RUN npm install
 
 EXPOSE 3000
