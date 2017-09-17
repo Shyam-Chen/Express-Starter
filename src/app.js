@@ -110,4 +110,4 @@ amqp.connect(rabbitmqUri)
   })
   .catch(console.warn);
 
-export { server, io };
+export default server;

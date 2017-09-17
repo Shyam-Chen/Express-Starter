@@ -1,8 +1,8 @@
 import request from 'supertest';
 import { graphql } from 'graphql';
 
-import { server } from '~/app';
-import { schema } from '~/graphql';
+import server from '~/app';
+import schema from '~/graphql';
 
 describe('REST', () => {
   it('list', async () => {

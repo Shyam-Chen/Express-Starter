@@ -3,7 +3,6 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.io = exports.server = undefined;
 
 var _path = require('path');
 
@@ -153,5 +152,4 @@ _amqplib2.default.connect(rabbitmqUri).then(conn => {
   }).finally(() => conn.close());
 }).catch(console.warn);
 
-exports.server = server;
-exports.io = io;
+exports.default = server;
