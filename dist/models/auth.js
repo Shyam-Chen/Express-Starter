@@ -25,3 +25,13 @@ const User = exports.User = _mongoose2.default.model('User', userSchema);
  * @name google
  */
 // TODO: ...
+
+/**
+ * @name facebook
+ */
+// TODO: ...
+
+/**
+ * @name twitter
+ */
+// TODO: ...

@@ -14,3 +14,13 @@ export const User = mongoose.model('User', userSchema);
  * @name google
  */
 // TODO: ...
+
+/**
+ * @name facebook
+ */
+// TODO: ...
+
+/**
+ * @name twitter
+ */
+// TODO: ...

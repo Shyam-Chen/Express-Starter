@@ -57,9 +57,9 @@ var _routes2 = _interopRequireDefault(_routes);
 
 var _graphql = require('./graphql');
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _graphql2 = _interopRequireDefault(_graphql);
 
-// import schema from './graphql';
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const app = (0, _express2.default)();
 
@@ -89,7 +89,7 @@ app.use(_routes2.default);
  * @name GraphQL
  */
 app.use('/__/graphql', (0, _expressGraphql2.default)(() => ({
-  schema: _graphql.schema,
+  schema: _graphql2.default,
   graphiql: process.env.NODE_ENV !== 'production',
   pretty: process.env.NODE_ENV !== 'production'
 })));
