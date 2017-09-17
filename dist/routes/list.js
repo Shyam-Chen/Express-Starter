@@ -10,10 +10,14 @@ var _models = require('../models');
 
 const router = (0, _express.Router)();
 
+/**
+ * @name list - get a list or search list
+ * @param {string} text - search for text in list
+ * @example get a list - /__/list
+ * @example search list - /__/list?text=${text}
+ */
 router.get('/', async (req, res, next) => {
   try {
-    console.log(req.app.get('secret'));
-
     const find = {};
     const { text } = req.query;
 
@@ -31,6 +35,11 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+/**
+ * @name pagination
+ * @param {number} page - current page number
+ * @param {number} row - rows per page
+ */
 router.get('/:page/:row', async (req, res, next) => {
   try {
     const row = Number(req.params.row);
@@ -47,6 +56,10 @@ router.get('/:page/:row', async (req, res, next) => {
   }
 });
 
+/**
+ * @name item - get a item from ID in list
+ * @example /__/list/${id}
+ */
 router.get('/:id', async (req, res, next) => {
   try {
     const data = await _models.List.findById(req.params.id).exec();
@@ -56,6 +69,9 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
+/**
+ * @name create - create a item
+ */
 router.post('/', async (req, res, next) => {
   try {
     if (req.body.text) {
@@ -70,6 +86,9 @@ router.post('/', async (req, res, next) => {
   }
 });
 
+/**
+ * @name update - update a item
+ */
 router.put('/:id', async (req, res, next) => {
   try {
     const list = await _models.List.findById(req.params.id).exec();
@@ -85,6 +104,9 @@ router.put('/:id', async (req, res, next) => {
   }
 });
 
+/**
+ * @name delete - remove a item
+ */
 router.delete('/:id', async (req, res, next) => {
   try {
     const message = await _models.List.findByIdAndRemove(req.params.id).then(() => 'List deleted');

@@ -16,11 +16,16 @@ var _auth = require('./auth');
 
 var _auth2 = _interopRequireDefault(_auth);
 
+var _formControls = require('./form-controls');
+
+var _formControls2 = _interopRequireDefault(_formControls);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const router = _express2.default.Router();
 
 router.use('/__/list', _list2.default);
 router.use('/__/auth', _auth2.default);
+router.use('/__/form-controls', _formControls2.default);
 
 exports.default = router;

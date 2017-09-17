@@ -63,20 +63,21 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const app = (0, _express2.default)();
 
+/**
+ * @name config
+ */
 app.set('port', process.env.PORT || 3000);
 app.set('mongodb-uri', process.env.MONGODB_URI || 'mongodb://web-go:web-go@ds133961.mlab.com:33961/web-go-demo');
 app.set('secret', process.env.SECRET || 'webgo');
 
-_mongoose2.default.connect(app.get('mongodb-uri'));
-_mongoose2.default.connection.on('error', console.error.bind(console, 'connection error:'));
-_mongoose2.default.connection.once('open', () => console.log(' [*] DB: Connection Succeeded.'));
-
+/**
+ * @name middleware
+ */
 app.use((0, _compression2.default)());
 app.use((0, _cors2.default)());
 app.use((0, _morgan2.default)('tiny'));
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
-
 app.use((0, _expressJwt2.default)({ secret: Buffer.from(app.get('secret'), 'base64'), credentialsRequired: false }));
 
 /**
@@ -103,10 +104,20 @@ if (process.env.NODE_ENV === 'production') {
   app.use((0, _expressHistoryApiFallback2.default)('index.html', { root }));
 }
 
+/**
+ * @name server
+ */
 const server = app.listen(app.get('port'), () => {
   console.log(' [*] App: Bootstrap Succeeded.');
   console.log(` [*] Port: ${app.get('port')}.`);
 });
+
+/**
+ * @name database
+ */
+_mongoose2.default.connect(app.get('mongodb-uri'));
+_mongoose2.default.connection.on('error', console.error.bind(console, 'connection error:'));
+_mongoose2.default.connection.once('open', () => console.log(' [*] DB: Connection Succeeded.'));
 
 /**
  * @name Socket
