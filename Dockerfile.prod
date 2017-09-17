@@ -18,6 +18,8 @@ RUN rm -rf /var/lib/apt/lists/*
 
 RUN yarn install && yarn build
 
+# TODO: clone static files from https://github.com/Shyam-Chen/Frontend-Starter-Kit
+
 EXPOSE 3000
 
 CMD ["node", "dist/pm2.js"]
