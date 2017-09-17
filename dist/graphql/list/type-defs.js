@@ -1,9 +1,17 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-const listTypeDefs = exports.listTypeDefs = `
+exports.listTypeDefs = undefined;
+
+var _graphqlTag = require('graphql-tag');
+
+var _graphqlTag2 = _interopRequireDefault(_graphqlTag);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const listTypeDefs = exports.listTypeDefs = _graphqlTag2.default`
   type List {
     _id: ID!
     text: String!

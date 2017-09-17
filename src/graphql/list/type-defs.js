@@ -1,4 +1,6 @@
-export const listTypeDefs = `
+import gql from 'graphql-tag';
+
+export const listTypeDefs = gql`
   type List {
     _id: ID!
     text: String!

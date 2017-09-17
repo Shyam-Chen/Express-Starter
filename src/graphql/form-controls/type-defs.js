@@ -1,4 +1,6 @@
-export const selectTypeDefs = `
+import gql from 'graphql-tag';
+
+export const selectTypeDefs = gql`
   type SelectItem {
     id: ID!
     key: Int!
