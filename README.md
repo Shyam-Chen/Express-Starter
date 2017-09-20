@@ -18,7 +18,7 @@ This seed repository provides the following features:
 * [ ] Object relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
 * [x] Utility functions with [**Lodash**](https://lodash.com/).
 * [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
-* [x] Secure authentication with [**JWT**](https://jwt.io/).
+* [ ] Secure authentication with [**JWT**](https://jwt.io/).
 * [ ] Third-party authentication with [**Passport**](http://passportjs.org/).
 * [x] Real-time bidirectional communication with [**Socket**](https://socket.io/).
 * [x] Message queuing with [**RabbitMQ**](https://www.rabbitmq.com/).
@@ -42,7 +42,7 @@ This seed repository provides the following features:
 * [x] Cloud message queuing services with [**CloudAMQP**](https://www.cloudamqp.com/).
 * [ ] Cloud logging services with [**Papertrail**](https://papertrailapp.com/).
 * [x] Cloud monitoring services with [**UptimeRobot**](https://uptimerobot.com/).
-* [x] Reverse proxy and caching with [**Nginx**](https://github.com/nginx/nginx).
+* [ ] Reverse proxy and caching with [**Nginx**](https://github.com/nginx/nginx).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**Travis**](https://github.com/travis-ci/travis-ci).
 

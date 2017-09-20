@@ -43,8 +43,8 @@ app.use(routes);
  */
 app.use('/__/graphql', graphql(() => ({
   schema,
-  graphiql: process.env.NODE_ENV !== 'production',
-  pretty: process.env.NODE_ENV !== 'production'
+  graphiql: true,  // process.env.NODE_ENV !== 'production',
+  pretty: true  // process.env.NODE_ENV !== 'production'
 })));
 
 /**
