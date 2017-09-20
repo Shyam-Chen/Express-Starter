@@ -14,15 +14,15 @@ RUN \
   apt-get update && \
   apt-get install -y nodejs yarn
 
+RUN \
+  apt-get update && \
+  apt-get install -y git-core && \
+  git clone https://github.com/Shyam-Chen/Frontend-Starter-Kit && \
+  bash -c "cd Frontend-Starter-Kit && yarn install && yarn prod && mv public ../"
+
 RUN rm -rf /var/lib/apt/lists/*
 
 RUN yarn install && yarn build
-
-# RUN \
-#   apt-get update && \
-#   apt-get install -y git-core && \
-#   git clone https://github.com/Shyam-Chen/Frontend-Starter-Kit && \
-#   bash -c "cd Frontend-Starter-Kit && yarn install && yarn prod && mv public ../"
 
 EXPOSE 3000
 
