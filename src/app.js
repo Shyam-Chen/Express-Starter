@@ -11,7 +11,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 
-import routes from './routes';
+import routes from './rest';
 import schema from './graphql';
 
 const app = express();
