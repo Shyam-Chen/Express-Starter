@@ -24,6 +24,8 @@ RUN rm -rf /var/lib/apt/lists/*
 
 RUN yarn install && yarn build
 
+ENV NODE_ENV production
+
 EXPOSE 3000
 
 CMD ["node", "dist/pm2.js"]
