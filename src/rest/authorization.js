@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import bcrypt from 'bcrypt';
 
 import { User } from '~/models/auth';
 
@@ -14,8 +15,9 @@ router.get('/', (req, res) => {
  */
 router.get('/setup', async (req, res, next) => {
   try {
-    const webgodemo = new User({ name: 'webgodemo', password: '123456' });
-    const message = await webgodemo.save().then(() => 'User saved successfully');
+    const user = new User(req.body);
+    user.password = bcrypt.hashSync(req.body.password, 16);
+    const message = await user.save().then(() => 'User saved successfully');
     res.json({ message });
   } catch (err) {
     next(err);
