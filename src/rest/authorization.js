@@ -1,14 +1,13 @@
 import { Router } from 'express';
 import bcrypt from 'bcrypt';
 
-import { User } from '~/models/auth';
+import { User } from '~/models/authorization';
 
 const router = Router();
 
 router.get('/', (req, res) => {
-  res.json({ message: 'TODO: Auth API' });
+  res.json({ message: 'Authorization API' });
 });
-
 
 /**
  * @name create - create a user
