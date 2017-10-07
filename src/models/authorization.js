@@ -5,11 +5,6 @@ import bcrypt from 'bcrypt';
  * @name user
  */
 const userSchema = Schema({
-  name: {
-    type: String,
-    trim: true,
-    required: true
-  },
   email: {
     type: String,
     unique: true,
