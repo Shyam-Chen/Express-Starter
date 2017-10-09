@@ -10,6 +10,7 @@
     "build": "babel src -d dist",
     "reset": "git reset --hard HEAD && git clean -df",
     "reinstall": "yarn cache clean && git clean -dfx -e '.*' && yarn install",
+    "coveralls": "cat coverage/lcov.info | coveralls",
     "deploy": "git push heroku master",
     "prebuild": "rimraf dist"
   },
@@ -28,7 +29,7 @@
   "homepage": "https://github.com/Shyam-Chen/Backend-Starter-Kit#readme",
   "dependencies": {
     "amqplib": "0.5.1",
-    "bcrypt": "^1.0.3",
+    "bcrypt": "1.0.3",
     "body-parser": "1.18.2",
     "compression": "1.7.1",
     "cors": "2.8.4",
@@ -65,6 +66,7 @@
     "babel-plugin-transform-object-rest-spread": "6.26.0",
     "babel-preset-env": "1.6.0",
     "babel-preset-flow": "6.23.0",
+    "coveralls": "3.0.0",
     "eslint": "4.8.0",
     "eslint-plugin-flowtype-errors": "3.3.2",
     "flow-bin": "0.56.0",

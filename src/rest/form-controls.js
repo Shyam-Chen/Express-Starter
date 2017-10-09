@@ -8,8 +8,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/select', (req, res) => {
-  const age = range(1, 101);  // 1 ~ 100
-  res.json({ age });
+  res.json({ age: range(1, 101) });
 });
 
 router.get('/multiple-select', (req, res) => {

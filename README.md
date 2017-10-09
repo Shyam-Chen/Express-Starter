@@ -3,6 +3,7 @@
 :truck: A boilerplate for :star2: Node.js :star2:, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.
 
 [![Build Status](https://travis-ci.org/Shyam-Chen/Backend-Starter-Kit.svg?branch=master)](https://travis-ci.org/Shyam-Chen/Backend-Starter-Kit)
+[![Coverage Status](https://coveralls.io/repos/github/Shyam-Chen/Backend-Starter-Kit/badge.svg?branch=master)](https://coveralls.io/github/Shyam-Chen/Backend-Starter-Kit?branch=master)
  //
 [![Dependency Status](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit.svg)](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit)
 [![devDependency Status](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit/dev-status.svg)](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit?type=dev)
