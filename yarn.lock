@@ -6,10 +6,6 @@
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-1.0.2.tgz#b02d10ab028e2928ac592a051aaa4981a1941d03"
 
-"@types/graphql@^0.9.0":
-  version "0.9.4"
-  resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-0.9.4.tgz#cdeb6bcbef9b6c584374b81aa7f48ecf3da404fa"
-
 "@types/node@^6.0.48":
   version "6.0.86"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.86.tgz#ae0fff49f6fc13d7ddcd322362581c52e8755ff9"
@@ -159,6 +155,18 @@ anymatch@^1.3.0:
   dependencies:
     arrify "^1.0.0"
     micromatch "^2.1.5"
+
+apollo-link@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/apollo-link/-/apollo-link-0.7.0.tgz#a8f09069b31821c27285584264356b1b6e6be6f2"
+  dependencies:
+    apollo-utilities "^0.2.0-beta.0"
+    graphql "^0.11.3"
+    zen-observable-ts "^0.5.0"
+
+apollo-utilities@^0.2.0-beta.0:
+  version "0.2.0-beta.2"
+  resolved "https://registry.yarnpkg.com/apollo-utilities/-/apollo-utilities-0.2.0-beta.2.tgz#95b61e00fa0cb67f6af65921484bca33114d55e1"
 
 append-transform@^0.4.0:
   version "0.4.0"
@@ -900,7 +908,7 @@ babel-runtime@^6.18.0, babel-runtime@^6.22.0:
     core-js "^2.4.0"
     regenerator-runtime "^0.10.0"
 
-babel-runtime@^6.23.0, babel-runtime@^6.26.0:
+babel-runtime@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   dependencies:
@@ -1048,7 +1056,7 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-bcrypt@^1.0.3:
+bcrypt@1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/bcrypt/-/bcrypt-1.0.3.tgz#b02ddc6c0b52ea16b8d3cf375d5a32e780dab548"
   dependencies:
@@ -1510,7 +1518,7 @@ cors@2.8.4:
     object-assign "^4"
     vary "^1"
 
-coveralls@^3.0.0:
+coveralls@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/coveralls/-/coveralls-3.0.0.tgz#22ef730330538080d29b8c151dc9146afde88a99"
   dependencies:
@@ -1809,11 +1817,11 @@ escodegen@^1.6.1:
   optionalDependencies:
     source-map "~0.2.0"
 
-eslint-plugin-flowtype-errors@3.3.2:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype-errors/-/eslint-plugin-flowtype-errors-3.3.2.tgz#8bcf8bc86346ffa0dce1e27ddb717e7ebfdf28b4"
+eslint-plugin-flowtype-errors@3.3.3:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype-errors/-/eslint-plugin-flowtype-errors-3.3.3.tgz#961527bb6cb02c227b1e7fc298fdcc38b3ef4a69"
   dependencies:
-    babel-runtime "^6.23.0"
+    babel-runtime "^6.26.0"
     slash "^1.0.0"
 
 eslint-scope@^3.7.1:
@@ -2004,9 +2012,9 @@ express-unless@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/express-unless/-/express-unless-0.3.0.tgz#5c795e7392571512dd28f520b3857a52b21261a2"
 
-express@4.16.1:
-  version "4.16.1"
-  resolved "https://registry.yarnpkg.com/express/-/express-4.16.1.tgz#6b33b560183c9b253b7b62144df33a4654ac9ed0"
+express@4.16.2:
+  version "4.16.2"
+  resolved "https://registry.yarnpkg.com/express/-/express-4.16.2.tgz#e35c6dfe2d64b7dca0a5cd4f21781be3299e076c"
   dependencies:
     accepts "~1.3.4"
     array-flatten "1.1.1"
@@ -2390,18 +2398,17 @@ graphql-tag@2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.4.2.tgz#6a63297d8522d03a2b72d26f1b239aab343840cd"
 
-graphql-tools@1.2.3:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/graphql-tools/-/graphql-tools-1.2.3.tgz#079bf4d157e46c0a0bae9fec117e0eea6e03ba2c"
+graphql-tools@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/graphql-tools/-/graphql-tools-2.3.0.tgz#91109b4a1d5df378ecdeba6eb76b2d672e20f427"
   dependencies:
+    apollo-link "^0.7.0"
     deprecated-decorator "^0.1.6"
-    uuid "^3.0.1"
-  optionalDependencies:
-    "@types/graphql" "^0.9.0"
+    uuid "^3.1.0"
 
-graphql@0.11.6:
-  version "0.11.6"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.11.6.tgz#f0146b5dc1480fda579c21bb6238970fd5cf5aa3"
+graphql@0.11.7, graphql@^0.11.3:
+  version "0.11.7"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.11.7.tgz#e5abaa9cb7b7cccb84e9f0836bf4370d268750c6"
   dependencies:
     iterall "1.1.3"
 
@@ -3226,9 +3233,9 @@ jsonpointer@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/jsonpointer/-/jsonpointer-4.0.0.tgz#6661e161d2fc445f19f98430231343722e1fcbd5"
 
-jsonwebtoken@8.0.1:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/jsonwebtoken/-/jsonwebtoken-8.0.1.tgz#50daef8d0a8c7de2cd06bc1013b75b04ccf3f0cf"
+jsonwebtoken@8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/jsonwebtoken/-/jsonwebtoken-8.1.0.tgz#c6397cd2e5fd583d65c007a83dc7bb78e6982b83"
   dependencies:
     jws "^3.1.4"
     lodash.includes "^4.3.0"
@@ -3663,9 +3670,9 @@ mongodb@2.2.31:
     mongodb-core "2.1.15"
     readable-stream "2.2.7"
 
-mongoose@4.11.14:
-  version "4.11.14"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.11.14.tgz#b85402aaf28c5c3e45c8ef93fe69544eaa5d00f3"
+mongoose@4.12.1:
+  version "4.12.1"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.12.1.tgz#fb27c108f940252e448bb1b80b5f8a404108ee28"
   dependencies:
     async "2.1.4"
     bson "~1.0.4"
@@ -4819,9 +4826,9 @@ send@0.16.1:
     range-parser "~1.2.0"
     statuses "~1.3.1"
 
-sequelize@4.13.2:
-  version "4.13.2"
-  resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-4.13.2.tgz#1af6ca554cfcb2c1112d36377976001dd0d983a9"
+sequelize@4.13.8:
+  version "4.13.8"
+  resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-4.13.8.tgz#5aa2238e972a723446304bf5162ed1ebcab98023"
   dependencies:
     bluebird "^3.4.6"
     cls-bluebird "^2.0.1"
@@ -5462,6 +5469,10 @@ uuid@^3.0.0, uuid@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.0.1.tgz#6544bba2dfda8c1cf17e629a3a305e2bb1fee6c1"
 
+uuid@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
+
 uws@~0.14.4:
   version "0.14.5"
   resolved "https://registry.yarnpkg.com/uws/-/uws-0.14.5.tgz#67aaf33c46b2a587a5f6666d00f7691328f149dc"
@@ -5710,3 +5721,7 @@ yargs@~3.10.0:
 yeast@0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/yeast/-/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
+
+zen-observable-ts@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/zen-observable-ts/-/zen-observable-ts-0.5.0.tgz#c5021e7ac486fc281f6126d574673cfb6daf0069"
