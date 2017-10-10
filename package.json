@@ -67,7 +67,6 @@
     "babel-preset-env": "1.6.0",
     "babel-preset-flow": "6.23.0",
     "codecov": "2.3.0",
-    "coveralls": "3.0.0",
     "eslint": "4.8.0",
     "eslint-plugin-flowtype-errors": "3.3.3",
     "flow-bin": "0.56.0",
