@@ -10,8 +10,8 @@
     "build": "babel src -d dist",
     "reset": "git reset --hard HEAD && git clean -df",
     "reinstall": "yarn cache clean && git clean -dfx -e '.*' && yarn install",
-    "coveralls": "cat coverage/lcov.info | coveralls",
     "deploy": "git push heroku master",
+    "codecov": "codecov",
     "prebuild": "rimraf dist"
   },
   "repository": {
@@ -66,6 +66,7 @@
     "babel-plugin-transform-object-rest-spread": "6.26.0",
     "babel-preset-env": "1.6.0",
     "babel-preset-flow": "6.23.0",
+    "codecov": "2.3.0",
     "coveralls": "3.0.0",
     "eslint": "4.8.0",
     "eslint-plugin-flowtype-errors": "3.3.3",
