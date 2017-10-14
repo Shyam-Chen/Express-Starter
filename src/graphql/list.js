@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-import { List } from '~/models';
+import { List } from '~/document';
 
 export const listTypeDefs = gql`
   type List {

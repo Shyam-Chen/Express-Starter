@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { List } from '~/models';
+import { List } from '~/document';
 
 const router = Router();
 

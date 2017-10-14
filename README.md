@@ -15,7 +15,7 @@ This seed repository provides the following features:
 * ---------- **Essentials** ----------
 * [x] Application framework with [**Express**](http://expressjs.com/).
 * [x] Data query language with [**GraphQL**](http://graphql.org/).
-* [x] Object modeling mapping with [**Mongoose**](http://mongoosejs.com/).
+* [x] Object document mapping with [**Mongoose**](http://mongoosejs.com/).
 * [ ] Object relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
 * [x] Utility functions with [**Lodash**](https://lodash.com/).
 * [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
