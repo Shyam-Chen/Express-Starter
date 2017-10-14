@@ -2,7 +2,7 @@
 
 :truck: A boilerplate for :star2: Node.js :star2:, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.
 
-[![Build Status](https://travis-ci.org/Shyam-Chen/Backend-Starter-Kit.svg?branch=master)](https://travis-ci.org/Shyam-Chen/Backend-Starter-Kit)
+[![Build Status](https://img.shields.io/circleci/project/Shyam-Chen/Backend-Starter-Kit/master.svg)](https://circleci.com/gh/Shyam-Chen/Backend-Starter-Kit)
 [![Coverage Status](https://img.shields.io/codecov/c/github/Shyam-Chen/Backend-Starter-Kit/master.svg)](https://codecov.io/gh/Shyam-Chen/Backend-Starter-Kit)
  //
 [![Dependency Status](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit.svg)](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit)
@@ -31,7 +31,7 @@ This seed repository provides the following features:
 * [x] Static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
 * [x] Testing framework with [**Jest**](https://github.com/facebook/jest).
 * ---------- **Environments** ----------
-* [x] Server-side platform with [**Node**](https://nodejs.org/en/).
+* [x] Server-side platform with [**Node**](https://nodejs.org/).
 * [x] Operating system with [**Linux**](https://github.com/torvalds/linux).
 * [x] Text editor with [**Atom**](https://github.com/atom/atom).
 * [x] Version control with [**Git**](https://github.com/git/git).
@@ -45,7 +45,7 @@ This seed repository provides the following features:
 * [x] Cloud monitoring services with [**UptimeRobot**](https://uptimerobot.com/).
 * [ ] Reverse proxy and caching with [**Nginx**](https://github.com/nginx/nginx).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
-* [x] Continuous integration with [**Travis**](https://github.com/travis-ci/travis-ci).
+* [x] Continuous integration with [**CircleCI**](https://circleci.com/).
 
 ## Table of Contents
 
@@ -303,13 +303,16 @@ $ yarn deploy
 ## Known Issues
 
 * ---------- **P0: Critical** ----------
-* ...
+* [Feature] Authenticate a API with JWT and Passport
+* [Feature] Use the SQL database
+* [Feature] Integrate Papertrail to Heroku
+* [Feature] Run Nginx in a Docker container
 * ---------- **P1: Urgent** ----------
 * ...
 * ---------- **P2: Required** ----------
-* Do more examples
-* Write more tests
-* ---------- **P3: Important** ----------
 * ...
+* ---------- **P3: Important** ----------
+* [Example] Do more examples
+* [Example] Write more tests
 * ---------- **P4: Nice to have** ----------
 * ...

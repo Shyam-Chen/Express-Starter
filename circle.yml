@@ -1,0 +1,40 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8
+
+    working_directory: ~/Backend-Starter-Kit
+
+    branches:
+      only:
+        - master
+
+    steps:
+      - checkout
+
+      - setup_remote_docker
+
+      - run:
+          name: Build the image
+          command: docker-compose up -d
+
+      - run:
+          name: Static code analysis
+          command: docker-compose exec app yarn lint
+
+      - run:
+          name: Unit testing
+          command: docker-compose exec app yarn unit
+
+      - run:
+          name: Test coverage integration
+          command: docker-compose exec app yarn codecov -- --token=${CODECOV_TOKEN}
+
+      - deploy:
+          name: Deploy to Heroku
+          command: |
+            docker login -u="Shyam Chen" -p="${HEROKU_TOKEN}" registry.heroku.com
+            docker build -f Dockerfile.prod -t registry.heroku.com/web-go-demo/web .
+            docker push registry.heroku.com/web-go-demo/web
