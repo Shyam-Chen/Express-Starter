@@ -22,7 +22,7 @@ This seed repository provides the following features:
 * [ ] Secure authentication with [**JWT**](https://jwt.io/).
 * [ ] Third-party authentication with [**Passport**](http://passportjs.org/).
 * [x] Real-time bidirectional communication with [**Socket**](https://socket.io/).
-* [x] Message queuing with [**RabbitMQ**](https://www.rabbitmq.com/).
+* [ ] In-memory data structure store with [**Redis**](https://redis.io/).
 * ---------- **Tools** ----------
 * [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
 * [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
@@ -40,7 +40,7 @@ This seed repository provides the following features:
 * [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
 * [x] Cloud NoSQL database hosting with [**mLab**](https://mlab.com/).
 * [ ] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
-* [x] Cloud message queuing services with [**CloudAMQP**](https://www.cloudamqp.com/).
+* [ ] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 * [ ] Cloud logging services with [**Papertrail**](https://papertrailapp.com/).
 * [x] Cloud monitoring services with [**UptimeRobot**](https://uptimerobot.com/).
 * [ ] Reverse proxy and caching with [**Nginx**](https://github.com/nginx/nginx).

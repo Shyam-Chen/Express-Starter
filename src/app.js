@@ -3,7 +3,6 @@ import express from 'express';
 import jwt from 'express-jwt';
 import graphql from 'express-graphql';
 import socket from 'socket.io';
-import amqp from 'amqplib';
 import mongoose from 'mongoose';
 import history from 'express-history-api-fallback';
 import compression from 'compression';
@@ -84,30 +83,5 @@ io.on('connection', socket => {
   socket.emit('A', { foo: 'bar' });
   socket.on('B', data => console.log(data));
 });
-
-/**
- * @name RabbitMQ
- */
-const rabbitmqUri = 'amqp://gnnwevxx:V1PhfxZSO_-CJ6agZGipEBVmFX508N0P@black-boar.rmq.cloudamqp.com/gnnwevxx';
-
-amqp.connect(rabbitmqUri)
-  .then(conn => {
-    return conn.createChannel()
-      .then(channel => {
-        const queue = 'foo';
-        const message = 'Hello World!';
-
-        const ok = channel.assertQueue(queue, { durable: false });
-
-        return ok.then(() => {
-          channel.sendToQueue(queue, Buffer.from(message));
-          console.log(message);
-
-          return channel.close();
-        });
-      })
-      .finally(() => conn.close());
-  })
-  .catch(console.warn);
 
 export default server;
