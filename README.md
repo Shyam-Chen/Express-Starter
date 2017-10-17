@@ -24,12 +24,13 @@ This seed repository provides the following features:
 * [x] Real-time bidirectional communication with [**Socket**](https://socket.io/).
 * [ ] In-memory data structure store with [**Redis**](https://redis.io/).
 * ---------- **Tools** ----------
+* [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
+* [x] Type annotations with [**Flow**](https://github.com/facebook/flow).
+* [x] JavaScript static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
+* [x] Unit testing with [**Jest**](https://github.com/facebook/jest).
+* [x] Test coverage integration with [**Codecov**](https://codecov.io/).
 * [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
 * [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
-* [x] ES modules with [**Babel**](https://github.com/babel/babel).
-* [x] Type annotations with [**Flow**](https://github.com/facebook/flow).
-* [x] Static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
-* [x] Testing framework with [**Jest**](https://github.com/facebook/jest).
 * ---------- **Environments** ----------
 * [x] Server-side platform with [**Node**](https://nodejs.org/).
 * [x] Operating system with [**Linux**](https://github.com/torvalds/linux).
