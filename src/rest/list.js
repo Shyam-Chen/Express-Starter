@@ -7,8 +7,8 @@ const router = Router();
 /**
  * @name list - get a list or search list
  * @param {string} text - search for text in list
- * @example get a list - /__/list
- * @example search list - /__/list?text=${text}
+ * @example get a list - GET /__/list
+ * @example search a text in list - GET /__/list?text=${text}
  */
 router.get('/', async (req, res, next) => {
   try {
@@ -33,6 +33,7 @@ router.get('/', async (req, res, next) => {
  * @name pagination
  * @param {number} page - current page number
  * @param {number} row - rows per page
+ * @example get a list of paging - GET /__/list/${page}/${row}
  */
 router.get('/:page/:row', async (req, res, next) => {
   try {
@@ -52,7 +53,7 @@ router.get('/:page/:row', async (req, res, next) => {
 
 /**
  * @name item - get a item from ID in list
- * @example /__/list/${id}
+ * @example GET /__/list/${id}
  */
 router.get('/:id', async (req, res, next) => {
   try {
@@ -65,6 +66,7 @@ router.get('/:id', async (req, res, next) => {
 
 /**
  * @name create - create a item
+ * @example POST /__/list
  */
 router.post('/', async (req, res, next) => {
   try {
@@ -82,6 +84,7 @@ router.post('/', async (req, res, next) => {
 
 /**
  * @name update - update a item
+ * @example PUT /__/list/${id}
  */
 router.put('/:id', async (req, res, next) => {
   try {
@@ -100,6 +103,7 @@ router.put('/:id', async (req, res, next) => {
 
 /**
  * @name delete - remove a item
+ * @example DELETE /__/list/${id}
  */
 router.delete('/:id', async (req, res, next) => {
   try {

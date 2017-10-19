@@ -31,7 +31,7 @@ export const listResolvers = {
    * }
    *
    * {
-   *   list(text: "a") {
+   *   list(text: "${text}") {
    *     _id
    *     text
    *   }
@@ -59,21 +59,21 @@ export const listResolvers = {
   /**
    * @example
    * mutation {
-   *   addText(text: "Web GO") {
+   *   addText(text: "${text}") {
    *     _id
    *     text
    *   }
    * }
    *
    * mutation {
-   *   updateText(_id: "599b8fb525b689001eb19183", text: "Web GO") {
+   *   updateText(_id: "${_id}", text: "${text}") {
    *     _id
    *     text
    *   }
    * }
    *
    * mutation {
-   *   deleteText(_id: "599c03f34573776d764dc069") {
+   *   deleteText(_id: "${_id}") {
    *     _id
    *     text
    *   }

@@ -35,7 +35,7 @@ app.use(jwt({ secret: Buffer.from(app.get('secret'), 'base64'), credentialsRequi
 /**
  * @name REST
  */
-app.use(routes);
+app.use('/__', routes);
 
 /**
  * @name GraphQL
