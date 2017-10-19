@@ -20,6 +20,27 @@ RUN \
   git clone https://github.com/Shyam-Chen/Frontend-Starter-Kit && \
   bash -c "cd Frontend-Starter-Kit && yarn install && yarn prod && mv public ../"
 
+# RUN \
+#   apt-get update && \
+#   apt-get install -y nginx && \
+#   rm -rf /etc/nginx/sites-available/default && \
+#   { \
+#     echo 'server {'; \
+#     echo '  listen 80;'; \
+#     echo; \
+#     echo '  server_name web-go-demo;'; \
+#     echo; \
+#     echo '  location / {'; \
+#     echo '    proxy_pass https://web-go-demo.herokuapp.com:3000;'; \
+#     echo '    proxy_http_version 1.1;'; \
+#     echo '    proxy_set_header Upgrade $http_upgrade;'; \
+#     echo '    proxy_set_header Connection 'upgrade';'; \
+#     echo '    proxy_set_header Host $host;'; \
+#     echo '    proxy_cache_bypass $http_upgrade;'; \
+#     echo '  }'; \
+#     echo '}'; \
+#   } > /etc/nginx/sites-available/default
+
 RUN rm -rf /var/lib/apt/lists/*
 
 RUN yarn install && yarn build
@@ -29,3 +50,5 @@ ENV NODE_ENV production
 EXPOSE 3000
 
 CMD ["node", "dist/pm2.js"]
+
+# CMD ["nginx", "restart"]

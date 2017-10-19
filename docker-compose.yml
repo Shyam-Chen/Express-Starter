@@ -1,10 +1,39 @@
 version: '2'
 
 services:
+
   app:
     build:
       context: .
       dockerfile: Dockerfile.dev
     ports:
       - "3000:3000"
+    # environment:
+    #   - GOOGLE_ID=xxx
+    #   - GOOGLE_SECRET=xxx
+    #   - FACEBOOK_ID=xxx
+    #   - FACEBOOK_SECRET=xxx
+    #   - TWITTER_KEY=xxx
+    #   - TWITTER_SECRET=xxx
+    # depends_on:
+    #   - mongo
+    #   - postgres
+    #   - redis
+    # volumes:
+    #   - ./webapp:/opt/webapp
     tty: true
+
+  # mongo:
+  #   image: mongo:jessie
+  #   ports:
+  #     - "27017:27017"
+  #
+  # postgres:
+  #   image: postgres:alpine
+  #   ports:
+  #     - "5432:5432"
+  #
+  # redis:
+  #   image: redis:alpine
+  #   ports:
+  #     - "6379:6379"
