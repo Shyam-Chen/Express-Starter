@@ -43,8 +43,8 @@ router.post('/setup', async (req, res, next) => {
 /**
  * @name login - registered user login
  */
-router.post('/login', (req, res) => {
-  const user = User.findOne({ email: req.body.email }).exec();
+router.post('/login', async (req, res) => {
+  const user = await User.findOne({ email: req.body.email }).exec();
 
   if (!user) {
     res.json({ message: 'Authentication failed. User not found.'})
