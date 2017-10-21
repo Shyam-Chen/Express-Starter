@@ -39,7 +39,8 @@ RUN \
 #     echo '    proxy_cache_bypass $http_upgrade;'; \
 #     echo '  }'; \
 #     echo '}'; \
-#   } > /etc/nginx/sites-available/default
+#   } > /etc/nginx/sites-available/default && \
+#   chmod +x /etc/nginx/sites-available/default
 
 RUN rm -rf /var/lib/apt/lists/*
 

@@ -4,6 +4,8 @@ import jwt from 'express-jwt';
 import graphql from 'express-graphql';
 import socket from 'socket.io';
 import mongoose from 'mongoose';
+// import redis from 'redis';
+// import bluebird from 'bluebird';
 import history from 'express-history-api-fallback';
 import compression from 'compression';
 import cors from 'cors';
@@ -21,6 +23,9 @@ const app = express();
 app.set('port', (process.env.PORT || 3000));
 app.set('mongodb-uri', (process.env.MONGODB_URI || 'mongodb://web-go:web-go@ds133961.mlab.com:33961/web-go-demo'));
 app.set('secret', process.env.SECRET || 'webgo');
+app.set('redis-port', (process.env.REDIS_PORT || 6379));
+app.set('redis-host', (process.env.REDIS_HOST || '127.0.0.1'));
+app.set('redis-key', process.env.REDIS_KEY);
 
 /**
  * @name middleware
@@ -33,12 +38,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(jwt({ secret: Buffer.from(app.get('secret'), 'base64'), credentialsRequired: false }));
 
 /**
- * @name REST
+ * @name rest
  */
 app.use('/__', routes);
 
 /**
- * @name GraphQL
+ * @name graphql
  */
 app.use('/__/graphql', graphql(() => ({
   schema,
@@ -65,23 +70,41 @@ const server = app.listen(app.get('port'), (): void => {
 });
 
 /**
- * @name database
+ * @name mongo
  */
 mongoose.connect(app.get('mongodb-uri'));
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
 mongoose.connection.once('open', () => console.log(' [*] DB: Connection Succeeded.'));
 
 /**
- * @name Socket
+ * @name postgres
+ */
+
+/**
+ * @name redis
+ */
+// bluebird.promisifyAll(redis.RedisClient.prototype);
+// bluebird.promisifyAll(redis.Multi.prototype);
+//
+// const client = redis.createClient(
+//   app.get('redis-port'),
+//   app.get('redis-host'),
+//   {
+//     'auth_pass': app.get('redis-key'),
+//     'return_buffers': true
+//   }
+// );
+//
+// client.on('error', err => console.error(err));
+
+/**
+ * @name socket
  */
 const io = socket.listen(server);
 
 io.on('connection', socket => {
   console.log('WS: Establish a connection.');
   socket.on('disconnect', () => console.log('WS: Disconnected.'));
-
-  socket.emit('A', { foo: 'bar' });
-  socket.on('B', data => console.log(data));
 });
 
 export default server;
