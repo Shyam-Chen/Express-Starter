@@ -42,8 +42,8 @@ This seed repository provides the following features:
 * [x] Cloud NoSQL database hosting with [**mLab**](https://mlab.com/).
 * [ ] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
 * [ ] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
-* [ ] Cloud logging services with [**Papertrail**](https://papertrailapp.com/).
-* [x] Cloud monitoring services with [**UptimeRobot**](https://uptimerobot.com/).
+* [ ] Error tracking with [**Sentry**](https://sentry.io/).
+* [ ] API workflow with [**Postman**](https://www.getpostman.com/).
 * [ ] Reverse proxy and caching with [**Nginx**](https://github.com/nginx/nginx).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**CircleCI**](https://circleci.com/).
