@@ -1,5 +1,7 @@
 {
-  "plugins": ["flowtype-errors"],
+  "plugins": [
+    "flowtype-errors"
+  ],
   "env": {
     "node": true,
     "es6": true,
