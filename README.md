@@ -25,10 +25,9 @@ This seed repository provides the following features:
 * [x] In-memory data structure store with [**Redis**](https://redis.io/).
 * ---------- **Tools** ----------
 * [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
-* [x] Type annotations with [**Flow**](https://github.com/facebook/flow).
 * [x] JavaScript static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
+* [x] Type annotations with [**Flow**](https://github.com/facebook/flow).
 * [x] Unit testing with [**Jest**](https://github.com/facebook/jest).
-* [x] Test coverage integration with [**Codecov**](https://codecov.io/).
 * [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
 * [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
 * ---------- **Environments** ----------
@@ -152,34 +151,15 @@ services:
 
 ## Using Libraries
 
-1. Example of Route
+1. Example of REST
 
-```js
-import { Router } from 'express';
+2. Example of GraphQL
 
-const router = Router();
+3. Example of Mongoose
 
-router.get('/', (req, res, next) => {
-  // ...
-});
+4. Example of Sequelize
 
-export const thingRoutes = router;
-```
-
-2. Example of Model
-
-```js
-import mongoose, { Schema } from 'mongoose';
-
-const thingSchema = Schema({
-  // ...
-});
-
-export const Thing = mongoose.model('Thing', thingSchema);
-
-```
-
-3. Example of Lodash
+5. Example of Lodash
 
 ```js
 import { Observable } from 'rxjs';
@@ -192,7 +172,7 @@ Observable::of(lowerFirst('Hello'), pad('World', 5))
   // World
 ```
 
-4. Example of ReactiveX
+6. Example of ReactiveX
 
 ```js
 import { Observable } from 'rxjs';
@@ -207,43 +187,11 @@ Observable::timer(2000)
   // ["World"]
 ```
 
-5. Example of JWT
+7. Example of JWT
 
-```js
-import jwt from 'express-jwt';
+8. Example of Passport
 
-app.set('secret', process.env.SECRET || 'webgo');
-```
-
-```js
-req.app.get('secret');
-```
-
-6. Example of GraphQL
-
-```js
-import graphql from 'express-graphql';
-
-app.use('/__/graphql', graphql(() => ({
-  schema,
-  rootValue,
-  graphiql: true
-})));
-```
-
-```html
-<script>
-  const xhr = new XMLHttpRequest();
-  xhr.responseType = 'json';
-  xhr.open('POST', '/__/graphql');
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.setRequestHeader('Accept', 'application/json');
-  xhr.onload = () => console.log('GraphQL:', xhr.response);
-  xhr.send(JSON.stringify({ query: '{ helloWorld }' }));
-</script>
-```
-
-7. Example of Socket
+9. Example of Socket
 
 ```js
 import socket from 'socket.io';
@@ -272,6 +220,8 @@ io.on('connection', socket => {
   });
 </script>
 ```
+
+10. Example of Redis
 
 ## All Commands
 
