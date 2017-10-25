@@ -19,8 +19,8 @@ This seed repository provides the following features:
 * [ ] Object relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
 * [x] Utility functions with [**Lodash**](https://lodash.com/).
 * [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
-* [ ] Secure authentication with [**JWT**](https://jwt.io/).
-* [ ] Third-party authentication with [**Passport**](http://passportjs.org/).
+* [x] Secure authentication with [**JWT**](https://jwt.io/).
+* [x] Third-party authentication with [**Passport**](http://passportjs.org/).
 * [x] Real-time bidirectional communication with [**Socket**](https://socket.io/).
 * [x] In-memory data structure store with [**Redis**](https://redis.io/).
 * ---------- **Tools** ----------
@@ -42,9 +42,9 @@ This seed repository provides the following features:
 * [x] Cloud NoSQL database hosting with [**mLab**](https://mlab.com/).
 * [ ] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
-* [ ] Error tracking with [**Sentry**](https://sentry.io/).
-* [ ] API workflow with [**Postman**](https://www.getpostman.com/).
-* [ ] Reverse proxy and caching with [**Nginx**](https://github.com/nginx/nginx).
+* [x] Error tracking with [**Sentry**](https://sentry.io/).
+* [x] API workflow with [**Postman**](https://www.getpostman.com/).
+* [x] Reverse proxy and caching with [**Nginx**](https://github.com/nginx/nginx).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**CircleCI**](https://circleci.com/).
 

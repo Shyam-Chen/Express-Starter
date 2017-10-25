@@ -5,11 +5,13 @@ import graphql from 'express-graphql';
 import socket from 'socket.io';
 import mongoose from 'mongoose';
 import redis from 'redis';
+import passport from 'passport';
 import history from 'express-history-api-fallback';
 import compression from 'compression';
 import cors from 'cors';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
+import raven from 'raven';
 
 import routes from './rest';
 import schema from './graphql';
@@ -33,6 +35,7 @@ app.use(cors());
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(passport.initialize());
 app.use(jwt({ secret: Buffer.from(app.get('secret'), 'base64'), credentialsRequired: false }));
 
 /**
@@ -97,5 +100,13 @@ export const io = socket.listen(server);
 io.on('connection', socket => {
   socket.on('disconnect', () => console.log(' [*] Socket: Disconnected.'));
 });
+
+/**
+ * @name raven
+ */
+if (process.env.NODE_ENV === 'production') {
+  raven.config('https://ce49059cdcc9414aabc5a3e92e22b8f8:6398526fa2444cc79fb6517a73d7199c@sentry.io/235213')
+    .install();
+}
 
 export default server;
