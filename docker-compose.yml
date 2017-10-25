@@ -8,13 +8,16 @@ services:
       dockerfile: Dockerfile.dev
     ports:
       - "3000:3000"
-    # environment:
-    #   - GOOGLE_ID=xxx
-    #   - GOOGLE_SECRET=xxx
-    #   - FACEBOOK_ID=xxx
-    #   - FACEBOOK_SECRET=xxx
-    #   - TWITTER_KEY=xxx
-    #   - TWITTER_SECRET=xxx
+    environment:
+      - MONGODB_URI=mongodb://web-go-user:web-go-user@ds133961.mlab.com:33961/web-go-demo
+      - REDIS_PORT=17929
+      - REDIS_HOST=redis-17929.c1.us-central1-2.gce.cloud.redislabs.com
+      # - GOOGLE_ID=xxx
+      # - GOOGLE_SECRET=xxx
+      # - FACEBOOK_ID=xxx
+      # - FACEBOOK_SECRET=xxx
+      # - TWITTER_KEY=xxx
+      # - TWITTER_SECRET=xxx
     # depends_on:
     #   - mongo
     #   - postgres

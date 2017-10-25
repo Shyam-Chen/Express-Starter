@@ -18,7 +18,6 @@ RUN \
 
 RUN rm -rf /var/lib/apt/lists/*
 
-# RUN yarn install
-RUN npm install
+RUN yarn install
 
 EXPOSE 3000

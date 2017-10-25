@@ -22,7 +22,7 @@ This seed repository provides the following features:
 * [ ] Secure authentication with [**JWT**](https://jwt.io/).
 * [ ] Third-party authentication with [**Passport**](http://passportjs.org/).
 * [x] Real-time bidirectional communication with [**Socket**](https://socket.io/).
-* [ ] In-memory data structure store with [**Redis**](https://redis.io/).
+* [x] In-memory data structure store with [**Redis**](https://redis.io/).
 * ---------- **Tools** ----------
 * [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
 * [x] Type annotations with [**Flow**](https://github.com/facebook/flow).
@@ -41,7 +41,7 @@ This seed repository provides the following features:
 * [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
 * [x] Cloud NoSQL database hosting with [**mLab**](https://mlab.com/).
 * [ ] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
-* [ ] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
+* [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 * [ ] Error tracking with [**Sentry**](https://sentry.io/).
 * [ ] API workflow with [**Postman**](https://www.getpostman.com/).
 * [ ] Reverse proxy and caching with [**Nginx**](https://github.com/nginx/nginx).
@@ -123,9 +123,32 @@ $ docker-compose rm -fs
 Application configuration
 
 ```js
-app.set('port', (process.env.PORT || 3000));
-app.set('mongodb-uri', (process.env.MONGODB_URI || 'mongodb://web-go:web-go@ds133961.mlab.com:33961/web-go-demo'));
+// src/app.js
+app.set('port', process.env.PORT || 3000);
+app.set('mongodb-uri', process.env.MONGODB_URI || 'mongodb://web-go-user:web-go-user@ds133961.mlab.com:33961/web-go-demo');
 app.set('secret', process.env.SECRET || 'webgo');
+app.set('redis-port', process.env.REDIS_PORT || 17929);
+app.set('redis-host', process.env.REDIS_HOST || 'redis-17929.c1.us-central1-2.gce.cloud.redislabs.com');
+```
+
+```yml
+# docker-compose.yml
+version: '2'
+
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    environment:
+      # custom environment variables
+      - MONGODB_URI=xxx
+      - REDIS_PORT=xxx
+      - REDIS_HOST=xxx
+    tty: true
 ```
 
 ## Using Libraries

@@ -4,8 +4,7 @@ import jwt from 'express-jwt';
 import graphql from 'express-graphql';
 import socket from 'socket.io';
 import mongoose from 'mongoose';
-// import redis from 'redis';
-// import bluebird from 'bluebird';
+import redis from 'redis';
 import history from 'express-history-api-fallback';
 import compression from 'compression';
 import cors from 'cors';
@@ -20,12 +19,11 @@ const app = express();
 /**
  * @name config
  */
-app.set('port', (process.env.PORT || 3000));
-app.set('mongodb-uri', (process.env.MONGODB_URI || 'mongodb://web-go:web-go@ds133961.mlab.com:33961/web-go-demo'));
+app.set('port', process.env.PORT || 3000);
+app.set('mongodb-uri', process.env.MONGODB_URI || 'mongodb://web-go-user:web-go-user@ds133961.mlab.com:33961/web-go-demo');
 app.set('secret', process.env.SECRET || 'webgo');
-app.set('redis-port', (process.env.REDIS_PORT || 6379));
-app.set('redis-host', (process.env.REDIS_HOST || '127.0.0.1'));
-app.set('redis-key', process.env.REDIS_KEY);
+app.set('redis-port', process.env.REDIS_PORT || 17929);
+app.set('redis-host', process.env.REDIS_HOST || 'redis-17929.c1.us-central1-2.gce.cloud.redislabs.com');
 
 /**
  * @name middleware
@@ -47,8 +45,8 @@ app.use('/__', routes);
  */
 app.use('/__/graphql', graphql(() => ({
   schema,
-  graphiql: true,  // process.env.NODE_ENV !== 'production',
-  pretty: true  // process.env.NODE_ENV !== 'production'
+  graphiql: true,
+  pretty: true
 })));
 
 /**
@@ -74,7 +72,7 @@ const server = app.listen(app.get('port'), (): void => {
  */
 mongoose.connect(app.get('mongodb-uri'));
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
-mongoose.connection.once('open', () => console.log(' [*] DB: Connection Succeeded.'));
+mongoose.connection.once('open', () => console.log(' [*] Mongo: Connection Succeeded.'));
 
 /**
  * @name postgres
@@ -83,28 +81,21 @@ mongoose.connection.once('open', () => console.log(' [*] DB: Connection Succeede
 /**
  * @name redis
  */
-// bluebird.promisifyAll(redis.RedisClient.prototype);
-// bluebird.promisifyAll(redis.Multi.prototype);
-//
-// const client = redis.createClient(
-//   app.get('redis-port'),
-//   app.get('redis-host'),
-//   {
-//     'auth_pass': app.get('redis-key'),
-//     'return_buffers': true
-//   }
-// );
-//
-// client.on('error', err => console.error(err));
+export const client = redis.createClient(
+  app.get('redis-port'),
+  app.get('redis-host')
+);
+
+client.on('connect', () => console.log(' [*] Redis: Connection Succeeded.'));
+client.on('error', err => console.error(err));
 
 /**
  * @name socket
  */
-const io = socket.listen(server);
+export const io = socket.listen(server);
 
 io.on('connection', socket => {
-  console.log('WS: Establish a connection.');
-  socket.on('disconnect', () => console.log('WS: Disconnected.'));
+  socket.on('disconnect', () => console.log(' [*] Socket: Disconnected.'));
 });
 
 export default server;
