@@ -56,7 +56,6 @@ This seed repository provides the following features:
 * [Using Libraries](#using-libraries)
 * [All Commands](#all-commands)
 * [Directory Structure](#directory-structure)
-* [Known Issues](#known-issues)
 
 ## Getting Started
 
@@ -323,20 +322,3 @@ $ yarn deploy
 ├── package.json
 └── yarn.lock
 ```
-
-## Known Issues
-
-* ---------- **P0: Critical** ----------
-* [Feature] Authenticate a API with JWT and Passport
-* [Feature] Use the SQL database
-* [Feature] Integrate Papertrail to Heroku
-* [Feature] Run Nginx in a Docker container
-* ---------- **P1: Urgent** ----------
-* ...
-* ---------- **P2: Required** ----------
-* ...
-* ---------- **P3: Important** ----------
-* [Example] Do more examples
-* [Example] Write more tests
-* ---------- **P4: Nice to have** ----------
-* ...
