@@ -48,6 +48,10 @@ RUN yarn install && yarn build
 
 ENV NODE_ENV production
 
+# ENV MONGODB_URI xxx
+# ENV REDIS_PORT xxx
+# ENV REDIS_HOST xxx
+
 EXPOSE 3000
 
 CMD node dist/pm2.js && nginx restart
