@@ -1,3 +1,5 @@
+// @flow
+
 import pm2 from 'pm2';
 
 pm2.connect(() => {

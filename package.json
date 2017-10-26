@@ -11,6 +11,7 @@
     "reset": "git reset --hard HEAD && git clean -df",
     "reinstall": "yarn cache clean && git clean -dfx -e '.*' && yarn install",
     "flow": "flow",
+    "typed": "flow-typed install",
     "codecov": "codecov",
     "prebuild": "rimraf dist"
   },
@@ -73,6 +74,7 @@
     "eslint": "4.9.0",
     "eslint-plugin-flowtype-errors": "3.3.4",
     "flow-bin": "0.57.3",
+    "flow-typed": "2.2.1",
     "jest": "21.2.1",
     "nodemon": "1.12.1",
     "regenerator-runtime": "0.11.0",

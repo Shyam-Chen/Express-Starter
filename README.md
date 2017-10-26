@@ -93,7 +93,7 @@ $ git pull upstream master
 6. Usage the Mongo Shell
 
 ```bash
-$ mongo ds133961.mlab.com:33961/web-go-demo -u web-go -p web-go
+$ mongo ds133961.mlab.com:33961/web-go-demo -u web-go-user -p web-go-user
 ```
 
 ## Dockerization
