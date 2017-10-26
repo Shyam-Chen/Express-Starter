@@ -56,7 +56,8 @@
     "redis": "2.8.0",
     "rxjs": "5.5.0",
     "sequelize": "4.15.0",
-    "socket.io": "2.0.3"
+    "socket.io": "2.0.3",
+    "socket.io-redis": "5.2.0"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",

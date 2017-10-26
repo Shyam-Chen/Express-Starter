@@ -1,17 +1,18 @@
 import { join } from 'path';
 import express from 'express';
-import jwt from 'express-jwt';
 import graphql from 'express-graphql';
-import socket from 'socket.io';
 import mongoose from 'mongoose';
 import Sequelize from 'sequelize';
-import redis from 'redis';
+import jwt from 'express-jwt';
 import passport from 'passport';
-import history from 'express-history-api-fallback';
+import socket from 'socket.io';
+import socketRedis from 'socket.io-redis';
+import redis from 'redis';
 import compression from 'compression';
 import cors from 'cors';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
+import history from 'express-history-api-fallback';
 import raven from 'raven';
 
 import routes from './rest';
@@ -39,11 +40,7 @@ app.use('/__', routes);
 /**
  * @name graphql
  */
-app.use('/__/graphql', graphql(() => ({
-  schema,
-  graphiql: true,
-  pretty: true
-})));
+app.use('/__/graphql', graphql({ schema }));
 
 /**
  * @name static
@@ -58,7 +55,7 @@ if (process.env.NODE_ENV === 'production') {
 /**
  * @name server
  */
-const server = app.listen(PORT, (): void => {
+export const server = app.listen(PORT, (): void => {
   console.log(' [*] App: Bootstrap Succeeded.');
   console.log(` [*] Port: ${PORT}.`);
 });
@@ -67,13 +64,13 @@ const server = app.listen(PORT, (): void => {
  * @name mongo
  */
 mongoose.connect(MONGODB_URI);
-mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
 mongoose.connection.once('open', () => console.log(' [*] Mongo: Connection Succeeded.'));
+mongoose.connection.on('error', err => console.error(err));
 
 /**
  * @name postgres
  */
-const sequelize = new Sequelize(POSTGRES_URL);
+export const sequelize = new Sequelize(POSTGRES_URL);
 
 sequelize.authenticate()
   .then(() => console.log(' [*] Postgres: Connection Succeeded.'))
@@ -91,6 +88,9 @@ client.on('error', err => console.error(err));
  * @name socket
  */
 export const io = socket.listen(server);
+
+io.adapter(socketRedis({ host: REDIS_HOST, port: REDIS_PORT }));
+io.origins(['*:*']);
 
 io.on('connection', socket => {
   socket.on('disconnect', () => console.log(' [*] Socket: Disconnected.'));

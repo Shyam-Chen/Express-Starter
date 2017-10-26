@@ -42,7 +42,7 @@ This seed repository provides the following features:
 * [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 * [x] Error tracking with [**Sentry**](https://sentry.io/).
-* [x] API workflow with [**Postman**](https://www.getpostman.com/).
+* [x] API workflow with [**Insomnia**](https://insomnia.rest/).
 * [x] Reverse proxy and caching with [**Nginx**](https://github.com/nginx/nginx).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**CircleCI**](https://circleci.com/).
