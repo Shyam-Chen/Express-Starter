@@ -43,9 +43,12 @@ app.use('/__', routes);
 app.use('/__/graphql', graphql({ schema }));
 
 /**
- * @name static
+ * @name production
  */
 if (process.env.NODE_ENV === 'production') {
+  raven.config('https://ce49059cdcc9414aabc5a3e92e22b8f8:6398526fa2444cc79fb6517a73d7199c@sentry.io/235213')
+    .install();
+
   const root = join(__dirname, '../public');
 
   app.use(express.static(root));
@@ -77,14 +80,6 @@ sequelize.authenticate()
   .catch(err => console.error(err));
 
 /**
- * @name redis
- */
-export const client = redis.createClient(REDIS_PORT, REDIS_HOST);
-
-client.on('connect', () => console.log(' [*] Redis: Connection Succeeded.'));
-client.on('error', err => console.error(err));
-
-/**
  * @name socket
  */
 export const io = socket.listen(server);
@@ -97,11 +92,11 @@ io.on('connection', socket => {
 });
 
 /**
- * @name raven
+ * @name redis
  */
-if (process.env.NODE_ENV === 'production') {
-  raven.config('https://ce49059cdcc9414aabc5a3e92e22b8f8:6398526fa2444cc79fb6517a73d7199c@sentry.io/235213')
-    .install();
-}
+export const client = redis.createClient(REDIS_PORT, REDIS_HOST);
+
+client.on('connect', () => console.log(' [*] Redis: Connection Succeeded.'));
+client.on('error', err => console.error(err));
 
 export default server;
