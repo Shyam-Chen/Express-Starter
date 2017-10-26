@@ -16,7 +16,7 @@ This seed repository provides the following features:
 * [x] Application framework with [**Express**](http://expressjs.com/).
 * [x] Data query language with [**GraphQL**](http://graphql.org/).
 * [x] Object document mapping with [**Mongoose**](http://mongoosejs.com/).
-* [ ] Object relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
+* [x] Object relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
 * [x] Utility functions with [**Lodash**](https://lodash.com/).
 * [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
 * [x] Secure authentication with [**JWT**](https://jwt.io/).
@@ -39,7 +39,7 @@ This seed repository provides the following features:
 * [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
 * [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
 * [x] Cloud NoSQL database hosting with [**mLab**](https://mlab.com/).
-* [ ] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
+* [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 * [x] Error tracking with [**Sentry**](https://sentry.io/).
 * [x] API workflow with [**Postman**](https://www.getpostman.com/).
@@ -123,18 +123,20 @@ Application configuration
 ```js
 // src/app.js
 app.set('port', process.env.PORT || 3000);
-app.set('mongodb-uri', process.env.MONGODB_URI || 'mongodb://web-go-user:web-go-user@ds133961.mlab.com:33961/web-go-demo');
-app.set('secret', process.env.SECRET || 'webgo');
-app.set('redis-port', process.env.REDIS_PORT || 17929);
-app.set('redis-host', process.env.REDIS_HOST || 'redis-17929.c1.us-central1-2.gce.cloud.redislabs.com');
+app.set('secret', process.env.SECRET || <PUT_YOUR_SECRET_HERE>);
+app.set('mongodb-uri', process.env.MONGODB_URI || <PUT_YOUR_MONGODB_URI_HERE>);
+app.set('postgres-url', process.env.POSTGRES_URL || <PUT_YOUR_POSTGRES_URL_HERE>);
+app.set('redis-port', process.env.REDIS_PORT || <PUT_YOUR_REDIS_PORT_HERE>);
+app.set('redis-host', process.env.REDIS_HOST || <PUT_YOUR_REDIS_HOST_HERE>);
 ```
+
+Development environments
 
 ```yml
 # docker-compose.yml
 version: '2'
 
 services:
-
   app:
     build:
       context: .
@@ -142,11 +144,23 @@ services:
     ports:
       - "3000:3000"
     environment:
-      # custom environment variables
-      - MONGODB_URI=xxx
-      - REDIS_PORT=xxx
-      - REDIS_HOST=xxx
+      - SECRET=<PUT_YOUR_SECRET_HERE>
+      - MONGODB_URI=<PUT_YOUR_MONGODB_URI>
+      - POSTGRES_URL=<PUT_YOUR_POSTGRES_URL_HERE>
+      - REDIS_PORT=<PUT_YOUR_REDIS_PORT_HERE>
+      - REDIS_HOST=<PUT_YOUR_REDIS_HOST_HERE>
     tty: true
+```
+
+Production environments
+
+```dockerfile
+# Dockerfile.prod
+ENV SECRET <PUT_YOUR_SECRET_HERE>
+ENV MONGODB_URI <PUT_YOUR_MONGODB_URI>
+ENV POSTGRES_URL <PUT_YOUR_POSTGRES_URL_HERE>
+ENV REDIS_PORT <PUT_YOUR_REDIS_PORT_HERE>
+ENV REDIS_HOST <PUT_YOUR_REDIS_HOST_HERE>
 ```
 
 ## Using Libraries

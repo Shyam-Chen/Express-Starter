@@ -48,9 +48,11 @@ RUN yarn install && yarn build
 
 ENV NODE_ENV production
 
-# ENV MONGODB_URI xxx
-# ENV REDIS_PORT xxx
-# ENV REDIS_HOST xxx
+ENV SECRET webgo
+ENV MONGODB_URI mongodb://web-go-user:web-go-user@ds133961.mlab.com:33961/web-go-demo
+ENV POSTGRES_URL postgres://mguwfoms:HwvwMaKe41xJapte7jkd48ilCOktaFNU@tantor.db.elephantsql.com:5432/mguwfoms
+ENV REDIS_PORT 17929
+ENV REDIS_HOST redis-17929.c1.us-central1-2.gce.cloud.redislabs.com
 
 EXPOSE 3000
 

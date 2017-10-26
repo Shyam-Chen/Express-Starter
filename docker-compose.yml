@@ -9,7 +9,9 @@ services:
     ports:
       - "3000:3000"
     environment:
+      - SECRET=webgo
       - MONGODB_URI=mongodb://web-go-user:web-go-user@ds133961.mlab.com:33961/web-go-demo
+      - POSTGRES_URL=postgres://mguwfoms:HwvwMaKe41xJapte7jkd48ilCOktaFNU@tantor.db.elephantsql.com:5432/mguwfoms
       - REDIS_PORT=17929
       - REDIS_HOST=redis-17929.c1.us-central1-2.gce.cloud.redislabs.com
       # - GOOGLE_ID=xxx

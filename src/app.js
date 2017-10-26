@@ -4,6 +4,7 @@ import jwt from 'express-jwt';
 import graphql from 'express-graphql';
 import socket from 'socket.io';
 import mongoose from 'mongoose';
+import Sequelize from 'sequelize';
 import redis from 'redis';
 import passport from 'passport';
 import history from 'express-history-api-fallback';
@@ -22,8 +23,9 @@ const app = express();
  * @name config
  */
 app.set('port', process.env.PORT || 3000);
-app.set('mongodb-uri', process.env.MONGODB_URI || 'mongodb://web-go-user:web-go-user@ds133961.mlab.com:33961/web-go-demo');
 app.set('secret', process.env.SECRET || 'webgo');
+app.set('mongodb-uri', process.env.MONGODB_URI || 'mongodb://web-go-user:web-go-user@ds133961.mlab.com:33961/web-go-demo');
+app.set('postgres-url', process.env.POSTGRES_URL || 'postgres://mguwfoms:HwvwMaKe41xJapte7jkd48ilCOktaFNU@tantor.db.elephantsql.com:5432/mguwfoms');
 app.set('redis-port', process.env.REDIS_PORT || 17929);
 app.set('redis-host', process.env.REDIS_HOST || 'redis-17929.c1.us-central1-2.gce.cloud.redislabs.com');
 
@@ -80,6 +82,11 @@ mongoose.connection.once('open', () => console.log(' [*] Mongo: Connection Succe
 /**
  * @name postgres
  */
+const sequelize = new Sequelize(app.get('postgres-url'));
+
+sequelize.authenticate()
+  .then(() => console.log(' [*] Postgres: Connection Succeeded.'))
+  .catch(err => console.error(err));
 
 /**
  * @name redis
