@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import { List } from '~/document';
+import relational from '~/relational';
 
 const router = Router();
 
@@ -35,34 +36,34 @@ router.get('/', async (req, res, next) => {
  * @param {number} row - rows per page
  * @example get a list of paging - GET /__/list/${page}/${row}
  */
-router.get('/:page/:row', async (req, res, next) => {
-  try {
-    const row = Number(req.params.row);
-    const list = await List.find({}).exec();
-
-    for (let i = 0; i < list.length / row; i++) {
-      if (Number(req.params.page) === (i + 1)) {
-        const data = await List.find({}).skip(i * row).limit(row).exec();
-        res.json(data);
-      }
-    }
-  } catch (err) {
-    next(err);
-  }
-});
+// router.get('/:page/:row', async (req, res, next) => {
+//   try {
+//     const row = Number(req.params.row);
+//     const list = await List.find({}).exec();
+//
+//     for (let i = 0; i < list.length / row; i++) {
+//       if (Number(req.params.page) === (i + 1)) {
+//         const data = await List.find({}).skip(i * row).limit(row).exec();
+//         res.json(data);
+//       }
+//     }
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
 /**
  * @name item - get a item from ID in list
  * @example GET /__/list/${id}
  */
-router.get('/:id', async (req, res, next) => {
-  try {
-    const data = await List.findById(req.params.id).exec();
-    res.json(data);
-  } catch (err) {
-    next(err);
-  }
-});
+// router.get('/:id', async (req, res, next) => {
+//   try {
+//     const data = await List.findById(req.params.id).exec();
+//     res.json(data);
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
 /**
  * @name create - create a item
@@ -109,6 +110,15 @@ router.delete('/:id', async (req, res, next) => {
   try {
     const message = await List.findByIdAndRemove(req.params.id).then(() => 'List deleted');
     res.json({ message });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get('/relational', async (req, res, next) => {
+  try {
+    const data = await relational.list.findAll();
+    res.json({ data });
   } catch (err) {
     next(err);
   }
