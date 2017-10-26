@@ -16,18 +16,9 @@ import raven from 'raven';
 
 import routes from './rest';
 import schema from './graphql';
+import { PORT, SECRET, MONGODB_URI, POSTGRES_URL, REDIS_PORT, REDIS_HOST } from './config';
 
 const app = express();
-
-/**
- * @name config
- */
-app.set('port', process.env.PORT || 3000);
-app.set('secret', process.env.SECRET || 'webgo');
-app.set('mongodb-uri', process.env.MONGODB_URI || 'mongodb://web-go-user:web-go-user@ds133961.mlab.com:33961/web-go-demo');
-app.set('postgres-url', process.env.POSTGRES_URL || 'postgres://mguwfoms:HwvwMaKe41xJapte7jkd48ilCOktaFNU@tantor.db.elephantsql.com:5432/mguwfoms');
-app.set('redis-port', process.env.REDIS_PORT || 17929);
-app.set('redis-host', process.env.REDIS_HOST || 'redis-17929.c1.us-central1-2.gce.cloud.redislabs.com');
 
 /**
  * @name middleware
@@ -38,7 +29,7 @@ app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
-app.use(jwt({ secret: Buffer.from(app.get('secret'), 'base64'), credentialsRequired: false }));
+app.use(jwt({ secret: Buffer.from(SECRET, 'base64'), credentialsRequired: false }));
 
 /**
  * @name rest
@@ -67,22 +58,22 @@ if (process.env.NODE_ENV === 'production') {
 /**
  * @name server
  */
-const server = app.listen(app.get('port'), (): void => {
+const server = app.listen(PORT, (): void => {
   console.log(' [*] App: Bootstrap Succeeded.');
-  console.log(` [*] Port: ${app.get('port')}.`);
+  console.log(` [*] Port: ${PORT}.`);
 });
 
 /**
  * @name mongo
  */
-mongoose.connect(app.get('mongodb-uri'));
+mongoose.connect(MONGODB_URI);
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
 mongoose.connection.once('open', () => console.log(' [*] Mongo: Connection Succeeded.'));
 
 /**
  * @name postgres
  */
-const sequelize = new Sequelize(app.get('postgres-url'));
+const sequelize = new Sequelize(POSTGRES_URL);
 
 sequelize.authenticate()
   .then(() => console.log(' [*] Postgres: Connection Succeeded.'))
@@ -91,10 +82,7 @@ sequelize.authenticate()
 /**
  * @name redis
  */
-export const client = redis.createClient(
-  app.get('redis-port'),
-  app.get('redis-host')
-);
+export const client = redis.createClient(REDIS_PORT, REDIS_HOST);
 
 client.on('connect', () => console.log(' [*] Redis: Connection Succeeded.'));
 client.on('error', err => console.error(err));
