@@ -170,11 +170,85 @@ ENV REDIS_HOST <PUT_YOUR_REDIS_HOST_HERE>
 
 1. Example of REST
 
+```js
+import { Router } from 'express';
+
+import { List } from '~/document';
+
+const router = Router();
+router.get('/', async (req, res, next) => {
+  try {
+    const data = await List.find({}).exec();
+    res.json(data);
+  } catch (err) {
+    next(err);
+  }
+});
+
+export default router;
+```
+
 2. Example of GraphQL
 
-3. Example of Mongoose
+```js
+import gql from 'graphql-tag';
 
-4. Example of Sequelize
+import { List } from '~/document';
+
+export const listTypeDefs = gql`
+  type List {
+    _id: ID!
+    text: String!
+  }
+
+  type Query {
+    list: [List]
+    list(text: String): [List]
+  }
+
+  type Mutation {
+    addText(text: String!): List
+    updateText(_id: ID!, text: String!): List
+    deleteText(_id: ID!): List
+  }
+`;
+
+export const listResolvers = {
+  Query: {
+    async list(root, { text }): { text: string } {
+      try {
+        return await List.find({}).exec();
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  }
+};
+```
+
+3. Example of Document
+
+```js
+import mongoose, { Schema } from 'mongoose';
+
+const listSchema = Schema({
+  text: String
+});
+
+export const List = mongoose.model('List', listSchema);
+```
+
+4. Example of Relational
+
+```js
+export default (sequelize, DataTypes) => {
+  const List = sequelize.define('List', {
+    text: DataTypes.STRING
+  });
+
+  return List;
+};
+```
 
 5. Example of Lodash
 
@@ -206,7 +280,15 @@ Observable::timer(2000)
 
 7. Example of JWT
 
+```js
+
+```
+
 8. Example of Passport
+
+```js
+
+```
 
 9. Example of Socket
 
@@ -240,6 +322,10 @@ io.on('connection', socket => {
 
 10. Example of Redis
 
+```js
+
+```
+
 ## All Commands
 
 ```bash
@@ -248,44 +334,44 @@ $ yarn build
 $ yarn lint
 $ yarn unit
 
+$ yarn flow
+$ yarn typed
+
 $ yarn reset
 $ yarn reinstall
-
-$ yarn deploy
 ```
 
 ## Directory Structure
 
 ```
 .
-├── dist  -> server-side rules ...
-├── public  -> client-side rules ...
-├── scripts  -> shell scripts ...
+├── flow-typed
 ├── src
+│   ├── document
+│   │   └── index.js ...
 │   ├── graphql
 │   │   └── index.js ...
-│   ├── models
+│   ├── relational
 │   │   └── index.js ...
-│   ├── routes
-│   │   └── index.js ...
-│   ├── utils
+│   ├── rest
 │   │   └── index.js ...
 │   ├── app.js
+│   ├── config.js
 │   └── pm2.js
 ├── test
-│   └── test.js ...
+│   └── api.spec.js ...
 ├── .babelrc
 ├── .editorconfig
 ├── .eslintrc
 ├── .gitattributes
 ├── .gitignore
-├── .travis.yml
-├── Dockerfile
+├── Dockerfile.dev
+├── Dockerfile.prod
 ├── LICENSE
 ├── Procfile
 ├── README.md
+├── circle.yml
 ├── docker-compose.yml
-├── nginx.conf
 ├── package.json
 └── yarn.lock
 ```

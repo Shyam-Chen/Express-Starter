@@ -5,9 +5,9 @@
   "scripts": {
     "start": "nodemon src/app.js --exec babel-node",
     "test": "jest --watchAll --coverage",
+    "build": "babel src -d dist",
     "lint": "eslint src && eslint test",
     "unit": "jest --coverage --forceExit",
-    "build": "babel src -d dist",
     "reset": "git reset --hard HEAD && git clean -df",
     "reinstall": "yarn cache clean && git clean -dfx -e '.*' && yarn install",
     "flow": "flow",
