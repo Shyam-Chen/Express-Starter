@@ -15,17 +15,20 @@ import cors from 'cors';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import history from 'express-history-api-fallback';
-import raven from 'raven';
+import Raven from 'raven';
 
 import routes from './rest';
 import schema from './graphql';
-import { PORT, SECRET, MONGODB_URI, POSTGRES_URL, REDIS_PORT, REDIS_HOST } from './config';
+import {
+  PORT, SECRET,
+  MONGODB_URI, POSTGRES_URL, REDIS_PORT, REDIS_HOST,
+  SENTRY_DSN
+} from './config';
 
 const app = express();
 
-/**
- * @name middleware
- */
+process.env.NODE_ENV === 'production' && Raven.config(SENTRY_DSN).install();
+
 app.use(compression());
 app.use(cors());
 app.use(morgan('tiny'));
@@ -34,23 +37,24 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(jwt({ secret: Buffer.from(SECRET, 'base64'), credentialsRequired: false }));
 
+process.env.NODE_ENV === 'production' && app.use(Raven.requestHandler());
+
 /**
- * @name rest
+ * @name REST
  */
 app.use('/__', routes);
 
 /**
- * @name graphql
+ * @name GraphQL
  */
 app.use('/__/graphql', graphql({ schema }));
 
+process.env.NODE_ENV === 'production' && app.use(Raven.errorHandler());
+
 /**
- * @name production
+ * @name static
  */
 if (process.env.NODE_ENV === 'production') {
-  raven.config('https://ce49059cdcc9414aabc5a3e92e22b8f8:6398526fa2444cc79fb6517a73d7199c@sentry.io/235213')
-    .install();
-
   const root = join(__dirname, '../public');
 
   app.use(express.static(root));
@@ -60,7 +64,7 @@ if (process.env.NODE_ENV === 'production') {
 /**
  * @name server
  */
-export const server = app.listen(PORT, (): void => {
+const server = app.listen(PORT, (): void => {
   console.log(' [*] App: Bootstrap Succeeded.');
   console.log(` [*] Port: ${PORT}.`);
 });
@@ -75,9 +79,7 @@ mongoose.connection.on('error', err => console.error(err));
 /**
  * @name postgres
  */
-export const sequelize = new Sequelize(POSTGRES_URL);
-
-sequelize.authenticate()
+new Sequelize(POSTGRES_URL).authenticate()
   .then(() => console.log(' [*] Postgres: Connection Succeeded.'))
   .catch(err => console.error(err));
 
