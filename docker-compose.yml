@@ -2,7 +2,7 @@ version: '2'
 
 services:
 
-  app:
+  api:
     build:
       context: .
       dockerfile: Dockerfile.dev
@@ -25,19 +25,19 @@ services:
     #   - postgres
     #   - redis
     # volumes:
-    #   - ./webapp:/opt/webapp
+    #   - ./api:/opt/api
     tty: true
 
   # mongo:
   #   image: mongo:jessie
   #   ports:
   #     - "27017:27017"
-  #
+
   # postgres:
   #   image: postgres:alpine
   #   ports:
   #     - "5432:5432"
-  #
+
   # redis:
   #   image: redis:alpine
   #   ports:

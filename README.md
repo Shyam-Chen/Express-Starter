@@ -107,7 +107,7 @@ $ docker-compose up
 2. Run a command in a running container
 
 ```bash
-$ docker-compose exec app <COMMAND>
+$ docker-compose exec api <COMMAND>
 ```
 
 3. Remove the old container before creating the new one
@@ -140,7 +140,7 @@ Development environments
 version: '2'
 
 services:
-  app:
+  api:
     build:
       context: .
       dockerfile: Dockerfile.dev
@@ -355,7 +355,7 @@ $ yarn reinstall
 │   │   └── index.js ...
 │   ├── rest
 │   │   └── index.js ...
-│   ├── app.js
+│   ├── api.js
 │   ├── config.js
 │   └── pm2.js
 ├── test

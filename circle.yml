@@ -22,15 +22,15 @@ jobs:
 
       - run:
           name: Static code analysis
-          command: docker-compose exec app yarn lint
+          command: docker-compose exec api yarn lint
 
       - run:
           name: Unit testing
-          command: docker-compose exec app yarn unit
+          command: docker-compose exec api yarn unit
 
       - run:
           name: Test coverage integration
-          command: docker-compose exec app yarn codecov -- --token=${CODECOV_TOKEN}
+          command: docker-compose exec api yarn codecov -- --token=${CODECOV_TOKEN}
 
       - deploy:
           name: Deploy to Heroku

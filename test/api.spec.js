@@ -1,7 +1,7 @@
 import request from 'supertest';
 import { graphql } from 'graphql';
 
-import server from '~/app';
+import server from '~/api';
 import schema from '~/graphql';
 
 describe('REST', () => {

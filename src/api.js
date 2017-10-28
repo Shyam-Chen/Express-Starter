@@ -17,8 +17,9 @@ import bodyParser from 'body-parser';
 import history from 'express-history-api-fallback';
 import Raven from 'raven';
 
-import routes from './rest';
-import schema from './graphql';
+import routes from '~/rest';
+import schema from '~/graphql';
+
 import {
   PORT, SECRET,
   MONGODB_URI, POSTGRES_URL, REDIS_PORT, REDIS_HOST,
@@ -70,21 +71,21 @@ const server = app.listen(PORT, (): void => {
 });
 
 /**
- * @name mongo
+ * @name Mongo
  */
 mongoose.connect(MONGODB_URI);
 mongoose.connection.once('open', () => console.log(' [*] Mongo: Connection Succeeded.'));
 mongoose.connection.on('error', err => console.error(err));
 
 /**
- * @name postgres
+ * @name Postgres
  */
 new Sequelize(POSTGRES_URL).authenticate()
   .then(() => console.log(' [*] Postgres: Connection Succeeded.'))
   .catch(err => console.error(err));
 
 /**
- * @name socket
+ * @name Socket
  */
 export const io = socket.listen(server);
 
@@ -96,7 +97,7 @@ io.on('connection', socket => {
 });
 
 /**
- * @name redis
+ * @name Redis
  */
 export const client = redis.createClient(REDIS_PORT, REDIS_HOST);
 
