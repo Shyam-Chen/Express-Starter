@@ -6,22 +6,21 @@ import relational from '~/relational';
 const router = Router();
 
 /**
- * @name list - get a list or search list
+ * @name list - get a list
+ * @param {string} _id - get a item by ID
  * @param {string} text - search for text in list
+ *
  * @example get a list - GET /__/list
+ * @example get a item from ID in list - GET /__/list?_id=${_id}
  * @example search a text in list - GET /__/list?text=${text}
  */
 router.get('/', async (req, res, next) => {
   try {
     const find = {};
-    const { text } = req.query;
+    const { _id, text } = req.query;
 
-    if (text) {
-      find['text'] = {
-        $regex: text,
-        $options: 'i'
-      };
-    }
+    if (_id) find['_id'] = { _id };
+    if (text) find['text'] = { $regex: text, $options: 'i' };
 
     const data = await List.find(find).exec();
     res.json(data);
@@ -34,36 +33,23 @@ router.get('/', async (req, res, next) => {
  * @name pagination
  * @param {number} page - current page number
  * @param {number} row - rows per page
- * @example get a list of paging - GET /__/list/${page}/${row}
+ * @example get a list of paging - GET /__/list/pagination/${page}/${row}
  */
-// router.get('/:page/:row', async (req, res, next) => {
-//   try {
-//     const row = Number(req.params.row);
-//     const list = await List.find({}).exec();
-//
-//     for (let i = 0; i < list.length / row; i++) {
-//       if (Number(req.params.page) === (i + 1)) {
-//         const data = await List.find({}).skip(i * row).limit(row).exec();
-//         res.json(data);
-//       }
-//     }
-//   } catch (err) {
-//     next(err);
-//   }
-// });
+router.get('/pagination/:page/:row', async (req, res, next) => {
+  try {
+    const row = Number(req.params.row);
+    const list = await List.find({}).exec();
 
-/**
- * @name item - get a item from ID in list
- * @example GET /__/list/${id}
- */
-// router.get('/:id', async (req, res, next) => {
-//   try {
-//     const data = await List.findById(req.params.id).exec();
-//     res.json(data);
-//   } catch (err) {
-//     next(err);
-//   }
-// });
+    for (let i = 0; i < list.length / row; i++) {
+      if (Number(req.params.page) === (i + 1)) {
+        const data = await List.find({}).skip(i * row).limit(row).exec();
+        res.json(data);
+      }
+    }
+  } catch (err) {
+    next(err);
+  }
+});
 
 /**
  * @name create - create a item
@@ -115,6 +101,9 @@ router.delete('/:id', async (req, res, next) => {
   }
 });
 
+/**
+ * @name SQL
+ */
 router.get('/relational', async (req, res, next) => {
   try {
     const data = await relational.list.findAll();
