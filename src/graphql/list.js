@@ -10,7 +10,7 @@ export const listTypeDefs = gql`
 
   type Query {
     list: [List]
-    list(text: String): [List]
+    list(_id: String, text: String): [List]
   }
 
   type Mutation {
@@ -24,30 +24,24 @@ export const listResolvers = {
   /**
    * @example
    * {
-   *   list {
-   *     _id
-   *     text
-   *   }
+   *   list { _id text }
    * }
    *
    * {
-   *   list(text: "${text}") {
-   *     _id
-   *     text
-   *   }
+   *   list(_id: "${_id}") { _id text }
+   * }
+   *
+   * {
+   *   list(text: "${text}") { _id text }
    * }
    */
   Query: {
-    async list(root, { text }): { text: string } {
+    async list(root, { _id, text }) {
       try {
         const find = {};
 
-        if (text) {
-          find['text'] = {
-            $regex: text,
-            $options: 'i'
-          };
-        }
+        if (_id) find['_id'] = { _id };
+        if (text) find['text'] = { $regex: text, $options: 'i' };
 
         return await List.find(find).exec();
       } catch (err) {
@@ -59,28 +53,19 @@ export const listResolvers = {
   /**
    * @example
    * mutation {
-   *   addText(text: "${text}") {
-   *     _id
-   *     text
-   *   }
+   *   addText(text: "${text}") { _id text }
    * }
    *
    * mutation {
-   *   updateText(_id: "${_id}", text: "${text}") {
-   *     _id
-   *     text
-   *   }
+   *   updateText(_id: "${_id}", text: "${text}") { _id text }
    * }
    *
    * mutation {
-   *   deleteText(_id: "${_id}") {
-   *     _id
-   *     text
-   *   }
+   *   deleteText(_id: "${_id}") { _id text }
    * }
    */
   Mutation: {
-    async addText(root, { text }): { text: string } {
+    async addText(root, { text }) {
       try {
         const list = await new List({ text });
         return await list.save();
@@ -88,7 +73,7 @@ export const listResolvers = {
         console.error(err);
       }
     },
-    async updateText(root, { _id, text }): { _id: string, text: string } {
+    async updateText(root, { _id, text }) {
       try {
         return await List.findOneAndUpdate(
           { _id },
@@ -99,7 +84,7 @@ export const listResolvers = {
         console.error(err);
       }
     },
-    async deleteText(root, { _id }): { _id: string } {
+    async deleteText(root, { _id }) {
       try {
         return await List.findByIdAndRemove(_id);
       } catch (err) {
