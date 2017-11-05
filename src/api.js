@@ -92,8 +92,8 @@ export const io = socket.listen(server);
 io.adapter(socketRedis({ host: REDIS_HOST, port: REDIS_PORT }));
 io.origins(['*:*']);
 
-io.on('connection', socket => {
-  socket.on('disconnect', () => console.log(' [*] Socket: Disconnected.'));
+io.on('connection', connSocket => {
+  connSocket.on('disconnect', () => console.log(' [*] Socket: Disconnected.'));
 });
 
 /**

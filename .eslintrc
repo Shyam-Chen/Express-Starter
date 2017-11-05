@@ -26,10 +26,17 @@
     // Best Practices
 
     // Variables
+    "init-declarations": ["error", "always"],
+    "no-label-var": "error",
+    "no-shadow": "error",
 
     // Node.js and CommonJS
+    "no-new-require": "error",
 
     // Stylistic Issues
+    "array-bracket-spacing": ["error", "never"],
+    "indent": ["error", 2],
+    "spaced-comment": ["error", "always"],
 
     // JS.Next
     "arrow-spacing": ["error"],
