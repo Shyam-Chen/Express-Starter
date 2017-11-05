@@ -47,10 +47,10 @@ router.post('/login', async (req, res) => {
   const user = await User.findOne({ email: req.body.email }).exec();
 
   if (!user) {
-    res.json({ message: 'Authentication failed. User not found.'})
+    res.json({ message: 'Authentication failed. User not found.' });
   } else {
     if (user.password !== req.body.password) {
-      res.json({ message: 'Authentication failed. Wrong password.'})
+      res.json({ message: 'Authentication failed. Wrong password.' });
     } else {
       const token = jwt.sign(user, req.app.get('secret'), { expiresIn: 60 * 60 * 24 });
 

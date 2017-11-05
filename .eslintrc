@@ -24,6 +24,10 @@
     "valid-jsdoc": "error",
 
     // Best Practices
+    "dot-location": ["error", "property"],
+    "eqeqeq": "error",
+
+    "no-multi-spaces": "error",
 
     // Variables
     "init-declarations": ["error", "always"],
