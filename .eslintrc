@@ -17,17 +17,77 @@
   },
   "rules": {
     // Possible Errors
+    "for-direction": "error",
+    "getter-return": "error",
+    "no-await-in-loop": "off",  // flexible
     "no-console": "off",
-    "no-extra-parens": "off",
+    "no-extra-parens": "off",  // flexible
     "no-prototype-builtins": "error",
-    "no-template-curly-in-string": "off",
+    "no-template-curly-in-string": "error",
     "valid-jsdoc": "error",
 
     // Best Practices
+    "accessor-pairs": "error",
+    "array-callback-return": "error",
+    "block-scoped-var": "error",
+    "class-methods-use-this": "error",
+    "complexity": "off",  // flexible
+    "consistent-return": "off",  // flexible
+    "curly": "off",  // flexible
+    "default-case": "error",
     "dot-location": ["error", "property"],
+    "dot-notation": "off",  // flexible
     "eqeqeq": "error",
-
+    "guard-for-in": "error",
+    "no-alert": "error",
+    "no-caller": "error",  // flexible
+    // no-div-regex
+    // no-else-return
+    // no-empty-function
+    "no-eq-null": "error",
+    "no-eval": "error",
+    // no-extend-native
+    // no-extra-bind
+    // no-extra-label
+    // no-floating-decimal
+    // no-implicit-coercion
+    // no-implicit-globals
+    // no-implied-eval
+    // no-invalid-this
+    // no-iterator
+    // no-labels
+    // no-lone-blocks
+    // no-loop-func
+    // no-magic-numbers
     "no-multi-spaces": "error",
+    // no-multi-str
+    // no-new
+    // no-new-func
+    // no-new-wrappers
+    // no-octal-escape
+    // no-param-reassign
+    // no-proto
+    // no-restricted-properties
+    // no-return-assign
+    // no-return-await
+    // no-script-url
+    // no-self-compare
+    // no-sequences
+    // no-throw-literal
+    // no-unmodified-loop-condition
+    // no-unused-expressions
+    // no-useless-call
+    // no-useless-concat
+    // no-useless-return
+    // no-void
+    // no-warning-comments
+    // no-with
+    "prefer-promise-reject-errors": "error",
+    "radix": ["error", "as-needed"],
+    "require-await": "error",
+    "vars-on-top": "error",
+    "wrap-iife": ["error", "inside"],
+    "yoda": "error",
 
     // Variables
     "init-declarations": ["error", "always"],
