@@ -121,9 +121,9 @@
     // brace-style
     // camelcase
     // capitalized-comments
-    // comma-dangle
+    "comma-dangle": ["error", "never"],
     // comma-spacing
-    // comma-style
+    "comma-style": ["error", "last"],
     // computed-property-spacing
     // consistent-this
     // eol-last
@@ -144,7 +144,7 @@
     // lines-around-comment
     // lines-between-class-members
     // max-depth
-    // max-len
+    "max-len": "off",  // flexible
     // max-lines
     // max-nested-callbacks
     // max-params
@@ -155,7 +155,7 @@
     // new-cap
     // new-parens
     // newline-per-chained-call
-    // no-array-constructor
+    "no-array-constructor": "error",
     // no-bitwise
     // no-continue
     // no-inline-comments
@@ -166,11 +166,11 @@
     // no-negated-condition
     // no-nested-ternary
     // no-new-object
-    // no-plusplus
+    "no-plusplus": "off",  // flexible
     // no-restricted-syntax
     // no-tabs
     // no-ternary
-    // no-trailing-spaces
+    "no-trailing-spaces": "error",
     // no-underscore-dangle
     // no-unneeded-ternary
     // no-whitespace-before-property
@@ -204,14 +204,14 @@
     // wrap-regex
 
     // JS.Next
-    // arrow-body-style
-    // arrow-parens
+    "arrow-body-style": ["error", "as-needed"],
+    "arrow-parens": [2, "as-needed"],
     "arrow-spacing": ["error"],
-    // generator-star-spacing
-    // no-confusing-arrow
-    // no-duplicate-imports
+    "generator-star-spacing": ["error", { "before": true, "after": false }],
+    "no-confusing-arrow": "off",  // flexible
+    "no-duplicate-imports": "error",
     // no-restricted-imports
-    // no-useless-computed-key
+    "no-useless-computed-key": "error",
     "no-useless-constructor": "error",
     // no-useless-rename
     "no-var": "error",
