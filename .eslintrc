@@ -91,24 +91,142 @@
 
     // Variables
     "init-declarations": ["error", "always"],
+    "no-catch-shadow": "error",
     "no-label-var": "error",
+    // no-restricted-globals
     "no-shadow": "error",
+    "no-shadow-restricted-names": "error",
+    "no-undef-init": "error",
+    "no-undefined": "error",
+    "no-use-before-define": "error",
 
     // Node.js and CommonJS
+    // callback-return
+    // global-require
+    // handle-callback-err
+    // no-buffer-constructor
+    "no-mixed-requires": "error",
     "no-new-require": "error",
+    // no-path-concat
+    // no-process-env
+    // no-process-exit
+    // no-restricted-modules
+    // no-sync
 
     // Stylistic Issues
+    // array-bracket-newline
     "array-bracket-spacing": ["error", "never"],
+    // array-element-newline
+    // block-spacing
+    // brace-style
+    // camelcase
+    // capitalized-comments
+    // comma-dangle
+    // comma-spacing
+    // comma-style
+    // computed-property-spacing
+    // consistent-this
+    // eol-last
+    // func-call-spacing
+    // func-name-matching
+    // func-names
+    // func-style
+    // function-paren-newline
+    // id-blacklist
+    // id-length
+    // id-match
     "indent": ["error", 2],
+    // jsx-quotes
+    // key-spacing
+    // keyword-spacing
+    // line-comment-position
+    // linebreak-style
+    // lines-around-comment
+    // lines-between-class-members
+    // max-depth
+    // max-len
+    // max-lines
+    // max-nested-callbacks
+    // max-params
+    // max-statements
+    // max-statements-per-line
+    // multiline-comment-style
+    // multiline-ternary
+    // new-cap
+    // new-parens
+    // newline-per-chained-call
+    // no-array-constructor
+    // no-bitwise
+    // no-continue
+    // no-inline-comments
+    // no-lonely-if
+    // no-mixed-operators
+    // no-multi-assign
+    // no-multiple-empty-lines
+    // no-negated-condition
+    // no-nested-ternary
+    // no-new-object
+    // no-plusplus
+    // no-restricted-syntax
+    // no-tabs
+    // no-ternary
+    // no-trailing-spaces
+    // no-underscore-dangle
+    // no-unneeded-ternary
+    // no-whitespace-before-property
+    // nonblock-statement-body-position
+    // object-curly-newline
+    // object-curly-spacing
+    // object-property-newline
+    // one-var
+    // one-var-declaration-per-line
+    // operator-assignment
+    // operator-linebreak
+    // padded-blocks
+    // padding-line-between-statements
+    // quote-props
+    // quotes
+    // require-jsdoc
+    // semi
+    // semi-spacing
+    // semi-style
+    // sort-keys
+    // sort-vars
+    // space-before-blocks
+    // space-before-function-paren
+    // space-in-parens
+    // space-infix-ops
+    // space-unary-ops
     "spaced-comment": ["error", "always"],
+    // switch-colon-spacing
+    // template-tag-spacing
+    // unicode-bom
+    // wrap-regex
 
     // JS.Next
+    // arrow-body-style
+    // arrow-parens
     "arrow-spacing": ["error"],
+    // generator-star-spacing
+    // no-confusing-arrow
+    // no-duplicate-imports
+    // no-restricted-imports
+    // no-useless-computed-key
     "no-useless-constructor": "error",
+    // no-useless-rename
     "no-var": "error",
+    // object-shorthand
+    // prefer-arrow-callback
+    // prefer-const
+    // prefer-destructuring
+    // prefer-numeric-literals
+    // prefer-rest-params
+    // prefer-spread
     "prefer-template": "error",
+    // rest-spread-spacing
+    // sort-imports
     "symbol-description": "error",
-    "template-curly-spacing": ["error", "never"],
-    "yield-star-spacing": ["error", "after"]
+    "template-curly-spacing": "error",
+    "yield-star-spacing": ["error", "before"]
   }
 }

@@ -28,7 +28,7 @@ import {
 
 const app = express();
 
-process.env.NODE_ENV === 'production' && Raven.config(SENTRY_DSN).install();
+if (process.env.NODE_ENV === 'production') Raven.config(SENTRY_DSN).install();
 
 app.use(compression());
 app.use(cors());
@@ -38,7 +38,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(jwt({ secret: Buffer.from(SECRET, 'base64'), credentialsRequired: false }));
 
-process.env.NODE_ENV === 'production' && app.use(Raven.requestHandler());
+if (process.env.NODE_ENV === 'production') app.use(Raven.requestHandler());
 
 /**
  * @name REST
@@ -50,7 +50,7 @@ app.use('/__', routes);
  */
 app.use('/__/graphql', graphql({ schema }));
 
-process.env.NODE_ENV === 'production' && app.use(Raven.errorHandler());
+if (process.env.NODE_ENV === 'production') app.use(Raven.errorHandler());
 
 /**
  * @name static
