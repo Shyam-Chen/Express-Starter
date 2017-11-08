@@ -219,11 +219,11 @@
     // prefer-arrow-callback
     // prefer-const
     // prefer-destructuring
-    // prefer-numeric-literals
-    // prefer-rest-params
-    // prefer-spread
+    "prefer-numeric-literals": "error",
+    "prefer-rest-params": "error",
+    "prefer-spread": "error",
     "prefer-template": "error",
-    // rest-spread-spacing
+    "rest-spread-spacing": ["error", "never"],
     // sort-imports
     "symbol-description": "error",
     "template-curly-spacing": "error",

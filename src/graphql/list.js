@@ -75,11 +75,13 @@ export const listResolvers = {
     },
     async updateText(root, { _id, text }) {
       try {
-        return await List.findOneAndUpdate(
-          { _id },
-          { $set: { text } },
-          { new: true, upsert: true }
-        ).exec();
+        return await List
+          .findOneAndUpdate(
+            { _id },
+            { $set: { text } },
+            { new: true, upsert: true }
+          )
+          .exec();
       } catch (err) {
         console.error(err);
       }
