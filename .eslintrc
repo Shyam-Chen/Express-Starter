@@ -31,19 +31,19 @@
     "array-callback-return": "error",
     "block-scoped-var": "error",
     "class-methods-use-this": "error",
-    "complexity": "off",  // flexible
+    "complexity": "error",
     "consistent-return": "off",  // flexible
     "curly": "off",  // flexible
     "default-case": "error",
     "dot-location": ["error", "property"],
-    "dot-notation": "off",  // flexible
+    "dot-notation": "error",
     "eqeqeq": "error",
     "guard-for-in": "error",
     "no-alert": "error",
     "no-caller": "error",  // flexible
     // no-div-regex
-    // no-else-return
-    // no-empty-function
+    "no-else-return": "error",
+    "no-empty-function": "error",
     "no-eq-null": "error",
     "no-eval": "error",
     // no-extend-native
@@ -69,19 +69,19 @@
     // no-proto
     // no-restricted-properties
     // no-return-assign
-    // no-return-await
+    "no-return-await": "error",
     // no-script-url
     // no-self-compare
     // no-sequences
     // no-throw-literal
-    // no-unmodified-loop-condition
-    // no-unused-expressions
-    // no-useless-call
-    // no-useless-concat
-    // no-useless-return
-    // no-void
-    // no-warning-comments
-    // no-with
+    "no-unmodified-loop-condition": "error",
+    "no-unused-expressions": "error",
+    "no-useless-call": "error",
+    "no-useless-concat": "error",
+    "no-useless-return": "error",
+    "no-void": "error",
+    "no-warning-comments": "off",  // flexible
+    "no-with": "error",
     "prefer-promise-reject-errors": "error",
     "radix": ["error", "as-needed"],
     "require-await": "error",
@@ -108,10 +108,10 @@
     "no-mixed-requires": "error",
     "no-new-require": "error",
     // no-path-concat
-    // no-process-env
+    "no-process-env": "off",  // flexible
     // no-process-exit
     // no-restricted-modules
-    // no-sync
+    "no-sync": "off",  // flexible
 
     // Stylistic Issues
     // array-bracket-newline
@@ -213,11 +213,11 @@
     // no-restricted-imports
     "no-useless-computed-key": "error",
     "no-useless-constructor": "error",
-    // no-useless-rename
+    "no-useless-rename": "error",
     "no-var": "error",
-    // object-shorthand
-    // prefer-arrow-callback
-    // prefer-const
+    "object-shorthand": "error",
+    "prefer-arrow-callback": "error",
+    "prefer-const": "error",
     // prefer-destructuring
     "prefer-numeric-literals": "error",
     "prefer-rest-params": "error",

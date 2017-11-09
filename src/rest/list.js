@@ -16,13 +16,14 @@ const router = Router();
  */
 router.get('/', async (req, res, next) => {
   try {
-    const find = {};
     const { _id, text } = req.query;
+    const find = {};
 
-    if (_id) find['_id'] = { _id };
-    if (text) find['text'] = { $regex: text, $options: 'i' };
+    if (_id) find._id = { _id };
+    if (text) find.text = { $regex: text, $options: 'i' };
 
     const data = await List.find(find).exec();
+
     res.json(data);
   } catch (err) {
     next(err);
@@ -79,7 +80,7 @@ router.put('/:id', async (req, res, next) => {
   try {
     const list = await List.findById(req.params.id).exec();
 
-    for (let prop in req.body) {
+    for (const prop in req.body) {
       if (req.body) list[prop] = req.body[prop];
     }
 

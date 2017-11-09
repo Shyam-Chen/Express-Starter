@@ -39,11 +39,10 @@ export const listResolvers = {
     async list(root, { _id, text }) {
       try {
         const find = {};
-
-        if (_id) find['_id'] = { _id };
-        if (text) find['text'] = { $regex: text, $options: 'i' };
-
-        return await List.find(find).exec();
+        if (_id) find._id = { _id };
+        if (text) find.text = { $regex: text, $options: 'i' };
+        const data = await List.find(find).exec();
+        return data;
       } catch (err) {
         console.error(err);
       }
@@ -68,27 +67,27 @@ export const listResolvers = {
     async addText(root, { text }) {
       try {
         const list = await new List({ text });
-        return await list.save();
+        const data = await list.save();
+        return data;
       } catch (err) {
         console.error(err);
       }
     },
     async updateText(root, { _id, text }) {
       try {
-        return await List
-          .findOneAndUpdate(
-            { _id },
-            { $set: { text } },
-            { new: true, upsert: true }
-          )
-          .exec();
+        const conditions = { _id };
+        const update = { $set: { text } };
+        const options = { new: true, upsert: true };
+        const data = await List.findOneAndUpdate(conditions , update, options).exec();
+        return data;
       } catch (err) {
         console.error(err);
       }
     },
     async deleteText(root, { _id }) {
       try {
-        return await List.findByIdAndRemove(_id);
+        const data = await List.findByIdAndRemove(_id);
+        return data;
       } catch (err) {
         console.error(err);
       }
