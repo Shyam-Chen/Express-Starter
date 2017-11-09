@@ -19,7 +19,7 @@
     // Possible Errors
     "for-direction": "error",
     "getter-return": "error",
-    "no-await-in-loop": "off",  // flexible
+    "no-await-in-loop": "error",
     "no-console": "off",
     "no-extra-parens": "off",  // flexible
     "no-prototype-builtins": "error",

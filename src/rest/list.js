@@ -39,13 +39,15 @@ router.get('/pagination/:page/:row', async (req, res, next) => {
   try {
     const row = Number(req.params.row);
     const list = await List.find({}).exec();
+    const data = [];
 
     for (let i = 0; i < list.length / row; i++) {
       if (Number(req.params.page) === (i + 1)) {
-        const data = await List.find({}).skip(i * row).limit(row).exec();
-        res.json(data);
+        data.push(List.find({}).skip(i * row).limit(row));
       }
     }
+
+    res.json(await Promise.all(data));
   } catch (err) {
     next(err);
   }
