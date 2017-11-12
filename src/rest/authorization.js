@@ -1,61 +1,68 @@
 import { Router } from 'express';
-import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
+import { SECRET } from '~/config';
 import { User } from '~/document/authorization';
 
 const router = Router();
 
-/**
- * @name verify - verify the token
- */
-router.get('/', (req, res) => {
-  res.json({ message: 'TODO' });
+router.post('/login', (req, res, next) => {
+  const { email, password } = req.body;
+
+  User.findOne({ email }, (err, user) => {
+    if (!user) return next(err);
+
+    user.comparePassword(password, (passwordError, isMatch) => {
+      if (!isMatch) return next(passwordError);
+
+      const token = jwt.sign({ user }, SECRET);
+      res.json({ token });
+    });
+  });
 });
 
-/**
- * @name create - create a user
- */
-router.post('/setup', async (req, res, next) => {
-  try {
-    const { email, password } = req.body;
-
-    if (email && password) {
-      const user = new User({ email, password });
-      user.password = bcrypt.hashSync(password, 16);
-      const message = await user.save().then(() => 'User saved successfully');
-      res.json({ message });
-    } else {
-      // ...
-    }
-  } catch (err) {
-    next(err);
-  }
+router.get('/users', (req, res, next) => {
+  User.find({}, (err, docs) => {
+    if (err) return next(err);
+    res.json(docs);
+  });
 });
 
-/**
- * @name login - registered user login
- */
-router.post('/login', async (req, res) => {
-  const user = await User.findOne({ email: req.body.email }).exec();
-
-  if (!user) {
-    res.json({ message: 'Authentication failed. User not found.' });
-  } else {
-    if (user.password !== req.body.password) {
-      res.json({ message: 'Authentication failed. Wrong password.' });
-    } else {
-      const token = jwt.sign(user, req.app.get('secret'), { expiresIn: 60 * 60 * 24 });
-      res.json({ message: 'Authentication successful.', token });
-    }
-  }
+router.get('/users/count', (req, res, next) => {
+  User.count((err, count) => {
+    if (err) return next(err);
+    res.json(count);
+  });
 });
 
-/**
- * @name logout - create a token blacklist
- */
-router.post('/logout', (req, res) => {
-  res.json({ message: 'TODO' });
+router.post('/user', (req, res, next) => {
+  const user = new User(req.body);
+
+  user.save((err, item) => {
+    if (err) return next(err);
+    res.json(item);
+  });
+});
+
+router.get('/user/:id', (req, res, next) => {
+  User.findOne({ _id: req.params.id }, (err, user) => {
+    if (err) return next(err);
+    res.json(user);
+  });
+});
+
+router.put('/user/:id', (req, res, next) => {
+  User.findOneAndUpdate({ _id: req.params.id }, req.body, err => {
+    if (err) return next(err);
+    res.json({ message: 'Updated' });
+  });
+});
+
+router.delete('/user/:id', (req, res, next) => {
+  User.findOneAndRemove({ _id: req.params.id }, err => {
+    if (err) return next(err);
+    res.json({ message: 'Deleted' });
+  });
 });
 
 export default router;

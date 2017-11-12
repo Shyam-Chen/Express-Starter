@@ -1,5 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 /**
  * @name user
@@ -22,8 +22,36 @@ const userSchema = Schema({
   }
 });
 
-userSchema.methods.comparePassword = password =>
-  bcrypt.compareSync(password, this.password);
+userSchema.pre('save', function (next) {
+  const user = this;
+
+  if (!user.isModified('password')) return next();
+
+  bcrypt.genSalt(10, (err, salt) => {
+    if (err) return next(err);
+
+    bcrypt.hash(user.password, salt, (error, hash) => {
+      if (error) return next(error);
+
+      user.password = hash;
+      next();
+    });
+  });
+});
+
+userSchema.methods.comparePassword = (candidatePassword, callback) => {
+  bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
+    if (err) return callback(err);
+    callback(null, isMatch);
+  });
+};
+
+userSchema.set('toJSON', {
+  transform(doc, ret) {
+    delete ret.password;
+    return ret;
+  }
+});
 
 export const User = mongoose.model('User', userSchema);
 
