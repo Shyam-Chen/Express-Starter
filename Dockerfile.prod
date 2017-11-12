@@ -31,7 +31,7 @@ RUN \
     echo '  server_name web-go;'; \
     echo; \
     echo '  location / {'; \
-    echo '    proxy_pass https://web-go-demo.herokuapp.com:3000;'; \
+    echo '    proxy_pass http://localhost:3000;'; \
     echo '    proxy_http_version 1.1;'; \
     echo '    proxy_set_header Upgrade $http_upgrade;'; \
     echo '    proxy_set_header Connection 'upgrade';'; \

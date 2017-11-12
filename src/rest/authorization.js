@@ -18,10 +18,16 @@ router.get('/', (req, res) => {
  */
 router.post('/setup', async (req, res, next) => {
   try {
-    const user = new User(req.body);
-    user.password = bcrypt.hashSync(req.body.password, 16);
-    const message = await user.save().then(() => 'User saved successfully');
-    res.json({ message });
+    const { email, password } = req.body;
+
+    if (email && password) {
+      const user = new User({ email, password });
+      user.password = bcrypt.hashSync(password, 16);
+      const message = await user.save().then(() => 'User saved successfully');
+      res.json({ message });
+    } else {
+      // ...
+    }
   } catch (err) {
     next(err);
   }
@@ -40,7 +46,6 @@ router.post('/login', async (req, res) => {
       res.json({ message: 'Authentication failed. Wrong password.' });
     } else {
       const token = jwt.sign(user, req.app.get('secret'), { expiresIn: 60 * 60 * 24 });
-
       res.json({ message: 'Authentication successful.', token });
     }
   }
