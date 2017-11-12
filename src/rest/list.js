@@ -79,6 +79,7 @@ router.post('/', async (req, res, next) => {
     if (req.body.text) {
       const list = await new List(req.body);
       const message = await list.save().then(() => 'List saved');
+
       res.json({ message });
     } else {
       res.json({ message: 'Please pass text.' });
@@ -95,13 +96,10 @@ router.post('/', async (req, res, next) => {
  */
 router.put('/:id', async (req, res, next) => {
   try {
-    const list = await List.findById(req.params.id).exec();
+    const message = await List
+      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .then(() => 'List updated');
 
-    for (const prop in req.body) {
-      if (req.body) list[prop] = req.body[prop];
-    }
-
-    const message = await list.save().then(() => 'List updated');
     res.json({ message });
   } catch (err) {
     next(err);
@@ -115,7 +113,10 @@ router.put('/:id', async (req, res, next) => {
  */
 router.delete('/:id', async (req, res, next) => {
   try {
-    const message = await List.findByIdAndRemove(req.params.id).then(() => 'List deleted');
+    const message = await List
+      .findByIdAndRemove(req.params.id)
+      .then(() => 'List deleted');
+
     res.json({ message });
   } catch (err) {
     next(err);
