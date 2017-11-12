@@ -9,6 +9,7 @@ const router = Router();
  * @name list - get a list
  * @param {string} _id - get a item by ID
  * @param {string} text - search for text in list
+ * @return {Array<List>}
  *
  * @example GET /__/list
  * @example GET /__/list?_id=${_id}
@@ -32,6 +33,7 @@ router.get('/', async (req, res, next) => {
 
 /**
  * @name count - get a list length
+ * @return {number}
  *
  * @example GET /__/list/count
  */
@@ -48,6 +50,7 @@ router.get('/count', async (req, res, next) => {
  * @name pagination - get a list of paging
  * @param {number} page - current page number
  * @param {number} row - rows per page
+ * @return {Array<List>}
  *
  * @example GET /__/list/pagination/${page}/${row}
  */
