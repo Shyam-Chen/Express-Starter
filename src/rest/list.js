@@ -6,6 +6,10 @@ import relational from '~/relational';
 const router = Router();
 
 /**
+ * @name Mongo
+ */
+
+/**
  * @name list - get a list
  * @param {string} _id - get a item by ID
  * @param {string} text - search for text in list
@@ -134,11 +138,30 @@ router.delete('/', () => {
 });
 
 /**
- * @name SQL
+ * @name Postgre
+ */
+
+/**
+ * @name create - create a item
+ */
+router.post('/relational', async (req, res, next) => {
+  try {
+    const message = await relational.List
+      .create(req.body)
+      .then(() => 'List saved');
+
+    res.json({ message });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
+ * @name list - get a list
  */
 router.get('/relational', async (req, res, next) => {
   try {
-    const data = await relational.list.findAll();
+    const data = await relational.List.findAll();
     res.json({ data });
   } catch (err) {
     next(err);

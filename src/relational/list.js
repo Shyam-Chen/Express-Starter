@@ -1,5 +1,5 @@
 export default (sequelize, DataTypes) => {
-  const List = sequelize.define('list', {
+  const List = sequelize.define('List', {
     text: DataTypes.STRING
   });
 
