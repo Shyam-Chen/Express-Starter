@@ -43,13 +43,43 @@ describe('REST', () => {
   });
 
   it('should create a item', async () => {
-    const { statusCode } = await request(server)
-      .post('/__/list', { text: 'Web Go' });
+    const { statusCode, body: { message} } = await request(server)
+      .post('/__/list')
+      .send({ text: 'Web GO' });
 
     expect(statusCode).toBe(200);
+    expect(message).toEqual('List saved');
   });
 
-  it('should /__/list/relational', async () => {
+  it('should update a item', async () => {
+    const _id = '59901c7dbc9187001ec32c7b';
+    const { statusCode, body: { message} } = await request(server)
+      .put(`/__/list/${_id}`)
+      .send({ text: 'Web GO' });
+
+    expect(statusCode).toBe(200);
+    expect(message).toEqual('List updated');
+  });
+
+  it('should remove a item', async () => {
+    const _id = '59901c7dbc9187001ec32c7b';
+    const { statusCode, body: { message} } = await request(server)
+      .delete(`/__/list/${_id}`);
+
+    expect(statusCode).toBe(200);
+    expect(message).toEqual('List deleted');
+  });
+
+  it('should POST /__/list/relational', async () => {
+    const { statusCode, body: { message} } = await request(server)
+      .post('/__/list/relational')
+      .send({ text: 'Web GO' });
+
+    expect(statusCode).toBe(200);
+    expect(message).toEqual('List saved');
+  });
+
+  it('should GET /__/list/relational', async () => {
     const { statusCode } = await request(server)
       .get('/__/list/relational');
 

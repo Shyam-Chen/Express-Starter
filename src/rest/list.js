@@ -133,9 +133,9 @@ router.delete('/:id', async (req, res, next) => {
 /**
  * @name delete-many
  */
-router.delete('/', () => {
-  List.deleteMany({ isCheck: true }).then(() => 'List deleted');
-});
+// router.delete('/', () => {
+//   List.deleteMany({ isCheck: true }).then(() => 'List deleted');
+// });
 
 /**
  * @name Postgre
