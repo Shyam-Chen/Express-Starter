@@ -28,10 +28,10 @@ RUN \
     echo 'server {'; \
     echo '  listen 80;'; \
     echo; \
-    echo '  server_name web-go;'; \
+    echo '  server_name web-go-demo.herokuapp.com;'; \
     echo; \
     echo '  location / {'; \
-    echo '    proxy_pass http://localhost:3000;'; \
+    echo '    proxy_pass http://23.21.85.30:3000;'; \
     echo '    proxy_http_version 1.1;'; \
     echo '    proxy_set_header Upgrade $http_upgrade;'; \
     echo '    proxy_set_header Connection 'upgrade';'; \
@@ -56,4 +56,5 @@ ENV REDIS_HOST redis-17929.c1.us-central1-2.gce.cloud.redislabs.com
 
 EXPOSE 3000
 
-CMD node dist/pm2.js && nginx restart
+CMD node dist/pm2.js
+RUN service nginx restart
