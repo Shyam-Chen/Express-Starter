@@ -118,7 +118,7 @@ $ docker-compose rm -fs
 
 ## Configuration
 
-Application configuration
+Default configuration
 
 ```js
 // src/config.js
@@ -176,6 +176,7 @@ import { Router } from 'express';
 import { List } from '~/document';
 
 const router = Router();
+
 router.get('/', async (req, res, next) => {
   try {
     const data = await List.find({}).exec();
@@ -215,9 +216,10 @@ export const listTypeDefs = gql`
 
 export const listResolvers = {
   Query: {
-    async list(root, { text }): { text: string } {
+    async list(root, { text }) {
       try {
-        return await List.find({}).exec();
+        const data = await List.find({}).exec();
+        return data;
       } catch (err) {
         console.error(err);
       }
