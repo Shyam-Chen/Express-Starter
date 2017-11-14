@@ -53,11 +53,12 @@ app.use('/__/graphql', graphql({ schema }));
 if (process.env.NODE_ENV === 'production') app.use(Raven.errorHandler());
 
 /**
- * @name static
+ * @name production
  */
 if (process.env.NODE_ENV === 'production') {
   const root = join(__dirname, '../public');
 
+  app.use((req, res, next) => !req.secure ? res.redirect(`https://${req.hostname}${req.url}`) : next());
   app.use(express.static(root));
   app.use(history('index.html', { root }));
 }
