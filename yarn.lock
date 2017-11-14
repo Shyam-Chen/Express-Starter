@@ -1050,7 +1050,7 @@ bcrypt@1.0.3:
     nan "2.6.2"
     node-pre-gyp "0.6.36"
 
-bcryptjs@^2.4.3:
+bcryptjs@2.4.3:
   version "2.4.3"
   resolved "https://registry.yarnpkg.com/bcryptjs/-/bcryptjs-2.4.3.tgz#9ab5627b93e60621ff7cdac5da9733027df1d0cb"
 
