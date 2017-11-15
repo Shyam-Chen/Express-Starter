@@ -1,6 +1,7 @@
 {
   "plugins": [
-    "flowtype-errors"
+    "flowtype-errors",
+    "graphql"
   ],
   "env": {
     "node": true,

@@ -74,6 +74,7 @@
     "codecov": "3.0.0",
     "eslint": "4.10.0",
     "eslint-plugin-flowtype-errors": "3.3.5",
+    "eslint-plugin-graphql": "1.4.1",
     "flow-bin": "0.58.0",
     "flow-typed": "2.2.3",
     "jest": "21.2.1",
