@@ -38,6 +38,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(jwt({ secret: Buffer.from(SECRET, 'base64'), credentialsRequired: false }));
 
+if (process.env.NODE_ENV === 'production') app.use((req, res, next) => !req.secure ? res.redirect(`https://${req.hostname}${req.url}`) : next());
 if (process.env.NODE_ENV === 'production') app.use(Raven.requestHandler());
 
 /**
@@ -53,14 +54,13 @@ app.use('/__/graphql', graphql({ schema }));
 if (process.env.NODE_ENV === 'production') app.use(Raven.errorHandler());
 
 /**
- * @name production
+ * @name static
  */
 if (process.env.NODE_ENV === 'production') {
   const root = join(__dirname, '../public');
 
   app.use(express.static(root));
   app.use(history('index.html', { root }));
-  app.use((req, res, next) => !req.secure ? res.redirect(`https://${req.hostname}${req.url}`) : next());
 }
 
 /**
