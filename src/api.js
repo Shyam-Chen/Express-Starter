@@ -91,10 +91,11 @@ new Sequelize(POSTGRES_URL).authenticate()
  */
 export const io = socket.listen(server);
 
+io.origins('*:*');
 io.adapter(socketRedis({ host: REDIS_HOST, port: REDIS_PORT }));
-io.origins(['*:*']);
 
 io.on('connection', connSocket => {
+  console.log(' [*] Socket: Connection Succeeded.');
   connSocket.on('disconnect', () => console.log(' [*] Socket: Disconnected.'));
 });
 
