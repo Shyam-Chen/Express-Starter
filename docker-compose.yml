@@ -20,25 +20,4 @@ services:
       # - FACEBOOK_SECRET=xxx
       # - TWITTER_KEY=xxx
       # - TWITTER_SECRET=xxx
-    # depends_on:
-    #   - mongo
-    #   - postgres
-    #   - redis
-    # volumes:
-    #   - ./api:/opt/api
     tty: true
-
-  # mongo:
-  #   image: mongo:jessie
-  #   ports:
-  #     - "27017:27017"
-
-  # postgres:
-  #   image: postgres:alpine
-  #   ports:
-  #     - "5432:5432"
-
-  # redis:
-  #   image: redis:alpine
-  #   ports:
-  #     - "6379:6379"

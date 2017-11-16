@@ -62,8 +62,6 @@ if (process.env.NODE_ENV === 'production') {
   app.use(history('index.html', { root }));
 }
 
-// if (process.env.NODE_ENV === 'production') app.use((req, res, next) => !req.secure ? res.redirect(`https://${req.hostname}${req.url}`) : next());
-
 /**
  * @name server
  */

@@ -90,12 +90,6 @@ $ git remote add upstream https://github.com/Shyam-Chen/Backend-Starter-Kit.git
 $ git pull upstream master
 ```
 
-6. Usage the Mongo Shell
-
-```bash
-$ mongo ds133961.mlab.com:33961/web-go-demo -u web-go-user -p web-go-user
-```
-
 ## Dockerization
 
 1. Build and run the Container
@@ -204,13 +198,6 @@ export const listTypeDefs = gql`
 
   type Query {
     list: [List]
-    list(text: String): [List]
-  }
-
-  type Mutation {
-    addText(text: String!): List
-    updateText(_id: ID!, text: String!): List
-    deleteText(_id: ID!): List
   }
 `;
 
@@ -325,7 +312,15 @@ io.on('connection', socket => {
 10. Example of Redis
 
 ```js
+client.hmset('thing', {
+  foo: 'js',
+  bar: 'html',
+  baz: 'css'
+});
 
+client.hgetall('thing', (err, object) => {
+  console.log(object);
+});
 ```
 
 ## All Commands
@@ -361,7 +356,10 @@ $ yarn reinstall
 │   ├── config.js
 │   └── pm2.js
 ├── test
-│   └── api.spec.js ...
+│   ├── graphql
+│   │   └── xxx.spec.js ...
+│   └── rest
+│       └── xxx.spec.js ...
 ├── .babelrc
 ├── .editorconfig
 ├── .eslintrc
