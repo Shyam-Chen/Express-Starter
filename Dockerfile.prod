@@ -29,9 +29,10 @@ RUN \
     echo '  listen 80;'; \
     echo; \
     echo '  server_name web-go-demo.herokuapp.com;'; \
+    echo '  rewrite ^ https://$server_name$request_uri? permanent;'; \
     echo; \
     echo '  location / {'; \
-    echo '    proxy_pass http://23.21.85.30:3000;'; \
+    echo '    proxy_pass http://127.0.0.1:3000;'; \
     echo '    proxy_http_version 2;'; \
     echo '    proxy_set_header Upgrade $http_upgrade;'; \
     echo '    proxy_set_header Connection 'upgrade';'; \
