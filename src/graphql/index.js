@@ -2,16 +2,16 @@ import { makeExecutableSchema } from 'graphql-tools';
 import { mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
 
 import { listTypeDefs, listResolvers } from './list';
-import { selectTypeDefs, selectResolvers } from './form-controls';
+import { authorizationTypeDefs, authorizationResolvers } from './authorization';
 
 const typeDefs = mergeTypes([
   listTypeDefs,
-  selectTypeDefs
+  authorizationTypeDefs
 ]);
 
 const resolvers = mergeResolvers([
   listResolvers,
-  selectResolvers
+  authorizationResolvers
 ]);
 
 export default makeExecutableSchema({ typeDefs, resolvers });
