@@ -1,7 +1,7 @@
 import { makeExecutableSchema } from 'graphql-tools';
 import { mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
 
-import { listTypeDefs, listResolvers } from './list';
+import { listTypeDefs, listResolvers } from './text-list';
 import { authorizationTypeDefs, authorizationResolvers } from './authorization';
 
 const typeDefs = mergeTypes([
