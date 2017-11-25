@@ -32,6 +32,7 @@
     "bcrypt": "1.0.3",
     "bcryptjs": "2.4.3",
     "body-parser": "1.18.2",
+    "chalk": "2.3.0",
     "compression": "1.7.1",
     "cors": "2.8.4",
     "express": "4.16.2",

@@ -16,6 +16,7 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import history from 'express-history-api-fallback';
 import Raven from 'raven';
+import chalk from 'chalk';
 
 import routes from '~/rest';
 import schema from '~/graphql';
@@ -66,22 +67,23 @@ if (process.env.NODE_ENV === 'production') {
  * @name server
  */
 const server = app.listen(PORT, (): void => {
-  console.log(' [*] App: Bootstrap Succeeded.');
-  console.log(` [*] Port: ${PORT}.`);
+  console.log(chalk.hex('#009688')(' [*] App: Bootstrap Succeeded.'));
+  console.log(chalk.hex('#009688')(` [*] Host: http://localhost:${PORT}/.`));
 });
 
 /**
  * @name Mongo
  */
-mongoose.connect(MONGODB_URI);
-mongoose.connection.once('open', () => console.log(' [*] Mongo: Connection Succeeded.'));
+mongoose.connect(MONGODB_URI, { useMongoClient: true });
+mongoose.connection.once('open', () => console.log(chalk.hex('#009688')(' [*] Mongo: Connection Succeeded.')));
 mongoose.connection.on('error', err => console.error(err));
 
 /**
  * @name Postgres
  */
-new Sequelize(POSTGRES_URL).authenticate()
-  .then(() => console.log(' [*] Postgres: Connection Succeeded.'))
+new Sequelize(POSTGRES_URL, { logging: false })
+  .authenticate()
+  .then(() => console.log(chalk.hex('#009688')(' [*] Postgres: Connection Succeeded.')))
   .catch(err => console.error(err));
 
 /**
@@ -92,9 +94,9 @@ export const io = socket.listen(server);
 io.origins('*:*');
 io.adapter(socketRedis({ host: REDIS_HOST, port: REDIS_PORT }));
 
-io.on('connection', connSocket => {
-  console.log(' [*] Socket: Connection Succeeded.');
-  connSocket.on('disconnect', () => console.log(' [*] Socket: Disconnected.'));
+io.on('connection', (connSocket): void => {
+  console.log(chalk.hex('#009688')(' [*] Socket: Connection Succeeded.'));
+  connSocket.on('disconnect', () => console.log(chalk.hex('#009688')(' [*] Socket: Disconnected.')));
 });
 
 /**
@@ -102,7 +104,7 @@ io.on('connection', connSocket => {
  */
 export const client = redis.createClient(REDIS_PORT, REDIS_HOST);
 
-client.on('connect', () => console.log(' [*] Redis: Connection Succeeded.'));
+client.on('connect', () => console.log(chalk.hex('#009688')(' [*] Redis: Connection Succeeded.')));
 client.on('error', err => console.error(err));
 
 export default server;
