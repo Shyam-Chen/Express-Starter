@@ -1,1 +1,2 @@
-export * from './text-list';
+export { List } from './text-list';
+export { User } from './authorization';

@@ -2,7 +2,7 @@ import { Router } from 'express';
 import jwt from 'jsonwebtoken';
 
 import { SECRET } from '~/config';
-import { User } from '~/document/authorization';
+import { User } from '~/document';
 
 const router = Router();
 
