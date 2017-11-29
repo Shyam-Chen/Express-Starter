@@ -43,7 +43,7 @@ This seed repository provides the following features:
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 * [x] Error tracking with [**Sentry**](https://sentry.io/).
 * [x] API workflow with [**Insomnia**](https://insomnia.rest/).
-* [x] Reverse proxy and caching with [**Nginx**](https://github.com/nginx/nginx).
+* [ ] HTTP/2 web server with [**Caddy**](https://github.com/mholt/caddy).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**CircleCI**](https://circleci.com/).
 

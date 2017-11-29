@@ -1,0 +1,6 @@
+web-go-demo.herokuapp.com {
+  proxy / localhost:3000 {
+    websocket
+    transparent
+  }
+}
