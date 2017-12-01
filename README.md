@@ -30,6 +30,8 @@ This seed repository provides the following features:
 * [x] Unit testing with [**Jest**](https://github.com/facebook/jest).
 * [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
 * [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
+* [x] Error tracking with [**Sentry**](https://sentry.io/).
+* [x] API workflow with [**Insomnia**](https://insomnia.rest/).
 * ---------- **Environments** ----------
 * [x] Server-side platform with [**Node**](https://nodejs.org/).
 * [x] Operating system with [**Linux**](https://github.com/torvalds/linux).
@@ -41,8 +43,8 @@ This seed repository provides the following features:
 * [x] Cloud NoSQL database hosting with [**mLab**](https://mlab.com/).
 * [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
-* [x] Error tracking with [**Sentry**](https://sentry.io/).
-* [x] API workflow with [**Insomnia**](https://insomnia.rest/).
+* [x] Monitoring service with [**UptimeRobot**](https://uptimerobot.com/).
+* [ ] Log management service with [**Papertrail**](https://papertrailapp.com/).
 * [ ] HTTP/2 web server with [**Caddy**](https://github.com/mholt/caddy).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**CircleCI**](https://circleci.com/).
