@@ -1,4 +1,5 @@
 import request from 'supertest';
+import faker from 'faker';
 
 import server from '~/api';
 
@@ -45,7 +46,7 @@ describe('REST', () => {
   it('should create a item', async () => {
     const { statusCode, body: { message} } = await request(server)
       .post('/__/list')
-      .send({ text: 'Web GO' });
+      .send({ text: faker.name.jobTitle() });
 
     expect(statusCode).toBe(200);
     expect(message).toEqual('List saved');
@@ -55,7 +56,7 @@ describe('REST', () => {
     const _id = '59901c7dbc9187001ec32c7b';
     const { statusCode, body: { message} } = await request(server)
       .put(`/__/list/${_id}`)
-      .send({ text: 'Web GO' });
+      .send({ text: faker.name.jobTitle() });
 
     expect(statusCode).toBe(200);
     expect(message).toEqual('List updated');
@@ -73,7 +74,7 @@ describe('REST', () => {
   it('should POST /__/list/relational', async () => {
     const { statusCode, body: { message} } = await request(server)
       .post('/__/list/relational')
-      .send({ text: 'Web GO' });
+      .send({ text: faker.name.jobTitle() });
 
     expect(statusCode).toBe(200);
     expect(message).toEqual('List saved');
