@@ -54,6 +54,7 @@
     "passport-google-oauth20": "1.0.0",
     "passport-jwt": "3.0.1",
     "passport-twitter": "1.0.4",
+    "paypal-rest-sdk": "^1.7.1",
     "pg": "7.4.0",
     "pg-hstore": "2.3.2",
     "pm2": "2.7.2",

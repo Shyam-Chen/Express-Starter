@@ -60,7 +60,7 @@
     // no-lone-blocks
     // no-loop-func
     // no-magic-numbers
-    "no-multi-spaces": "error",
+    // "no-multi-spaces": "error",
     // no-multi-str
     // no-new
     // no-new-func
