@@ -28,6 +28,7 @@ This seed repository provides the following features:
 * [x] JavaScript static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
 * [x] Type annotations with [**Flow**](https://github.com/facebook/flow).
 * [x] Unit testing with [**Jest**](https://github.com/facebook/jest).
+* [x] Test coverage integration with [**Codecov**](https://codecov.io/).
 * [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
 * [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
 * [x] Error tracking with [**Sentry**](https://sentry.io/).

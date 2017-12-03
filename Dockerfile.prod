@@ -5,6 +5,7 @@ ENV HOME /Backend-Starter-Kit
 WORKDIR ${HOME}
 ADD . $HOME
 
+# node --
 ENV NODE 8
 
 RUN \
@@ -13,12 +14,15 @@ RUN \
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
   apt-get update && \
   apt-get install -y nodejs yarn
+# -- node
 
+# static --
 RUN \
   apt-get update && \
   apt-get install -y git-core && \
   git clone https://github.com/Shyam-Chen/Frontend-Starter-Kit && \
   bash -c "cd Frontend-Starter-Kit && yarn install && yarn prod && mv public ../"
+# -- static
 
 RUN rm -rf /var/lib/apt/lists/*
 
@@ -26,11 +30,15 @@ RUN yarn install && yarn build
 
 ENV NODE_ENV production
 
+# config --
 ENV SECRET webgo
+
 ENV MONGODB_URI mongodb://web-go-user:web-go-user@ds133961.mlab.com:33961/web-go-demo
 ENV POSTGRES_URL postgres://ymuxoegt:ONfBcCQylth3boOdUE2EkcZbC2OAbtcm@tantor.db.elephantsql.com:5432/ymuxoegt
+
 ENV REDIS_PORT 17929
 ENV REDIS_HOST redis-17929.c1.us-central1-2.gce.cloud.redislabs.com
+# -- config
 
 EXPOSE 3000
 
