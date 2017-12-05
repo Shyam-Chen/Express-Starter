@@ -1,7 +1,6 @@
 version: '2'
 
 services:
-
   api:
     build:
       context: .
@@ -14,10 +13,5 @@ services:
       - POSTGRES_URL=postgres://ymuxoegt:ONfBcCQylth3boOdUE2EkcZbC2OAbtcm@tantor.db.elephantsql.com:5432/ymuxoegt
       - REDIS_PORT=17929
       - REDIS_HOST=redis-17929.c1.us-central1-2.gce.cloud.redislabs.com
-      # - GOOGLE_ID=xxx
-      # - GOOGLE_SECRET=xxx
-      # - FACEBOOK_ID=xxx
-      # - FACEBOOK_SECRET=xxx
-      # - TWITTER_KEY=xxx
-      # - TWITTER_SECRET=xxx
+      - SENTRY_DSN=https://70484e0dda784a1081081ca9c8237792:51b5a95ee1e545efba3aba9103c6193e@sentry.io/236866
     tty: true
