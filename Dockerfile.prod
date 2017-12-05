@@ -42,4 +42,4 @@ ENV REDIS_HOST redis-17929.c1.us-central1-2.gce.cloud.redislabs.com
 
 EXPOSE 3000
 
-CMD node dist/pm2.js
+CMD node processes.js
