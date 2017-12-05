@@ -10,6 +10,7 @@
     "unit": "jest --coverage --forceExit",
     "reset": "git reset --hard HEAD && git clean -df",
     "reinstall": "yarn cache clean && git clean -dfx -e '.*' && yarn install",
+    "pm2": "pm2",
     "flow": "flow",
     "typed": "flow-typed install",
     "codecov": "codecov",

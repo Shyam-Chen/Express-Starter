@@ -25,7 +25,7 @@ import {
   PORT, SECRET,
   MONGODB_URI, POSTGRES_URL, REDIS_PORT, REDIS_HOST,
   SENTRY_DSN
-} from './config';
+} from './env';
 
 const app = express();
 

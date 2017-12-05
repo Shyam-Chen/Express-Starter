@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import Sequelize from 'sequelize';
 
-import { POSTGRES_URL } from '~/config';
+import { POSTGRES_URL } from '~/env';
 
 const sequelize = new Sequelize(POSTGRES_URL);
 const relational = {};

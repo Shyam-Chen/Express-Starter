@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import jwt from 'jsonwebtoken';
 
-import { SECRET } from '~/config';
+import { SECRET } from '~/env';
 import { User } from '~/document';
 
 const router = Router();
