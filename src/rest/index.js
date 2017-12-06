@@ -1,15 +1,17 @@
 import express from 'express';
 
-import textListRoutes from './text-list';
-import authorizationRoutes from './authorization';
-import emailRoutes from './email';
-import fileUploadRoutes from './file-upload';
+import messaging from './messaging';
+
+import textList from './text-list';
+import authorization from './authorization';
+import fileUpload from './file-upload';
 
 const router = express.Router();
 
-router.use('/list', textListRoutes);
-router.use('/authorization', authorizationRoutes);
-router.use('/email', emailRoutes);
-router.use('/file-upload', fileUploadRoutes);
+router.use('/messaging', messaging);
+
+router.use('/list', textList);
+router.use('/authorization', authorization);
+router.use('/file-upload', fileUpload);
 
 export default router;
