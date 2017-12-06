@@ -4,8 +4,8 @@ import faker from 'faker';
 import server from '~/api';
 
 describe('REST', () => {
-  afterEach(() => {
-    server.close();
+  afterEach(async () => {
+    await server.close();
   });
 
   it('should get a text list', async () => {
@@ -44,7 +44,7 @@ describe('REST', () => {
   });
 
   it('should create a item', async () => {
-    const { statusCode, body: { message} } = await request(server)
+    const { statusCode, body: { message } } = await request(server)
       .post('/__/list')
       .send({ text: faker.name.jobTitle() });
 
@@ -54,7 +54,7 @@ describe('REST', () => {
 
   it('should update a item', async () => {
     const _id = '59901c7dbc9187001ec32c7b';
-    const { statusCode, body: { message} } = await request(server)
+    const { statusCode, body: { message } } = await request(server)
       .put(`/__/list/${_id}`)
       .send({ text: faker.name.jobTitle() });
 
@@ -64,7 +64,7 @@ describe('REST', () => {
 
   it('should remove a item', async () => {
     const _id = '59901c7dbc9187001ec32c7b';
-    const { statusCode, body: { message} } = await request(server)
+    const { statusCode, body: { message } } = await request(server)
       .delete(`/__/list/${_id}`);
 
     expect(statusCode).toBe(200);
@@ -72,7 +72,7 @@ describe('REST', () => {
   });
 
   it('should POST /__/list/relational', async () => {
-    const { statusCode, body: { message} } = await request(server)
+    const { statusCode, body: { message } } = await request(server)
       .post('/__/list/relational')
       .send({ text: faker.name.jobTitle() });
 

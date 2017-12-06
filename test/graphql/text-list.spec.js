@@ -1,12 +1,18 @@
-import { mockServer } from 'graphql-tools';
+import request from 'supertest';
 
-import schema from '~/graphql';
+import server from '~/api';
 
 describe('GraphQL', () => {
-  it('should get a text list', async () => {
-    const query = `{ list { _id text } }`;
-    const server = mockServer(schema);
-    const { data: { list } } = await server.query(query);
+  afterEach(async () => {
+    await server.close();
+  });
+
+  it('nice', async () => {
+    const { statusCode, body: { data: { list } } } = await request(server)
+      .post('/__/graphql')
+      .send({ query: `query { list { _id text } }` });
+
+    expect(statusCode).toBe(200);
     expect(list).toBeDefined();
   });
 });
