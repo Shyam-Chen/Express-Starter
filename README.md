@@ -115,6 +115,11 @@ $ git pull upstream master
 * [ ] QR Code
 * [ ] Crawler
 
+Advanced:
+
+* Linode, Kubernetes, & Drone
+* Google Cloud Platform
+
 ## Dockerization
 
 1. Build and run the Container
