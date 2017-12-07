@@ -53,6 +53,7 @@ This seed repository provides the following features:
 ## Table of Contents
 
 * [Getting Started](#getting-started)
+* [Example List](#example-list)
 * [Dockerization](#dockerization)
 * [Configuration](#configuration)
 * [Using Libraries](#using-libraries)
@@ -92,6 +93,27 @@ $ yarn test
 $ git remote add upstream https://github.com/Shyam-Chen/Backend-Starter-Kit.git
 $ git pull upstream master
 ```
+
+## Example List
+
+* [x] CRUD
+  * [x] REST
+  * [x] GraphQL
+* [ ] Storage‎
+* [ ] Authorization
+  * [ ] JSON Web Token
+  * [ ] Facebook
+  * [ ] Google
+  * [ ] Twitter
+* [ ] WebSockets
+* [ ] Messaging
+  * [x] Email
+  * [ ] SMS
+  * [ ] FCM
+* [ ] Payment
+  * [ ] PayPal REST
+* [ ] QR Code
+* [ ] Crawler
 
 ## Dockerization
 
