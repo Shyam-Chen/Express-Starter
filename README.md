@@ -13,7 +13,7 @@
 This seed repository provides the following features:
 
 * ---------- **Essentials** ----------
-* [x] Application framework with [**Express**](http://expressjs.com/).
+* [x] API routing with [**Express**](http://expressjs.com/).
 * [x] Data query language with [**GraphQL**](http://graphql.org/).
 * [x] Object document mapping with [**Mongoose**](http://mongoosejs.com/).
 * [x] Object relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
@@ -42,6 +42,7 @@ This seed repository provides the following features:
 * [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
 * [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
 * [x] Cloud NoSQL database hosting with [**mLab**](https://mlab.com/).
+* [ ] Cloud Storage‎ hosting with [**Filestack**](https://www.filestack.com/).
 * [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 * [x] Monitoring service with [**UptimeRobot**](https://uptimerobot.com/).
@@ -53,7 +54,7 @@ This seed repository provides the following features:
 ## Table of Contents
 
 * [Getting Started](#getting-started)
-* [Example List](#example-list)
+* [Practical Examples](#practical-examples)
 * [Dockerization](#dockerization)
 * [Configuration](#configuration)
 * [Using Libraries](#using-libraries)
@@ -94,7 +95,7 @@ $ git remote add upstream https://github.com/Shyam-Chen/Backend-Starter-Kit.git
 $ git pull upstream master
 ```
 
-## Example List
+## Practical Examples
 
 * [x] CRUD
   * [x] REST
