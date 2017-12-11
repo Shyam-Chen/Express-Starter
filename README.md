@@ -102,20 +102,18 @@ $ git pull upstream master
 * [ ] Storage‎
   * [ ] REST
   * [ ] GraphQL
-* [ ] Authorization
-  * [ ] JSON Web Tokens
+* [ ] Authorization (`passport`)
+  * [ ] JSON Web Tokens (`passport-jwt`)
   * [ ] Facebook
   * [ ] Google
   * [ ] Twitter
 * [ ] Realtime
-  * [ ] WebSockets
-  * [ ] GraphQL Subscriptions
+  * [ ] WebSockets (`socket.io`)
+  * [ ] GraphQL Subscriptions (`subscriptions-transport-ws`)
 * [ ] Messaging
-  * [x] Email
+  * [x] Email (`nodemailer`)
   * [ ] SMS
-* [ ] Payment
-  * [ ] Stripe
-  * [ ] PayPal
+* [ ] Payment (`stripe`)
 
 ## Dockerization
 
