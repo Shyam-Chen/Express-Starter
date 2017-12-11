@@ -38,7 +38,6 @@ This seed repository provides the following features:
 * [x] Operating system with [**Linux**](https://github.com/torvalds/linux).
 * [x] Text editor with [**Atom**](https://github.com/atom/atom).
 * [x] Version control with [**Git**](https://github.com/git/git).
-* [x] Code repository with [**GitHub**](https://github.com/).
 * [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
 * [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
 * [x] Cloud NoSQL database hosting with [**mLab**](https://mlab.com/).
@@ -47,7 +46,7 @@ This seed repository provides the following features:
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 * [x] Monitoring service with [**UptimeRobot**](https://uptimerobot.com/).
 * [ ] Log management service with [**Papertrail**](https://papertrailapp.com/).
-* [ ] HTTP/2 web server with [**Caddy**](https://github.com/mholt/caddy).
+* [ ] Performance and security with [**Cloudflare**](https://www.cloudflare.com/).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**CircleCI**](https://circleci.com/).
 
@@ -115,11 +114,6 @@ $ git pull upstream master
   * [ ] PayPal REST
 * [ ] QR Code
 * [ ] Crawler
-
-Advanced:
-
-* Linode, Kubernetes, & Drone
-* Google Cloud Platform
 
 ## Dockerization
 
