@@ -96,24 +96,26 @@ $ git pull upstream master
 
 ## Practical Examples
 
-* [x] CRUD
+* [x] Database
   * [x] REST
   * [x] GraphQL
 * [ ] Storage‎
+  * [ ] REST
+  * [ ] GraphQL
 * [ ] Authorization
-  * [ ] JSON Web Token
+  * [ ] JSON Web Tokens
   * [ ] Facebook
   * [ ] Google
   * [ ] Twitter
-* [ ] WebSockets
+* [ ] Realtime
+  * [ ] WebSockets
+  * [ ] GraphQL Subscriptions
 * [ ] Messaging
   * [x] Email
   * [ ] SMS
-  * [ ] FCM
 * [ ] Payment
-  * [ ] PayPal REST
-* [ ] QR Code
-* [ ] Crawler
+  * [ ] Stripe
+  * [ ] PayPal
 
 ## Dockerization
 
