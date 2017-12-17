@@ -1,10 +1,13 @@
-version: '2'
+version: '3'
 
 services:
+
   api:
+    image: api
     build:
       context: .
       dockerfile: Dockerfile.dev
+    hostname: api
     ports:
       - "3000:3000"
     environment:
@@ -14,4 +17,9 @@ services:
       - REDIS_PORT=17929
       - REDIS_HOST=redis-17929.c1.us-central1-2.gce.cloud.redislabs.com
       - SENTRY_DSN=https://70484e0dda784a1081081ca9c8237792:51b5a95ee1e545efba3aba9103c6193e@sentry.io/236866
+    volumes:
+      - yarn:/home/node/.cache/yarn
     tty: true
+
+volumes:
+  yarn:
