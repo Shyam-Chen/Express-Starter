@@ -104,16 +104,25 @@ $ git pull upstream master
   * [ ] GraphQL
 * [ ] Authorization (`passport`)
   * [ ] JSON Web Tokens (`passport-jwt`)
-  * [ ] Facebook
-  * [ ] Google
-  * [ ] Twitter
+  * [ ] Facebook (`passport-facebook`)
+  * [ ] Google (`passport-google-oauth20`)
+  * [ ] Twitter (`passport-twitter`)
 * [ ] Realtime
   * [ ] WebSockets (`socket.io`)
   * [ ] GraphQL Subscriptions (`subscriptions-transport-ws`)
 * [ ] Messaging
   * [x] Email (`nodemailer`)
   * [ ] SMS
-* [ ] Payment (`stripe`)
+* [ ] Payment
+  * Stripe (`stripe`)
+  * PayPal (`paypal-rest-sdk`)
+* [ ] Playground
+  * [ ] ...
+
+Infrastructure:
+
+* [Vanilla-Linode-Starter](https://github.com/Vanilla-IceCream/Vanilla-Linode-Starter)
+* [Vanilla-GCE-Starter](https://github.com/Vanilla-IceCream/Vanilla-GCE-Starter)
 
 ## Dockerization
 
