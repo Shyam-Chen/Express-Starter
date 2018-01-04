@@ -24,9 +24,13 @@ jobs:
           name: Static code analysis
           command: docker-compose exec api yarn lint
 
+      # - run:
+      #     name: Unit testing
+      #     command: docker-compose exec api yarn unit
+
       - run:
-          name: Unit testing
-          command: docker-compose exec api yarn unit
+          name: E2E testing
+          command: docker-compose exec api yarn e2e
 
       - run:
           name: Test coverage integration
