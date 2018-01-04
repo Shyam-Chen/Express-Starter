@@ -64,7 +64,7 @@ router.get('/pagination/:page/:row', async (req, res, next) => {
     const list = await List.find({}).exec();
     const data = [];
 
-    for (let i = 0; i < list.length / row; i++) {
+    for (let i = 0, l = list.length; i < l / row; i++) {
       if (Number(req.params.page) === (i + 1)) {
         data.push(List.find({}).skip(i * row).limit(row));
       }
@@ -83,14 +83,16 @@ router.get('/pagination/:page/:row', async (req, res, next) => {
  */
 router.post('/', async (req, res, next) => {
   try {
-    if (req.body.text) {
-      const list = await new List(req.body);
-      const message = await list.save().then(() => 'List saved');
-
-      res.json({ message });
-    } else {
+    if (!req.body.text) {
+      res.status(400);
       res.json({ message: 'Please pass text.' });
+      return;
     }
+
+    const list = await new List(req.body);
+    const message = await list.save().then(() => 'List saved');
+
+    res.json({ message });
   } catch (err) {
     next(err);
   }
