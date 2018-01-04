@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 
 const listSchema = Schema({
-  text: String,
+  text: { type: String, required: true },
   isCheck: { type: Boolean, default: false }
 });
 

@@ -21,16 +21,12 @@ jobs:
           command: docker-compose up -d
 
       - run:
-          name: Static code analysis
-          command: docker-compose exec api yarn lint
-
-      # - run:
-      #     name: Unit testing
-      #     command: docker-compose exec api yarn unit
+          name: Build the application
+          command: docker-compose exec api yarn build
 
       - run:
-          name: E2E testing
-          command: docker-compose exec api yarn e2e
+          name: Test the application
+          command: docker-compose exec api yarn test
 
       - run:
           name: Test coverage integration
