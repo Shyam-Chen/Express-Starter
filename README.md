@@ -41,8 +41,8 @@ This seed repository provides the following features:
 * [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
 * [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
 * [x] Cloud NoSQL database hosting with [**mLab**](https://mlab.com/).
-* [ ] Cloud Storage‎ hosting with [**Filestack**](https://www.filestack.com/).
 * [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
+* [ ] Cloud Storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 * [x] Monitoring service with [**UptimeRobot**](https://uptimerobot.com/).
 * [ ] Log management service with [**Papertrail**](https://papertrailapp.com/).
