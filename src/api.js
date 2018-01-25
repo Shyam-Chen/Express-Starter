@@ -74,7 +74,7 @@ const server = app.listen(PORT, (): void => {
 /**
  * @name Mongo
  */
-mongoose.connect(MONGODB_URI, { useMongoClient: true });
+mongoose.connect(MONGODB_URI);
 mongoose.connection.once('open', () => console.log(chalk.hex('#009688')(' [*] Mongo: Connection Succeeded.')));
 mongoose.connection.on('error', err => console.error(err));
 
