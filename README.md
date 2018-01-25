@@ -81,17 +81,16 @@ $ yarn install
 $ yarn start
 ```
 
-4. Run the Test
+4. Test the Application
 
 ```bash
 $ yarn test
 ```
 
-5. Stay up-to-date
+5. Build the Application
 
 ```bash
-$ git remote add upstream https://github.com/Shyam-Chen/Backend-Starter-Kit.git
-$ git pull upstream master
+$ yarn build
 ```
 
 ## Practical Examples
@@ -121,8 +120,8 @@ $ git pull upstream master
 
 Infrastructure:
 
-* [Vanilla-Linode-Starter](https://github.com/Vanilla-IceCream/Vanilla-Linode-Starter)
-* [Vanilla-GCE-Starter](https://github.com/Vanilla-IceCream/Vanilla-GCE-Starter)
+* [DigitalOcean](https://github.com/Vanilla-IceCream/DigitalOcean)
+* [Google-Compute-Engine](https://github.com/Vanilla-IceCream/Google-Compute-Engine)
 
 ## Dockerization
 
@@ -354,21 +353,6 @@ client.hmset('thing', {
 client.hgetall('thing', (err, object) => {
   console.log(object);
 });
-```
-
-## All Commands
-
-```bash
-$ yarn build
-
-$ yarn lint
-$ yarn unit
-
-$ yarn flow
-$ yarn typed
-
-$ yarn reset
-$ yarn reinstall
 ```
 
 ## Directory Structure
