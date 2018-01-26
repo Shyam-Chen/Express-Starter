@@ -31,7 +31,6 @@
   },
   "homepage": "https://github.com/Shyam-Chen/Backend-Starter-Kit#readme",
   "dependencies": {
-    "bcrypt": "1.0.3",
     "bcryptjs": "2.4.3",
     "body-parser": "1.18.2",
     "chalk": "2.3.0",
