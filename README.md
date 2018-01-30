@@ -20,7 +20,7 @@ This seed repository provides the following features:
 * [x] Utility functions with [**Lodash**](https://lodash.com/).
 * [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
 * [x] Secure authentication with [**JWT**](https://jwt.io/).
-* [x] Third-party authentication with [**Passport**](http://passportjs.org/).
+* [x] Authenticate requests with [**Passport**](http://passportjs.org/).
 * [x] Real-time bidirectional communication with [**Socket**](https://socket.io/).
 * [x] In-memory data structure store with [**Redis**](https://redis.io/).
 * ---------- **Tools** ----------
@@ -28,6 +28,7 @@ This seed repository provides the following features:
 * [x] JavaScript static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
 * [x] Type annotations with [**Flow**](https://github.com/facebook/flow).
 * [x] Unit testing with [**Jest**](https://github.com/facebook/jest).
+* [x] HTTP testing with [**Supertest**](https://github.com/visionmedia/supertest).
 * [x] Test coverage integration with [**Codecov**](https://codecov.io/).
 * [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
 * [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
@@ -38,6 +39,7 @@ This seed repository provides the following features:
 * [x] Operating system with [**Linux**](https://github.com/torvalds/linux).
 * [x] Text editor with [**Atom**](https://github.com/atom/atom).
 * [x] Version control with [**Git**](https://github.com/git/git).
+* [x] Code repository with [**GitHub**](https://github.com/).
 * [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
 * [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
 * [x] Cloud NoSQL database hosting with [**mLab**](https://mlab.com/).
@@ -57,7 +59,6 @@ This seed repository provides the following features:
 * [Dockerization](#dockerization)
 * [Configuration](#configuration)
 * [Using Libraries](#using-libraries)
-* [All Commands](#all-commands)
 * [Directory Structure](#directory-structure)
 
 ## Getting Started
@@ -113,15 +114,16 @@ $ yarn build
   * [x] Email (`nodemailer`)
   * [ ] SMS
 * [ ] Payment
-  * Stripe (`stripe`)
-  * PayPal (`paypal-rest-sdk`)
+  * [ ] Stripe (`stripe`)
+  * [ ] PayPal (`paypal-rest-sdk`)
 * [ ] Playground
+  * [ ] QR Codes
   * [ ] ...
 
 Infrastructure:
 
 * [DigitalOcean](https://github.com/Vanilla-IceCream/DigitalOcean)
-* [Google-Compute-Engine](https://github.com/Vanilla-IceCream/Google-Compute-Engine)
+* [Google Compute Engine](https://github.com/Vanilla-IceCream/Google-Compute-Engine)
 
 ## Dockerization
 
