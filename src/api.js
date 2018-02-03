@@ -7,13 +7,17 @@ import mongoose from 'mongoose';
 import Sequelize from 'sequelize';
 import jwt from 'express-jwt';
 import passport from 'passport';
+import flash from 'express-flash';
 import socket from 'socket.io';
 import socketRedis from 'socket.io-redis';
 import redis from 'redis';
 import compression from 'compression';
 import cors from 'cors';
 import morgan from 'morgan';
+import session from 'express-session';
+// import connectRedis from 'connect-redis';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 import history from 'express-history-api-fallback';
 import Raven from 'raven';
 import chalk from 'chalk';
@@ -36,7 +40,19 @@ app.use(cors());
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(
+  session({
+    // store: new (connectRedis(session))({ client: redis }),
+    name: 'sid',
+    resave: true,
+    saveUninitialized: true,
+    secret: SECRET
+  })
+);
 app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 app.use(jwt({ secret: Buffer.from(SECRET, 'base64'), credentialsRequired: false }));
 
 if (process.env.NODE_ENV === 'production') app.use(Raven.requestHandler());
