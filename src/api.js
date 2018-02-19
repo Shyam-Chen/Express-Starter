@@ -6,7 +6,6 @@ import graphql from 'express-graphql';
 import mongoose from 'mongoose';
 import Sequelize from 'sequelize';
 import jwt from 'express-jwt';
-import passport from 'passport';
 import flash from 'express-flash';
 import socket from 'socket.io';
 import socketRedis from 'socket.io-redis';
@@ -24,6 +23,8 @@ import chalk from 'chalk';
 
 import routes from '~/rest';
 import schema from '~/graphql';
+
+import passport from './passport';
 
 import {
   PORT, SECRET,
