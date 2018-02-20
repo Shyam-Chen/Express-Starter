@@ -108,7 +108,7 @@ $ yarn build
   * [ ] Google (`passport-google-oauth20`)
   * [ ] Twitter (`passport-twitter`)
 * [ ] Realtime
-  * [ ] WebSockets (`socket.io`)
+  * [ ] Socket.IO (`socket.io`)
   * [ ] GraphQL Subscriptions (`subscriptions-transport-ws`)
 * [ ] Messaging
   * [x] Email (`nodemailer`)
