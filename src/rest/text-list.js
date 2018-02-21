@@ -1,4 +1,6 @@
 import { Router } from 'express';
+import { fromPromise } from 'rxjs/observable';
+import { catchError } from 'rxjs/operators';
 
 import { List } from '~/document';
 import relational from '~/relational';
@@ -41,13 +43,10 @@ router.get('/', async (req, res, next) => {
  *
  * @example GET /__/list/count
  */
-router.get('/count', async (req, res, next) => {
-  try {
-    const data = await List.count().exec();
-    res.json(data);
-  } catch (err) {
-    next(err);
-  }
+router.get('/count', (req, res, next) => {
+  fromPromise(List.count().exec())
+    .pipe(catchError(err => next(err)))
+    .subscribe(data => res.json(data));
 });
 
 /**
