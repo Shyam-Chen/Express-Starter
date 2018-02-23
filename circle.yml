@@ -1,15 +1,12 @@
 version: 2
 
 jobs:
+
   build:
     docker:
       - image: circleci/node:8
 
     working_directory: ~/Backend-Starter-Kit
-
-    branches:
-      only:
-        - master
 
     steps:
       - checkout
@@ -26,15 +23,23 @@ jobs:
 
       - run:
           name: Test the application
-          command: docker-compose exec api yarn test
+          command: |
+            docker-compose exec api yarn test
+            docker-compose exec api yarn codecov -- --token=${CODECOV_TOKEN}
 
       - run:
-          name: Test coverage integration
-          command: docker-compose exec api yarn codecov -- --token=${CODECOV_TOKEN}
-
-      - deploy:
-          name: Deploy to Heroku
+          name: Deploy the application
           command: |
-            docker login -u="Shyam Chen" -p="${HEROKU_TOKEN}" registry.heroku.com
-            docker build -f Dockerfile.prod -t registry.heroku.com/web-go-demo/web .
-            docker push registry.heroku.com/web-go-demo/web
+            if [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              docker login -u="Shyam Chen" -p="${HEROKU_TOKEN}" registry.heroku.com
+              docker build -f Dockerfile.prod -t registry.heroku.com/web-go-demo/web .
+              docker push registry.heroku.com/web-go-demo/web
+            elif [ "${CIRCLE_BRANCH}" == "staging" ]; then
+              docker login -u="Shyam Chen" -p="${HEROKU_TOKEN}" registry.heroku.com
+              docker build -f Dockerfile.prod -t registry.heroku.com/web-go-demo/web .
+              docker push registry.heroku.com/web-go-demo/web
+            elif [ "${CIRCLE_BRANCH}" == "master" ]; then
+              docker login -u="Shyam Chen" -p="${HEROKU_TOKEN}" registry.heroku.com
+              docker build -f Dockerfile.prod -t registry.heroku.com/web-go-demo/web .
+              docker push registry.heroku.com/web-go-demo/web
+            fi

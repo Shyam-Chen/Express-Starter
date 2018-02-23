@@ -46,7 +46,7 @@ export const listResolvers = {
       } catch (err) {
         console.error(err);
       }
-    }
+    },
   },
 
   /**
@@ -78,7 +78,7 @@ export const listResolvers = {
         const conditions = { _id };
         const update = { $set: { text } };
         const options = { new: true, upsert: true };
-        const data = await List.findOneAndUpdate(conditions , update, options).exec();
+        const data = await List.findOneAndUpdate(conditions, update, options).exec();
         return data;
       } catch (err) {
         console.error(err);
@@ -91,6 +91,6 @@ export const listResolvers = {
       } catch (err) {
         console.error(err);
       }
-    }
-  }
+    },
+  },
 };

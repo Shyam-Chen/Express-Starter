@@ -172,11 +172,7 @@ router.get('/relational', async (req, res, next) => {
 router.delete('/relational/:id', async (req, res, next) => {
   try {
     const message = await relational.List
-      .destroy({
-        where: {
-          id: req.params.id
-        }
-      })
+      .destroy({ where: { id: req.params.id } })
       .then(() => 'List deleted');
 
     res.json({ message });

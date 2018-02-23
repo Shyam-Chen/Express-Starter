@@ -6,12 +6,12 @@ import { authorizationTypeDefs, authorizationResolvers } from './authorization';
 
 const typeDefs = mergeTypes([
   listTypeDefs,
-  authorizationTypeDefs
+  authorizationTypeDefs,
 ]);
 
 const resolvers = mergeResolvers([
   listResolvers,
-  authorizationResolvers
+  authorizationResolvers,
 ]);
 
 export default makeExecutableSchema({ typeDefs, resolvers });

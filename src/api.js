@@ -27,7 +27,7 @@ import schema from '~/graphql';
 import {
   PORT, SECRET,
   MONGODB_URI, POSTGRES_URL,
-  SENTRY_DSN
+  SENTRY_DSN,
 } from './env';
 
 const app = express();
@@ -40,15 +40,13 @@ app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(
-  session({
-    store: new (connectRedis(session))({ client }),
-    name: 'sid',
-    resave: true,
-    saveUninitialized: true,
-    secret: SECRET
-  })
-);
+app.use(session({
+  store: new (connectRedis(session))({ client }),
+  name: 'sid',
+  resave: true,
+  saveUninitialized: true,
+  secret: SECRET,
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());

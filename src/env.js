@@ -14,5 +14,5 @@ export const AUTH_GOOGLE = {
   clientID: process.env.GOOGLE_ID || '584431831746-9b5743ro43sn7p6nfgbui0kqhj557kvt.apps.googleusercontent.com',
   clientSecret: process.env.GOOGLE_SECRET || 'stZ7p0BC_oQrUvJKsvqAxehT',
   callbackURL: '/__/auth/google/return',
-  passReqToCallback: true
+  passReqToCallback: true,
 };
