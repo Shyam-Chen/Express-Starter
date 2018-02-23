@@ -1,6 +1,6 @@
 # Backend Starter Kit
 
-:truck: A boilerplate for :star2: Node.js :star2:, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.
+:truck: A boilerplate for Node.js, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.
 
 [![Build Status](https://img.shields.io/circleci/project/Shyam-Chen/Backend-Starter-Kit/master.svg)](https://circleci.com/gh/Shyam-Chen/Backend-Starter-Kit)
 [![Coverage Status](https://img.shields.io/codecov/c/github/Shyam-Chen/Backend-Starter-Kit/master.svg)](https://codecov.io/gh/Shyam-Chen/Backend-Starter-Kit)
@@ -51,6 +51,17 @@ This seed repository provides the following features:
 * [ ] Performance and security with [**Cloudflare**](https://www.cloudflare.com/).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**CircleCI**](https://circleci.com/).
+
+Here are some related seed repositories:
+
+* ---------- **HTML5** ----------
+* [Frontend Starter Kit](https://github.com/Shyam-Chen/Frontend-Starter-Kit)
+* Cordova Mobile Starter
+* Electron Desktop Starter
+* ---------- **Node.js** ----------
+* [Backend Starter Kit](https://github.com/Shyam-Chen/Backend-Starter-Kit)
+* [Firebase Functions Starter](https://github.com/Shyam-Chen/Firebase-Functions-Starter)
+* Kubernetes Engine Starter
 
 ## Table of Contents
 
@@ -119,11 +130,6 @@ $ yarn build
 * [ ] Playground
   * [ ] QR Codes
   * [ ] ...
-
-Infrastructure:
-
-* [DigitalOcean](https://github.com/Vanilla-IceCream/DigitalOcean)
-* [Google Compute Engine](https://github.com/Vanilla-IceCream/Google-Compute-Engine)
 
 ## Dockerization
 
