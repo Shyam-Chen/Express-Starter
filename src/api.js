@@ -5,7 +5,6 @@ import express from 'express';
 import graphql from 'express-graphql';
 import mongoose from 'mongoose';
 import Sequelize from 'sequelize';
-import jwt from 'express-jwt';
 import flash from 'express-flash';
 import compression from 'compression';
 import cors from 'cors';
@@ -50,7 +49,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-app.use(jwt({ secret: Buffer.from(SECRET, 'base64'), credentialsRequired: false }));
 
 if (process.env.NODE_ENV === 'production') app.use(Raven.requestHandler());
 

@@ -20,6 +20,7 @@
     "import/prefer-default-export": "off",
 
     // Possible Errors
+    "no-console": "off",
 
     // Best Practices
 

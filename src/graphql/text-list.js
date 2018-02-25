@@ -44,7 +44,7 @@ export const listResolvers = {
         const data = await List.find(find).exec();
         return data;
       } catch (err) {
-        console.error(err);
+        throw err;
       }
     },
   },
@@ -70,7 +70,7 @@ export const listResolvers = {
         const data = await list.save();
         return data;
       } catch (err) {
-        console.error(err);
+        throw err;
       }
     },
     async updateText(root, { _id, text }) {
@@ -81,7 +81,7 @@ export const listResolvers = {
         const data = await List.findOneAndUpdate(conditions, update, options).exec();
         return data;
       } catch (err) {
-        console.error(err);
+        throw err;
       }
     },
     async deleteText(root, { _id }) {
@@ -89,7 +89,7 @@ export const listResolvers = {
         const data = await List.findByIdAndRemove(_id);
         return data;
       } catch (err) {
-        console.error(err);
+        throw err;
       }
     },
   },
