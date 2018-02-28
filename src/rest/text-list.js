@@ -83,9 +83,8 @@ router.get('/pagination/:page/:row', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   try {
     if (!req.body.text) {
-      res.status(400);
-      res.json({ message: 'Please pass text.' });
-      return;
+      res.status(400)
+        .json({ message: 'Please pass text.' });
     }
 
     const list = await new List(req.body);
@@ -143,6 +142,26 @@ router.delete('/:id', async (req, res, next) => {
  */
 
 /**
+ * @name list - get a list
+ *
+ * @example GET /__/list/relational
+ */
+router.get('/relational', async (req, res, next) => {
+  try {
+    const { text } = req.query;
+
+    const find = {};
+
+    if (text) find.where = { text };
+
+    const data = await relational.List.findAll(find);
+    res.json({ data });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
  * @name create - create a item
  */
 router.post('/relational', async (req, res, next) => {
@@ -157,13 +176,16 @@ router.post('/relational', async (req, res, next) => {
   }
 });
 
-/**
- * @name list - get a list
- */
-router.get('/relational', async (req, res, next) => {
+router.put('/relational/:id', async (req, res, next) => {
   try {
-    const data = await relational.List.findAll();
-    res.json({ data });
+    const message = await relational.List
+      .update(
+        { updatedAt: req.body },
+        { where: { id: req.params.id } },
+      )
+      .then(() => 'List saved');
+
+    res.json({ message });
   } catch (err) {
     next(err);
   }
