@@ -5,6 +5,12 @@ export const SECRET = process.env.SECRET || 'webgo';
 export const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://web-go-user:web-go-user@ds133961.mlab.com:33961/web-go-demo';
 export const POSTGRES_URL = process.env.POSTGRES_URL || 'postgres://ymuxoegt:ONfBcCQylth3boOdUE2EkcZbC2OAbtcm@tantor.db.elephantsql.com:5432/ymuxoegt';
 
+export const CLOUDINARY_CONFIG = {
+  cloud_name: process.env.CLOUDINARY_NAME || 'sample',
+  api_key: process.env.CLOUDINARY_KRY || '874837483274837',
+  api_secret: process.env.CLOUDINARY_SECRET || 'a676b67565c6767a6767d6767f676fe1',
+};
+
 export const REDIS_PORT = process.env.REDIS_PORT || 17929;
 export const REDIS_HOST = process.env.REDIS_HOST || 'redis-17929.c1.us-central1-2.gce.cloud.redislabs.com';
 
