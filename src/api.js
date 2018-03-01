@@ -92,7 +92,7 @@ mongoose.connection.on('error', err => console.error(err));
 /**
  * @name Postgres
  */
-new Sequelize(POSTGRES_URL, { logging: false })
+new Sequelize(POSTGRES_URL)
   .authenticate()
   .then(() => console.log(chalk.hex('#009688')(' [*] Postgres: Connection Succeeded.')))
   .catch(err => console.error(err));

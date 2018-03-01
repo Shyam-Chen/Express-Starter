@@ -56,8 +56,8 @@ Here are some related seed repositories:
 
 * ---------- **Client-side** ----------
 * [Frontend Starter Kit](https://github.com/Shyam-Chen/Frontend-Starter-Kit) - Make for Progressive Web Apps.
-* [Cordova Mobile Starter](https://github.com/Shyam-Chen/Cordova-Mobile-Starter) - Make for Cross-platform Mobile Apps.
-* [Electron Desktop Starter](https://github.com/Shyam-Chen/Electron-Desktop-Starter) - Make for Cross-platform Desktop Apps.
+* [Cordova Phonegap Starter](https://github.com/Shyam-Chen/Cordova-Phonegap-Starter) - Make for Cross-platform Mobile Apps.
+* [Electron Chromium Starter](https://github.com/Shyam-Chen/Electron-Chromium-Starter) - Make for Cross-platform Desktop Apps.
 * ---------- **Server-side** ----------
 * [Backend Starter Kit](https://github.com/Shyam-Chen/Backend-Starter-Kit) - Make for Flexible Cloud Platform.
 * [Firebase Functions Starter](https://github.com/Shyam-Chen/Firebase-Functions-Starter) - Make for Serverless Cloud Functions.

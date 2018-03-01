@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { Op } from 'sequelize';
 import { fromPromise } from 'rxjs/observable';
 import { catchError } from 'rxjs/operators';
 
@@ -78,7 +79,7 @@ router.get('/pagination/:page/:row', async (req, res, next) => {
 /**
  * @name create - create a item
  *
- * @example POST /__/list
+ * @example POST /__/list { text: ${text} }
  */
 router.post('/', async (req, res, next) => {
   try {
@@ -143,8 +144,10 @@ router.delete('/:id', async (req, res, next) => {
 
 /**
  * @name list - get a list
+ * @param {string} text - search for text in list
  *
  * @example GET /__/list/relational
+ * @example GET /__/list/relational?text=${text}
  */
 router.get('/relational', async (req, res, next) => {
   try {
@@ -152,7 +155,13 @@ router.get('/relational', async (req, res, next) => {
 
     const find = {};
 
-    if (text) find.where = { text };
+    if (text) {
+      find.where = {
+        text: {
+          [Op.like]: `%${text}%`,
+        },
+      };
+    }
 
     const data = await relational.List.findAll(find);
     res.json({ data });
@@ -163,6 +172,8 @@ router.get('/relational', async (req, res, next) => {
 
 /**
  * @name create - create a item
+ *
+ * @example POST /__/list/relational { text: ${text} }
  */
 router.post('/relational', async (req, res, next) => {
   try {
@@ -191,6 +202,11 @@ router.put('/relational/:id', async (req, res, next) => {
   }
 });
 
+/**
+ * @name delete - remove a item
+ *
+ * @example DELETE /__/list/relational/${id}
+ */
 router.delete('/relational/:id', async (req, res, next) => {
   try {
     const message = await relational.List

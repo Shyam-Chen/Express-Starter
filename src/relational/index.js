@@ -4,7 +4,7 @@ import Sequelize from 'sequelize';
 
 import { POSTGRES_URL } from '~/env';
 
-const sequelize = new Sequelize(POSTGRES_URL);
+const sequelize = new Sequelize(POSTGRES_URL, { sync: { force: true } });
 const relational = {};
 
 fs.readdirSync(__dirname)
