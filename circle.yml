@@ -25,7 +25,7 @@ jobs:
           name: Test the application
           command: |
             docker-compose exec api yarn test
-            docker-compose exec api yarn codecov -- --token=${CODECOV_TOKEN}
+            docker-compose exec api yarn codecov --token=${CODECOV_TOKEN}
 
       - run:
           name: Deploy the application

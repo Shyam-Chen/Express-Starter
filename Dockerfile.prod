@@ -21,7 +21,7 @@ RUN \
   apt-get update && \
   apt-get install -y git-core && \
   git clone https://github.com/Shyam-Chen/Frontend-Starter-Kit && \
-  bash -c "cd Frontend-Starter-Kit && yarn install && yarn prod && mv public ../"
+  bash -c "cd Frontend-Starter-Kit && yarn install && yarn build && mv public ../"
 # -- static
 
 RUN rm -rf /var/lib/apt/lists/*

@@ -4,18 +4,13 @@
   "description": "A boilerplate for Node.js, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.",
   "scripts": {
     "start": "nodemon src/api.js --exec babel-node",
-    "test": "jest --coverage --forceExit",
+    "test": "jest \"src/.*\\.js$\" \"test/.*\\.js$\" --coverage --forceExit",
     "build": "babel src -d dist",
-    "lint": "eslint src test",
-    "unit": "jest \"src/.*\\.js$\" --coverage",
-    "e2e": "jest \"test/.*\\.js$\" --forceExit",
-    "reset": "git reset --hard HEAD && git clean -df",
-    "reinstall": "yarn cache clean && git clean -dfx -e '.*' && yarn install",
-    "pm2": "pm2",
-    "flow": "flow",
+    "prestart": "node -v",
+    "pretest": "rimraf coverage",
+    "prebuild": "rimraf dist",
     "typed": "flow-typed install",
-    "codecov": "codecov",
-    "prebuild": "rimraf dist"
+    "codecov": "codecov"
   },
   "repository": {
     "type": "git",
@@ -83,6 +78,7 @@
     "codecov": "3.0.0",
     "eslint": "4.18.1",
     "eslint-config-airbnb": "16.1.0",
+    "eslint-import-resolver-babel-plugin-root-import": "1.1.1",
     "eslint-plugin-flowtype-errors": "3.3.7",
     "eslint-plugin-graphql": "1.5.0",
     "eslint-plugin-import": "2.9.0",
