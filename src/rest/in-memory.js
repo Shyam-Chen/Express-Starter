@@ -4,6 +4,8 @@ import { client } from '~/party/redis';
 
 const router = Router();
 
+// TODO: in-memory
+
 router.get('/', (req, res) => {
   client.get('autocomplete', (err, reply) => {
     res.json(reply);

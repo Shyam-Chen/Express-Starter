@@ -1,12 +1,14 @@
 import express from 'express';
 
 import textList from './text-list';
-import autocomplete from './autocomplete';
+import realTime from './real-time';
+import inMemory from './in-memory';
 
 const router = express.Router();
 
 router.use('/list', textList);
 router.use('/text-list', textList);
-router.use('/autocomplete', autocomplete);
+router.use('/real-time', realTime);
+router.use('/in-memory', inMemory);
 
 export default router;

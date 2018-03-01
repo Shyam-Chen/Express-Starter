@@ -132,8 +132,9 @@ router.delete('/:id', async (req, res, next) => {
 });
 
 /**
- * @name delete-many
+ * @name delete-many - remove multiple items
  */
+// TODO: delete multiple items through conditions
 // router.delete('/', () => {
 //   List.deleteMany({ isCheck: true }).then(() => 'List deleted');
 // });
@@ -151,6 +152,7 @@ router.delete('/:id', async (req, res, next) => {
  */
 router.get('/relational', async (req, res, next) => {
   try {
+    // TODO: get a item with ID
     const { text } = req.query;
 
     const find = {};
@@ -187,10 +189,14 @@ router.post('/relational', async (req, res, next) => {
   }
 });
 
+/**
+ * @name update - update a item
+ */
 router.put('/relational/:id', async (req, res, next) => {
   try {
     const message = await relational.List
       .update(
+        // TODO: update
         { updatedAt: req.body },
         { where: { id: req.params.id } },
       )
