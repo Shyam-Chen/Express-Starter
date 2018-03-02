@@ -6,7 +6,6 @@ import inMemory from './in-memory';
 
 const router = express.Router();
 
-router.use('/list', textList);
 router.use('/text-list', textList);
 router.use('/real-time', realTime);
 router.use('/in-memory', inMemory);

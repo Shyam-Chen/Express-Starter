@@ -61,7 +61,7 @@ Here are some related seed repositories:
 * ---------- **Server-side** ----------
 * [Backend Starter Kit](https://github.com/Shyam-Chen/Backend-Starter-Kit) - Make for Flexible Cloud Platform.
 * [Firebase Functions Starter](https://github.com/Shyam-Chen/Firebase-Functions-Starter) - Make for Serverless Cloud Functions.
-* [Kubernetes Engine Starter](https://github.com/Shyam-Chen/Kubernetes-Engine-Starter) - Make for Cloud Infrastructure Container.
+* [Kubernetes Engine Starter](https://github.com/Shyam-Chen/Kubernetes-Engine-Starter) - Make for Containerized Cloud Infrastructure.
 
 ## Table of Contents
 
