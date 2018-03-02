@@ -14,8 +14,8 @@ const router = Router();
 
 /**
  * @name list - get a list
- * @param {string} _id - get a item by ID
- * @param {string} text - search for text in list
+ * @param {string} [_id] - get a item by ID
+ * @param {string} [text] - search for text in list
  * @return {Array<List>}
  *
  * @example GET /__/text-list
@@ -25,6 +25,7 @@ const router = Router();
 router.get('/', async (req, res, next) => {
   try {
     const { _id, text } = req.query;
+
     const find = {};
 
     if (_id) find._id = { _id };
@@ -52,7 +53,7 @@ router.get('/count', (req, res, next) => {
 
 /**
  * @name pagination - get a list of paging
- * @param {number} page - current page number
+ * @param {number} [page=1] - current page number
  * @param {number} [row=5] - rows per page
  * @return {Array<List>}
  *
@@ -80,6 +81,7 @@ router.get('/pagination', async (req, res, next) => {
 
 /**
  * @name create - create a item
+ * @return {Object<{ message: string }>}
  *
  * @example POST /__/text-list { text: ${text} }
  */
@@ -101,6 +103,7 @@ router.post('/', async (req, res, next) => {
 
 /**
  * @name update - update a item
+ * @return {Object<{ message: string }>}
  *
  * @example PUT /__/text-list/${id}
  */
@@ -118,6 +121,7 @@ router.put('/:id', async (req, res, next) => {
 
 /**
  * @name delete - remove a item
+ * @return {Object<{ message: string }>}
  *
  * @example DELETE /__/text-list/${id}
  */
@@ -144,7 +148,8 @@ router.delete('/:id', async (req, res, next) => {
 
 /**
  * @name list - get a list
- * @param {string} text - search for text in list
+ * @param {string} [text] - search for text in list
+ * @return {Object<{ data: List[] }>}
  *
  * @example GET /__/text-list/relational
  * @example GET /__/text-list/relational?text=${text}
@@ -173,7 +178,7 @@ router.get('/relational', async (req, res, next) => {
 
 /**
  * @name count - get a list length
- * @return {number}
+ * @return {Object<{ data: number }>}
  *
  * @example GET /__/text-list/relational/count
  */
@@ -199,6 +204,7 @@ router.get('/relational/pagination', (req, res, next) => {
 
 /**
  * @name create - create a item
+ * @return {Object<{ message: string }>}
  *
  * @example POST /__/text-list/relational { text: ${text} }
  */
@@ -235,6 +241,7 @@ router.put('/relational/:id', async (req, res, next) => {
 
 /**
  * @name delete - remove a item
+ * @return {Object<{ message: string }>}
  *
  * @example DELETE /__/text-list/relational/${id}
  */
