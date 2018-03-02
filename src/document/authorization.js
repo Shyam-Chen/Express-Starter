@@ -2,15 +2,15 @@ import mongoose, { Schema } from 'mongoose';
 import bcrypt from 'bcryptjs';
 
 const userSchema = Schema({
-  jwt:{},
+  jwt: {},
   facebook: {},
   google: {
     id: String,
     token: String,
     email: String,
-    name: String
+    name: String,
   },
-  twitter: {}
+  twitter: {},
 });
 
 userSchema.methods.generateHash = function (password) {

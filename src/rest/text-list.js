@@ -18,9 +18,9 @@ const router = Router();
  * @param {string} text - search for text in list
  * @return {Array<List>}
  *
- * @example GET /__/list
- * @example GET /__/list?_id=${_id}
- * @example GET /__/list?text=${text}
+ * @example GET /__/text-list
+ * @example GET /__/text-list?_id=${_id}
+ * @example GET /__/text-list?text=${text}
  */
 router.get('/', async (req, res, next) => {
   try {
@@ -42,7 +42,7 @@ router.get('/', async (req, res, next) => {
  * @name count - get a list length
  * @return {number}
  *
- * @example GET /__/list/count
+ * @example GET /__/text-list/count
  */
 router.get('/count', (req, res, next) => {
   fromPromise(List.count().exec())
@@ -53,19 +53,21 @@ router.get('/count', (req, res, next) => {
 /**
  * @name pagination - get a list of paging
  * @param {number} page - current page number
- * @param {number} row - rows per page
+ * @param {number} [row=5] - rows per page
  * @return {Array<List>}
  *
- * @example GET /__/list/pagination/${page}/${row}
+ * @example GET /__/text-list/pagination?page=${page}&row=${row}
  */
-router.get('/pagination/:page/:row', async (req, res, next) => {
+router.get('/pagination', async (req, res, next) => {
   try {
-    const row = Number(req.params.row);
+    const page = Number(req.query.page) || 1;
+    const row = Number(req.query.row) || 5;
+
     const list = await List.find({}).exec();
     const data = [];
 
     for (let i = 0, l = list.length; i < l / row; i++) {
-      if (Number(req.params.page) === (i + 1)) {
+      if (page === (i + 1)) {
         data.push(List.find({}).skip(i * row).limit(row));
       }
     }
@@ -79,7 +81,7 @@ router.get('/pagination/:page/:row', async (req, res, next) => {
 /**
  * @name create - create a item
  *
- * @example POST /__/list { text: ${text} }
+ * @example POST /__/text-list { text: ${text} }
  */
 router.post('/', async (req, res, next) => {
   try {
@@ -100,7 +102,7 @@ router.post('/', async (req, res, next) => {
 /**
  * @name update - update a item
  *
- * @example PUT /__/list/${id}
+ * @example PUT /__/text-list/${id}
  */
 router.put('/:id', async (req, res, next) => {
   try {
@@ -117,7 +119,7 @@ router.put('/:id', async (req, res, next) => {
 /**
  * @name delete - remove a item
  *
- * @example DELETE /__/list/${id}
+ * @example DELETE /__/text-list/${id}
  */
 router.delete('/:id', async (req, res, next) => {
   try {
@@ -135,9 +137,6 @@ router.delete('/:id', async (req, res, next) => {
  * @name delete-many - remove multiple items
  */
 // TODO: delete multiple items through conditions
-// router.delete('/', () => {
-//   List.deleteMany({ isCheck: true }).then(() => 'List deleted');
-// });
 
 /**
  * @name Postgre
@@ -147,8 +146,8 @@ router.delete('/:id', async (req, res, next) => {
  * @name list - get a list
  * @param {string} text - search for text in list
  *
- * @example GET /__/list/relational
- * @example GET /__/list/relational?text=${text}
+ * @example GET /__/text-list/relational
+ * @example GET /__/text-list/relational?text=${text}
  */
 router.get('/relational', async (req, res, next) => {
   try {
@@ -173,9 +172,35 @@ router.get('/relational', async (req, res, next) => {
 });
 
 /**
+ * @name count - get a list length
+ * @return {number}
+ *
+ * @example GET /__/text-list/relational/count
+ */
+router.get('/relational/count', async (req, res, next) => {
+  try {
+    const data = await relational.List.count();
+    res.json({ data });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
+ * @name pagination - get a list of paging
+ */
+router.get('/relational/pagination', (req, res, next) => {
+  try {
+    // TODO: pagination
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
  * @name create - create a item
  *
- * @example POST /__/list/relational { text: ${text} }
+ * @example POST /__/text-list/relational { text: ${text} }
  */
 router.post('/relational', async (req, res, next) => {
   try {
@@ -211,7 +236,7 @@ router.put('/relational/:id', async (req, res, next) => {
 /**
  * @name delete - remove a item
  *
- * @example DELETE /__/list/relational/${id}
+ * @example DELETE /__/text-list/relational/${id}
  */
 router.delete('/relational/:id', async (req, res, next) => {
   try {

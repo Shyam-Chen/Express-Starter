@@ -36,9 +36,9 @@ describe('REST', () => {
     expect(statusCode).toBe(200);
   });
 
-  it('should /__/text-list/pagination/2/5', async () => {
+  it('should /__/text-list/pagination', async () => {
     const { statusCode } = await request(server)
-      .get('/__/text-list/pagination/2/5');
+      .get('/__/text-list/pagination');
 
     expect(statusCode).toBe(200);
   });
