@@ -3,7 +3,7 @@ import faker from 'faker';
 
 import server from '~/api';
 
-describe('REST', () => {
+describe('Text List', () => {
   afterEach(async () => {
     await server.close();
   });

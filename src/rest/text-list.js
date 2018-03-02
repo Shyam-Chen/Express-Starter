@@ -45,11 +45,13 @@ router.get('/', async (req, res, next) => {
  *
  * @example GET /__/text-list/count
  */
-router.get('/count', (req, res, next) => {
+export const count = (req, res, next) => {
   fromPromise(List.count().exec())
     .pipe(catchError(err => next(err)))
     .subscribe(data => res.json(data));
-});
+};
+
+router.get('/count', count);
 
 /**
  * @name pagination - get a list of paging

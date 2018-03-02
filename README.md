@@ -352,6 +352,8 @@ io.on('connection', socket => {
 10. Example of Redis
 
 ```js
+import { client } from '~/party/redis';
+
 client.hmset('thing', {
   foo: 'js',
   bar: 'html',
@@ -369,34 +371,31 @@ client.hgetall('thing', (err, object) => {
 .
 ├── flow-typed
 ├── src
-│   ├── document
-│   │   └── index.js ...
-│   ├── graphql
-│   │   └── index.js ...
-│   ├── relational
-│   │   └── index.js ...
-│   ├── rest
-│   │   └── index.js ...
+│   ├── document  -> mongodb models
+│   ├── graphql  -> query language
+│   ├── party
+│   ├── relational  ->  postgresql models
+│   ├── rest  -> restful api
 │   ├── api.js
-│   ├── config.js
-│   └── pm2.js
-├── test
+│   └── env.js
+├── test  -> e2e testing
 │   ├── graphql
-│   │   └── xxx.spec.js ...
+│   │   └── <api>.spec.js
 │   └── rest
-│       └── xxx.spec.js ...
+│       └── <api>.spec.js
 ├── .babelrc
 ├── .editorconfig
 ├── .eslintrc
+├── .flowconfig
 ├── .gitattributes
 ├── .gitignore
 ├── Dockerfile.dev
 ├── Dockerfile.prod
 ├── LICENSE
-├── Procfile
 ├── README.md
 ├── circle.yml
 ├── docker-compose.yml
 ├── package.json
+├── processes.js
 └── yarn.lock
 ```

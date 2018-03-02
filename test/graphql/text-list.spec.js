@@ -2,7 +2,7 @@ import request from 'supertest';
 
 import server from '~/api';
 
-describe('GraphQL', () => {
+describe('Text List', () => {
   afterEach(async () => {
     await server.close();
   });

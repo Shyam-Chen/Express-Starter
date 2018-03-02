@@ -6,9 +6,6 @@
     "start": "nodemon src/api.js --exec babel-node",
     "test": "jest \"src/.*\\.js$\" \"test/.*\\.js$\" --coverage --forceExit",
     "build": "babel src -d dist",
-    "prestart": "node -v",
-    "pretest": "rimraf coverage",
-    "prebuild": "rimraf dist",
     "typed": "flow-typed install",
     "codecov": "codecov"
   },
