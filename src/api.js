@@ -33,6 +33,9 @@ const app = express();
 
 if (process.env.NODE_ENV === 'production') Raven.config(SENTRY_DSN).install();
 
+/**
+ * @name middleware-functions
+ */
 app.use(compression());
 app.use(cors());
 app.use(morgan('tiny'));
@@ -65,7 +68,7 @@ app.use('/__/graphql', graphql({ schema }));
 if (process.env.NODE_ENV === 'production') app.use(Raven.errorHandler());
 
 /**
- * @name static
+ * @name static-files
  */
 if (process.env.NODE_ENV === 'production') {
   const root = join(__dirname, '../public');
@@ -75,7 +78,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 /**
- * @name server
+ * @name api-server
  */
 const server = app.listen(PORT, (): void => {
   console.log(chalk.hex('#009688')(' [*] App: Bootstrap Succeeded.'));
@@ -83,14 +86,14 @@ const server = app.listen(PORT, (): void => {
 });
 
 /**
- * @name Mongo
+ * @name Document
  */
 mongoose.connect(MONGODB_URI);
 mongoose.connection.once('open', () => console.log(chalk.hex('#009688')(' [*] Mongo: Connection Succeeded.')));
 mongoose.connection.on('error', err => console.error(err));
 
 /**
- * @name Postgres
+ * @name Relational
  */
 new Sequelize(POSTGRES_URL)
   .authenticate()
