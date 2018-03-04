@@ -1,7 +1,12 @@
-import { count } from './text-list';
+import textList from './text-list';
 
 describe('Text List', () => {
-  it('TODO', () => {
-    expect(count).toBeDefined();
+  it('should handle routes', () => {
+    const router = textList;
+
+    router.stack.forEach((handler) => {
+      // TODO: inject
+      expect(handler.route).toBeDefined();
+    });
   });
 });
