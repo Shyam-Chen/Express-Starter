@@ -1,8 +1,5 @@
 {
-  "plugins": [
-    "flowtype-errors",
-    "graphql"
-  ],
+  "plugins": [],
   "env": {
     "node": true,
     "commonjs": true,

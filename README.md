@@ -115,8 +115,8 @@ $ yarn build
   * [ ] GraphQL
 * [ ] Authorization (`passport`)
   * [ ] JSON Web Tokens (`passport-jwt`)
-  * [ ] Facebook (`passport-facebook`)
   * [ ] Google (`passport-google-oauth20`)
+  * [ ] Facebook (`passport-facebook`)
   * [ ] Twitter (`passport-twitter`)
 * [ ] Realtime
   * [ ] Socket.IO (`socket.io`)
