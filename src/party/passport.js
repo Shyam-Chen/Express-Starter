@@ -29,13 +29,13 @@ passport.use(new GoogleStrategy(
         newUser.google.name = profile.displayName;
         newUser.google.email = profile.emails[0].value;
 
-        newUser.save(errSave => {
+        newUser.save((errSave) => {
           if (errSave) throw errSave;
           return done(null, newUser);
         });
       });
     });
-  }
+  },
 ));
 
 export default passport;
