@@ -42,6 +42,10 @@ ENV REDIS_HOST redis-17929.c1.us-central1-2.gce.cloud.redislabs.com
 ENV SENTRY_DSN https://70484e0dda784a1081081ca9c8237792:51b5a95ee1e545efba3aba9103c6193e@sentry.io/236866
 # -- config
 
+# processes --
+ENV WEB_CONCURRENCY 1
+# -- processes
+
 EXPOSE 3000
 
 CMD node processes.js
