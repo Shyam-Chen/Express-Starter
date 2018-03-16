@@ -8,6 +8,7 @@ import Sequelize from 'sequelize';
 import flash from 'express-flash';
 import compression from 'compression';
 import cors from 'cors';
+import helmet from 'helmet';
 import morgan from 'morgan';
 import session from 'express-session';
 import connectRedis from 'connect-redis';
@@ -38,6 +39,7 @@ if (process.env.NODE_ENV === 'production') Raven.config(SENTRY_DSN).install();
  */
 app.use(compression());
 app.use(cors());
+app.use(helmet());
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
