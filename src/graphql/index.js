@@ -7,7 +7,7 @@ import { authorizationTypeDefs, authorizationResolvers } from './authorization';
 const typeDefs = mergeTypes([
   listTypeDefs,
   authorizationTypeDefs,
-]);
+], { all: true });
 
 const resolvers = mergeResolvers([
   listResolvers,

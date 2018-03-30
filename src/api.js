@@ -2,7 +2,7 @@
 
 import { join } from 'path';
 import express from 'express';
-import graphql from 'express-graphql';
+import { graphqlExpress } from 'apollo-server-express';
 import mongoose from 'mongoose';
 import Sequelize from 'sequelize';
 import flash from 'express-flash';
@@ -65,7 +65,7 @@ app.use('/__', routes);
 /**
  * @name GraphQL
  */
-app.use('/__/graphql', graphql({ schema }));
+app.use('/__/graphql', graphqlExpress({ schema }));
 
 if (process.env.NODE_ENV === 'production') app.use(Raven.errorHandler());
 

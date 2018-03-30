@@ -9,7 +9,6 @@ export const listTypeDefs = gql`
   }
 
   type Query {
-    list: [List]
     list(_id: String, text: String): [List]
   }
 
