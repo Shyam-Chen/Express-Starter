@@ -44,11 +44,11 @@ This seed repository provides the following features:
 * [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
 * [x] Cloud NoSQL database hosting with [**mLab**](https://mlab.com/).
 * [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
-* [ ] Cloud Storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
+* [x] Cloud Storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 * [x] Monitoring service with [**UptimeRobot**](https://uptimerobot.com/).
-* [ ] Log management service with [**Papertrail**](https://papertrailapp.com/).
-* [ ] Performance and security with [**Cloudflare**](https://www.cloudflare.com/).
+* [x] Log management service with [**Papertrail**](https://papertrailapp.com/).
+* [x] Performance and security with [**Cloudflare**](https://www.cloudflare.com/).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**CircleCI**](https://circleci.com/).
 
@@ -66,7 +66,6 @@ Here are some related seed repositories:
 ## Table of Contents
 
 * [Getting Started](#getting-started)
-* [Practical Examples](#practical-examples)
 * [Dockerization](#dockerization)
 * [Configuration](#configuration)
 * [Using Libraries](#using-libraries)
@@ -104,32 +103,6 @@ $ yarn test
 ```bash
 $ yarn build
 ```
-
-## Practical Examples
-
-* [x] Database
-  * [x] REST
-  * [x] GraphQL
-* [ ] Storage‎
-  * [ ] REST
-  * [ ] GraphQL
-* [ ] Authorization (`passport`)
-  * [ ] JSON Web Tokens (`passport-jwt`)
-  * [ ] Google (`passport-google-oauth20`)
-  * [ ] Facebook (`passport-facebook`)
-  * [ ] Twitter (`passport-twitter`)
-* [ ] Realtime
-  * [ ] Socket.IO (`socket.io`)
-  * [ ] GraphQL Subscriptions (`subscriptions-transport-ws`)
-* [ ] Messaging
-  * [x] Email (`nodemailer`)
-  * [ ] SMS
-* [ ] Payment
-  * [ ] Stripe (`stripe`)
-  * [ ] PayPal (`paypal-rest-sdk`)
-* [ ] Playground
-  * [ ] QR Codes
-  * [ ] ...
 
 ## Dockerization
 
