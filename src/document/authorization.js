@@ -13,12 +13,10 @@ const userSchema = Schema({
   twitter: {},
 });
 
-userSchema.methods.generateHash = function (password) {
-  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-};
+userSchema.methods.generateHash = password =>
+  bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 
-userSchema.methods.validPassword = function (password) {
-  return bcrypt.compareSync(password, this.local.password);
-};
+userSchema.methods.validPassword = password =>
+  bcrypt.compareSync(password, userSchema.jwt.password);
 
 export const User = mongoose.model('User', userSchema);
