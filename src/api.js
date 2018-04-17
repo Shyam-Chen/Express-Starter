@@ -25,6 +25,8 @@ import { client } from '~/party/redis';
 import routes from '~/rest';
 import schema from '~/graphql';
 
+import relational from '~/relational';
+
 import {
   PORT, SECRET,
   MONGODB_URI, POSTGRES_URL,
@@ -101,7 +103,7 @@ mongoose.connection.on('error', err => console.error(err));
 /**
  * @name Relational
  */
-new Sequelize(POSTGRES_URL)
+relational.sequelize
   .authenticate()
   .then(() => console.log(chalk.hex('#009688')(' [*] Postgres: Connection Succeeded.')))
   .catch(err => console.error(err));
