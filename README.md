@@ -346,7 +346,7 @@ client.hgetall('thing', (err, object) => {
 ├── src
 │   ├── document  -> mongodb models
 │   ├── graphql  -> query language
-│   ├── party
+│   ├── party  -> vendor, middlewares
 │   ├── relational  ->  postgresql models
 │   ├── rest  -> restful api
 │   ├── api.js

@@ -59,6 +59,7 @@
     "pm2": "2.10.2",
     "raven": "2.5.0",
     "redis": "2.8.0",
+    "rendertron-middleware": "0.1.2",
     "rxjs": "5.5.10",
     "sequelize": "4.37.6",
     "socket.io": "2.1.0",

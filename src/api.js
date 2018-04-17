@@ -14,6 +14,7 @@ import session from 'express-session';
 import connectRedis from 'connect-redis';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
+import rendertron from 'rendertron-middleware';
 import history from 'express-history-api-fallback';
 import Raven from 'raven';
 import chalk from 'chalk';
@@ -75,6 +76,9 @@ if (process.env.NODE_ENV === 'production') app.use(Raven.errorHandler());
 if (process.env.NODE_ENV === 'production') {
   const root = join(__dirname, '../public');
 
+  app.use(rendertron.makeMiddleware({
+    proxyUrl: 'https://render-tron.appspot.com/render',
+  }));
   app.use(express.static(root));
   app.use(history('index.html', { root }));
 }
