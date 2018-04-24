@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { client } from '~/party/redis';
+import { client } from '~/config/redis';
 
 const router = Router();
 
