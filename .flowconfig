@@ -2,7 +2,7 @@
 
 [ignore]
 .*/node_modules/*
-.*/test/.*\.spec\.js
+.*\.spec\.js
 
 [libs]
 flow-typed/
@@ -10,3 +10,5 @@ flow-typed/
 [lints]
 
 [options]
+include_warnings=true
+module.name_mapper='^~/\(.*\)$' -> '<PROJECT_ROOT>/src/\1'
