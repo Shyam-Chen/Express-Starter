@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { Op } from 'sequelize';
-import { fromPromise } from 'rxjs/observable';
+import { from } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { List } from '~/document';
@@ -46,7 +46,7 @@ router.get('/', async (req, res, next) => {
  * @example GET /__/text-list/count
  */
 router.get('/count', (req, res, next) => {
-  fromPromise(List.count().exec())
+  from(List.count().exec())
     .pipe(catchError(err => next(err)))
     .subscribe(data => res.json(data));
 });
