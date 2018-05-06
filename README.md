@@ -84,6 +84,9 @@ $ cd <PROJECT_NAME>
 
 ```bash
 $ yarn install
+
+# install flow types
+$ yarn typed
 ```
 
 3. Run the Application

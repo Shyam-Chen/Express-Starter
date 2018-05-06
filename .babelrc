@@ -7,13 +7,13 @@
         }
       }
     ],
+    "stage-0",
     "flow"
   ],
   "plugins": [
-    "transform-function-bind",
-    "transform-object-rest-spread",
     [
       "babel-plugin-root-import", {
+        "rootPathPrefix": "~",
         "rootPathSuffix": "src"
       }
     ],
