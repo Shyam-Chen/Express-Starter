@@ -16,7 +16,7 @@ const router = Router();
  * @name list - get a list
  * @param {string} [_id] - get a item by ID
  * @param {string} [text] - search for text in list
- * @return {Array<List>}
+ * @return {Object<{ data: List[], message: string }>}
  *
  * @example GET /__/text-list
  * @example GET /__/text-list?_id=${_id}
@@ -33,7 +33,7 @@ router.get('/', async (req, res, next) => {
 
     const data = await List.find(find).exec();
 
-    res.json(data);
+    res.json({ data, message: 'Data obtained.' });
   } catch (err) {
     next(err);
   }
@@ -41,21 +41,21 @@ router.get('/', async (req, res, next) => {
 
 /**
  * @name count - get a list length
- * @return {number}
+ * @return {Object<{ data: number, message: string }>}
  *
  * @example GET /__/text-list/count
  */
 router.get('/count', (req, res, next) => {
   from(List.count().exec())
     .pipe(catchError(err => next(err)))
-    .subscribe(data => res.json(data));
+    .subscribe(data => res.json({ data, message: 'Data obtained.' }));
 });
 
 /**
  * @name pagination - get a list of paging
  * @param {number} [page=1] - current page number
  * @param {number} [row=5] - rows per page
- * @return {Array<List>}
+ * @return {Object<{ data: List[], message: string }>}
  *
  * @example GET /__/text-list/pagination?page=${page}&row=${row}
  */
@@ -73,7 +73,7 @@ router.get('/pagination', async (req, res, next) => {
       }
     }
 
-    res.json(await Promise.all(data));
+    res.json({ data: await Promise.all(data), message: 'Data obtained.' });
   } catch (err) {
     next(err);
   }
