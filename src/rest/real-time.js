@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { io } from '~/config/socket';
+import { io } from '~/core/socket';
 
 const router = Router();
 

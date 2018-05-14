@@ -18,8 +18,8 @@ import history from 'express-history-api-fallback';
 import Raven from 'raven';
 import chalk from 'chalk';
 
-import passport from '~/config/passport';
-import { client } from '~/config/redis';
+import passport from '~/core/passport';
+import { client } from '~/core/redis';
 
 import routes from '~/rest';
 import schema from '~/graphql';
