@@ -127,9 +127,17 @@ $ docker-compose exec api <COMMAND>
 $ docker-compose rm -fs
 ```
 
+4. Restart up the container in the background
+
+```bash
+$ docker-compose up -d --build <SERVICE>
+```
+
 ## Configuration
 
-Default configuration
+### Default environments
+
+Set your local environment variables.
 
 ```js
 // src/env.js
@@ -141,33 +149,12 @@ export const REDIS_HOST = process.env.REDIS_HOST || <PUT_YOUR_REDIS_HOST_HERE>;
 export const SENTRY_DSN = process.env.SENTRY_DSN || <PUT_YOUR_SENTRY_DSN_HERE>;
 ```
 
-Development environments
+### Deployment environments
 
-```yml
-# docker-compose.yml
-version: '2'
-
-services:
-  api:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    ports:
-      - "3000:3000"
-    environment:
-      - SECRET=<PUT_YOUR_SECRET_HERE>
-      - MONGODB_URI=<PUT_YOUR_MONGODB_URI>
-      - POSTGRES_URL=<PUT_YOUR_POSTGRES_URL_HERE>
-      - REDIS_PORT=<PUT_YOUR_REDIS_PORT_HERE>
-      - REDIS_HOST=<PUT_YOUR_REDIS_HOST_HERE>
-      - SENTRY_DSN=<PUT_YOUR_SENTRY_DSN_HERE>
-    tty: true
-```
-
-Production environments
+Set your deployment environment variables.
 
 ```dockerfile
-# Dockerfile.prod
+# Dockerfile.<dev|prod>
 ENV SECRET <PUT_YOUR_SECRET_HERE>
 ENV MONGODB_URI <PUT_YOUR_MONGODB_URI>
 ENV POSTGRES_URL <PUT_YOUR_POSTGRES_URL_HERE>
@@ -237,7 +224,7 @@ export const listResolvers = {
 import mongoose, { Schema } from 'mongoose';
 
 const listSchema = Schema({
-  text: String
+  text: String,
 });
 
 export const List = mongoose.model('List', listSchema);
@@ -258,11 +245,10 @@ export default (sequelize, DataTypes) => {
 5. Example of Lodash
 
 ```js
-import { Observable } from 'rxjs';
-import { of } from 'rxjs/observable';
+import { of } from 'rxjs';
 import { lowerFirst, pad } from 'lodash';
 
-Observable::of(lowerFirst('Hello'), pad('World', 5))
+of(lowerFirst('Hello'), pad('World', 5))
   .subscribe(value => console.log(value));
   // hello
   // World
@@ -271,64 +257,46 @@ Observable::of(lowerFirst('Hello'), pad('World', 5))
 6. Example of ReactiveX
 
 ```js
-import { Observable } from 'rxjs';
-import { timer, of } from 'rxjs/observable';
-import { mapTo, combineAll } from 'rxjs/operator';
+import { timer, of } from 'rxjs';
+import { mapTo, combineAll } from 'rxjs/operators';
 
-Observable::timer(2000)
-  ::mapTo(Observable::of('Hello', 'World'))
-  ::combineAll()
+timer(2000)
+  .pipe(
+    mapTo(of('Hello', 'World')),
+    combineAll(),
+  )
   .subscribe(value => console.log(value));
   // ["Hello"]
   // ["World"]
 ```
 
-7. Example of JWT
+7. Example of Socket
 
 ```js
+import { io } from '~/core/socket';
 
-```
-
-8. Example of Passport
-
-```js
-
-```
-
-9. Example of Socket
-
-```js
-import socket from 'socket.io';
-
-const io = socket.listen(server);
-
-io.on('connection', socket => {
-  console.log('WS: Establish a connection.');
-  socket.on('disconnect', () => console.log('WS: Disconnected'));
-
-  socket.emit('A', { foo: 'bar' });
-  socket.on('B', data => console.log(data));  // { foo: 'baz' }
-});
+io.emit('A', { foo: 'bar' });
+io.on('B', data => console.log(data));  // { foo: 'baz' }
 ```
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
 <script>
-  const socket = io();
+const socket = io();
 
-  socket.on('connect', () => console.log('WS: Accept a connection.'));
+socket.on('connect', () => console.log('WS: Accept a connection.'));
 
-  socket.on('A', data => {
-    console.log(data);  // { foo: 'bar' }
-    socket.emit('B', { foo: 'baz' });
-  });
+socket.on('A', data => {
+  console.log(data);  // { foo: 'bar' }
+  socket.emit('B', { foo: 'baz' });
+});
 </script>
 ```
 
-10. Example of Redis
+8. Example of Redis
 
 ```js
-import { client } from '~/party/redis';
+import { client } from '~/core/redis';
 
 client.hmset('thing', {
   foo: 'js',
@@ -343,15 +311,15 @@ client.hgetall('thing', (err, object) => {
 
 ## Directory Structure
 
-```
+```coffee
 .
-├── flow-typed
 ├── src
+│   ├── core  -> core feature module
 │   ├── document  -> mongodb models
 │   ├── graphql  -> query language
-│   ├── party  -> vendor, middlewares
 │   ├── relational  ->  postgresql models
 │   ├── rest  -> restful api
+│   ├── shared  -> shared feature module
 │   ├── api.js
 │   └── env.js
 ├── test  -> e2e testing
@@ -365,6 +333,7 @@ client.hgetall('thing', (err, object) => {
 ├── .flowconfig
 ├── .gitattributes
 ├── .gitignore
+├── Dockerfile
 ├── Dockerfile.dev
 ├── Dockerfile.prod
 ├── LICENSE
