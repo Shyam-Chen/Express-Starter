@@ -16,7 +16,7 @@ RUN yarn install && yarn build
 
 ENV NODE_ENV production
 
-# config --
+# envs --
 ENV SECRET webgo
 
 ENV MONGODB_URI mongodb://web-go-user:web-go-user@ds133961.mlab.com:33961/web-go-demo
@@ -26,7 +26,7 @@ ENV REDIS_PORT 17929
 ENV REDIS_HOST redis-17929.c1.us-central1-2.gce.cloud.redislabs.com
 
 ENV SENTRY_DSN https://70484e0dda784a1081081ca9c8237792:51b5a95ee1e545efba3aba9103c6193e@sentry.io/236866
-# -- config
+# -- envs
 
 # processes --
 ENV WEB_CONCURRENCY 1
