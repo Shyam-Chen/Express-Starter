@@ -61,7 +61,7 @@
     "redis": "2.8.0",
     "rendertron-middleware": "0.1.2",
     "rxjs": "6.2.0",
-    "sequelize": "4.37.9",
+    "sequelize": "4.37.10",
     "socket.io": "2.1.1",
     "socket.io-redis": "5.2.0"
   },

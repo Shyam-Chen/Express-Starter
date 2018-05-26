@@ -56,12 +56,12 @@ Here are some related seed repositories:
 
 * ---------- **Client-side** ----------
 * [Web Starter Kit](https://github.com/Shyam-Chen/Frontend-Starter-Kit) - Make for Progressive Web Apps.
-* [Mobile Starter Kit](https://github.com/Shyam-Chen/Cordova-Phonegap-Starter) - Make for Cross-platform Mobile Apps.
-* [Desktop Starter Kit](https://github.com/Shyam-Chen/Electron-Chromium-Starter) - Make for Cross-platform Desktop Apps.
+* [Mobile Starter Kit](https://github.com/Shyam-Chen/Mobile-Starter-Kit) - Make for Cross-platform Mobile Apps.
+* [Desktop Starter Kit](https://github.com/Shyam-Chen/Desktop-Starter-Kit) - Make for Cross-platform Desktop Apps.
 * ---------- **Server-side** ----------
 * [Platform Starter Kit](https://github.com/Shyam-Chen/Backend-Starter-Kit) - Make for Flexible Cloud Platform.
-* [Functions Starter Kit](https://github.com/Shyam-Chen/Firebase-Functions-Starter) - Make for Serverless Cloud Functions.
-* [Infrastructure Starter Kit](https://github.com/Shyam-Chen/Kubernetes-Engine-Starter) - Make for Containerized Cloud Infrastructure.
+* [Functions Starter Kit](https://github.com/Shyam-Chen/Functions-Starter-Kit) - Make for Serverless Cloud Functions.
+* [Infrastructure Starter Kit](https://github.com/Shyam-Chen/Infrastructure-Starter-Kit) - Make for Containerized Cloud Infrastructure.
 
 ## Table of Contents
 
