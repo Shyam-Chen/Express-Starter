@@ -26,7 +26,7 @@ import schema from '~/graphql';
 
 import relational from '~/relational';
 
-import { PORT, SECRET, MONGODB_URI, SENTRY_DSN, RENDERTRON_URL } from './env';
+import { PORT, HOST, SECRET, MONGODB_URI, SENTRY_DSN, RENDERTRON_URL } from './env';
 
 const app = express();
 
@@ -86,9 +86,9 @@ if (process.env.NODE_ENV === 'production') {
 /**
  * @name api-server
  */
-const server = app.listen(PORT, (): void => {
+const server = app.listen(PORT, HOST, (): void => {
   console.log(chalk.hex('#009688')(' [*] App: Bootstrap Succeeded.'));
-  console.log(chalk.hex('#009688')(` [*] Host: http://localhost:${PORT}/.`));
+  console.log(chalk.hex('#009688')(` [*] Host: http://${HOST}:${PORT}/.`));
 });
 
 /**

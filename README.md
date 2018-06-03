@@ -109,10 +109,10 @@ $ yarn build
 
 ## Dockerization
 
-1. Build and run the Container
+1. Build and run the container in the background
 
 ```bash
-$ docker-compose up
+$ docker-compose up -d api
 ```
 
 2. Run a command in a running container
@@ -130,7 +130,50 @@ $ docker-compose rm -fs
 4. Restart up the container in the background
 
 ```bash
-$ docker-compose up -d --build <SERVICE>
+$ docker-compose up -d --build api
+```
+
+5. Push images to Docker Cloud
+
+```diff
+# .gitignore
+
+  .DS_Store
+  node_modules
+  npm
+  dist
+  coverage
++ Dockerfile.dev
++ Dockerfile.prod
+  *.log
+```
+
+```bash
+$ docker login
+$ docker build -f Dockerfile.<dev|prod> -t <IMAGE_NAME>:<IMAGE_TAG> .
+
+# checkout
+$ docker images
+
+$ docker tag <IMAGE_NAME>:<IMAGE_TAG> <DOCKER_ID_USER>/<IMAGE_NAME>:<IMAGE_TAG>
+$ docker push <DOCKER_ID_USER>/<IMAGE_NAME>:<IMAGE_TAG>
+
+# remove
+$ docker rmi <REPOSITORY>:<TAG>
+# or
+$ docker rmi <IMAGE_ID>
+```
+
+6. Pull images from Docker Cloud
+
+```diff
+# circle.yml
+
++ echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  docker login -u="<DOCKER_USERNAME>" -p="${HEROKU_TOKEN}" registry.heroku.com
+- docker build -f Dockerfile.prod -t registry.heroku.com/<HEROKU_PROJECT>/web .
++ docker pull <DOCKER_ID_USER>/<IMAGE_NAME>:<IMAGE_TAG>
+  docker push registry.heroku.com/<HEROKU_PROJECT>/web
 ```
 
 ## Configuration
