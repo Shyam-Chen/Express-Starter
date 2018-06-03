@@ -19,15 +19,15 @@ This seed repository provides the following features:
 * [x] Object relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
 * [x] Utility functions with [**Lodash**](https://lodash.com/).
 * [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
-* [x] Secure authentication with [**JWT**](https://jwt.io/).
 * [x] Authenticate requests with [**Passport**](http://passportjs.org/).
 * [x] Real-time bidirectional communication with [**Socket**](https://socket.io/).
 * [x] In-memory data structure store with [**Redis**](https://redis.io/).
+* [x] Machine learning with [**TensorFlow**](https://js.tensorflow.org/).
 * ---------- **Tools** ----------
 * [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
 * [x] JavaScript static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
 * [x] Type annotations with [**Flow**](https://github.com/facebook/flow).
-* [x] Unit testing with [**Jest**](https://github.com/facebook/jest).
+* [x] Testing platform with [**Jest**](https://github.com/facebook/jest).
 * [x] HTTP testing with [**Supertest**](https://github.com/visionmedia/supertest).
 * [x] Test coverage integration with [**Codecov**](https://codecov.io/).
 * [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).

@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/Shyam-Chen/Backend-Starter-Kit#readme",
   "dependencies": {
+    "@tensorflow/tfjs": "0.11.4",
+    "@tensorflow/tfjs-node": "0.1.5",
     "apollo-server-express": "1.3.6",
     "bcryptjs": "2.4.3",
     "body-parser": "1.18.3",
