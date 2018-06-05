@@ -32,12 +32,8 @@ This seed repository provides the following features:
 * [x] Test coverage integration with [**Codecov**](https://codecov.io/).
 * [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
 * [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
-* [x] Error tracking with [**Sentry**](https://sentry.io/).
-* [x] API workflow with [**Insomnia**](https://insomnia.rest/).
 * ---------- **Environments** ----------
 * [x] Server-side platform with [**Node**](https://nodejs.org/).
-* [x] Operating system with [**Linux**](https://github.com/torvalds/linux).
-* [x] Text editor with [**Atom**](https://github.com/atom/atom).
 * [x] Version control with [**Git**](https://github.com/git/git).
 * [x] Code repository with [**GitHub**](https://github.com/).
 * [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
