@@ -1,3 +1,5 @@
+// @flow
+
 import socket from 'socket.io';
 import socketRedis from 'socket.io-redis';
 import chalk from 'chalk';

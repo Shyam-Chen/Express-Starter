@@ -16,8 +16,8 @@ export const authorizationResolvers = {
   Query: {
     authorization() {
       return [
-        { email: '', password: '' }
+        { email: '', password: '' },
       ];
-    }
-  }
+    },
+  },
 };

@@ -1,4 +1,4 @@
-import { List } from './text-list';
+import { List } from '../text-list';
 
 describe('text-list', () => {
   it('test', async () => {

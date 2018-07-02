@@ -1,3 +1,5 @@
+// @flow
+
 import { Router } from 'express';
 import { Op } from 'sequelize';
 import { from } from 'rxjs';

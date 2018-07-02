@@ -1,3 +1,5 @@
+// @flow
+
 import gql from 'graphql-tag';
 
 import { List } from '~/document';

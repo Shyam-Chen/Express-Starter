@@ -1,3 +1,5 @@
+// @flow
+
 import redis from 'redis';
 import chalk from 'chalk';
 

@@ -3,13 +3,13 @@ import bcrypt from 'bcryptjs';
 
 const userSchema = Schema({
   jwt: {},
-  facebook: {},
   google: {
     id: String,
     token: String,
     email: String,
     name: String,
   },
+  facebook: {},
   twitter: {},
 });
 
