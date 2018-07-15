@@ -9,7 +9,7 @@ describe('Hello World', () => {
 
   it('should get a hello world', async () => {
     const { statusCode, text } = await request(api)
-      .get('/api/hello-world');
+      .get('/__/hello-world');
 
     expect(statusCode).toBe(200);
     expect(text).toBe('Hello, World!');
