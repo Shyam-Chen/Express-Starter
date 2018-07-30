@@ -1,6 +1,6 @@
 // @flow
 
-import { makeExecutableSchema } from 'graphql-tools';
+import { ApolloServer } from 'apollo-server-express';
 import { mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
 
 import { helloWorldTypeDefs, helloWorldResolvers } from './hello-world';
@@ -19,4 +19,4 @@ const resolvers = mergeResolvers([
   authorizationResolvers,
 ]);
 
-export default makeExecutableSchema({ typeDefs, resolvers });
+export default new ApolloServer({ typeDefs, resolvers });

@@ -2,7 +2,6 @@
 
 import { join } from 'path';
 import express from 'express';
-import { graphqlExpress } from 'apollo-server-express';
 import mongoose from 'mongoose';
 import flash from 'express-flash';
 import compression from 'compression';
@@ -22,7 +21,7 @@ import passport from '~/core/passport';
 import { client } from '~/core/redis';
 
 import routes from '~/rest';
-import schema from '~/graphql';
+import apolloServer from '~/graphql';
 
 import relational from '~/relational';
 
@@ -63,7 +62,7 @@ app.use('/__', routes);
 /**
  * @name GraphQL
  */
-app.use('/__/graphql', graphqlExpress({ schema }));
+apolloServer.applyMiddleware({ app, path: '/__/graphql' });
 
 if (process.env.NODE_ENV === 'production') app.use(Raven.errorHandler());
 

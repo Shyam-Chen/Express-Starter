@@ -79,10 +79,7 @@ $ cd <PROJECT_NAME>
 2. Install Dependencies
 
 ```bash
-$ yarn install
-
-# install flow types
-$ yarn typed
+$ yarn install && yarn typed
 ```
 
 3. Run the Application
