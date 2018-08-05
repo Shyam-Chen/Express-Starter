@@ -5,7 +5,7 @@ import { Op } from 'sequelize';
 import { from } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { List } from '~/document';
+import document from '~/document';
 import relational from '~/relational';
 
 const router = Router();
@@ -18,7 +18,7 @@ const router = Router();
  * @name list - get a list
  * @param {string} [_id] - get a item by ID
  * @param {string} [text] - search for text in list
- * @return {Object<{ data: List[], message: string }>}
+ * @return {Object<{ data: document.List[], message: string }>}
  *
  * @example GET /__/text-list
  * @example GET /__/text-list?_id=${_id}
@@ -33,7 +33,7 @@ router.get('/', async (req, res, next) => {
     if (_id) find._id = { _id };
     if (text) find.text = { $regex: text, $options: 'i' };
 
-    const data = await List.find(find).exec();
+    const data = await document.List.find(find).exec();
 
     res.json({ data, message: 'Data obtained.' });
   } catch (err) {
@@ -48,7 +48,7 @@ router.get('/', async (req, res, next) => {
  * @example GET /__/text-list/count
  */
 router.get('/count', (req, res, next) => {
-  from(List.count().exec())
+  from(document.List.count().exec())
     .pipe(catchError(err => next(err)))
     .subscribe(data => res.json({ data, message: 'Data obtained.' }));
 });
@@ -57,7 +57,7 @@ router.get('/count', (req, res, next) => {
  * @name pagination - get a list of paging
  * @param {number} [page=1] - current page number
  * @param {number} [row=5] - rows per page
- * @return {Object<{ data: List[], message: string }>}
+ * @return {Object<{ data: document.List[], message: string }>}
  *
  * @example GET /__/text-list/pagination?page=${page}&row=${row}
  */
@@ -66,12 +66,12 @@ router.get('/pagination', async (req, res, next) => {
     const page = Number(req.query.page) || 1;
     const row = Number(req.query.row) || 5;
 
-    const list = await List.find({}).exec();
+    const list = await document.List.find({}).exec();
     const data = [];
 
     for (let i = 0, l = list.length; i < l / row; i++) {
       if (page === (i + 1)) {
-        data.push(List.find({}).skip(i * row).limit(row));
+        data.push(document.List.find({}).skip(i * row).limit(row));
       }
     }
 
@@ -94,7 +94,7 @@ router.post('/', async (req, res, next) => {
         .json({ message: 'Please pass text.' });
     }
 
-    const list = await new List(req.body);
+    const list = await new document.List(req.body);
     const message = await list.save().then(() => 'List saved');
 
     res.json({ message });
@@ -111,7 +111,7 @@ router.post('/', async (req, res, next) => {
  */
 router.put('/:id', async (req, res, next) => {
   try {
-    const message = await List
+    const message = await document.List
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(() => 'List updated');
 
@@ -129,7 +129,7 @@ router.put('/:id', async (req, res, next) => {
  */
 router.delete('/:id', async (req, res, next) => {
   try {
-    const message = await List
+    const message = await document.List
       .findByIdAndRemove(req.params.id)
       .then(() => 'List deleted');
 
@@ -144,6 +144,8 @@ router.delete('/:id', async (req, res, next) => {
  */
 // TODO: delete multiple items through conditions
 
+// ------------------------- Separate line -------------------------
+
 /**
  * @name Postgre
  */
@@ -151,7 +153,7 @@ router.delete('/:id', async (req, res, next) => {
 /**
  * @name list - get a list
  * @param {string} [text] - search for text in list
- * @return {Object<{ data: List[] }>}
+ * @return {Object<{ data: relational.List[] }>}
  *
  * @example GET /__/text-list/relational
  * @example GET /__/text-list/relational?text=${text}

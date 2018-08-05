@@ -1,4 +1,9 @@
 // @flow
 
-export { List } from './text-list';
-export { User } from './authorization';
+import { List } from './text-list';
+import { User } from './authorization';
+
+export default {
+  List,
+  User,
+};
