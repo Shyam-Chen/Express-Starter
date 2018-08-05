@@ -36,6 +36,7 @@
     // Possible Errors
 
     // Best Practices
+    "no-multi-spaces": ["error", { "ignoreEOLComments": true }],
 
     // Variables
 
@@ -44,8 +45,10 @@
     // Node.js and CommonJS
 
     // Stylistic Issues
+    "max-len": "off",
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "object-curly-newline": ["error", { "consistent": true }]
 
     // JS.Next
   }

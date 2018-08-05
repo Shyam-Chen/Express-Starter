@@ -358,24 +358,19 @@ client.hgetall('thing', (err, object) => {
 │   ├── shared  -> shared feature module
 │   ├── api.js
 │   └── env.js
-├── test  -> e2e testing
-│   ├── graphql
-│   │   └── <api>.spec.js
-│   └── rest
-│       └── <api>.spec.js
+├── tools
+│   └── ...
 ├── .babelrc
 ├── .editorconfig
 ├── .eslintrc
 ├── .flowconfig
-├── .gitattributes
 ├── .gitignore
 ├── Dockerfile
-├── Dockerfile.dev
-├── Dockerfile.prod
 ├── LICENSE
 ├── README.md
 ├── circle.yml
 ├── docker-compose.yml
+├── jest.config.js
 ├── package.json
 ├── processes.js
 └── yarn.lock

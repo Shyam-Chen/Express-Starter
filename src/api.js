@@ -93,7 +93,7 @@ const server = app.listen(PORT, HOST, (): void => {
 /**
  * @name Document
  */
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 mongoose.connection.once('open', () => console.log(chalk.hex('#009688')(' [*] Mongo: Connection Succeeded.')));
 mongoose.connection.on('error', err => console.error(err));
 
