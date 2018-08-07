@@ -4,6 +4,7 @@ import { Router } from 'express';
 import { Op } from 'sequelize';
 import { from } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import request from 'request-promise';
 
 import document from '~/document';
 import relational from '~/relational';
@@ -75,7 +76,14 @@ router.get('/pagination', async (req, res, next) => {
       }
     }
 
-    res.json({ data: await Promise.all(data), message: 'Data obtained.' });
+    const baseUrl = `${req.protocol}://${req.get('host')}${req.baseUrl}`;
+    const count = await request(`${baseUrl}/count`);
+
+    res.json({
+      data: [...await Promise.all(data)],
+      total: JSON.parse(count).data,
+      message: 'Data obtained.',
+    });
   } catch (err) {
     next(err);
   }
