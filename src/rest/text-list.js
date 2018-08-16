@@ -1,15 +1,17 @@
 // @flow
 
+import type { $Request, $Response, NextFunction } from 'express';
 import { Router } from 'express';
 import { Op } from 'sequelize';
 import { from } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import request from 'request-promise';
+import chalk from 'chalk';
 
 import document from '~/document';
 import relational from '~/relational';
 
-const router = Router();
+const router: Router = Router();
 
 /**
  * @name Mongo
@@ -25,7 +27,7 @@ const router = Router();
  * @example GET /__/text-list?_id=${_id}
  * @example GET /__/text-list?text=${text}
  */
-router.get('/', async (req, res, next) => {
+router.get('/', async (req: $Request, res: $Response, next: NextFunction) => {
   try {
     const { _id, text } = req.query;
 
@@ -43,14 +45,27 @@ router.get('/', async (req, res, next) => {
 });
 
 /**
+ * @name item - get a item
+ * @param {string} id - get a item by ID
+ * @return {Object<{ data: document.List[], message: string }>}
+ *
+ * @example GET /__/text-list/${id}
+ */
+router.get('/item/:id', (req: $Request, res: $Response, next: NextFunction) => {
+  from(document.List.find({ _id: req.params.id }).exec())
+    .pipe(catchError(err => next(chalk.red(` [*] ${err}`))))
+    .subscribe(data => res.json({ data, message: 'Data obtained.' }));
+});
+
+/**
  * @name count - get a list length
  * @return {Object<{ data: number, message: string }>}
  *
  * @example GET /__/text-list/count
  */
-router.get('/count', (req, res, next) => {
+router.get('/count', (req: $Request, res: $Response, next: NextFunction) => {
   from(document.List.count().exec())
-    .pipe(catchError(err => next(err)))
+    .pipe(catchError(err => next(chalk.red(` [*] ${err}`))))
     .subscribe(data => res.json({ data, message: 'Data obtained.' }));
 });
 
@@ -62,7 +77,7 @@ router.get('/count', (req, res, next) => {
  *
  * @example GET /__/text-list/pagination?page=${page}&row=${row}
  */
-router.get('/pagination', async (req, res, next) => {
+router.get('/pagination', async (req: $Request, res: $Response, next: NextFunction) => {
   try {
     const page = Number(req.query.page) || 1;
     const row = Number(req.query.row) || 5;
@@ -95,7 +110,7 @@ router.get('/pagination', async (req, res, next) => {
  *
  * @example POST /__/text-list { text: ${text} }
  */
-router.post('/', async (req, res, next) => {
+router.post('/', async (req: $Request, res: $Response, next: NextFunction) => {
   try {
     if (!req.body.text) {
       res.status(400)
@@ -117,7 +132,7 @@ router.post('/', async (req, res, next) => {
  *
  * @example PUT /__/text-list/${id}
  */
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', async (req: $Request, res: $Response, next: NextFunction) => {
   try {
     const message = await document.List
       .findOneAndUpdate({ _id: req.params.id }, req.body)
@@ -135,7 +150,7 @@ router.put('/:id', async (req, res, next) => {
  *
  * @example DELETE /__/text-list/${id}
  */
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', async (req: $Request, res: $Response, next: NextFunction) => {
   try {
     const message = await document.List
       .findByIdAndRemove(req.params.id)
@@ -166,7 +181,7 @@ router.delete('/:id', async (req, res, next) => {
  * @example GET /__/text-list/relational
  * @example GET /__/text-list/relational?text=${text}
  */
-router.get('/relational', async (req, res, next) => {
+router.get('/relational', async (req: $Request, res: $Response, next: NextFunction) => {
   try {
     // TODO: get a item with ID
     const { text } = req.query;
@@ -194,7 +209,7 @@ router.get('/relational', async (req, res, next) => {
  *
  * @example GET /__/text-list/relational/count
  */
-router.get('/relational/count', async (req, res, next) => {
+router.get('/relational/count', async (req: $Request, res: $Response, next: NextFunction) => {
   try {
     const data = await relational.List.count();
     res.json({ data });
@@ -206,7 +221,7 @@ router.get('/relational/count', async (req, res, next) => {
 /**
  * @name pagination - get a list of paging
  */
-router.get('/relational/pagination', (req, res, next) => {
+router.get('/relational/pagination', (req: $Request, res: $Response, next: NextFunction) => {
   try {
     // TODO: pagination
   } catch (err) {
@@ -220,7 +235,7 @@ router.get('/relational/pagination', (req, res, next) => {
  *
  * @example POST /__/text-list/relational { text: ${text} }
  */
-router.post('/relational', async (req, res, next) => {
+router.post('/relational', async (req: $Request, res: $Response, next: NextFunction) => {
   try {
     const message = await relational.List
       .create(req.body)
@@ -235,7 +250,7 @@ router.post('/relational', async (req, res, next) => {
 /**
  * @name update - update a item
  */
-router.put('/relational/:id', async (req, res, next) => {
+router.put('/relational/:id', async (req: $Request, res: $Response, next: NextFunction) => {
   try {
     const message = await relational.List
       .update(
@@ -257,7 +272,7 @@ router.put('/relational/:id', async (req, res, next) => {
  *
  * @example DELETE /__/text-list/relational/${id}
  */
-router.delete('/relational/:id', async (req, res, next) => {
+router.delete('/relational/:id', async (req: $Request, res: $Response, next: NextFunction) => {
   try {
     const message = await relational.List
       .destroy({ where: { id: req.params.id } })
