@@ -1,5 +1,6 @@
 // @flow
 
+import type { $Application } from 'express';
 import { join } from 'path';
 import express from 'express';
 import mongoose from 'mongoose';
@@ -27,7 +28,7 @@ import relational from '~/relational';
 
 import { PORT, HOST, SECRET, MONGODB_URI, SENTRY_DSN, RENDERTRON_URL } from './env';
 
-const app = express();
+const app: $Application = express();
 
 if (process.env.NODE_ENV === 'production') Raven.config(SENTRY_DSN).install();
 
