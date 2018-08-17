@@ -143,7 +143,7 @@ $ docker-compose up -d --build api
 
 ```bash
 $ docker login
-$ docker build -f Dockerfile.<dev|prod> -t <IMAGE_NAME>:<IMAGE_TAG> .
+$ docker build -f ./tools/<dev|prod>.Dockerfile -t <IMAGE_NAME>:<IMAGE_TAG> .
 
 # checkout
 $ docker images
@@ -164,8 +164,9 @@ $ docker rmi <IMAGE_ID>
 
 + echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   docker login -u="<DOCKER_USERNAME>" -p="${HEROKU_TOKEN}" registry.heroku.com
-- docker build -f Dockerfile.prod -t registry.heroku.com/<HEROKU_PROJECT>/web .
+- docker build -f ./tools/<dev|prod>.Dockerfile -t registry.heroku.com/<HEROKU_PROJECT>/web .
 + docker pull <DOCKER_ID_USER>/<IMAGE_NAME>:<IMAGE_TAG>
++ docker tag <IMAGE_NAME>:<IMAGE_TAG> registry.heroku.com/<HEROKU_PROJECT>/web
   docker push registry.heroku.com/<HEROKU_PROJECT>/web
 ```
 
@@ -206,13 +207,13 @@ ENV SENTRY_DSN <PUT_YOUR_SENTRY_DSN_HERE>
 ```js
 import { Router } from 'express';
 
-import { List } from '~/document';
+import document from '~/document';
 
 const router = Router();
 
 router.get('/', async (req, res, next) => {
   try {
-    const data = await List.find({}).exec();
+    const data = await document.List.find({}).exec();
     res.json(data);
   } catch (err) {
     next(err);
@@ -227,7 +228,7 @@ export default router;
 ```js
 import gql from 'graphql-tag';
 
-import { List } from '~/document';
+import document from '~/document';
 
 export const listTypeDefs = gql`
   type List {
@@ -244,7 +245,7 @@ export const listResolvers = {
   Query: {
     async list(root, { text }) {
       try {
-        const data = await List.find({}).exec();
+        const data = await document.List.find({}).exec();
         return data;
       } catch (err) {
         console.error(err);
