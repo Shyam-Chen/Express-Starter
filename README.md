@@ -136,14 +136,15 @@ $ docker-compose up -d --build api
   npm
   dist
   coverage
-+ Dockerfile.dev
-+ Dockerfile.prod
++ dev.Dockerfile
++ stage.Dockerfile
++ prod.Dockerfile
   *.log
 ```
 
 ```bash
 $ docker login
-$ docker build -f ./tools/<dev|prod>.Dockerfile -t <IMAGE_NAME>:<IMAGE_TAG> .
+$ docker build -f ./tools/<dev|stage|prod>.Dockerfile -t <IMAGE_NAME>:<IMAGE_TAG> .
 
 # checkout
 $ docker images
@@ -164,7 +165,7 @@ $ docker rmi <IMAGE_ID>
 
 + echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   docker login -u="<DOCKER_USERNAME>" -p="${HEROKU_TOKEN}" registry.heroku.com
-- docker build -f ./tools/<dev|prod>.Dockerfile -t registry.heroku.com/<HEROKU_PROJECT>/web .
+- docker build -f ./tools/<dev|stage|prod>.Dockerfile -t registry.heroku.com/<HEROKU_PROJECT>/web .
 + docker pull <DOCKER_ID_USER>/<IMAGE_NAME>:<IMAGE_TAG>
 + docker tag <IMAGE_NAME>:<IMAGE_TAG> registry.heroku.com/<HEROKU_PROJECT>/web
   docker push registry.heroku.com/<HEROKU_PROJECT>/web

@@ -34,6 +34,10 @@ jobs:
               docker login -u="Shyam Chen" -p="${HEROKU_TOKEN}" registry.heroku.com
               docker build -f ./tools/dev.Dockerfile -t registry.heroku.com/web-go-demo/web .
               docker push registry.heroku.com/web-go-demo/web
+            elif [ "${CIRCLE_BRANCH}" == *"release"* ]; then
+              docker login -u="Shyam Chen" -p="${HEROKU_TOKEN}" registry.heroku.com
+              docker build -f ./tools/stage.Dockerfile -t registry.heroku.com/web-go-demo/web .
+              docker push registry.heroku.com/web-go-demo/web
             elif [ "${CIRCLE_BRANCH}" == "master" ]; then
               docker login -u="Shyam Chen" -p="${HEROKU_TOKEN}" registry.heroku.com
               docker build -f ./tools/prod.Dockerfile -t registry.heroku.com/web-go-demo/web .
