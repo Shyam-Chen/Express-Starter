@@ -2,7 +2,7 @@
 
 import gql from 'graphql-tag';
 
-import { List } from '~/document';
+import document from '~/document';
 
 export const listTypeDefs = gql`
   type List {
@@ -37,12 +37,12 @@ export const listResolvers = {
    * }
    */
   Query: {
-    async list(root, { _id, text }) {
+    async list(root, { _id, text }: document.List) {
       try {
         const find = {};
         if (_id) find._id = { _id };
         if (text) find.text = { $regex: text, $options: 'i' };
-        const data = await List.find(find).exec();
+        const data = await document.List.find(find).exec();
         return data;
       } catch (err) {
         throw err;
@@ -65,29 +65,29 @@ export const listResolvers = {
    * }
    */
   Mutation: {
-    async addText(root, { text }) {
+    async addText(root, { text }: document.List) {
       try {
-        const list = await new List({ text });
+        const list = await new document.List({ text });
         const data = await list.save();
         return data;
       } catch (err) {
         throw err;
       }
     },
-    async updateText(root, { _id, text }) {
+    async updateText(root, { _id, text }: document.List) {
       try {
         const conditions = { _id };
         const update = { $set: { text } };
         const options = { new: true, upsert: true };
-        const data = await List.findOneAndUpdate(conditions, update, options).exec();
+        const data = await document.List.findOneAndUpdate(conditions, update, options).exec();
         return data;
       } catch (err) {
         throw err;
       }
     },
-    async deleteText(root, { _id }) {
+    async deleteText(root, { _id }: document.List) {
       try {
-        const data = await List.findByIdAndRemove(_id);
+        const data = await document.List.findByIdAndRemove(_id);
         return data;
       } catch (err) {
         throw err;
