@@ -8,7 +8,7 @@ const router: Router = Router();
 /**
  * @return {string}
  *
- * @example GET /api/hello-world
+ * @example GET /__/hello-world
  */
 router.get('/', (req: $Request, res: $Response): void => {
   res.status(200).send('Hello, World!');
