@@ -192,7 +192,7 @@ export const SENTRY_DSN = process.env.SENTRY_DSN || <PUT_YOUR_SENTRY_DSN_HERE>;
 Set your deployment environment variables.
 
 ```dockerfile
-# Dockerfile.<dev|prod>
+# <dev|stage|prod>.Dockerfile
 ENV SECRET <PUT_YOUR_SECRET_HERE>
 ENV MONGODB_URI <PUT_YOUR_MONGODB_URI>
 ENV POSTGRES_URL <PUT_YOUR_POSTGRES_URL_HERE>
