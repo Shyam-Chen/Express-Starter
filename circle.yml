@@ -23,19 +23,19 @@ jobs:
 
       # - run:
       #     name: Code Quality
-      #     command: docker-compose exec leetcode yarn lint
+      #     command: docker-compose exec api yarn lint
 
       - run:
           name: Code Specification
-          command: docker-compose exec leetcode yarn test
+          command: docker-compose exec api yarn test
 
       - run:
           name: E2E Specification
-          command: docker-compose exec leetcode yarn e2e
+          command: docker-compose exec api yarn e2e
 
       - run:
           name: Code Coverage
-          command: docker-compose exec leetcode yarn codecov --token=$CODECOV_TOKEN
+          command: docker-compose exec api yarn codecov --token=$CODECOV_TOKEN
 
       - run:
           name: Deploy Application
