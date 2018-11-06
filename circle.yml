@@ -27,15 +27,15 @@ jobs:
 
       - run:
           name: Code Specification
-          command: docker-compose exec api yarn test
+          command: |
+            docker-compose exec api yarn test
+            docker-compose exec api yarn codecov --token=$CODECOV_TOKEN
 
       - run:
           name: E2E Specification
-          command: docker-compose exec api yarn e2e
-
-      - run:
-          name: Code Coverage
-          command: docker-compose exec api yarn codecov --token=$CODECOV_TOKEN
+          command: |
+            docker-compose exec api yarn e2e
+            docker-compose exec api yarn codecov --token=$CODECOV_TOKEN
 
       - run:
           name: Deploy Application
