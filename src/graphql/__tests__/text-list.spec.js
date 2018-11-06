@@ -10,7 +10,7 @@ describe('Text List', () => {
   it('nice', async () => {
     const { statusCode, body: { data: { list } } } = await request(server)
       .post('/__/graphql')
-      .send({ query: `query { list { _id text } }` });
+      .send({ query: 'query { list { _id text } }' });
 
     expect(statusCode).toBe(200);
     expect(list).toBeDefined();

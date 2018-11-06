@@ -9,7 +9,7 @@ router.post('/', (req, res) => {
 
   form.parse(req)
     .on('fileBegin', (name, file) => {
-      file.path = join(__dirname, 'uploads', file.name);
+      file.path = join(__dirname, 'uploads', file.name);  // eslint-disable-line
     })
     .on('file', (name, file) => {
       res.json({ message: `${file.name} Uploaded` });

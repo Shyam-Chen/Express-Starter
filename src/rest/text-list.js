@@ -2,7 +2,7 @@
 
 import type { $Request, $Response, NextFunction } from 'express';
 import { Router } from 'express';
-import { Op } from 'sequelize';
+import { Op } from 'sequelize';  // eslint-disable-line
 import { from } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import request from 'request-promise';
@@ -53,7 +53,7 @@ router.get('/', async (req: $Request, res: $Response, next: NextFunction) => {
  */
 router.get('/item/:id', (req: $Request, res: $Response, next: NextFunction) => {
   from(document.List.find({ _id: req.params.id }).exec())
-    .pipe(catchError(err => next(chalk.red(` [*] ${err}`))))
+    .pipe(catchError(err => next(chalk.red(` [*] ${err}`))))  // eslint-disable-line
     .subscribe(data => res.json({ data, message: 'Data obtained.' }));
 });
 
@@ -65,7 +65,7 @@ router.get('/item/:id', (req: $Request, res: $Response, next: NextFunction) => {
  */
 router.get('/count', (req: $Request, res: $Response, next: NextFunction) => {
   from(document.List.count().exec())
-    .pipe(catchError(err => next(chalk.red(` [*] ${err}`))))
+    .pipe(catchError(err => next(chalk.red(` [*] ${err}`))))  // eslint-disable-line
     .subscribe(data => res.json({ data, message: 'Data obtained.' }));
 });
 

@@ -5,13 +5,6 @@ ENV HOME /Backend-Starter-Kit
 WORKDIR ${HOME}
 ADD . $HOME
 
-# static --
-RUN \
-  apt-get install -y git-core && \
-  git clone https://github.com/Shyam-Chen/Frontend-Starter-Kit && \
-  sh -c "cd Frontend-Starter-Kit && yarn install && yarn build && mv public ../"
-# -- static
-
 RUN yarn install && yarn build
 
 ENV NODE_ENV production

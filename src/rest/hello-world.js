@@ -1,7 +1,6 @@
 // @flow
 
-import type { $Request, $Response } from 'express';
-import { Router } from 'express';
+import { Router, $Request, $Response } from 'express';
 
 const router: Router = Router();
 

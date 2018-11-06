@@ -8,7 +8,7 @@
   "scripts": {
     "start": "nodemon src/api.js --exec babel-node",
     "build": "babel src -d dist",
-    "lint": "eslint src/**/*.js",
+    "lint": "eslint 'src/**/*.js'",
     "test": "jest \"src/.*\\.js$\" --coverage --forceExit",
     "e2e": "cross-env JEST_ENV=e2e jest \"src/.*\\.js$\" --coverage --forceExit",
     "typed": "flow-typed install",

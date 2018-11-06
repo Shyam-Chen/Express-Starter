@@ -1,6 +1,6 @@
 // @flow
 
-export default (sequelize, DataTypes) => {
+export default (sequelize: any, DataTypes: any) => {
   const List = sequelize.define('List', {
     text: DataTypes.STRING,
   });

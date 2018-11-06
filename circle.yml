@@ -21,9 +21,9 @@ jobs:
           name: Compile Code
           command: docker-compose exec api yarn build
 
-      # - run:
-      #     name: Code Quality
-      #     command: docker-compose exec api yarn lint
+      - run:
+          name: Code Quality
+          command: docker-compose exec api yarn lint
 
       - run:
           name: Code Specification

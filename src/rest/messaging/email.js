@@ -6,12 +6,12 @@ const router = Router();
 router.post('/', (req, res, next) => {
   const {
     user, pass,
-    from, to, subject, text
+    from, to, subject, text,
   } = req.body;
 
   const transporter = createTransport({
     service: 'gmail',
-    auth: { user, pass }
+    auth: { user, pass },
   });
 
   const mailOptions = { from, to, subject, text };

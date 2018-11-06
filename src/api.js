@@ -70,8 +70,8 @@ if (process.env.NODE_ENV === 'production') app.use(Raven.errorHandler());
 /**
  * @name static-files
  */
-if (process.env.NODE_ENV === 'production') {
-  const root = join(__dirname, '../public');
+if (process.env.STATIC_FILES) {
+  const root = join(__dirname, `../${process.env.STATIC_FILES}`);
 
   // seo friendly
   app.use(rendertron.makeMiddleware({ proxyUrl: RENDERTRON_URL }));

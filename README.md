@@ -277,7 +277,7 @@ export const listResolvers = {
 ```js
 import mongoose, { Schema } from 'mongoose';
 
-const listSchema = Schema({
+const listSchema = new Schema({
   text: String,
 });
 
@@ -340,7 +340,7 @@ const socket = io();
 
 socket.on('connect', () => console.log('WS: Accept a connection.'));
 
-socket.on('A', data => {
+socket.on('A', (data) => {
   console.log(data);  // { foo: 'bar' }
   socket.emit('B', { foo: 'baz' });
 });
@@ -355,7 +355,7 @@ import { client } from '~/core/redis';
 client.hmset('thing', {
   foo: 'js',
   bar: 'html',
-  baz: 'css'
+  baz: 'css',
 });
 
 client.hgetall('thing', (err, object) => {
