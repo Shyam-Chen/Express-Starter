@@ -5,6 +5,6 @@ ENV HOME /Backend-Starter-Kit
 WORKDIR ${HOME}
 ADD . $HOME
 
-RUN yarn install
+RUN yarn install && yarn typed
 
 EXPOSE 3000
