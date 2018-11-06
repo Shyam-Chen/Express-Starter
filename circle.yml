@@ -4,7 +4,7 @@ jobs:
 
   build:
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:10
 
     working_directory: ~/Backend-Starter-Kit
 
@@ -14,21 +14,31 @@ jobs:
       - setup_remote_docker
 
       - run:
-          name: Start up containers
+          name: Combat Preparation
           command: docker-compose up -d
 
       - run:
-          name: Build the application
+          name: Compile Code
           command: docker-compose exec api yarn build
 
-      - run:
-          name: Test the application
-          command: |
-            docker-compose exec api yarn test
-            docker-compose exec api yarn codecov --token=${CODECOV_TOKEN}
+      # - run:
+      #     name: Code Quality
+      #     command: docker-compose exec leetcode yarn lint
 
       - run:
-          name: Deploy the application
+          name: Code Specification
+          command: docker-compose exec leetcode yarn test
+
+      - run:
+          name: E2E Specification
+          command: docker-compose exec leetcode yarn e2e
+
+      - run:
+          name: Code Coverage
+          command: docker-compose exec leetcode yarn codecov --token=$CODECOV_TOKEN
+
+      - run:
+          name: Deploy Application
           command: |
             if [ "${CIRCLE_BRANCH}" == "develop" ]; then
               docker login -u="Shyam Chen" -p="${HEROKU_TOKEN}" registry.heroku.com
@@ -43,3 +53,9 @@ jobs:
               docker build -f ./tools/prod.Dockerfile -t registry.heroku.com/web-go-demo/web .
               docker push registry.heroku.com/web-go-demo/web
             fi
+
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - build

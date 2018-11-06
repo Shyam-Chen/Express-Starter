@@ -69,38 +69,54 @@ Here are some related seed repositories:
 
 ## Getting Started
 
-1. Clone this Boilerplate
+Follow steps to execute this boilerplate.
+
+1. Clone this boilerplate
 
 ```bash
 $ git clone --depth 1 https://github.com/Shyam-Chen/Backend-Starter-Kit.git <PROJECT_NAME>
 $ cd <PROJECT_NAME>
 ```
 
-2. Install Dependencies
+2. Install dependencies
 
 ```bash
 $ yarn install && yarn typed
 ```
 
-3. Run the Application
+3. Start a local server
 
 ```bash
 $ yarn start
 ```
 
-4. Test the Application
-
-```bash
-$ yarn test
-```
-
-5. Build the Application
+4. Compile and bundle code
 
 ```bash
 $ yarn build
 ```
 
+5. Check the code quality
+
+```bash
+$ yarn lint
+```
+
+6. Run the unit tests
+
+```bash
+$ yarn test
+```
+
+7. Run the end-to-end tests
+
+```bash
+$ yarn e2e
+```
+
 ## Dockerization
+
+Dockerize an application.
 
 1. Build and run the container in the background
 
