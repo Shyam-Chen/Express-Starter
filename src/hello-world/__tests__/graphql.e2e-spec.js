@@ -8,11 +8,16 @@ describe('Hello World', () => {
   });
 
   it('should get a hello world', async () => {
-    const { statusCode, text } = await request(api)
+    const { statusCode, body } = await request(api)
       .post('/__/graphql')
       .send({ query: 'query { helloWorld }' });
 
-    expect(statusCode).toBe(200);
-    expect(text).toBe('Hello, World!');
+    expect(statusCode).toEqual(200);
+
+    expect(body).toEqual({
+      data: {
+        helloWorld: 'Hello, World!',
+      },
+    });
   });
 });

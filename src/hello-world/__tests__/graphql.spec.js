@@ -1,6 +1,5 @@
 import { graphql } from 'graphql';
-import gql from 'graphql-tag';
-import { makeExecutableSchema, addMockFunctionsToSchema } from 'graphql-tools';
+import { makeExecutableSchema } from 'graphql-tools';
 
 import { helloWorldTypeDefs, helloWorldResolvers } from '../graphql';
 
@@ -11,15 +10,14 @@ describe('Hello World', () => {
       resolvers: helloWorldResolvers,
     });
 
-    addMockFunctionsToSchema({ schema });
-
-    const query = gql`
-      query { helloWorld }
-    `;
+    const query = 'query { helloWorld }';
 
     const result = await graphql(schema, query);
 
-    expect(result).toBeTruthy();
-    // expect(result).toEqual('Hello, World!');
+    expect(result).toEqual({
+      data: {
+        helloWorld: 'Hello, World!',
+      },
+    });
   });
 });

@@ -11,7 +11,7 @@ describe('Hello World', () => {
     const { statusCode, text } = await request(api)
       .get('/__/hello-world');
 
-    expect(statusCode).toBe(200);
-    expect(text).toBe('Hello, World!');
+    expect(statusCode).toEqual(200);
+    expect(text).toEqual('Hello, World!');
   });
 });

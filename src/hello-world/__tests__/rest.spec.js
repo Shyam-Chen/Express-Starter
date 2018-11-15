@@ -9,7 +9,7 @@ describe('Hello World', () => {
 
     const res = {
       send(msg) {
-        expect(msg).toBe('Hello, World!');
+        expect(msg).toEqual('Hello, World!');
         return this;
       },
     };
