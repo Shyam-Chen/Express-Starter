@@ -275,25 +275,31 @@ export const listResolvers = {
 3. Example of Document
 
 ```js
+// @flow
+
 import mongoose, { Schema } from 'mongoose';
 
 const listSchema = new Schema({
-  text: String,
+  text: {
+    type: String,
+    required: true,
+  },
 });
 
 export const List = mongoose.model('List', listSchema);
+
 ```
 
 4. Example of Relational
 
 ```js
-export default (sequelize, DataTypes) => {
-  const List = sequelize.define('List', {
-    text: DataTypes.STRING
-  });
+import Sequelize from 'sequelize';
 
-  return List;
-};
+import sequelize from '~/core/sequelize';
+
+export const RelationalList = sequelize.define('List', {
+  text: Sequelize.STRING,
+});
 ```
 
 5. Example of Lodash
@@ -365,14 +371,27 @@ client.hgetall('thing', (err, object) => {
 
 ## Directory Structure
 
+The structure follows the LIFT Guidelines.
+
 ```coffee
 .
 ├── src
 │   ├── core  -> core feature module
-│   ├── document  -> mongodb models
-│   ├── graphql  -> query language
-│   ├── relational  ->  postgresql models
-│   ├── rest  -> restful api
+│   ├── <FEATURE>  -> feature modules
+│   │   ├── __tests__
+│   │   │   ├── <FEATURE>.e2e-spec.js
+│   │   │   └── <FEATURE>.spec.js
+│   │   ├── _<THING>  -> feature of private things
+│   │   │   └── ...
+│   │   └── <FEATURE>.js
+│   ├── <GROUP>  -> module group
+│   │   └── <FEATURE>  -> feature modules
+│   │       ├── __tests__
+│   │       │   ├── <FEATURE>.e2e-spec.js
+│   │       │   └── <FEATURE>.spec.js
+│   │       ├── _<THING>  -> feature of private things
+│   │       │   └── ...
+│   │       └── <FEATURE>.js
 │   ├── shared  -> shared feature module
 │   ├── api.js
 │   └── env.js

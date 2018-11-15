@@ -3,25 +3,21 @@
 import type { $Request, $Response, NextFunction } from 'express';
 import { Router } from 'express';
 import { Op } from 'sequelize';  // eslint-disable-line
-import { from } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { from } from 'rxjs';  // eslint-disable-line
+import { catchError } from 'rxjs/operators';  // eslint-disable-line
 import request from 'request-promise';
 import chalk from 'chalk';
 
-import document from '~/document';
-import relational from '~/relational';
+import { List } from './document';
+import { RelationalList } from './relational';
 
 const router: Router = Router();
-
-/**
- * @name Mongo
- */
 
 /**
  * @name list - get a list
  * @param {string} [_id] - get a item by ID
  * @param {string} [text] - search for text in list
- * @return {Object<{ data: document.List[], message: string }>}
+ * @return {Object<{ data: List[], message: string }>}
  *
  * @example GET /__/text-list
  * @example GET /__/text-list?_id=${_id}
@@ -36,7 +32,7 @@ router.get('/', async (req: $Request, res: $Response, next: NextFunction) => {
     if (_id) find._id = { _id };
     if (text) find.text = { $regex: text, $options: 'i' };
 
-    const data = await document.List.find(find).exec();
+    const data = await List.find(find).exec();
 
     res.json({ data, message: 'Data obtained.' });
   } catch (err) {
@@ -47,12 +43,12 @@ router.get('/', async (req: $Request, res: $Response, next: NextFunction) => {
 /**
  * @name item - get a item
  * @param {string} id - get a item by ID
- * @return {Object<{ data: document.List[], message: string }>}
+ * @return {Object<{ data: List[], message: string }>}
  *
  * @example GET /__/text-list/${id}
  */
 router.get('/item/:id', (req: $Request, res: $Response, next: NextFunction) => {
-  from(document.List.find({ _id: req.params.id }).exec())
+  from(List.find({ _id: req.params.id }).exec())
     .pipe(catchError(err => next(chalk.red(` [*] ${err}`))))  // eslint-disable-line
     .subscribe(data => res.json({ data, message: 'Data obtained.' }));
 });
@@ -64,7 +60,7 @@ router.get('/item/:id', (req: $Request, res: $Response, next: NextFunction) => {
  * @example GET /__/text-list/count
  */
 router.get('/count', (req: $Request, res: $Response, next: NextFunction) => {
-  from(document.List.count().exec())
+  from(List.count().exec())
     .pipe(catchError(err => next(chalk.red(` [*] ${err}`))))  // eslint-disable-line
     .subscribe(data => res.json({ data, message: 'Data obtained.' }));
 });
@@ -73,7 +69,7 @@ router.get('/count', (req: $Request, res: $Response, next: NextFunction) => {
  * @name pagination - get a list of paging
  * @param {number} [page=1] - current page number
  * @param {number} [row=5] - rows per page
- * @return {Object<{ data: document.List[], message: string }>}
+ * @return {Object<{ data: List[], message: string }>}
  *
  * @example GET /__/text-list/pagination?page=${page}&row=${row}
  */
@@ -82,12 +78,12 @@ router.get('/pagination', async (req: $Request, res: $Response, next: NextFuncti
     const page = Number(req.query.page) || 1;
     const row = Number(req.query.row) || 5;
 
-    const list = await document.List.find({}).exec();
+    const list = await List.find({}).exec();
     const data = [];
 
     for (let i = 0, l = list.length; i < l / row; i++) {
       if (page === (i + 1)) {
-        data.push(document.List.find({}).skip(i * row).limit(row));
+        data.push(List.find({}).skip(i * row).limit(row));
       }
     }
 
@@ -117,7 +113,7 @@ router.post('/', async (req: $Request, res: $Response, next: NextFunction) => {
         .json({ message: 'Please pass text.' });
     }
 
-    const list = await new document.List(req.body);
+    const list = await new List(req.body);
     const message = await list.save().then(() => 'List saved');
 
     res.json({ message });
@@ -134,7 +130,7 @@ router.post('/', async (req: $Request, res: $Response, next: NextFunction) => {
  */
 router.put('/:id', async (req: $Request, res: $Response, next: NextFunction) => {
   try {
-    const message = await document.List
+    const message = await List
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(() => 'List updated');
 
@@ -152,7 +148,7 @@ router.put('/:id', async (req: $Request, res: $Response, next: NextFunction) => 
  */
 router.delete('/:id', async (req: $Request, res: $Response, next: NextFunction) => {
   try {
-    const message = await document.List
+    const message = await List
       .findByIdAndRemove(req.params.id)
       .then(() => 'List deleted');
 
@@ -170,13 +166,9 @@ router.delete('/:id', async (req: $Request, res: $Response, next: NextFunction) 
 // ------------------------- Separate line -------------------------
 
 /**
- * @name Postgre
- */
-
-/**
  * @name list - get a list
  * @param {string} [text] - search for text in list
- * @return {Object<{ data: relational.List[] }>}
+ * @return {Object<{ data: RelationalList[] }>}
  *
  * @example GET /__/text-list/relational
  * @example GET /__/text-list/relational?text=${text}
@@ -184,19 +176,19 @@ router.delete('/:id', async (req: $Request, res: $Response, next: NextFunction) 
 router.get('/relational', async (req: $Request, res: $Response, next: NextFunction) => {
   try {
     // TODO: get a item with ID
-    const { text } = req.query;
+    // const { text } = req.query;
 
     const find = {};
 
-    if (text) {
-      find.where = {
-        text: {
-          [Op.like]: `%${text}%`,
-        },
-      };
-    }
+    // if (text) {
+    //   find.where = {
+    //     text: {
+    //       [Op.like]: `%${text}%`,
+    //     },
+    //   };
+    // }
 
-    const data = await relational.List.findAll(find);
+    const data = await RelationalList.findAll(find);
     res.json({ data });
   } catch (err) {
     next(err);
@@ -211,7 +203,7 @@ router.get('/relational', async (req: $Request, res: $Response, next: NextFuncti
  */
 router.get('/relational/count', async (req: $Request, res: $Response, next: NextFunction) => {
   try {
-    const data = await relational.List.count();
+    const data = await RelationalList.count();
     res.json({ data });
   } catch (err) {
     next(err);
@@ -237,7 +229,7 @@ router.get('/relational/pagination', (req: $Request, res: $Response, next: NextF
  */
 router.post('/relational', async (req: $Request, res: $Response, next: NextFunction) => {
   try {
-    const message = await relational.List
+    const message = await RelationalList
       .create(req.body)
       .then(() => 'List saved');
 
@@ -252,7 +244,7 @@ router.post('/relational', async (req: $Request, res: $Response, next: NextFunct
  */
 router.put('/relational/:id', async (req: $Request, res: $Response, next: NextFunction) => {
   try {
-    const message = await relational.List
+    const message = await RelationalList
       .update(
         // TODO: update
         { updatedAt: req.body },
@@ -274,7 +266,7 @@ router.put('/relational/:id', async (req: $Request, res: $Response, next: NextFu
  */
 router.delete('/relational/:id', async (req: $Request, res: $Response, next: NextFunction) => {
   try {
-    const message = await relational.List
+    const message = await RelationalList
       .destroy({ where: { id: req.params.id } })
       .then(() => 'List deleted');
 

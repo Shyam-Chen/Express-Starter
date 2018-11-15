@@ -2,10 +2,7 @@ import gql from 'graphql-tag';
 
 /**
  * @name Query
- * @example
- * {
- *   helloWorld
- * }
+ * @example query { helloWorld }
  */
 
 export const helloWorldTypeDefs = gql`

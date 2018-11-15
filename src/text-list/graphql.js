@@ -2,18 +2,16 @@
 
 import gql from 'graphql-tag';  // eslint-disable-line
 
-import document from '~/document';
+import { List } from './document';
 
 export const listTypeDefs = gql`
   type List {
     _id: ID!
     text: String!
   }
-
   type Query {
     list(_id: String, text: String): [List]
   }
-
   type Mutation {
     addText(text: String!): List
     updateText(_id: ID!, text: String!): List
@@ -37,12 +35,12 @@ export const listResolvers = {
    * }
    */
   Query: {
-    async list(root: any, { _id, text }: document.List) {
+    async list(root: any, { _id, text }: List) {
       try {
         const find = {};
         if (_id) find._id = { _id };
         if (text) find.text = { $regex: text, $options: 'i' };
-        const data = await document.List.find(find).exec();
+        const data = await List.find(find).exec();
         return data;
       } catch (err) {
         throw err;
@@ -65,29 +63,29 @@ export const listResolvers = {
    * }
    */
   Mutation: {
-    async addText(root: any, { text }: document.List) {
+    async addText(root: any, { text }: List) {
       try {
-        const list = await new document.List({ text });
+        const list = await new List({ text });
         const data = await list.save();
         return data;
       } catch (err) {
         throw err;
       }
     },
-    async updateText(root: any, { _id, text }: document.List) {
+    async updateText(root: any, { _id, text }: List) {
       try {
         const conditions = { _id };
         const update = { $set: { text } };
         const options = { new: true, upsert: true };
-        const data = await document.List.findOneAndUpdate(conditions, update, options).exec();
+        const data = await List.findOneAndUpdate(conditions, update, options).exec();
         return data;
       } catch (err) {
         throw err;
       }
     },
-    async deleteText(root: any, { _id }: document.List) {
+    async deleteText(root: any, { _id }: List) {
       try {
-        const data = await document.List.findByIdAndRemove(_id);
+        const data = await List.findByIdAndRemove(_id);
         return data;
       } catch (err) {
         throw err;

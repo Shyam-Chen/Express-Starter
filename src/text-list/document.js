@@ -10,7 +10,7 @@ const listSchema = new Schema({
 });
 
 const methods = {
-  print() {
+  print(): void {
     console.log(`Text: ${this.text}`);
   },
 };

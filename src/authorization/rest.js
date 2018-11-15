@@ -2,14 +2,15 @@ import { Router } from 'express';
 import jwt from 'jsonwebtoken';
 
 import { SECRET } from '~/env';
-import document from '~/document';
+
+import { User } from './document';
 
 const router = Router();
 
 router.post('/login', (req, res, next) => {
   const { email, password } = req.body;
 
-  document.User.findOne({ email }, (err, user) => {
+  User.findOne({ email }, (err, user) => {
     if (!user) next(err);
 
     user.comparePassword(password, (passwordError, isMatch) => {
@@ -22,21 +23,21 @@ router.post('/login', (req, res, next) => {
 });
 
 router.get('/users', (req, res, next) => {
-  document.User.find({}, (err, docs) => {
+  User.find({}, (err, docs) => {
     if (err) next(err);
     res.json(docs);
   });
 });
 
 router.get('/users/count', (req, res, next) => {
-  document.User.count((err, count) => {
+  User.count((err, count) => {
     if (err) next(err);
     res.json(count);
   });
 });
 
 router.post('/user', (req, res, next) => {
-  const user = new document.User(req.body);
+  const user = new User(req.body);
 
   user.save((err, item) => {
     if (err) next(err);
@@ -45,21 +46,21 @@ router.post('/user', (req, res, next) => {
 });
 
 router.get('/user/:id', (req, res, next) => {
-  document.User.findOne({ _id: req.params.id }, (err, user) => {
+  User.findOne({ _id: req.params.id }, (err, user) => {
     if (err) next(err);
     res.json(user);
   });
 });
 
 router.put('/user/:id', (req, res, next) => {
-  document.User.findOneAndUpdate({ _id: req.params.id }, req.body, (err) => {
+  User.findOneAndUpdate({ _id: req.params.id }, req.body, (err) => {
     if (err) next(err);
     res.json({ message: 'Updated' });
   });
 });
 
 router.delete('/user/:id', (req, res, next) => {
-  document.User.findOneAndRemove({ _id: req.params.id }, (err) => {
+  User.findOneAndRemove({ _id: req.params.id }, (err) => {
     if (err) next(err);
     res.json({ message: 'Deleted' });
   });

@@ -3,7 +3,6 @@
 import type { $Application } from 'express';
 import { join } from 'path';
 import express from 'express';
-import mongoose from 'mongoose';
 import flash from 'express-flash';
 import compression from 'compression';
 import cors from 'cors';
@@ -18,15 +17,14 @@ import history from 'express-history-api-fallback';
 import Raven from 'raven';
 import chalk from 'chalk';
 
+import routes from '~/core/rest';
+import apolloServer from '~/core/graphql';
+import mongoose from '~/core/mongoose';
+import sequelize from '~/core/sequelize';
 import passport from '~/core/passport';
 import { client } from '~/core/redis';
 
-import routes from '~/rest';
-import apolloServer from '~/graphql';
-
-import relational from '~/relational';
-
-import { PORT, HOST, SECRET, MONGODB_URI, SENTRY_DSN, RENDERTRON_URL } from './env';
+import { PORT, HOST, SECRET, SENTRY_DSN, RENDERTRON_URL } from './env';
 
 const app: $Application = express();
 
@@ -89,21 +87,13 @@ if (process.env.STATIC_FILES) {
 const server = app.listen(PORT, HOST, (): void => {
   console.log(chalk.hex('#009688')(' [*] App: Bootstrap Succeeded.'));
   console.log(chalk.hex('#009688')(` [*] Host: http://${HOST}:${PORT}/.`));
+
+  mongoose.connection.once('open', () => console.log(chalk.hex('#009688')(' [*] Mongo: Connection Succeeded.')));
+  mongoose.connection.on('error', err => console.error(err));
+
+  sequelize.authenticate()
+    .then(() => console.log(chalk.hex('#009688')(' [*] Postgres: Connection Succeeded.')))
+    .catch(err => console.error(err));
 });
-
-/**
- * @name Document
- */
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
-mongoose.connection.once('open', () => console.log(chalk.hex('#009688')(' [*] Mongo: Connection Succeeded.')));
-mongoose.connection.on('error', err => console.error(err));
-
-/**
- * @name Relational
- */
-relational.sequelize
-  .authenticate()
-  .then(() => console.log(chalk.hex('#009688')(' [*] Postgres: Connection Succeeded.')))
-  .catch(err => console.error(err));
 
 export default server;
