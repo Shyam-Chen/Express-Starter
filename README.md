@@ -51,13 +51,13 @@ This seed repository provides the following features:
 Here are some related seed repositories:
 
 * ---------- **Client-side** ----------
-* [Web Starter Kit](https://github.com/Shyam-Chen/Frontend-Starter-Kit) - Make for Progressive Web Apps.
-* [Mobile Starter Kit](https://github.com/Shyam-Chen/Mobile-Starter-Kit) - Make for Cross-platform Mobile Apps.
-* [Desktop Starter Kit](https://github.com/Shyam-Chen/Desktop-Starter-Kit) - Make for Cross-platform Desktop Apps.
+* [Web Starter Kit](https://github.com/Shyam-Chen/Frontend-Starter-Kit) - Progressive Web Apps.
+* [Mobile Starter Kit](https://github.com/Shyam-Chen/Mobile-Starter-Kit) - Cross-platform Mobile Apps.
+* [Desktop Starter Kit](https://github.com/Shyam-Chen/Desktop-Starter-Kit) - Cross-platform Desktop Apps.
 * ---------- **Server-side** ----------
-* [Platform Starter Kit](https://github.com/Shyam-Chen/Backend-Starter-Kit) - Make for Flexible Cloud Platform.
-* [Functions Starter Kit](https://github.com/Shyam-Chen/Functions-Starter-Kit) - Make for Serverless Cloud Functions.
-* [Infrastructure Starter Kit](https://github.com/Shyam-Chen/Infrastructure-Starter-Kit) - Make for Containerized Cloud Infrastructure.
+* [Platform Starter Kit](https://github.com/Shyam-Chen/Backend-Starter-Kit) - Flexible Cloud Platform.
+* [Functions Starter Kit](https://github.com/Shyam-Chen/Functions-Starter-Kit) - Serverless Cloud Functions.
+* [Infrastructure Starter Kit](https://github.com/Shyam-Chen/Infrastructure-Starter-Kit) - Containerized Cloud Infrastructure.
 
 ## Table of Contents
 
