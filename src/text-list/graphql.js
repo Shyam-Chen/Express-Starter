@@ -9,9 +9,11 @@ export const listTypeDefs = gql`
     _id: ID!
     text: String!
   }
+
   type Query {
     list(_id: String, text: String): [List]
   }
+
   type Mutation {
     addText(text: String!): List
     updateText(_id: ID!, text: String!): List
@@ -22,15 +24,15 @@ export const listTypeDefs = gql`
 export const listResolvers = {
   /**
    * @example
-   * {
+   * query {
    *   list { _id text }
    * }
    *
-   * {
+   * query {
    *   list(_id: "${_id}") { _id text }
    * }
    *
-   * {
+   * query {
    *   list(text: "${text}") { _id text }
    * }
    */

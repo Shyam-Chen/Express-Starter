@@ -9,12 +9,4 @@ const listSchema = new Schema({
   },
 });
 
-const methods = {
-  print(): void {
-    console.log(`Text: ${this.text}`);
-  },
-};
-
-listSchema.methods = methods;
-
 export const List = mongoose.model('List', listSchema);

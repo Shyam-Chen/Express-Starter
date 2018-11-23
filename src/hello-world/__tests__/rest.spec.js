@@ -1,7 +1,7 @@
 import rest from '../rest';
 
 describe('Hello World', () => {
-  it('should handle routes', () => {
+  it('should handle route', () => {
     const api = rest.stack[0];
     const helloWorld = api.route.stack[0];
 
