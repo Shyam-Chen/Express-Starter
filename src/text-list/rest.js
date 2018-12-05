@@ -1,12 +1,9 @@
 // @flow
 
-import type { $Request, $Response, NextFunction } from 'express';
-import { Router } from 'express';
+import { Router, type $Request, type $Response } from 'express';
 import { Op } from 'sequelize';  // eslint-disable-line
 import { from } from 'rxjs';  // eslint-disable-line
-import { catchError } from 'rxjs/operators';  // eslint-disable-line
 import request from 'request-promise';
-import chalk from 'chalk';
 
 import { List } from './document';
 import { RelationalList } from './relational';
@@ -23,21 +20,17 @@ const router: Router = Router();
  * @example GET /__/text-list?_id=${_id}
  * @example GET /__/text-list?text=${text}
  */
-router.get('/', async (req: $Request, res: $Response, next: NextFunction) => {
-  try {
-    const { _id, text } = req.query;
+router.get('/', async (req: $Request, res: $Response) => {
+  const { _id, text } = req.query;
 
-    const find = {};
+  const find = {};
 
-    if (_id) find._id = { _id };
-    if (text) find.text = { $regex: text, $options: 'i' };
+  if (_id) find._id = { _id };
+  if (text) find.text = { $regex: text, $options: 'i' };
 
-    const data = await List.find(find).exec();
+  const data = await List.find(find).exec();
 
-    res.json({ data, message: 'Data obtained.' });
-  } catch (err) {
-    next(err);
-  }
+  res.json({ data, message: 'Data obtained.' });
 });
 
 /**
@@ -47,9 +40,8 @@ router.get('/', async (req: $Request, res: $Response, next: NextFunction) => {
  *
  * @example GET /__/text-list/${id}
  */
-router.get('/item/:id', (req: $Request, res: $Response, next: NextFunction) => {
+router.get('/item/:id', (req: $Request, res: $Response) => {
   from(List.find({ _id: req.params.id }).exec())
-    .pipe(catchError(err => next(chalk.red(` [*] ${err}`))))  // eslint-disable-line
     .subscribe(data => res.json({ data, message: 'Data obtained.' }));
 });
 
@@ -59,9 +51,8 @@ router.get('/item/:id', (req: $Request, res: $Response, next: NextFunction) => {
  *
  * @example GET /__/text-list/count
  */
-router.get('/count', (req: $Request, res: $Response, next: NextFunction) => {
+router.get('/count', (req: $Request, res: $Response) => {
   from(List.count().exec())
-    .pipe(catchError(err => next(chalk.red(` [*] ${err}`))))  // eslint-disable-line
     .subscribe(data => res.json({ data, message: 'Data obtained.' }));
 });
 
@@ -73,31 +64,27 @@ router.get('/count', (req: $Request, res: $Response, next: NextFunction) => {
  *
  * @example GET /__/text-list/pagination?page=${page}&row=${row}
  */
-router.get('/pagination', async (req: $Request, res: $Response, next: NextFunction) => {
-  try {
-    const page = Number(req.query.page) || 1;
-    const row = Number(req.query.row) || 5;
+router.get('/pagination', async (req: $Request, res: $Response) => {
+  const page = Number(req.query.page) || 1;
+  const row = Number(req.query.row) || 5;
 
-    const list = await List.find({}).exec();
-    const data = [];
+  const list = await List.find({}).exec();
+  const data = [];
 
-    for (let i = 0, l = list.length; i < l / row; i++) {
-      if (page === (i + 1)) {
-        data.push(List.find({}).skip(i * row).limit(row));
-      }
+  for (let i = 0, l = list.length; i < l / row; i++) {
+    if (page === (i + 1)) {
+      data.push(List.find({}).skip(i * row).limit(row));
     }
-
-    const baseUrl = `${req.protocol}://${req.get('host')}${req.baseUrl}`;
-    const count = await request(`${baseUrl}/count`);
-
-    res.json({
-      data: [...await Promise.all(data)],
-      total: JSON.parse(count).data,
-      message: 'Data obtained.',
-    });
-  } catch (err) {
-    next(err);
   }
+
+  const baseUrl = `${req.protocol}://${req.get('host')}${req.baseUrl}`;
+  const count = await request(`${baseUrl}/count`);
+
+  res.json({
+    data: [...await Promise.all(data)],
+    total: JSON.parse(count).data,
+    message: 'Data obtained.',
+  });
 });
 
 /**
@@ -106,20 +93,16 @@ router.get('/pagination', async (req: $Request, res: $Response, next: NextFuncti
  *
  * @example POST /__/text-list { text: ${text} }
  */
-router.post('/', async (req: $Request, res: $Response, next: NextFunction) => {
-  try {
-    if (!req.body.text) {
-      res.status(400)
-        .json({ message: 'Please pass text.' });
-    }
-
-    const list = await new List(req.body);
-    const message = await list.save().then(() => 'List saved');
-
-    res.json({ message });
-  } catch (err) {
-    next(err);
+router.post('/', async (req: $Request, res: $Response) => {
+  if (!req.body.text) {
+    res.status(400)
+      .json({ message: 'Please pass text.' });
   }
+
+  const list = await new List(req.body);
+  const message = await list.save().then(() => 'List saved');
+
+  res.json({ message });
 });
 
 /**
@@ -128,16 +111,12 @@ router.post('/', async (req: $Request, res: $Response, next: NextFunction) => {
  *
  * @example PUT /__/text-list/${id}
  */
-router.put('/:id', async (req: $Request, res: $Response, next: NextFunction) => {
-  try {
-    const message = await List
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(() => 'List updated');
+router.put('/:id', async (req: $Request, res: $Response) => {
+  const message = await List
+    .findOneAndUpdate({ _id: req.params.id }, req.body)
+    .then(() => 'List updated');
 
-    res.json({ message });
-  } catch (err) {
-    next(err);
-  }
+  res.json({ message });
 });
 
 /**
@@ -146,16 +125,12 @@ router.put('/:id', async (req: $Request, res: $Response, next: NextFunction) => 
  *
  * @example DELETE /__/text-list/${id}
  */
-router.delete('/:id', async (req: $Request, res: $Response, next: NextFunction) => {
-  try {
-    const message = await List
-      .findByIdAndRemove(req.params.id)
-      .then(() => 'List deleted');
+router.delete('/:id', async (req: $Request, res: $Response) => {
+  const message = await List
+    .findByIdAndRemove(req.params.id)
+    .then(() => 'List deleted');
 
-    res.json({ message });
-  } catch (err) {
-    next(err);
-  }
+  res.json({ message });
 });
 
 /**
@@ -173,26 +148,22 @@ router.delete('/:id', async (req: $Request, res: $Response, next: NextFunction) 
  * @example GET /__/text-list/relational
  * @example GET /__/text-list/relational?text=${text}
  */
-router.get('/relational', async (req: $Request, res: $Response, next: NextFunction) => {
-  try {
-    // TODO: get a item with ID
-    // const { text } = req.query;
+router.get('/relational', async (req: $Request, res: $Response) => {
+  // TODO: get a item with ID
+  // const { text } = req.query;
 
-    const find = {};
+  const find = {};
 
-    // if (text) {
-    //   find.where = {
-    //     text: {
-    //       [Op.like]: `%${text}%`,
-    //     },
-    //   };
-    // }
+  // if (text) {
+  //   find.where = {
+  //     text: {
+  //       [Op.like]: `%${text}%`,
+  //     },
+  //   };
+  // }
 
-    const data = await RelationalList.findAll(find);
-    res.json({ data });
-  } catch (err) {
-    next(err);
-  }
+  const data = await RelationalList.findAll(find);
+  res.json({ data });
 });
 
 /**
@@ -201,24 +172,17 @@ router.get('/relational', async (req: $Request, res: $Response, next: NextFuncti
  *
  * @example GET /__/text-list/relational/count
  */
-router.get('/relational/count', async (req: $Request, res: $Response, next: NextFunction) => {
-  try {
-    const data = await RelationalList.count();
-    res.json({ data });
-  } catch (err) {
-    next(err);
-  }
+router.get('/relational/count', async (req: $Request, res: $Response) => {
+  const data = await RelationalList.count();
+  res.json({ data });
 });
 
 /**
  * @name pagination - get a list of paging
  */
-router.get('/relational/pagination', (req: $Request, res: $Response, next: NextFunction) => {
-  try {
-    // TODO: pagination
-  } catch (err) {
-    next(err);
-  }
+router.get('/relational/pagination', (req: $Request, res: $Response) => {
+  // TODO: pagination
+  res.json({});
 });
 
 /**
@@ -227,35 +191,27 @@ router.get('/relational/pagination', (req: $Request, res: $Response, next: NextF
  *
  * @example POST /__/text-list/relational { text: ${text} }
  */
-router.post('/relational', async (req: $Request, res: $Response, next: NextFunction) => {
-  try {
-    const message = await RelationalList
-      .create(req.body)
-      .then(() => 'List saved');
+router.post('/relational', async (req: $Request, res: $Response) => {
+  const message = await RelationalList
+    .create(req.body)
+    .then(() => 'List saved');
 
-    res.json({ message });
-  } catch (err) {
-    next(err);
-  }
+  res.json({ message });
 });
 
 /**
  * @name update - update a item
  */
-router.put('/relational/:id', async (req: $Request, res: $Response, next: NextFunction) => {
-  try {
-    const message = await RelationalList
-      .update(
-        // TODO: update
-        { updatedAt: req.body },
-        { where: { id: req.params.id } },
-      )
-      .then(() => 'List saved');
+router.put('/relational/:id', async (req: $Request, res: $Response) => {
+  const message = await RelationalList
+    .update(
+      // TODO: update
+      { updatedAt: req.body },
+      { where: { id: req.params.id } },
+    )
+    .then(() => 'List saved');
 
-    res.json({ message });
-  } catch (err) {
-    next(err);
-  }
+  res.json({ message });
 });
 
 /**
@@ -264,16 +220,12 @@ router.put('/relational/:id', async (req: $Request, res: $Response, next: NextFu
  *
  * @example DELETE /__/text-list/relational/${id}
  */
-router.delete('/relational/:id', async (req: $Request, res: $Response, next: NextFunction) => {
-  try {
-    const message = await RelationalList
-      .destroy({ where: { id: req.params.id } })
-      .then(() => 'List deleted');
+router.delete('/relational/:id', async (req: $Request, res: $Response) => {
+  const message = await RelationalList
+    .destroy({ where: { id: req.params.id } })
+    .then(() => 'List deleted');
 
-    res.json({ message });
-  } catch (err) {
-    next(err);
-  }
+  res.json({ message });
 });
 
 export default router;
