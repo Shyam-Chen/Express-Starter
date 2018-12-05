@@ -7,6 +7,7 @@ module.exports = {
     '~(.*)': '<rootDir>/src$1',
   },
   setupTestFrameworkScriptFile: '<rootDir>/tools/setup-test.js',
+  testEnvironment: 'node',
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',
     '<rootDir>/.flow-typed/',
