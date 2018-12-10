@@ -134,9 +134,20 @@ router.delete('/:id', async (req: $Request, res: $Response) => {
 });
 
 /**
- * @name delete-many - remove multiple items
+ * @name delete-multiple - remove selected items
+ * @return {Object<{ message: string }>}
+ *
+ * @example DELETE /__/text-list { selected: [${id}, ${id}, ${id}...] }
  */
-// TODO: delete multiple items through conditions
+router.delete('/', async (req: $Request, res: $Response) => {
+  const { selected } = req.body;
+
+  const message = await List
+    .remove({ _id: { $in: selected } })
+    .then(() => 'List deleted');
+
+  res.json({ message });
+});
 
 // ------------------------- Separate line -------------------------
 
