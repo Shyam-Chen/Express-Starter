@@ -153,10 +153,12 @@ router.delete('/', async (req: $Request, res: $Response) => {
 
 /**
  * @name list - get a list
+ * @param {string} [_id] - get a item by ID
  * @param {string} [text] - search for text in list
  * @return {Object<{ data: RelationalList[] }>}
  *
  * @example GET /__/text-list/relational
+ * @example GET /__/text-list/relational?_id=${_id}
  * @example GET /__/text-list/relational?text=${text}
  */
 router.get('/relational', async (req: $Request, res: $Response) => {
@@ -178,6 +180,18 @@ router.get('/relational', async (req: $Request, res: $Response) => {
 });
 
 /**
+ * @name item - get a item
+ * @param {string} id - get a item by ID
+ * @return {Object<{ data: RelationalList[] }>}
+ *
+ * @example GET /__/text-list/relational/${id}
+ */
+router.get('/relational/:id', async (req: $Request, res: $Response) => {
+  // TODO: get a item by ID
+  res.json({});
+});
+
+/**
  * @name count - get a list length
  * @return {Object<{ data: number }>}
  *
@@ -190,6 +204,9 @@ router.get('/relational/count', async (req: $Request, res: $Response) => {
 
 /**
  * @name pagination - get a list of paging
+ * @return {Object<{ data: List[], message: string }>}
+ *
+ * @example GET /__/text-list/relational/pagination?page=${page}&row=${row}
  */
 router.get('/relational/pagination', (req: $Request, res: $Response) => {
   // TODO: pagination
@@ -237,6 +254,19 @@ router.delete('/relational/:id', async (req: $Request, res: $Response) => {
     .then(() => 'List deleted');
 
   res.json({ message });
+});
+
+/**
+ * @name delete-multiple - remove selected items
+ * @return {Object<{ message: string }>}
+ *
+ * @example DELETE /__/text-list/relational { selected: [${id}, ${id}, ${id}...] }
+ */
+router.delete('/relational', async (req: $Request, res: $Response) => {
+  // TODO: delete many
+  // const { selected } = req.body;
+
+  res.json({ message: '' });
 });
 
 export default router;
