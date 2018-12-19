@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import passport from 'passport';
 import jwt from 'jsonwebtoken';
 
 import { SECRET } from '~/env';
@@ -65,5 +66,14 @@ router.delete('/user/:id', (req, res, next) => {
     res.json({ message: 'Deleted' });
   });
 });
+
+router.get('/auth/google', passport.authenticate('google', { scope: ['profile'] }));
+router.get('/auth/google/callback', passport.authenticate('google', { successRedirect: '/', failureRedirect: '/login' }));
+
+router.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
+router.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/login' }));
+
+router.get('/auth/twitter', passport.authenticate('twitter', { scope: ['include_email=true'] }));
+router.get('/auth/twitter/callback', passport.authenticate('twitter', { successRedirect: '/', failureRedirect: '/login' }));
 
 export default router;

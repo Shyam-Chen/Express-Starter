@@ -2,18 +2,12 @@ import mongoose, { Schema } from 'mongoose';
 import bcrypt from 'bcryptjs';
 
 const userSchema = new Schema({
-  jwt: {},
-  google: {
-    id: String,
-    token: String,
-    email: String,
-    name: String,
-  },
-  facebook: {},
-  twitter: {},
+  name: String,
+  email: String,
+  password: String,
 });
 
-const methods = {
+userSchema.methods = {
   generateHash(password) {
     bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
   },
@@ -21,7 +15,5 @@ const methods = {
     bcrypt.compareSync(password, userSchema.jwt.password);
   },
 };
-
-userSchema.methods = methods;
 
 export const User = mongoose.model('User', userSchema);
