@@ -28,16 +28,16 @@ export const AUTH_GOOGLE = {
 };
 
 export const AUTH_FACEBOOK = {
-  clientID: process.env.FACEBOOK_ID,
-  clientSecret: process.env.FACEBOOK_SECRET,
+  clientID: process.env.FACEBOOK_ID || '...',
+  clientSecret: process.env.FACEBOOK_SECRET || '...',
   profileFields: ['id', 'cover', 'name', 'age_range', 'link', 'gender', 'locale', 'picture', 'timezone', 'updated_time', 'verified', 'email'],
   callbackURL: '/__/auth/facebook/return',
   passReqToCallback: true,
 };
 
 export const AUTH_TWITTER = {
-  consumerKey: process.env.TWITTER_KEY,
-  consumerSecret: process.env.TWITTER_SECRET,
+  consumerKey: process.env.TWITTER_KEY || '...',
+  consumerSecret: process.env.TWITTER_SECRET || '...',
   callbackURL: '/__/auth/twitter/return',
   includeEmail: true,
   includeStatus: false,

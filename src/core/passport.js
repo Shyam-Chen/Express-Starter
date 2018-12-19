@@ -3,10 +3,11 @@
 import passport from 'passport';
 import { Strategy as JWTStrategy, ExtractJwt } from 'passport-jwt';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
-import { Strategy as FacebookStrategy } from 'passport-facebook';
-import { Strategy as TwitterStrategy } from 'passport-twitter';
+// import { Strategy as FacebookStrategy } from 'passport-facebook';
+// import { Strategy as TwitterStrategy } from 'passport-twitter';
 
-import { SECRET, AUTH_GOOGLE, AUTH_FACEBOOK, AUTH_TWITTER } from '~/env';
+import { SECRET, AUTH_GOOGLE } from '~/env';
+// import { SECRET, AUTH_GOOGLE, AUTH_FACEBOOK, AUTH_TWITTER } from '~/env';
 import { User } from '~/authorization/document';
 
 passport.serializeUser((user, done) => {
@@ -54,46 +55,46 @@ passport.use(new GoogleStrategy(
   },
 ));
 
-passport.use(new FacebookStrategy(
-  AUTH_FACEBOOK,
-  (accessToken, refreshToken, profile, done) => {
-    const newUser = new User({
-      name: profile.displayName,
-      email: profile.emails[0].value,
-    });
+// passport.use(new FacebookStrategy(
+//   AUTH_FACEBOOK,
+//   (accessToken, refreshToken, profile, done) => {
+//     const newUser = new User({
+//       name: profile.displayName,
+//       email: profile.emails[0].value,
+//     });
 
-    newUser.findOne({ email: newUser.email }, (err, user) => {
-      if (!user) {
-        newUser.save((errSave, me) => {
-          if (errSave) return done(errSave);
-          return done(null, me);
-        });
-      } else {
-        done(null, user);
-      }
-    });
-  },
-));
+//     newUser.findOne({ email: newUser.email }, (err, user) => {
+//       if (!user) {
+//         newUser.save((errSave, me) => {
+//           if (errSave) return done(errSave);
+//           return done(null, me);
+//         });
+//       } else {
+//         done(null, user);
+//       }
+//     });
+//   },
+// ));
 
-passport.use(new TwitterStrategy(
-  AUTH_TWITTER,
-  (accessToken, tokenSecret, profile, done) => {
-    const newUser = new User({
-      name: profile.displayName,
-      email: profile.emails[0].value,
-    });
+// passport.use(new TwitterStrategy(
+//   AUTH_TWITTER,
+//   (accessToken, tokenSecret, profile, done) => {
+//     const newUser = new User({
+//       name: profile.displayName,
+//       email: profile.emails[0].value,
+//     });
 
-    newUser.findOne({ email: newUser.email }, (err, user) => {
-      if (!user) {
-        newUser.save((errSave, me) => {
-          if (errSave) return done(errSave);
-          return done(null, me);
-        });
-      } else {
-        done(null, user);
-      }
-    });
-  },
-));
+//     newUser.findOne({ email: newUser.email }, (err, user) => {
+//       if (!user) {
+//         newUser.save((errSave, me) => {
+//           if (errSave) return done(errSave);
+//           return done(null, me);
+//         });
+//       } else {
+//         done(null, user);
+//       }
+//     });
+//   },
+// ));
 
 export default passport;
