@@ -31,7 +31,7 @@
     "@tensorflow/tfjs": "0.14.0",
     "@tensorflow/tfjs-node": "0.1.21",
     "apollo-server-express": "2.2.6",
-    "bcryptjs": "2.4.3",
+    "bcrypt": "3.0.2",
     "body-parser": "1.18.3",
     "chalk": "2.4.1",
     "cloudinary": "1.13.2",
