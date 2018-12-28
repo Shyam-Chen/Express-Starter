@@ -65,24 +65,24 @@ router.get('/count', (req: $Request, res: $Response) => {
  * @example GET /__/text-list/pagination?page=${page}&row=${row}
  */
 router.get('/pagination', async (req: $Request, res: $Response) => {
-  const page = Number(req.query.page) || 1;
-  const row = Number(req.query.row) || 5;
+  const baseUrl = `${req.protocol}://${req.get('host')}${req.baseUrl}`;
 
-  const list = await List.find({}).exec();
   const data = [];
 
-  for (let i = 0, l = list.length; i < l / row; i++) {
+  const page = Number(req.query.page) || 1;
+  const row = Number(req.query.row) || 5;
+  const count = await request(`${baseUrl}/count`);
+  const total = JSON.parse(count).data;
+
+  for (let i = 0, l = total; i < l / row; i++) {
     if (page === (i + 1)) {
       data.push(List.find({}).skip(i * row).limit(row));
     }
   }
 
-  const baseUrl = `${req.protocol}://${req.get('host')}${req.baseUrl}`;
-  const count = await request(`${baseUrl}/count`);
-
   res.json({
     data: [...await Promise.all(data)],
-    total: JSON.parse(count).data,
+    total,
     message: 'Data obtained.',
   });
 });
@@ -153,27 +153,21 @@ router.delete('/', async (req: $Request, res: $Response) => {
 
 /**
  * @name list - get a list
- * @param {string} [_id] - get a item by ID
+ * @param {string} [id] - get a item by ID
  * @param {string} [text] - search for text in list
  * @return {Object<{ data: RelationalList[] }>}
  *
  * @example GET /__/text-list/relational
- * @example GET /__/text-list/relational?_id=${_id}
+ * @example GET /__/text-list/relational?id=${id}
  * @example GET /__/text-list/relational?text=${text}
  */
 router.get('/relational', async (req: $Request, res: $Response) => {
-  // TODO: get a item with ID
-  // const { text } = req.query;
+  const { id, text } = req.query;
 
   const find = {};
 
-  // if (text) {
-  //   find.where = {
-  //     text: {
-  //       [Op.like]: `%${text}%`,
-  //     },
-  //   };
-  // }
+  if (id) find.where = { ...find.where, id: [id] };
+  if (text) find.where = { ...find.where, text: { [Op.like]: `%${text}%` } };
 
   const data = await RelationalList.findAll(find);
   res.json({ data });
@@ -182,24 +176,24 @@ router.get('/relational', async (req: $Request, res: $Response) => {
 /**
  * @name item - get a item
  * @param {string} id - get a item by ID
- * @return {Object<{ data: RelationalList[] }>}
+ * @return {Object<{ data: RelationalList[], message: string }>}
  *
- * @example GET /__/text-list/relational/${id}
+ * @example GET /__/text-list/relational/item/${id}
  */
-router.get('/relational/:id', async (req: $Request, res: $Response) => {
-  // TODO: get a item by ID
-  res.json({});
+router.get('/relational/item/:id', async (req: $Request, res: $Response) => {
+  const data = await RelationalList.findOne({ where: { id: [req.params.id] } });
+  res.json({ data: [data], message: 'Data obtained.' });
 });
 
 /**
  * @name count - get a list length
- * @return {Object<{ data: number }>}
+ * @return {Object<{ data: number, message: string }>}
  *
  * @example GET /__/text-list/relational/count
  */
 router.get('/relational/count', async (req: $Request, res: $Response) => {
   const data = await RelationalList.count();
-  res.json({ data });
+  res.json({ data, message: 'Data obtained.' });
 });
 
 /**
@@ -208,9 +202,13 @@ router.get('/relational/count', async (req: $Request, res: $Response) => {
  *
  * @example GET /__/text-list/relational/pagination?page=${page}&row=${row}
  */
-router.get('/relational/pagination', (req: $Request, res: $Response) => {
+router.get('/relational/pagination', async (req: $Request, res: $Response) => {
   // TODO: pagination
-  res.json({});
+  // const page = Number(req.query.page) || 1;
+  // const row = Number(req.query.row) || 5;
+
+  const data = await RelationalList.findAndCountAll({ offset: 0, limit: 5 });
+  res.json({ data });
 });
 
 /**
