@@ -1,7 +1,6 @@
 {
   "plugins": [
-    "flowtype",
-    "flowtype-errors"
+    "flowtype"
   ],
   "env": {
     "node": true,
@@ -29,9 +28,6 @@
   "rules": {
     // Plugins
     "import/prefer-default-export": "off",
-
-    "flowtype-errors/show-errors": "error",
-    "flowtype-errors/show-warnings": "warn",
 
     // Possible Errors
 
