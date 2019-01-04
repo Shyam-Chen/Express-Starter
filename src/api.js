@@ -10,7 +10,6 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import session from 'express-session';
 import connectRedis from 'connect-redis';
-import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import rendertron from 'rendertron-middleware';
 import history from 'express-history-api-fallback';
@@ -37,8 +36,8 @@ app.use(compression());
 app.use(cors());
 app.use(helmet());
 app.use(morgan('tiny'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
   store: new (connectRedis(session))({ client }),
