@@ -1,16 +1,13 @@
 // @flow
 
-import type { $Application } from 'express';
 import { join } from 'path';
-import express from 'express';
-import flash from 'express-flash';
+import express, { type $Application } from 'express';
 import compression from 'compression';
-import cors from 'cors';
 import helmet from 'helmet';
+import cors from 'cors';
 import morgan from 'morgan';
 import session from 'express-session';
 import connectRedis from 'connect-redis';
-import cookieParser from 'cookie-parser';
 import rendertron from 'rendertron-middleware';
 import history from 'express-history-api-fallback';
 import Raven from 'raven';
@@ -33,22 +30,19 @@ if (process.env.NODE_ENV === 'production') Raven.config(SENTRY_DSN).install();
  * @name middleware-functions
  */
 app.use(compression());
-app.use(cors());
 app.use(helmet());
+app.use(cors());
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(session({
   store: new (connectRedis(session))({ client }),
   name: 'sid',
-  resave: true,
   saveUninitialized: true,
   secret: SECRET,
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
 
 if (process.env.NODE_ENV === 'production') app.use(Raven.requestHandler());
 
@@ -83,7 +77,7 @@ if (process.env.STATIC_FILES) {
 /**
  * @name api-server
  */
-const server = app.listen(PORT, HOST, (): void => {
+const server = app.listen(Number(PORT), HOST, (): void => {
   console.log(chalk.hex('#009688')(' [*] App: Bootstrap Succeeded.'));
   console.log(chalk.hex('#009688')(` [*] Host: http://${HOST}:${PORT}/.`));
 
