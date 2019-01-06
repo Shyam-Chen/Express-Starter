@@ -35,12 +35,7 @@ app.use(cors());
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(session({
-  store: new (connectRedis(session))({ client }),
-  name: 'sid',
-  saveUninitialized: true,
-  secret: SECRET,
-}));
+app.use(session({ store: new (connectRedis(session))({ client }), secret: SECRET }));
 app.use(passport.initialize());
 app.use(passport.session());
 
