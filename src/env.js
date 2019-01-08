@@ -23,23 +23,14 @@ export const RENDERTRON_URL = process.env.RENDERTRON_URL || 'https://render-tron
 export const AUTH_GOOGLE = {
   clientID: process.env.GOOGLE_ID || '584431831746-9b5743ro43sn7p6nfgbui0kqhj557kvt.apps.googleusercontent.com',
   clientSecret: process.env.GOOGLE_SECRET || 'stZ7p0BC_oQrUvJKsvqAxehT',
-  callbackURL: '/__/auth/google/return',
-  passReqToCallback: true,
 };
 
 export const AUTH_FACEBOOK = {
   clientID: process.env.FACEBOOK_ID || '...',
   clientSecret: process.env.FACEBOOK_SECRET || '...',
-  profileFields: ['id', 'cover', 'name', 'age_range', 'link', 'gender', 'locale', 'picture', 'timezone', 'updated_time', 'verified', 'email'],
-  callbackURL: '/__/auth/facebook/return',
-  passReqToCallback: true,
 };
 
 export const AUTH_TWITTER = {
   consumerKey: process.env.TWITTER_KEY || '...',
   consumerSecret: process.env.TWITTER_SECRET || '...',
-  callbackURL: '/__/auth/twitter/return',
-  includeEmail: true,
-  includeStatus: false,
-  passReqToCallback: true,
 };

@@ -34,7 +34,11 @@ passport.use(new JWTStrategy(
 ));
 
 passport.use(new GoogleStrategy(
-  AUTH_GOOGLE,
+  {
+    ...AUTH_GOOGLE,
+    callbackURL: '/__/auth/google/return',
+    passReqToCallback: true,
+  },
   (accessToken, refreshToken, profile, done) => {
     User.findOne({ 'google.id': profile.id }, (err, user) => {
       if (err) return done(err);
@@ -56,7 +60,12 @@ passport.use(new GoogleStrategy(
 ));
 
 // passport.use(new FacebookStrategy(
-//   AUTH_FACEBOOK,
+//   {
+//     ...AUTH_FACEBOOK,
+//     profileFields: ['id', 'cover', 'name', 'age_range', 'link', 'gender', 'locale', 'picture', 'timezone', 'updated_time', 'verified', 'email'],
+//     callbackURL: '/__/auth/facebook/return',
+//     passReqToCallback: true,
+//   },
 //   (accessToken, refreshToken, profile, done) => {
 //     const newUser = new User({
 //       name: profile.displayName,
@@ -77,7 +86,13 @@ passport.use(new GoogleStrategy(
 // ));
 
 // passport.use(new TwitterStrategy(
-//   AUTH_TWITTER,
+//   {
+//     ...AUTH_TWITTER,
+//     callbackURL: '/__/auth/twitter/return',
+//     includeEmail: true,
+//     includeStatus: false,
+//     passReqToCallback: true,
+//   },
 //   (accessToken, tokenSecret, profile, done) => {
 //     const newUser = new User({
 //       name: profile.displayName,
