@@ -1,13 +1,11 @@
-// @flow
+import { Router } from 'express';
 
-import { Router, $Request, $Response } from 'express';
-
-const router: Router = Router();
+const router = Router();
 
 /**
  * @example GET /__/hello-world
  */
-router.get('/', (req: $Request, res: $Response): void => {
+router.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 

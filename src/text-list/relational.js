@@ -1,5 +1,3 @@
-// @flow
-
 import Sequelize from 'sequelize';
 
 import sequelize from '~/core/sequelize';

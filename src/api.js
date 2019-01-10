@@ -1,7 +1,5 @@
-// @flow
-
 import { join } from 'path';
-import express, { type $Application } from 'express';
+import express from 'express';
 import compression from 'compression';
 import helmet from 'helmet';
 import cors from 'cors';
@@ -25,7 +23,7 @@ import {
   SENTRY_DSN, STATIC_FILES, RENDERTRON_URL,
 } from './env';
 
-const app: $Application = express();
+const app = express();
 
 if (NODE_ENV === 'production') Raven.config(SENTRY_DSN).install();
 
@@ -38,7 +36,13 @@ app.use(cors());
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(session({ store: new (connectRedis(session))({ client }), secret: SECRET }));
+app.use(session({
+  store: new (connectRedis(session))({ client }),
+  name: 'sid',
+  resave: true,
+  saveUninitialized: true,
+  secret: SECRET,
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -75,7 +79,7 @@ if (STATIC_FILES) {
 /**
  * @name api-server
  */
-const server = app.listen(Number(PORT), HOST, (): void => {
+const server = app.listen(Number(PORT), HOST, () => {
   console.log(chalk.hex('#009688')(' [*] App: Bootstrap Succeeded.'));
   console.log(chalk.hex('#009688')(` [*] Host: http://${HOST}:${PORT}/.`));
 

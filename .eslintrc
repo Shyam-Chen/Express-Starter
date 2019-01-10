@@ -1,7 +1,5 @@
 {
-  "plugins": [
-    "flowtype"
-  ],
+  "plugins": [],
   "env": {
     "node": true,
     "commonjs": true,
@@ -10,8 +8,7 @@
   },
   "globals": {},
   "extends": [
-    "airbnb-base",
-    "plugin:flowtype/recommended"
+    "airbnb-base"
   ],
   "parser": "babel-eslint",
   "parserOptions": {

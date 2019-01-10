@@ -1,6 +1,4 @@
-// @flow
-
-import { Router, type $Request, type $Response } from 'express';
+import { Router } from 'express';
 import { Op } from 'sequelize';  // eslint-disable-line
 import { from } from 'rxjs';  // eslint-disable-line
 import request from 'request-promise';
@@ -8,7 +6,7 @@ import request from 'request-promise';
 import { List } from './document';
 import { RelationalList } from './relational';
 
-const router: Router = Router();
+const router = Router();
 
 /**
  * @name list - get a list
@@ -20,7 +18,7 @@ const router: Router = Router();
  * @example GET /__/text-list?_id=${_id}
  * @example GET /__/text-list?text=${text}
  */
-router.get('/', async (req: $Request, res: $Response) => {
+router.get('/', async (req, res) => {
   const { _id, text } = req.query;
 
   const find = {};
@@ -40,7 +38,7 @@ router.get('/', async (req: $Request, res: $Response) => {
  *
  * @example GET /__/text-list/${id}
  */
-router.get('/item/:id', (req: $Request, res: $Response) => {
+router.get('/item/:id', (req, res) => {
   from(List.find({ _id: req.params.id }).exec())
     .subscribe(data => res.json({ data, message: 'Data obtained.' }));
 });
@@ -51,7 +49,7 @@ router.get('/item/:id', (req: $Request, res: $Response) => {
  *
  * @example GET /__/text-list/count
  */
-router.get('/count', (req: $Request, res: $Response) => {
+router.get('/count', (req, res) => {
   from(List.count().exec())
     .subscribe(data => res.json({ data, message: 'Data obtained.' }));
 });
@@ -64,7 +62,7 @@ router.get('/count', (req: $Request, res: $Response) => {
  *
  * @example GET /__/text-list/pagination?page=${page}&row=${row}
  */
-router.get('/pagination', async (req: $Request, res: $Response) => {
+router.get('/pagination', async (req, res) => {
   const baseUrl = `${req.protocol}://${req.get('host')}${req.baseUrl}`;
 
   const data = [];
@@ -93,7 +91,7 @@ router.get('/pagination', async (req: $Request, res: $Response) => {
  *
  * @example POST /__/text-list { text: ${text} }
  */
-router.post('/', async (req: $Request, res: $Response) => {
+router.post('/', async (req, res) => {
   if (!req.body.text) {
     res.status(400)
       .json({ message: 'Please pass text.' });
@@ -111,7 +109,7 @@ router.post('/', async (req: $Request, res: $Response) => {
  *
  * @example PUT /__/text-list/${id}
  */
-router.put('/:id', async (req: $Request, res: $Response) => {
+router.put('/:id', async (req, res) => {
   const message = await List
     .findOneAndUpdate({ _id: req.params.id }, req.body)
     .then(() => 'List updated');
@@ -125,7 +123,7 @@ router.put('/:id', async (req: $Request, res: $Response) => {
  *
  * @example DELETE /__/text-list/${id}
  */
-router.delete('/:id', async (req: $Request, res: $Response) => {
+router.delete('/:id', async (req, res) => {
   const message = await List
     .findByIdAndRemove(req.params.id)
     .then(() => 'List deleted');
@@ -139,7 +137,7 @@ router.delete('/:id', async (req: $Request, res: $Response) => {
  *
  * @example DELETE /__/text-list { selected: [${id}, ${id}, ${id}...] }
  */
-router.delete('/', async (req: $Request, res: $Response) => {
+router.delete('/', async (req, res) => {
   const { selected } = req.body;
 
   const message = await List
@@ -161,7 +159,7 @@ router.delete('/', async (req: $Request, res: $Response) => {
  * @example GET /__/text-list/relational?id=${id}
  * @example GET /__/text-list/relational?text=${text}
  */
-router.get('/relational', async (req: $Request, res: $Response) => {
+router.get('/relational', async (req, res) => {
   const { id, text } = req.query;
 
   const find = {};
@@ -180,7 +178,7 @@ router.get('/relational', async (req: $Request, res: $Response) => {
  *
  * @example GET /__/text-list/relational/item/${id}
  */
-router.get('/relational/item/:id', async (req: $Request, res: $Response) => {
+router.get('/relational/item/:id', async (req, res) => {
   const data = await RelationalList.findOne({ where: { id: [req.params.id] } });
   res.json({ data: [data], message: 'Data obtained.' });
 });
@@ -191,7 +189,7 @@ router.get('/relational/item/:id', async (req: $Request, res: $Response) => {
  *
  * @example GET /__/text-list/relational/count
  */
-router.get('/relational/count', async (req: $Request, res: $Response) => {
+router.get('/relational/count', async (req, res) => {
   const data = await RelationalList.count();
   res.json({ data, message: 'Data obtained.' });
 });
@@ -202,7 +200,7 @@ router.get('/relational/count', async (req: $Request, res: $Response) => {
  *
  * @example GET /__/text-list/relational/pagination?page=${page}&row=${row}
  */
-router.get('/relational/pagination', async (req: $Request, res: $Response) => {
+router.get('/relational/pagination', async (req, res) => {
   // TODO: pagination
   // const page = Number(req.query.page) || 1;
   // const row = Number(req.query.row) || 5;
@@ -217,7 +215,7 @@ router.get('/relational/pagination', async (req: $Request, res: $Response) => {
  *
  * @example POST /__/text-list/relational { text: ${text} }
  */
-router.post('/relational', async (req: $Request, res: $Response) => {
+router.post('/relational', async (req, res) => {
   const message = await RelationalList
     .create(req.body)
     .then(() => 'List saved');
@@ -228,7 +226,7 @@ router.post('/relational', async (req: $Request, res: $Response) => {
 /**
  * @name update - update a item
  */
-router.put('/relational/:id', async (req: $Request, res: $Response) => {
+router.put('/relational/:id', async (req, res) => {
   const message = await RelationalList
     .update(
       // TODO: update
@@ -246,7 +244,7 @@ router.put('/relational/:id', async (req: $Request, res: $Response) => {
  *
  * @example DELETE /__/text-list/relational/${id}
  */
-router.delete('/relational/:id', async (req: $Request, res: $Response) => {
+router.delete('/relational/:id', async (req, res) => {
   const message = await RelationalList
     .destroy({ where: { id: req.params.id } })
     .then(() => 'List deleted');
@@ -260,7 +258,7 @@ router.delete('/relational/:id', async (req: $Request, res: $Response) => {
  *
  * @example DELETE /__/text-list/relational { selected: [${id}, ${id}, ${id}...] }
  */
-router.delete('/relational', async (req: $Request, res: $Response) => {
+router.delete('/relational', async (req, res) => {
   // TODO: delete many
   // const { selected } = req.body;
 

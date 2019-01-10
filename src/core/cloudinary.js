@@ -1,5 +1,3 @@
-// @flow
-
 import cloudinary from 'cloudinary';
 
 import { CLOUDINARY_CONFIG } from '~/env';

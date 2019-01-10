@@ -1,5 +1,3 @@
-// @flow
-
 import mongoose from 'mongoose';
 
 import { MONGODB_URI } from '~/env';

@@ -1,6 +1,4 @@
-// @flow
-
-import gql from 'graphql-tag';  // eslint-disable-line
+import gql from 'graphql-tag';
 
 import { List } from './document';
 
@@ -37,7 +35,7 @@ export const listResolvers = {
    * }
    */
   Query: {
-    async list(root: any, { _id, text }: List) {
+    async list(root, { _id, text }) {
       try {
         const find = {};
         if (_id) find._id = { _id };
@@ -65,7 +63,7 @@ export const listResolvers = {
    * }
    */
   Mutation: {
-    async addText(root: any, { text }: List) {
+    async addText(root, { text }) {
       try {
         const list = await new List({ text });
         const data = await list.save();
@@ -74,7 +72,7 @@ export const listResolvers = {
         throw err;
       }
     },
-    async updateText(root: any, { _id, text }: List) {
+    async updateText(root, { _id, text }) {
       try {
         const conditions = { _id };
         const update = { $set: { text } };
@@ -85,7 +83,7 @@ export const listResolvers = {
         throw err;
       }
     },
-    async deleteText(root: any, { _id }: List) {
+    async deleteText(root, { _id }) {
       try {
         const data = await List.findByIdAndRemove(_id);
         return data;

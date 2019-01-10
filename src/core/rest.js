@@ -1,11 +1,9 @@
-// @flow
-
 import { Router } from 'express';
 
 import helloWorld from '~/hello-world/rest';
 import textList from '~/text-list/rest';
 
-const router: Router = Router();
+const router = Router();
 
 router.use('/hello-world', helloWorld);
 router.use('/text-list', textList);

@@ -1,5 +1,3 @@
-// @flow
-
 import mongoose, { Schema } from 'mongoose';
 
 const listSchema = new Schema({

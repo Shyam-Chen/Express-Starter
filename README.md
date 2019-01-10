@@ -8,12 +8,12 @@
 [![Dependency Status](https://img.shields.io/david/Shyam-Chen/Backend-Starter-Kit.svg)](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit)
 [![devDependency Status](https://img.shields.io/david/dev/Shyam-Chen/Backend-Starter-Kit.svg)](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit?type=dev)
 
-[Live Demo](https://web-go-demo.herokuapp.com/)
+:rainbow: [Live Demo](https://web-go-demo.herokuapp.com/)
 
 This seed repository provides the following features:
 
 * ---------- **Essentials** ----------
-* [x] API routing with [**Express**](http://expressjs.com/).
+* [x] Application routing with [**Express**](http://expressjs.com/).
 * [x] Data query language with [**GraphQL**](http://graphql.org/).
 * [x] Object document mapping with [**Mongoose**](http://mongoosejs.com/).
 * [x] Object relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
@@ -26,7 +26,6 @@ This seed repository provides the following features:
 * ---------- **Tools** ----------
 * [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
 * [x] JavaScript static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
-* [x] Type annotations with [**Flow**](https://github.com/facebook/flow).
 * [x] Testing platform with [**Jest**](https://github.com/facebook/jest).
 * [x] HTTP testing with [**Supertest**](https://github.com/visionmedia/supertest).
 * [x] Test coverage integration with [**Codecov**](https://codecov.io/).
@@ -40,8 +39,8 @@ This seed repository provides the following features:
 * [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
 * [x] Cloud NoSQL database hosting with [**mLab**](https://mlab.com/).
 * [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
-* [x] Cloud Storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
+* [x] Cloud Storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
 * [x] Monitoring service with [**UptimeRobot**](https://uptimerobot.com/).
 * [x] Log management service with [**Papertrail**](https://papertrailapp.com/).
 * [x] Performance and security with [**Cloudflare**](https://www.cloudflare.com/).
@@ -81,7 +80,7 @@ $ cd <PROJECT_NAME>
 2. Install dependencies
 
 ```bash
-$ yarn install && yarn typed
+$ yarn install
 ```
 
 3. Start a local server
@@ -149,7 +148,6 @@ $ docker-compose up -d --build api
 
   .DS_Store
   node_modules
-  npm
   dist
   coverage
 + dev.Dockerfile
@@ -195,12 +193,21 @@ Set your local environment variables.
 
 ```js
 // src/env.js
-export const SECRET = process.env.SECRET || <PUT_YOUR_SECRET_HERE>;
-export const MONGODB_URI = process.env.MONGODB_URI || <PUT_YOUR_MONGODB_URI_HERE>;
-export const POSTGRES_URL = process.env.POSTGRES_URL || <PUT_YOUR_POSTGRES_URL_HERE>;
-export const REDIS_PORT = process.env.REDIS_PORT || <PUT_YOUR_REDIS_PORT_HERE>;
-export const REDIS_HOST = process.env.REDIS_HOST || <PUT_YOUR_REDIS_HOST_HERE>;
-export const SENTRY_DSN = process.env.SENTRY_DSN || <PUT_YOUR_SENTRY_DSN_HERE>;
+
+export const NODE_ENV = process.env.NODE_ENV || 'development';
+
+export const HOST = process.env.HOST || '0.0.0.0';
+export const PORT = process.env.PORT || 3000;
+
+export const SECRET = process.env.SECRET || 'PUT_YOUR_SECRET_HERE';
+
+export const MONGODB_URI = process.env.MONGODB_URI || '<PUT_YOUR_MONGODB_URI_HERE>';
+export const POSTGRES_URL = process.env.POSTGRES_URL || 'PUT_YOUR_POSTGRES_URL_HERE';
+
+export const REDIS_PORT = process.env.REDIS_PORT || '<PUT_YOUR_REDIS_PORT_HERE>';
+export const REDIS_HOST = process.env.REDIS_HOST || '<PUT_YOUR_REDIS_HOST_HERE>';
+
+// ...
 ```
 
 ### Deployment environments
@@ -208,13 +215,19 @@ export const SENTRY_DSN = process.env.SENTRY_DSN || <PUT_YOUR_SENTRY_DSN_HERE>;
 Set your deployment environment variables.
 
 ```dockerfile
-# <dev|stage|prod>.Dockerfile
+# tools/<dev|stage|prod>.Dockerfile
+
+# envs --
 ENV SECRET <PUT_YOUR_SECRET_HERE>
+
 ENV MONGODB_URI <PUT_YOUR_MONGODB_URI>
 ENV POSTGRES_URL <PUT_YOUR_POSTGRES_URL_HERE>
+
 ENV REDIS_PORT <PUT_YOUR_REDIS_PORT_HERE>
 ENV REDIS_HOST <PUT_YOUR_REDIS_HOST_HERE>
-ENV SENTRY_DSN <PUT_YOUR_SENTRY_DSN_HERE>
+
+# ...
+# -- envs
 ```
 
 ## Using Libraries
@@ -224,17 +237,13 @@ ENV SENTRY_DSN <PUT_YOUR_SENTRY_DSN_HERE>
 ```js
 import { Router } from 'express';
 
-import document from '~/document';
+import { List } from './document';
 
 const router = Router();
 
-router.get('/', async (req, res, next) => {
-  try {
-    const data = await document.List.find({}).exec();
-    res.json(data);
-  } catch (err) {
-    next(err);
-  }
+router.get('/', async (req, res) => {
+  const data = await List.find({}).exec();
+  res.json(data);
 });
 
 export default router;
@@ -245,7 +254,7 @@ export default router;
 ```js
 import gql from 'graphql-tag';
 
-import document from '~/document';
+import { List } from './document';
 
 export const listTypeDefs = gql`
   type List {
@@ -260,23 +269,21 @@ export const listTypeDefs = gql`
 
 export const listResolvers = {
   Query: {
-    async list(root, { text }) {
+    async list(root, { _id, text }) {
       try {
-        const data = await document.List.find({}).exec();
+        const data = await List.find({}).exec();
         return data;
       } catch (err) {
-        console.error(err);
+        throw err;
       }
-    }
-  }
+    },
+  },
 };
 ```
 
 3. Example of Document
 
 ```js
-// @flow
-
 import mongoose, { Schema } from 'mongoose';
 
 const listSchema = new Schema({
@@ -287,7 +294,6 @@ const listSchema = new Schema({
 });
 
 export const List = mongoose.model('List', listSchema);
-
 ```
 
 4. Example of Relational
@@ -340,7 +346,7 @@ io.on('B', data => console.log(data));  // { foo: 'baz' }
 ```
 
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
 <script>
 const socket = io();
 
@@ -400,7 +406,6 @@ The structure follows the LIFT Guidelines.
 ├── .babelrc
 ├── .editorconfig
 ├── .eslintrc
-├── .flowconfig
 ├── .gitignore
 ├── Dockerfile
 ├── LICENSE

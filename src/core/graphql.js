@@ -1,5 +1,3 @@
-// @flow
-
 import { ApolloServer } from 'apollo-server-express';
 import { mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
 

@@ -10,7 +10,6 @@ module.exports = {
   testEnvironment: 'node',
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',
-    '<rootDir>/.flow-typed/',
     process.env.JEST_ENV === 'e2e' ? '.*\\.spec.js$' : '.*\\.e2e-spec.js$',
   ],
   testURL: 'http://localhost/',
