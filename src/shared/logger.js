@@ -1,5 +1,7 @@
 import winston from 'winston';
 
+import { NODE_ENV } from '~/env';
+
 const logger = winston.createLogger({
   level: 'info',
   format: winston.format.json(),
@@ -9,7 +11,7 @@ const logger = winston.createLogger({
   ],
 });
 
-if (process.env.NODE_ENV !== 'production') {
+if (NODE_ENV !== 'production') {
   logger.debug('Logging initialized at debug level');
 }
 

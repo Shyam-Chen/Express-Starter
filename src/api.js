@@ -20,11 +20,14 @@ import sequelize from '~/core/sequelize';
 import passport from '~/core/passport';
 import { client } from '~/core/redis';
 
-import { PORT, HOST, SECRET, SENTRY_DSN, RENDERTRON_URL } from './env';
+import {
+  NODE_ENV, PORT, HOST, SECRET,
+  SENTRY_DSN, STATIC_FILES, RENDERTRON_URL,
+} from './env';
 
 const app: $Application = express();
 
-if (process.env.NODE_ENV === 'production') Raven.config(SENTRY_DSN).install();
+if (NODE_ENV === 'production') Raven.config(SENTRY_DSN).install();
 
 /**
  * @name middleware-functions
@@ -39,7 +42,7 @@ app.use(session({ store: new (connectRedis(session))({ client }), secret: SECRET
 app.use(passport.initialize());
 app.use(passport.session());
 
-if (process.env.NODE_ENV === 'production') app.use(Raven.requestHandler());
+if (NODE_ENV === 'production') app.use(Raven.requestHandler());
 
 /**
  * @name REST
@@ -51,13 +54,13 @@ app.use('/__', routes);
  */
 apolloServer.applyMiddleware({ app, path: '/__/graphql' });
 
-if (process.env.NODE_ENV === 'production') app.use(Raven.errorHandler());
+if (NODE_ENV === 'production') app.use(Raven.errorHandler());
 
 /**
  * @name static-files
  */
-if (process.env.STATIC_FILES) {
-  const root = join(__dirname, `../${process.env.STATIC_FILES}`);
+if (STATIC_FILES) {
+  const root = join(__dirname, `../${STATIC_FILES}`);
 
   // seo friendly
   app.use(rendertron.makeMiddleware({ proxyUrl: RENDERTRON_URL }));
