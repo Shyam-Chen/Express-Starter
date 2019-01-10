@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { Op } from 'sequelize';  // eslint-disable-line
-import { from } from 'rxjs';  // eslint-disable-line
+import { Op } from 'sequelize';
+import { from } from 'rxjs';
 import request from 'request-promise';
 
 import { List } from './document';
