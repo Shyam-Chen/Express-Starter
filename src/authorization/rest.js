@@ -8,13 +8,18 @@ import { User } from './document';
 
 const router = Router();
 
+// router.post('/register', (req, res, next) => {
+//   const { name, email, password } = req.body;
+//   const user = new User(req.body);
+// });
+
 router.post('/login', (req, res, next) => {
   const { email, password } = req.body;
 
   User.findOne({ email }, (err, user) => {
     if (!user) next(err);
 
-    user.comparePassword(password, (passwordError, isMatch) => {
+    user.validPassword(password, (passwordError, isMatch) => {
       if (!isMatch) next(passwordError);
 
       const token = jwt.sign({ user }, SECRET);
@@ -34,15 +39,6 @@ router.get('/users/count', (req, res, next) => {
   User.count((err, count) => {
     if (err) next(err);
     res.json(count);
-  });
-});
-
-router.post('/user', (req, res, next) => {
-  const user = new User(req.body);
-
-  user.save((err, item) => {
-    if (err) next(err);
-    res.json(item);
   });
 });
 
