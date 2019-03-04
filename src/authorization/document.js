@@ -6,7 +6,12 @@ const userSchema = new Schema({
   email: String,
   password: String,
   role: String,
-  permission: [String],
+  permission: [
+    {
+      modules: [String],
+      operations: [String],
+    },
+  ],
 });
 
 userSchema.methods = {
@@ -14,7 +19,7 @@ userSchema.methods = {
     bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
   },
   validPassword(password) {
-    bcrypt.compareSync(password, userSchema.jwt.password);
+    bcrypt.compareSync(password, userSchema.password);
   },
 };
 
