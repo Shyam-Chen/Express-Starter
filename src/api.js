@@ -16,7 +16,7 @@ import apolloServer from '~/core/graphql';
 import mongoose from '~/core/mongoose';
 import sequelize from '~/core/sequelize';
 import passport from '~/core/passport';
-import { client } from '~/core/redis';
+import redis from '~/core/redis';
 
 import {
   NODE_ENV, PORT, HOST, SECRET,
@@ -37,7 +37,7 @@ app.use(morgan('tiny'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(session({
-  store: new (connectRedis(session))({ client }),
+  store: new (connectRedis(session))({ client: redis }),
   name: 'sid',
   resave: true,
   saveUninitialized: true,

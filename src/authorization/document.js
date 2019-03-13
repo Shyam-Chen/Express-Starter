@@ -8,7 +8,7 @@ const userSchema = new Schema({
   role: String,
   permission: [
     {
-      modules: [String],
+      module: String,
       operations: [String],
     },
   ],

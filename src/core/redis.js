@@ -1,9 +1,11 @@
-import redis from 'redis';
+import Redis from 'ioredis';
 import chalk from 'chalk';
 
-import { REDIS_PORT, REDIS_HOST } from '~/env';
+import { REDIS_URL } from '~/env';
 
-export const client = redis.createClient(REDIS_PORT, REDIS_HOST);
+const redis = new Redis(REDIS_URL);
 
-client.on('connect', () => console.log(chalk.hex('#009688')(' [*] Redis: Connection Succeeded.')));
-client.on('error', err => console.error(err));
+redis.on('connect', () => console.log(chalk.hex('#009688')(' [*] Redis: Connection Succeeded.')));
+redis.on('error', err => console.error(err));
+
+export default redis;

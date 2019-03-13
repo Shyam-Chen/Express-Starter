@@ -41,7 +41,7 @@ This seed repository provides the following features:
 * [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 * [x] Cloud Storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
-* [x] Monitoring service with [**UptimeRobot**](https://uptimerobot.com/).
+* [x] Monitoring service with [**Librato**](https://www.librato.com/).
 * [x] Log management service with [**Papertrail**](https://papertrailapp.com/).
 * [x] Performance and security with [**Cloudflare**](https://www.cloudflare.com/).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
@@ -362,15 +362,15 @@ socket.on('A', (data) => {
 8. Example of Redis
 
 ```js
-import { client } from '~/core/redis';
+import redis from '~/core/redis';
 
-client.hmset('thing', {
+redis.hmset('thing', {
   foo: 'js',
   bar: 'html',
   baz: 'css',
 });
 
-client.hgetall('thing', (err, object) => {
+redis.hgetall('thing', (err, object) => {
   console.log(object);
 });
 ```

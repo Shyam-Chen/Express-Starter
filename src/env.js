@@ -3,13 +3,11 @@ export const NODE_ENV = process.env.NODE_ENV || 'development';
 export const HOST = process.env.HOST || '0.0.0.0';
 export const PORT = process.env.PORT || 3000;
 
-export const SECRET = process.env.SECRET || 'webgo';
+export const SECRET = process.env.SECRET || 'jbmpHPLoaV8N0nEpuLxlpT95FYakMPiu';
 
 export const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://web-go-user:web-go-user@ds133961.mlab.com:33961/web-go-demo';
 export const POSTGRES_URL = process.env.POSTGRES_URL || 'postgres://ymuxoegt:ONfBcCQylth3boOdUE2EkcZbC2OAbtcm@tantor.db.elephantsql.com:5432/ymuxoegt';
-
-export const REDIS_PORT = process.env.REDIS_PORT || 17929;
-export const REDIS_HOST = process.env.REDIS_HOST || 'redis-17929.c1.us-central1-2.gce.cloud.redislabs.com';
+export const REDIS_URL = process.env.REDIS_URL || 'redis://redis-17929.c1.us-central1-2.gce.cloud.redislabs.com:17929';
 
 export const CLOUDINARY_CONFIG = {
   cloud_name: process.env.CLOUDINARY_NAME || 'sample',
