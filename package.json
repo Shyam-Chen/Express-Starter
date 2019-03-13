@@ -67,7 +67,6 @@
     "rxjs": "6.4.0",
     "sequelize": "4.43.0",
     "socket.io": "2.2.0",
-    "socket.io-redis": "5.2.0",
     "winston": "3.2.1"
   },
   "devDependencies": {
