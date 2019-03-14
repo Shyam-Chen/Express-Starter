@@ -1,5 +1,7 @@
 import { join } from 'path';
+import http from 'http';
 import express from 'express';
+import socket from 'socket.io';
 import compression from 'compression';
 import helmet from 'helmet';
 import cors from 'cors';
@@ -24,6 +26,8 @@ import {
 } from './env';
 
 const app = express();
+const server = http.Server(app);
+const io = socket(server);
 
 if (NODE_ENV === 'production') Raven.config(SENTRY_DSN).install();
 
@@ -45,6 +49,8 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+io.origins(['*:*']);
 
 if (NODE_ENV === 'production') app.use(Raven.requestHandler());
 
@@ -79,7 +85,7 @@ if (STATIC_FILES) {
 /**
  * @name api-server
  */
-const server = app.listen(Number(PORT), HOST, () => {
+server.listen(Number(PORT), HOST, () => {
   console.log(chalk.hex('#009688')(' [*] App: Bootstrap Succeeded.'));
   console.log(chalk.hex('#009688')(` [*] Host: http://${HOST}:${PORT}/.`));
 
@@ -89,6 +95,12 @@ const server = app.listen(Number(PORT), HOST, () => {
   sequelize.authenticate()
     .then(() => console.log(chalk.hex('#009688')(' [*] Postgres: Connection Succeeded.')))
     .catch(err => console.error(err));
+});
+
+
+io.on('connection', (connSocket) => {
+  console.log(chalk.hex('#009688')(' [*] Socket: Connection Succeeded.'));
+  connSocket.on('disconnect', () => console.log(chalk.hex('#009688')(' [*] Socket: Disconnected.')));
 });
 
 export default server;

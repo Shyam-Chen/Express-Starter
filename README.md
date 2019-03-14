@@ -339,18 +339,16 @@ timer(2000)
 7. Example of Socket
 
 ```js
-import { io } from '~/core/socket';
-
-io.emit('A', { foo: 'bar' });
-io.on('B', data => console.log(data));  // { foo: 'baz' }
+connSocket.emit('A', { foo: 'bar' });
+connSocket.on('B', data => console.log(data));  // { foo: 'baz' }
 ```
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
 <script>
-const socket = io();
+const socket = io('http://localhost:3000/');
 
-socket.on('connect', () => console.log('WS: Accept a connection.'));
+socket.on('connect', () => console.log('Socket: Accept a connection.'));
 
 socket.on('A', (data) => {
   console.log(data);  // { foo: 'bar' }
