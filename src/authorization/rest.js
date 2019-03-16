@@ -48,4 +48,10 @@ router.get('/protected', passport.authenticate('jwt', { session: false }), (req,
   res.status(200).json({ user });
 });
 
+router.get('/', async (req, res) => {
+  const data = await User.find({}).exec();
+
+  res.json({ data, message: 'Data obtained.' });
+});
+
 export default router;

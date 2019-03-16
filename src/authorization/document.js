@@ -3,10 +3,8 @@ import mongoose, { Schema } from 'mongoose';
 const userSchema = new Schema({
   username: {
     type: String,
-    index: true,
-    unique: true,
-    dropDups: true,
     required: true,
+    unique: true,
   },
   password: {
     type: String,
