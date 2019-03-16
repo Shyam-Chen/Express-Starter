@@ -1,113 +1,43 @@
 import passport from 'passport';
-import { Strategy as JWTStrategy, ExtractJwt } from 'passport-jwt';
-import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
-// import { Strategy as FacebookStrategy } from 'passport-facebook';
-// import { Strategy as TwitterStrategy } from 'passport-twitter';
+import bcrypt from 'bcrypt';
+import { Strategy as LocalStrategy } from 'passport-local';
+import { Strategy as JWTStrategy } from 'passport-jwt';
 
-import { SECRET, AUTH_GOOGLE } from '~/env';
-// import { SECRET, AUTH_GOOGLE, AUTH_FACEBOOK, AUTH_TWITTER } from '~/env';
+import { SECRET } from '~/env';
 import { User } from '~/authorization/document';
 
-passport.serializeUser((user, done) => {
-  done(null, user._id);
-});
+passport.use(new LocalStrategy(async (username, password, done) => {
+  try {
+    const user = await User.findOne({ username }).exec();
+    const passwordsMatch = await bcrypt.compare(password, user.password);
 
-passport.deserializeUser((id, done) => {
-  User.findById(id, (err, user) => {
-    done(err, user);
-  });
-});
+    if (passwordsMatch) {
+      return done(null, user);
+    }
+
+    return done('Incorrect Username / Password');
+  } catch (error) {
+    return done(error);
+  }
+}));
 
 passport.use(new JWTStrategy(
   {
-    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+    jwtFromRequest(req) {
+      let token = null;
+      if (req && req.cookies) token = req.cookies.jwt;
+      return token;
+    },
     secretOrKey: SECRET,
   },
-  (jwtPayload, done) => {
-    User.findOneById(jwtPayload.id, (err, user) => {
-      if (err) return done(err);
-      return done(null, user);
-    });
+  async (jwtPayload, done) => {
+    try {
+      if (Date.now() > jwtPayload.expires) return done('Token expired');
+      return done(null, jwtPayload);
+    } catch (error) {
+      return done(error);
+    }
   },
 ));
-
-passport.use(new GoogleStrategy(
-  {
-    ...AUTH_GOOGLE,
-    callbackURL: '/__/auth/google/return',
-    passReqToCallback: true,
-  },
-  (accessToken, refreshToken, profile, done) => {
-    User.findOne({ 'google.id': profile.id }, (err, user) => {
-      if (err) return done(err);
-      if (user) return done(null, user);
-
-      const newUser = new User({
-        name: profile.displayName,
-        email: profile.emails[0].value,
-      });
-
-      newUser.save((errSave) => {
-        if (errSave) throw done(errSave);
-        return done(null, newUser);
-      });
-
-      return newUser;
-    });
-  },
-));
-
-// passport.use(new FacebookStrategy(
-//   {
-//     ...AUTH_FACEBOOK,
-//     profileFields: ['id', 'cover', 'name', 'age_range', 'link', 'gender', 'locale', 'picture', 'timezone', 'updated_time', 'verified', 'email'],
-//     callbackURL: '/__/auth/facebook/return',
-//     passReqToCallback: true,
-//   },
-//   (accessToken, refreshToken, profile, done) => {
-//     const newUser = new User({
-//       name: profile.displayName,
-//       email: profile.emails[0].value,
-//     });
-
-//     newUser.findOne({ email: newUser.email }, (err, user) => {
-//       if (!user) {
-//         newUser.save((errSave, me) => {
-//           if (errSave) return done(errSave);
-//           return done(null, me);
-//         });
-//       } else {
-//         done(null, user);
-//       }
-//     });
-//   },
-// ));
-
-// passport.use(new TwitterStrategy(
-//   {
-//     ...AUTH_TWITTER,
-//     callbackURL: '/__/auth/twitter/return',
-//     includeEmail: true,
-//     includeStatus: false,
-//     passReqToCallback: true,
-//   },
-//   (accessToken, tokenSecret, profile, done) => {
-//     const newUser = new User({
-//       name: profile.displayName,
-//       email: profile.emails[0].value,
-//     });
-
-//     newUser.findOne({ email: newUser.email }, (err, user) => {
-//       if (!user) {
-//         newUser.save((errSave, me) => {
-//           if (errSave) return done(errSave);
-//           return done(null, me);
-//         });
-//       } else {
-//         done(null, user);
-//       }
-//     });
-//   },
-// ));
 
 export default passport;
