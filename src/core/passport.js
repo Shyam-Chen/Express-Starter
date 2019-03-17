@@ -1,7 +1,7 @@
 import passport from 'passport';
 import bcrypt from 'bcrypt';
 import { Strategy as LocalStrategy } from 'passport-local';
-import { Strategy as JWTStrategy } from 'passport-jwt';
+import { Strategy as JWTStrategy, ExtractJwt } from 'passport-jwt';
 
 import { SECRET } from '~/env';
 import { User } from '~/authorization/document';
@@ -23,17 +23,15 @@ passport.use(new LocalStrategy(async (username, password, done) => {
 
 passport.use(new JWTStrategy(
   {
-    jwtFromRequest(req) {
-      let token = null;
-      if (req && req.cookies) token = req.cookies.jwt;
-      return token;
-    },
+    jwtFromRequest: ExtractJwt.fromHeader('token'),
     secretOrKey: SECRET,
   },
   async (jwtPayload, done) => {
     try {
+      const user = await User.findOne({ username: jwtPayload.username }).exec();
+
       if (Date.now() > jwtPayload.expires) return done('Token expired');
-      return done(null, jwtPayload);
+      return done(null, user);
     } catch (error) {
       return done(error);
     }

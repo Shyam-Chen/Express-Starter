@@ -36,13 +36,12 @@ router.post('/login', (req, res) => {
 
       const token = jwt.sign(JSON.stringify(payload), SECRET);
 
-      res.cookie('jwt', jwt, { httpOnly: true, secure: true });
       res.status(200).json({ username: user.username, token });
     });
   })(req, res);
 });
 
-router.get('/protected', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.get('/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
   const { user } = req;
 
   res.status(200).json({ user });
