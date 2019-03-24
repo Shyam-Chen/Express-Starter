@@ -28,9 +28,9 @@ passport.use(new JWTStrategy(
   },
   async (jwtPayload, done) => {
     try {
-      const user = await User.findOne({ username: jwtPayload.username }).exec();
-
       if (Date.now() > jwtPayload.expires) return done('Token expired');
+
+      const user = await User.findOne({ username: jwtPayload.username }).exec();
       return done(null, user);
     } catch (error) {
       return done(error);

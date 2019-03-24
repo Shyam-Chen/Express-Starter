@@ -9,6 +9,12 @@ import { User } from './document';
 
 const router = Router();
 
+/**
+ * @name register - Register an account
+ * @return {Object<{ username: string, message: string }>}
+ *
+ * @example POST /__/authorization/register { username: ${username}, password: ${password} }
+ */
 router.post('/register', async (req, res) => {
   const { username, password } = req.body;
 
@@ -16,12 +22,18 @@ router.post('/register', async (req, res) => {
     const passwordHash = await bcrypt.hash(password, 10);
     const user = new User({ username, password: passwordHash });
     await user.save();
-    res.status(200).json({ username });
+    res.status(200).json({ username, message: '' });
   } catch (error) {
     res.status(400).json({ error });
   }
 });
 
+/**
+ * @name login - get user token
+ * @return {Object<{ username: string, token: string, message: string }>}
+ *
+ * @example POST /__/authorization/login { username: ${username}, password: ${password} }
+ */
 router.post('/login', (req, res) => {
   passport.authenticate('local', { session: false }, (error, user) => {
     if (error || !user) res.status(400).json({ error });
@@ -36,21 +48,20 @@ router.post('/login', (req, res) => {
 
       const token = jwt.sign(JSON.stringify(payload), SECRET);
 
-      res.status(200).json({ username: user.username, token });
+      res.status(200).json({ username: user.username, token, message: '' });
     });
   })(req, res);
 });
 
+/**
+ * @name profile - User profile
+ *
+ * @example GET /__/authorization/profile Header { token: ${token} }
+ */
 router.get('/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
   const { user } = req;
 
   res.status(200).json({ user });
-});
-
-router.get('/', async (req, res) => {
-  const data = await User.find({}).exec();
-
-  res.json({ data, message: 'Data obtained.' });
 });
 
 export default router;
