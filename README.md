@@ -20,22 +20,22 @@ This seed repository provides the following features:
 * [x] Utility functions with [**Lodash**](https://lodash.com/).
 * [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
 * [x] Authenticate requests with [**Passport**](http://passportjs.org/).
-* [x] Real-time bidirectional communication with [**Socket**](https://socket.io/).
+* [x] Real-time bidirectional communication with [**Socket.IO**](https://socket.io/).
 * [x] In-memory data structure store with [**Redis**](https://redis.io/).
 * [x] Machine learning with [**TensorFlow**](https://js.tensorflow.org/).
 * ---------- **Tools** ----------
 * [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
 * [x] JavaScript static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
-* [x] Testing platform with [**Jest**](https://github.com/facebook/jest).
-* [x] HTTP testing with [**Supertest**](https://github.com/visionmedia/supertest).
+* [x] Unit testing with [**Jest**](https://github.com/facebook/jest).
+* [x] End-to-End testing with [**Supertest**](https://github.com/visionmedia/supertest).
 * [x] Test coverage integration with [**Codecov**](https://codecov.io/).
 * [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
 * [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
 * ---------- **Environments** ----------
-* [x] Server-side platform with [**Node**](https://nodejs.org/).
+* [x] JavaScript runtime with [**Node.js**](https://nodejs.org/).
+* [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
 * [x] Version control with [**Git**](https://github.com/git/git).
 * [x] Code repository with [**GitHub**](https://github.com/).
-* [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
 * [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
 * [x] Cloud NoSQL database hosting with [**mLab**](https://mlab.com/).
 * [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
