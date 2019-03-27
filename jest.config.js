@@ -6,7 +6,7 @@ module.exports = {
   moduleNameMapper: {
     '~(.*)': '<rootDir>/src$1',
   },
-  setupTestFrameworkScriptFile: '<rootDir>/tools/setup-test.js',
+  setupFilesAfterEnv: ['<rootDir>/tools/setup-test.js'],
   testEnvironment: 'node',
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',

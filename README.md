@@ -104,7 +104,7 @@ $ yarn lint
 6. Run the unit tests
 
 ```bash
-$ yarn test
+$ yarn unit
 ```
 
 7. Run the end-to-end tests
