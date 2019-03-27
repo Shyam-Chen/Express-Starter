@@ -14,9 +14,9 @@ const router = Router();
  * @param {string} [text] - search for text in list
  * @return {Object<{ data: List[], message: string }>}
  *
- * @example GET /__/text-list
- * @example GET /__/text-list?_id=${_id}
- * @example GET /__/text-list?text=${text}
+ * @example GET /__/crud-operations
+ * @example GET /__/crud-operations?_id=${_id}
+ * @example GET /__/crud-operations?text=${text}
  */
 router.get('/', async (req, res) => {
   const { _id, text } = req.query;
@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
  * @param {string} id - get a item by ID
  * @return {Object<{ data: List[], message: string }>}
  *
- * @example GET /__/text-list/${id}
+ * @example GET /__/crud-operations/${id}
  */
 router.get('/item/:id', (req, res) => {
   from(List.find({ _id: req.params.id }).exec())
@@ -47,7 +47,7 @@ router.get('/item/:id', (req, res) => {
  * @name count - get a list length
  * @return {Object<{ data: number, message: string }>}
  *
- * @example GET /__/text-list/count
+ * @example GET /__/crud-operations/count
  */
 router.get('/count', (req, res) => {
   from(List.count().exec())
@@ -60,7 +60,7 @@ router.get('/count', (req, res) => {
  * @param {number} [row=5] - rows per page
  * @return {Object<{ data: List[], message: string }>}
  *
- * @example GET /__/text-list/pagination?page=${page}&row=${row}
+ * @example GET /__/crud-operations/pagination?page=${page}&row=${row}
  */
 router.get('/pagination', async (req, res) => {
   const baseUrl = `${req.protocol}://${req.get('host')}${req.baseUrl}`;
@@ -89,7 +89,7 @@ router.get('/pagination', async (req, res) => {
  * @name create - create a item
  * @return {Object<{ message: string }>}
  *
- * @example POST /__/text-list { text: ${text} }
+ * @example POST /__/crud-operations { text: ${text} }
  */
 router.post('/', async (req, res) => {
   if (!req.body.text) {
@@ -107,7 +107,7 @@ router.post('/', async (req, res) => {
  * @name update - update a item
  * @return {Object<{ message: string }>}
  *
- * @example PUT /__/text-list/${id}
+ * @example PUT /__/crud-operations/${id}
  */
 router.put('/:id', async (req, res) => {
   const message = await List
@@ -121,7 +121,7 @@ router.put('/:id', async (req, res) => {
  * @name delete - remove a item
  * @return {Object<{ message: string }>}
  *
- * @example DELETE /__/text-list/${id}
+ * @example DELETE /__/crud-operations/${id}
  */
 router.delete('/:id', async (req, res) => {
   const message = await List
@@ -135,7 +135,7 @@ router.delete('/:id', async (req, res) => {
  * @name delete-multiple - remove selected items
  * @return {Object<{ message: string }>}
  *
- * @example DELETE /__/text-list { selected: [${id}, ${id}, ${id}...] }
+ * @example DELETE /__/crud-operations { selected: [${id}, ${id}, ${id}...] }
  */
 router.delete('/', async (req, res) => {
   const { selected } = req.body;
@@ -155,9 +155,9 @@ router.delete('/', async (req, res) => {
  * @param {string} [text] - search for text in list
  * @return {Object<{ data: RelationalList[] }>}
  *
- * @example GET /__/text-list/relational
- * @example GET /__/text-list/relational?id=${id}
- * @example GET /__/text-list/relational?text=${text}
+ * @example GET /__/crud-operations/relational
+ * @example GET /__/crud-operations/relational?id=${id}
+ * @example GET /__/crud-operations/relational?text=${text}
  */
 router.get('/relational', async (req, res) => {
   const { id, text } = req.query;
@@ -176,7 +176,7 @@ router.get('/relational', async (req, res) => {
  * @param {string} id - get a item by ID
  * @return {Object<{ data: RelationalList[], message: string }>}
  *
- * @example GET /__/text-list/relational/item/${id}
+ * @example GET /__/crud-operations/relational/item/${id}
  */
 router.get('/relational/item/:id', async (req, res) => {
   const data = await RelationalList.findOne({ where: { id: [req.params.id] } });
@@ -187,7 +187,7 @@ router.get('/relational/item/:id', async (req, res) => {
  * @name count - get a list length
  * @return {Object<{ data: number, message: string }>}
  *
- * @example GET /__/text-list/relational/count
+ * @example GET /__/crud-operations/relational/count
  */
 router.get('/relational/count', async (req, res) => {
   const data = await RelationalList.count();
@@ -198,7 +198,7 @@ router.get('/relational/count', async (req, res) => {
  * @name pagination - get a list of paging
  * @return {Object<{ data: List[], message: string }>}
  *
- * @example GET /__/text-list/relational/pagination?page=${page}&row=${row}
+ * @example GET /__/crud-operations/relational/pagination?page=${page}&row=${row}
  */
 router.get('/relational/pagination', async (req, res) => {
   // TODO: pagination
@@ -213,7 +213,7 @@ router.get('/relational/pagination', async (req, res) => {
  * @name create - create a item
  * @return {Object<{ message: string }>}
  *
- * @example POST /__/text-list/relational { text: ${text} }
+ * @example POST /__/crud-operations/relational { text: ${text} }
  */
 router.post('/relational', async (req, res) => {
   const message = await RelationalList
@@ -242,7 +242,7 @@ router.put('/relational/:id', async (req, res) => {
  * @name delete - remove a item
  * @return {Object<{ message: string }>}
  *
- * @example DELETE /__/text-list/relational/${id}
+ * @example DELETE /__/crud-operations/relational/${id}
  */
 router.delete('/relational/:id', async (req, res) => {
   const message = await RelationalList
@@ -256,7 +256,7 @@ router.delete('/relational/:id', async (req, res) => {
  * @name delete-multiple - remove selected items
  * @return {Object<{ message: string }>}
  *
- * @example DELETE /__/text-list/relational { selected: [${id}, ${id}, ${id}...] }
+ * @example DELETE /__/crud-operations/relational { selected: [${id}, ${id}, ${id}...] }
  */
 router.delete('/relational', async (req, res) => {
   // TODO: delete many

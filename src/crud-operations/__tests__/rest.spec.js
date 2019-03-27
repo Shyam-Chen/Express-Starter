@@ -1,7 +1,7 @@
 import rest from '../rest';
 import { List } from '../document';
 
-describe('text-list', () => {
+describe('CRUD Operations', () => {
   it('should handle routes', async () => {
     const api = rest.stack[0];
     const textList = api.route.stack[0];

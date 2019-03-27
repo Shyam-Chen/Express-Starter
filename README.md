@@ -40,7 +40,7 @@ This seed repository provides the following features:
 * [x] Cloud NoSQL database hosting with [**mLab**](https://mlab.com/).
 * [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
-* [x] Cloud Storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
+* [x] Cloud storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
 * [x] Monitoring service with [**Librato**](https://www.librato.com/).
 * [x] Log management service with [**Papertrail**](https://papertrailapp.com/).
 * [x] Performance and security with [**Cloudflare**](https://www.cloudflare.com/).
