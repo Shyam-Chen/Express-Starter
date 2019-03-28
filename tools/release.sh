@@ -24,6 +24,11 @@ echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   echo "Releasing $DOCKER_ID_USER/$IMAGE_NAME:$IMAGE_TAG in $ENV mode ..."
 
+  if [[ $ENV == 'stage' ]]; then
+    git tag $IMAGE_TAG
+    git push -u origin $IMAGE_TAG
+  fi
+
   docker build -f ./tools/$ENV.Dockerfile -t $IMAGE_NAME:$IMAGE_TAG .
 
   docker tag $IMAGE_NAME:$IMAGE_TAG $DOCKER_ID_USER/$IMAGE_NAME:$IMAGE_TAG
