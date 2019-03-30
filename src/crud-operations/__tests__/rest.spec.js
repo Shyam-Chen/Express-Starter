@@ -1,16 +1,12 @@
 import rest from '../rest';
-import { List } from '../document';
+
+jest.mock('../document');
 
 describe('CRUD Operations', () => {
-  it('should handle routes', async () => {
-    const api = rest.stack[0];
-    const textList = api.route.stack[0];
-
-    const fakeData = [{ _id: 'vn3RecDbwMQTjttnluZW', text: 'qaz123' }];
-
-    List.find = jest.fn(() => ({
-      exec: () => new Promise(res => res(fakeData)),
-    }));
+  it('should get a list', async () => {
+    const route = rest.stack
+      .filter(layer => layer.route.path === '/' && layer.route.methods.get)[0]
+      .route.stack[0];
 
     const req = {
       query: {},
@@ -19,12 +15,12 @@ describe('CRUD Operations', () => {
     const res = {
       json(obj) {
         expect(obj).toEqual({
-          data: fakeData,
+          data: [{ _id: 'vn3RecDbwMQTjttnluZW', text: 'qaz123' }],
           message: 'Data obtained.',
         });
       },
     };
 
-    await textList.handle(req, res);
+    await route.handle(req, res);
   });
 });
