@@ -29,6 +29,8 @@ const app = express();
 const server = http.Server(app);
 const io = socket(server);
 
+app.set('socket', io);
+
 if (NODE_ENV === 'production') Raven.config(SENTRY_DSN).install();
 
 /**
