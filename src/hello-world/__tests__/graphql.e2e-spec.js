@@ -1,14 +1,8 @@
 import request from 'supertest';
 
-import api from '~/api';
-
 describe('Hello World', () => {
-  afterEach(async () => {
-    await api.close();
-  });
-
   it('should get a hello world', async () => {
-    const { statusCode, body } = await request(api)
+    const { statusCode, body } = await request(global.API_URL)
       .post('/__/graphql')
       .send({ query: 'query { helloWorld }' });
 

@@ -6,7 +6,7 @@ import compression from 'compression';
 import helmet from 'helmet';
 import cors from 'cors';
 import morgan from 'morgan';
-import rateLimit from 'express-rate-limit';
+// import rateLimit from 'express-rate-limit';
 import session from 'express-session';
 import connectRedis from 'connect-redis';
 import rendertron from 'rendertron-middleware';
@@ -41,7 +41,7 @@ app.use(compression());
 app.use(helmet());
 app.use(cors());
 app.use(morgan('tiny'));
-app.use(rateLimit());
+// app.use(rateLimit());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(session({

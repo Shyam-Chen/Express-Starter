@@ -10,7 +10,7 @@
     "build": "babel src -d dist",
     "lint": "eslint 'src/**/*.js'",
     "unit": "jest \"src/.*\\.js$\" --coverage --forceExit",
-    "e2e": "cross-env JEST_ENV=e2e jest \"src/.*\\.js$\" --coverage --forceExit",
+    "e2e": "cross-env JEST_ENV=e2e jest \"src/.*\\.js$\" --forceExit",
     "_codecov": "codecov"
   },
   "repository": {
