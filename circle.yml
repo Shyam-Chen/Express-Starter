@@ -15,7 +15,9 @@ jobs:
 
       - run:
           name: Combat Preparation
-          command: docker-compose up -d
+          command: |
+            docker-compose up -d api
+            docker-compose exec -d api yarn start
 
       - run:
           name: Compile Code
@@ -34,7 +36,7 @@ jobs:
       - run:
           name: E2E Specification
           command: |
-            docker-compose exec api yarn start &
+            docker-compose exec api sh -c "sleep 10"
             docker-compose exec api yarn e2e
 
       - run:
