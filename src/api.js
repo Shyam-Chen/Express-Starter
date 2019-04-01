@@ -2,11 +2,12 @@ import { join } from 'path';
 import http from 'http';
 import express from 'express';
 import socket from 'socket.io';
-import compression from 'compression';
 import helmet from 'helmet';
 import cors from 'cors';
-import morgan from 'morgan';
+// import csurf from 'csurf';
 // import rateLimit from 'express-rate-limit';
+import compression from 'compression';
+import morgan from 'morgan';
 import session from 'express-session';
 import connectRedis from 'connect-redis';
 import rendertron from 'rendertron-middleware';
@@ -37,11 +38,12 @@ if (NODE_ENV === 'production') Raven.config(SENTRY_DSN).install();
 /**
  * @name middleware-functions
  */
-app.use(compression());
 app.use(helmet());
 app.use(cors());
+// app.use(csurf());
+// app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
+app.use(compression());
 app.use(morgan('tiny'));
-// app.use(rateLimit());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(session({

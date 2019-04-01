@@ -51,24 +51,24 @@ describe('CRUD Operations', () => {
     expect(message).toBe('List saved');
   });
 
-  // it('should update a item', async () => {
-  //   const _id = '59901c7dbc9187001ec32c7b';
-  //   const { statusCode, body: { message } } = await request(global.API_URL)
-  //     .put(`/__/crud-operations/${_id}`)
-  //     .send({ text: faker.name.jobTitle() });
+  it('should update a item', async () => {
+    const _id = '59901c7dbc9187001ec32c7b';
+    const { statusCode, body: { message } } = await request(global.API_URL)
+      .put(`/__/crud-operations/${_id}`)
+      .send({ text: faker.name.jobTitle() });
 
-  //   expect(statusCode).toBe(200);
-  //   expect(message).toBe('List updated');
-  // });
+    expect(statusCode).toBe(200);
+    expect(message).toBe('List updated');
+  });
 
-  // it('should remove a item', async () => {
-  //   const _id = '59901c7dbc9187001ec32c7b';
-  //   const { statusCode, body: { message } } = await request(global.API_URL)
-  //     .delete(`/__/crud-operations/${_id}`);
+  it('should remove a item', async () => {
+    const _id = '59901c7dbc9187001ec32c7b';
+    const { statusCode, body: { message } } = await request(global.API_URL)
+      .delete(`/__/crud-operations/${_id}`);
 
-  //   expect(statusCode).toBe(200);
-  //   expect(message).toBe('List deleted');
-  // });
+    expect(statusCode).toBe(200);
+    expect(message).toBe('List deleted');
+  });
 
   it('should POST /__/crud-operations/relational', async () => {
     const { statusCode, body: { message } } = await request(global.API_URL)
