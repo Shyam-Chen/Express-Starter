@@ -16,13 +16,13 @@ const router = Router();
  * @example POST /__/authorization/register { username: ${username}, password: ${password} }
  */
 router.post('/register', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, email } = req.body;
 
   try {
     const passwordHash = await bcrypt.hash(password, 10);
-    const user = new User({ username, password: passwordHash });
+    const user = new User({ username, password: passwordHash, email });
     await user.save();
-    res.status(200).json({ username, message: '' });
+    res.status(200).json({ username, message: 'Sign up suceesfully' });
   } catch (error) {
     res.status(400).json({ error });
   }
@@ -34,23 +34,32 @@ router.post('/register', async (req, res) => {
  *
  * @example POST /__/authorization/login { username: ${username}, password: ${password} }
  */
-router.post('/login', (req, res) => {
-  passport.authenticate('local', { session: false }, (error, user) => {
-    if (error || !user) res.status(400).json({ error });
+router.post('/login', async (req, res) => {
+  const { username, password } = req.body;
 
-    const payload = {
-      username: user.username,
-      expires: Date.now() + 3 * 60 * 60 * 1000,
-    };
+  try {
+    const user = await User.findOne({ username }).exec();
+    const passwordsMatch = await bcrypt.compare(password, user.password);
 
-    req.login(payload, { session: false }, (loginError) => {
-      if (loginError) res.status(400).json({ error: loginError });
+    if (passwordsMatch) {
+      const payload = {
+        username: user.username,
+        expires: Date.now() + 3 * 60 * 60 * 1000,
+      };
 
-      const token = jwt.sign(JSON.stringify(payload), SECRET);
+      req.login(payload, { session: false }, (error) => {
+        if (error) res.status(400).json({ message: error });
 
-      res.status(200).json({ username: user.username, token, message: '' });
-    });
-  })(req, res);
+        const token = jwt.sign(JSON.stringify(payload), SECRET);
+
+        res.status(200).json({ username: user.username, token, message: 'Sign in suceesfully' });
+      });
+    } else {
+      res.status(400).json({ message: 'Incorrect Username / Password' });
+    }
+  } catch (error) {
+    res.status(400).json({ message: error });
+  }
 });
 
 /**
@@ -58,7 +67,7 @@ router.post('/login', (req, res) => {
  *
  * @example GET /__/authorization/profile Header { token: ${token} }
  */
-router.get('/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.get('/profile', passport.authenticate('jwt', { session: false }), async (req, res) => {
   const { user } = req;
 
   res.status(200).json({ user });
@@ -67,20 +76,20 @@ router.get('/profile', passport.authenticate('jwt', { session: false }), (req, r
 /**
  * @name profile - Update user profile
  */
-router.put('/profile', (req, res) => {
+router.put('/profile', async (req, res) => {
   res.json({});
 });
 
-router.post('/forgot-password', async () => {
-  return {};
+router.post('/forgot-password', async (req, res) => {
+  res.json({});
 });
 
-router.post('/change-email', async () => {
-  return {};
+router.post('/change-email', async (req, res) => {
+  res.json({});
 });
 
-router.post('/change-password', async () => {
-  return {};
+router.post('/change-password', async (req, res) => {
+  res.json({});
 });
 
 export default router;

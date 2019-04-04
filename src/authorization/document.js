@@ -15,7 +15,7 @@ const userSchema = new Schema({
     required: true,
   },
   role: String,
-  permission: [
+  permissions: [
     {
       route: String,
       operations: [String],
