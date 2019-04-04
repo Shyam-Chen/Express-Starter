@@ -10,6 +10,17 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  email: {
+    type: String,
+    required: true,
+  },
+  role: String,
+  permission: [
+    {
+      route: String,
+      operations: [String],
+    },
+  ],
 });
 
 export const User = mongoose.model('User', userSchema);

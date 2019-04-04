@@ -64,4 +64,23 @@ router.get('/profile', passport.authenticate('jwt', { session: false }), (req, r
   res.status(200).json({ user });
 });
 
+/**
+ * @name profile - Update user profile
+ */
+router.put('/profile', (req, res) => {
+  res.json({});
+});
+
+router.post('/forgot-password', async () => {
+  return {};
+});
+
+router.post('/change-email', async () => {
+  return {};
+});
+
+router.post('/change-password', async () => {
+  return {};
+});
+
 export default router;
