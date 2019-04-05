@@ -42,19 +42,30 @@ jobs:
       - run:
           name: Deploy Application
           command: |
-            if [ "${CIRCLE_BRANCH}" == "develop" ]; then
-              docker login -u="Shyam Chen" -p="${HEROKU_TOKEN}" registry.heroku.com
-              docker build -f ./tools/dev.Dockerfile -t registry.heroku.com/web-go-demo/web .
-              docker push registry.heroku.com/web-go-demo/web
-            elif [ "${CIRCLE_BRANCH}" == *"release"* ]; then
-              docker login -u="Shyam Chen" -p="${HEROKU_TOKEN}" registry.heroku.com
-              docker build -f ./tools/stage.Dockerfile -t registry.heroku.com/web-go-demo/web .
-              docker push registry.heroku.com/web-go-demo/web
-            elif [ "${CIRCLE_BRANCH}" == "master" ]; then
-              docker login -u="Shyam Chen" -p="${HEROKU_TOKEN}" registry.heroku.com
-              docker build -f ./tools/prod.Dockerfile -t registry.heroku.com/web-go-demo/web .
-              docker push registry.heroku.com/web-go-demo/web
-            fi
+            echo "CIRCLE_BRANCH is ${CIRCLE_BRANCH}"
+
+            case "${CIRCLE_BRANCH}" in
+              "develop"|*"release"*|"master")
+
+                case "$CIRCLE_BRANCH" in
+                  "develop")
+                    DEPLOYMENT_ENVIRONMENT=dev
+                    ;;
+                  *"release"*)
+                    DEPLOYMENT_ENVIRONMENT=stage
+                    ;;
+                  "master")
+                    DEPLOYMENT_ENVIRONMENT=prod
+                    ;;
+                esac
+
+                echo "DEPLOYMENT_ENVIRONMENT is ${DEPLOYMENT_ENVIRONMENT}"
+
+                docker login -u="Shyam Chen" -p="${HEROKU_TOKEN}" registry.heroku.com
+                docker build -f ./tools/$DEPLOYMENT_ENVIRONMENT.Dockerfile -t registry.heroku.com/backend-starter-kit/web .
+                docker push registry.heroku.com/backend-starter-kit/web
+                ;;
+            esac
 
 workflows:
   version: 2

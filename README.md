@@ -8,7 +8,7 @@
 [![Dependency Status](https://img.shields.io/david/Shyam-Chen/Backend-Starter-Kit.svg)](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit)
 [![devDependency Status](https://img.shields.io/david/dev/Shyam-Chen/Backend-Starter-Kit.svg)](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit?type=dev)
 
-:rainbow: [Live Demo](https://web-go-demo.herokuapp.com/)
+:rainbow: [Live Demo](https://backend-starter-kit.herokuapp.com/)
 
 This seed repository provides the following features:
 
