@@ -177,10 +177,10 @@ $ docker rmi <IMAGE_ID>
 ```diff
 # circle.yml
 
-+ echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  docker login -u="<DOCKER_USERNAME>" -p="${HEROKU_TOKEN}" registry.heroku.com
-- docker build -f ./tools/<dev|stage|prod>.Dockerfile -t registry.heroku.com/<HEROKU_PROJECT>/web .
+  echo "${HEROKU_TOKEN}" | docker login -u "${HEROKU_USERNAME}" --password-stdin registry.heroku.com
+- docker build -f ./tools/$DEPLOYMENT_ENVIRONMENT.Dockerfile -t backend_image .
 + docker pull <DOCKER_ID_USER>/<IMAGE_NAME>:<IMAGE_TAG>
+- docker tag backend_image registry.heroku.com/backend-starter-kit/web
 + docker tag <IMAGE_NAME>:<IMAGE_TAG> registry.heroku.com/<HEROKU_PROJECT>/web
   docker push registry.heroku.com/<HEROKU_PROJECT>/web
 ```

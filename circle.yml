@@ -42,8 +42,6 @@ jobs:
       - run:
           name: Deploy Application
           command: |
-            echo "CIRCLE_BRANCH is ${CIRCLE_BRANCH}"
-
             case "${CIRCLE_BRANCH}" in
               "develop"|*"release"*|"master")
 
@@ -59,11 +57,9 @@ jobs:
                     ;;
                 esac
 
-                echo "DEPLOYMENT_ENVIRONMENT is ${DEPLOYMENT_ENVIRONMENT}"
-
-                docker login -u="Shyam Chen" -p="${HEROKU_TOKEN}" registry.heroku.com
-                docker build -f ./tools/$DEPLOYMENT_ENVIRONMENT.Dockerfile -t registry.heroku.com/backend-starter-kit/web .
-                docker tag registry.heroku.com/backend-starter-kit/web registry.heroku.com/backend-starter-kit/web
+                echo "${HEROKU_TOKEN}" | docker login -u "${HEROKU_USERNAME}" --password-stdin registry.heroku.com
+                docker build -f ./tools/$DEPLOYMENT_ENVIRONMENT.Dockerfile -t backend_image .
+                docker tag backend_image registry.heroku.com/backend-starter-kit/web
                 docker push registry.heroku.com/backend-starter-kit/web
                 ;;
             esac
