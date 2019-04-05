@@ -11,7 +11,8 @@
     "lint": "eslint 'src/**/*.js'",
     "unit": "jest \"src/.*\\.js$\" --coverage --forceExit",
     "e2e": "cross-env JEST_ENV=e2e jest \"src/.*\\.js$\" --forceExit",
-    "_codecov": "codecov"
+    "_codecov": "codecov",
+    "_heroku": "heroku"
   },
   "repository": {
     "type": "git",
@@ -87,6 +88,7 @@
     "eslint-plugin-import": "2.16.0",
     "faker": "4.1.0",
     "graphql-tools": "4.0.4",
+    "heroku": "7.22.9",
     "jest": "24.5.0",
     "nodemon": "1.18.10",
     "supertest": "3.4.2"
