@@ -63,6 +63,7 @@ jobs:
 
                 docker login -u="Shyam Chen" -p="${HEROKU_TOKEN}" registry.heroku.com
                 docker build -f ./tools/$DEPLOYMENT_ENVIRONMENT.Dockerfile -t registry.heroku.com/backend-starter-kit/web .
+                docker tag registry.heroku.com/backend-starter-kit/web registry.heroku.com/backend-starter-kit/web
                 docker push registry.heroku.com/backend-starter-kit/web
                 ;;
             esac
