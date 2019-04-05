@@ -2,7 +2,7 @@ version: 2
 
 jobs:
 
-  build:
+  build-test-deploy:
     docker:
       - image: circleci/node:10
 
@@ -44,6 +44,7 @@ jobs:
           command: |
             case "${CIRCLE_BRANCH}" in
               "develop"|*"release"*|"master")
+                APP_NAME=backend-starter-kit
 
                 case "$CIRCLE_BRANCH" in
                   "develop")
@@ -57,13 +58,11 @@ jobs:
                     ;;
                 esac
 
-                APP_NAME=backend-starter-kit
-
                 echo "${HEROKU_TOKEN}" | docker login -u "${HEROKU_USERNAME}" --password-stdin registry.heroku.com
                 docker build -f ./tools/$DEPLOYMENT_ENVIRONMENT.Dockerfile -t $APP_NAME .
                 docker tag $APP_NAME registry.heroku.com/$APP_NAME/web
                 docker push registry.heroku.com/$APP_NAME/web
-                docker-compose exec api yarn _heroku container:release -a $APP_NAME
+                docker-compose exec api yarn _heroku container:release web -a $APP_NAME
                 ;;
             esac
 
@@ -71,4 +70,4 @@ workflows:
   version: 2
   workflow:
     jobs:
-      - build
+      - build-test-deploy
