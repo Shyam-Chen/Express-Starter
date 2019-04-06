@@ -62,7 +62,11 @@ jobs:
                 docker build -f ./tools/$DEPLOYMENT_ENVIRONMENT.Dockerfile -t $APP_NAME .
                 docker tag $APP_NAME registry.heroku.com/$APP_NAME/web
                 docker push registry.heroku.com/$APP_NAME/web
-                docker-compose exec app yarn _heroku container:login
+
+                (
+                  echo "${HEROKU_USERNAME}"
+                  echo "${HEROKU_TOKEN}"
+                ) | docker-compose exec app yarn _heroku container:login
                 docker-compose exec app yarn _heroku container:release web -a $APP_NAME
                 ;;
             esac
