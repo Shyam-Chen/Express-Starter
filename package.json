@@ -6,8 +6,8 @@
     "node": "10"
   },
   "scripts": {
-    "start": "nodemon src/api.js --exec babel-node",
-    "build": "babel src -d dist",
+    "start": "nodemon src/app.js --exec babel-node",
+    "build": "babel src -d dist --ignore **/__tests__/**,**/__mocks__/**",
     "lint": "eslint 'src/**/*.js'",
     "unit": "jest \"src/.*\\.js$\" --coverage --forceExit",
     "e2e": "cross-env JEST_ENV=e2e jest \"src/.*\\.js$\" --forceExit",

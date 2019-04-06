@@ -88,9 +88,6 @@ if (STATIC_FILES) {
   app.use(history('index.html', { root }));
 }
 
-/**
- * @name api-server
- */
 server.listen(Number(PORT), HOST, () => {
   console.log(chalk.hex('#009688')(' [*] App: Bootstrap Succeeded.'));
   console.log(chalk.hex('#009688')(` [*] Host: http://${HOST}:${PORT}/.`));

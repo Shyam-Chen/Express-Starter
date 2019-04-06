@@ -1,7 +1,7 @@
 import request from 'supertest';
 
 describe('Hello World', () => {
-  it('should get a hello world', async () => {
+  it('should get a `Hello, World!`', async () => {
     const { statusCode, text } = await request(global.API_URL)
       .get('/__/hello-world');
 

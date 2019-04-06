@@ -16,28 +16,28 @@ jobs:
       - run:
           name: Combat Preparation
           command: |
-            docker-compose up -d api
-            docker-compose exec -d api yarn start
+            docker-compose up -d app
+            docker-compose exec -d app yarn start
 
       - run:
           name: Compile Code
-          command: docker-compose exec api yarn build
+          command: docker-compose exec app yarn build
 
       - run:
           name: Code Quality
-          command: docker-compose exec api yarn lint
+          command: docker-compose exec app yarn lint
 
       - run:
           name: Code Specification
           command: |
-            docker-compose exec api yarn unit
-            docker-compose exec api yarn _codecov --token=$CODECOV_TOKEN
+            docker-compose exec app yarn unit
+            docker-compose exec app yarn _codecov --token=$CODECOV_TOKEN
 
       - run:
           name: E2E Specification
           command: |
-            docker-compose exec api sh -c "sleep 10"
-            docker-compose exec api yarn e2e
+            docker-compose exec app sh -c "sleep 10"
+            docker-compose exec app yarn e2e
 
       - run:
           name: Deploy Application
@@ -62,7 +62,8 @@ jobs:
                 docker build -f ./tools/$DEPLOYMENT_ENVIRONMENT.Dockerfile -t $APP_NAME .
                 docker tag $APP_NAME registry.heroku.com/$APP_NAME/web
                 docker push registry.heroku.com/$APP_NAME/web
-                docker-compose exec api yarn _heroku container:release web -a $APP_NAME
+                docker-compose exec app yarn _heroku container:login
+                docker-compose exec app yarn _heroku container:release web -a $APP_NAME
                 ;;
             esac
 

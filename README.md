@@ -120,13 +120,13 @@ Dockerize an application.
 1. Build and run the container in the background
 
 ```bash
-$ docker-compose up -d api
+$ docker-compose up -d app
 ```
 
 2. Run a command in a running container
 
 ```bash
-$ docker-compose exec api <COMMAND>
+$ docker-compose exec app <COMMAND>
 ```
 
 3. Remove the old container before creating the new one
@@ -138,7 +138,7 @@ $ docker-compose rm -fs
 4. Restart up the container in the background
 
 ```bash
-$ docker-compose up -d --build api
+$ docker-compose up -d --build app
 ```
 
 5. Push images to Docker Cloud
@@ -397,7 +397,7 @@ The structure follows the LIFT Guidelines.
 │   │       │   └── ...
 │   │       └── <FEATURE>.js
 │   ├── shared  -> shared feature module
-│   ├── api.js
+│   ├── app.js
 │   └── env.js
 ├── tools
 │   └── ...
