@@ -26,7 +26,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   if [[ $ENV == 'stage' ]]; then
     git tag $IMAGE_TAG
-    git push -u origin $IMAGE_TAG
+    git push origin $IMAGE_TAG
   fi
 
   docker build -f ./tools/$ENV.Dockerfile -t $IMAGE_NAME:$IMAGE_TAG .

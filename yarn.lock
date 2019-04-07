@@ -4759,6 +4759,13 @@ graphql-extensions@0.5.7:
   dependencies:
     "@apollographql/apollo-tools" "^0.3.3"
 
+graphql-subscriptions@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/graphql-subscriptions/-/graphql-subscriptions-1.1.0.tgz#5f2fa4233eda44cf7570526adfcf3c16937aef11"
+  integrity sha512-6WzlBFC0lWmXJbIVE8OgFgXIP4RJi3OQgTPa0DVMsDXdpRDjTsM1K9wfl5HSYX7R87QAGlvcv2Y4BIZa/ItonA==
+  dependencies:
+    iterall "^1.2.1"
+
 graphql-subscriptions@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/graphql-subscriptions/-/graphql-subscriptions-1.0.0.tgz#475267694b3bd465af6477dbab4263a3f62702b8"
@@ -5018,7 +5025,7 @@ heroku-exec-util@0.7.3:
     temp "0.8.3"
     uuid "3.2.1"
 
-heroku@^7.22.9:
+heroku@7.22.9:
   version "7.22.9"
   resolved "https://registry.yarnpkg.com/heroku/-/heroku-7.22.9.tgz#9ea5d17e8290b28d48f591256411013a73821e69"
   integrity sha512-hVmTJDursxQ01wUeObqOOA6tO+pRoQXP5HFekMxonh9ZaF/LQvGCuldc3n1yBt19e6tI0cUKpLDmTSx5KGAESg==

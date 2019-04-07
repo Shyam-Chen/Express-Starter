@@ -44,16 +44,17 @@ jobs:
           command: |
             case "${CIRCLE_BRANCH}" in
               "develop"|*"release"*|"master")
-                APP_NAME=backend-starter-kit
-
                 case "$CIRCLE_BRANCH" in
                   "develop")
+                    APP_NAME=backend-starter-kit
                     DEPLOYMENT_ENVIRONMENT=dev
                     ;;
                   *"release"*)
+                    APP_NAME=backend-starter-kit
                     DEPLOYMENT_ENVIRONMENT=stage
                     ;;
                   "master")
+                    APP_NAME=backend-starter-kit
                     DEPLOYMENT_ENVIRONMENT=prod
                     ;;
                 esac

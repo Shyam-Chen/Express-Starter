@@ -44,6 +44,7 @@
     "express-session": "1.15.6",
     "formidable": "1.2.1",
     "graphql": "14.2.0",
+    "graphql-subscriptions": "1.1.0",
     "graphql-tag": "2.10.1",
     "helmet": "3.16.0",
     "ioredis": "4.9.0",

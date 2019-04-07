@@ -69,6 +69,7 @@ app.use('/__', routes);
  * @name GraphQL
  */
 apolloServer.applyMiddleware({ app, path: '/__/graphql' });
+apolloServer.installSubscriptionHandlers(server);
 
 if (NODE_ENV === 'production') app.use(Raven.errorHandler());
 
