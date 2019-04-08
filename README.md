@@ -43,6 +43,7 @@ This seed repository provides the following features:
 * [x] Cloud storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
 * [x] Monitoring service with [**Librato**](https://www.librato.com/).
 * [x] Log management service with [**Papertrail**](https://papertrailapp.com/).
+* [x] Error tracking service with [**Sentry**](https://sentry.io/).
 * [x] Performance and security with [**Cloudflare**](https://www.cloudflare.com/).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**CircleCI**](https://circleci.com/).
