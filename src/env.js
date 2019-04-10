@@ -15,20 +15,22 @@ export const CLOUDINARY_CONFIG = {
   api_secret: process.env.CLOUDINARY_SECRET || 'a676b67565c6767a6767d6767f676fe1',
 };
 
-export const AUTH_GOOGLE = {
-  clientID: process.env.GOOGLE_ID || '584431831746-9b5743ro43sn7p6nfgbui0kqhj557kvt.apps.googleusercontent.com',
-  clientSecret: process.env.GOOGLE_SECRET || 'stZ7p0BC_oQrUvJKsvqAxehT',
+export const AUTH = {
+  GOOGLE: {
+    clientID: process.env.GOOGLE_ID || '584431831746-9b5743ro43sn7p6nfgbui0kqhj557kvt.apps.googleusercontent.com',
+    clientSecret: process.env.GOOGLE_SECRET || 'stZ7p0BC_oQrUvJKsvqAxehT',
+  },
+  FACEBOOK: {
+    clientID: process.env.FACEBOOK_ID || '...',
+    clientSecret: process.env.FACEBOOK_SECRET || '...',
+  },
+  TWITTER: {
+    consumerKey: process.env.TWITTER_KEY || '...',
+    consumerSecret: process.env.TWITTER_SECRET || '...',
+  },
 };
 
-export const AUTH_FACEBOOK = {
-  clientID: process.env.FACEBOOK_ID || '...',
-  clientSecret: process.env.FACEBOOK_SECRET || '...',
-};
-
-export const AUTH_TWITTER = {
-  consumerKey: process.env.TWITTER_KEY || '...',
-  consumerSecret: process.env.TWITTER_SECRET || '...',
-};
+export const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY || '...';
 
 export const SENTRY_DSN = process.env.SENTRY_DSN || 'https://70484e0dda784a1081081ca9c8237792:51b5a95ee1e545efba3aba9103c6193e@sentry.io/236866';
 export const STATIC_FILES = process.env.STATIC_FILES || null;
