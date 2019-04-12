@@ -32,6 +32,8 @@ export const AUTH = {
 
 export const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY || '...';
 
+export const RATE_LIMIT = process.env.RATE_LIMIT || 0;
+
 export const SENTRY_DSN = process.env.SENTRY_DSN || 'https://70484e0dda784a1081081ca9c8237792:51b5a95ee1e545efba3aba9103c6193e@sentry.io/236866';
 export const STATIC_FILES = process.env.STATIC_FILES || null;
 export const RENDERTRON_URL = process.env.RENDERTRON_URL || 'https://render-tron.appspot.com/render';

@@ -4,11 +4,11 @@ import express from 'express';
 import socket from 'socket.io';
 import helmet from 'helmet';
 import cors from 'cors';
-// import csurf from 'csurf';
-// import rateLimit from 'express-rate-limit';
+import rateLimit from 'express-rate-limit';
 import compression from 'compression';
 import morgan from 'morgan';
 import session from 'express-session';
+import csurf from 'csurf';
 import connectRedis from 'connect-redis';
 import rendertron from 'rendertron-middleware';
 import history from 'express-history-api-fallback';
@@ -23,7 +23,7 @@ import passport from '~/core/passport';
 import redis from '~/core/redis';
 
 import {
-  NODE_ENV, PORT, HOST, SECRET,
+  NODE_ENV, PORT, HOST, SECRET, RATE_LIMIT,
   SENTRY_DSN, STATIC_FILES, RENDERTRON_URL,
 } from './env';
 
@@ -40,8 +40,7 @@ if (NODE_ENV === 'production') Raven.config(SENTRY_DSN).install();
  */
 app.use(helmet());
 app.use(cors());
-// app.use(csurf());
-// app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
+app.use(rateLimit({ max: Number(RATE_LIMIT), windowMs: 15 * 60 * 1000 }));
 app.use(compression());
 app.use(morgan('tiny'));
 app.use(express.json());
@@ -55,6 +54,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(csurf());
 
 io.origins(['*:*']);
 
