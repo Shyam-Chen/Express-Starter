@@ -30,6 +30,8 @@
   "dependencies": {
     "@tensorflow/tfjs": "1.0.3",
     "@tensorflow/tfjs-node": "1.0.2",
+    "amqp-connection-manager": "2.3.1",
+    "amqplib": "0.5.3",
     "apollo-server-express": "2.4.8",
     "bcrypt": "3.0.5",
     "chalk": "2.4.2",

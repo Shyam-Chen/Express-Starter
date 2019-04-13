@@ -22,6 +22,7 @@ This seed repository provides the following features:
 * [x] Authenticate requests with [**Passport**](http://passportjs.org/).
 * [x] Real-time bidirectional communication with [**Socket.IO**](https://socket.io/).
 * [x] In-memory data structure store with [**Redis**](https://redis.io/).
+* [X] Multi-protocol messaging broker with [**RabbitMQ**](https://www.rabbitmq.com/).
 * [x] Machine learning with [**TensorFlow**](https://js.tensorflow.org/).
 * ---------- **Tools** ----------
 * [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
@@ -41,6 +42,7 @@ This seed repository provides the following features:
 * [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 * [x] Cloud storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
+* [x] Cloud message queue hosting with [**CloudAMQP**](https://www.cloudamqp.com/).
 * [x] Monitoring service with [**Librato**](https://www.librato.com/).
 * [x] Log management service with [**Papertrail**](https://papertrailapp.com/).
 * [x] Error tracking service with [**Sentry**](https://sentry.io/).

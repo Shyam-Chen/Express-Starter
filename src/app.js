@@ -8,7 +8,7 @@ import rateLimit from 'express-rate-limit';
 import compression from 'compression';
 import morgan from 'morgan';
 import session from 'express-session';
-import csurf from 'csurf';
+// import csurf from 'csurf';
 import connectRedis from 'connect-redis';
 import rendertron from 'rendertron-middleware';
 import history from 'express-history-api-fallback';
@@ -54,7 +54,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(csurf());
+// app.use(csurf());
 
 io.origins(['*:*']);
 
