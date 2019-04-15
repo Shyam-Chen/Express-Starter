@@ -36,15 +36,14 @@ export const listResolvers = {
    */
   Query: {
     async list(root, { _id, text }) {
-      try {
-        const find = {};
-        if (_id) find._id = { _id };
-        if (text) find.text = { $regex: text, $options: 'i' };
-        const data = await List.find(find).exec();
-        return data;
-      } catch (err) {
-        throw err;
-      }
+      const find = {};
+
+      if (_id) find._id = { _id };
+      if (text) find.text = { $regex: text, $options: 'i' };
+
+      const data = await List.find(find).exec();
+
+      return data;
     },
   },
 
@@ -64,32 +63,23 @@ export const listResolvers = {
    */
   Mutation: {
     async addText(root, { text }) {
-      try {
-        const list = await new List({ text });
-        const data = await list.save();
-        return data;
-      } catch (err) {
-        throw err;
-      }
+      const list = await new List({ text });
+      const data = await list.save();
+
+      return data;
     },
     async updateText(root, { _id, text }) {
-      try {
-        const conditions = { _id };
-        const update = { $set: { text } };
-        const options = { new: true, upsert: true };
-        const data = await List.findOneAndUpdate(conditions, update, options).exec();
-        return data;
-      } catch (err) {
-        throw err;
-      }
+      const conditions = { _id };
+      const update = { $set: { text } };
+      const options = { new: true, upsert: true };
+
+      const data = await List.findOneAndUpdate(conditions, update, options).exec();
+
+      return data;
     },
     async deleteText(root, { _id }) {
-      try {
-        const data = await List.findByIdAndRemove(_id);
-        return data;
-      } catch (err) {
-        throw err;
-      }
+      const data = await List.findByIdAndRemove(_id);
+      return data;
     },
   },
 };

@@ -273,12 +273,8 @@ export const listTypeDefs = gql`
 export const listResolvers = {
   Query: {
     async list(root, { _id, text }) {
-      try {
-        const data = await List.find({}).exec();
-        return data;
-      } catch (err) {
-        throw err;
-      }
+      const data = await List.find({}).exec();
+      return data;
     },
   },
 };
