@@ -39,7 +39,6 @@
     "compression": "1.7.4",
     "connect-redis": "3.4.1",
     "cors": "2.8.5",
-    "csurf": "1.9.0",
     "express": "4.16.4",
     "express-history-api-fallback": "2.2.1",
     "express-rate-limit": "3.4.0",
@@ -76,24 +75,24 @@
     "winston": "3.2.1"
   },
   "devDependencies": {
-    "@babel/cli": "7.2.3",
-    "@babel/core": "7.4.0",
+    "@babel/cli": "7.4.3",
+    "@babel/core": "7.4.3",
     "@babel/node": "7.2.2",
-    "@babel/preset-env": "7.4.2",
+    "@babel/preset-env": "7.4.3",
     "babel-eslint": "10.0.1",
-    "babel-jest": "24.5.0",
+    "babel-jest": "24.7.1",
     "babel-plugin-root-import": "6.1.0",
-    "codecov": "3.1.0",
+    "codecov": "3.3.0",
     "cross-env": "5.2.0",
-    "eslint": "5.15.3",
+    "eslint": "5.16.0",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-import-resolver-babel-plugin-root-import": "1.1.1",
-    "eslint-plugin-import": "2.16.0",
+    "eslint-plugin-import": "2.17.1",
     "faker": "4.1.0",
     "graphql-tools": "4.0.4",
     "heroku": "7.22.9",
-    "jest": "24.5.0",
-    "nodemon": "1.18.10",
-    "supertest": "3.4.2"
+    "jest": "24.7.1",
+    "nodemon": "1.18.11",
+    "supertest": "4.0.2"
   }
 }
