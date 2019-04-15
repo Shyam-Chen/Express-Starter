@@ -3,11 +3,11 @@ import { fakeData } from '../__mocks__/document';
 
 jest.mock('../document');
 
-const inject = (router, { method, url }) => {
-  return router.stack
+const inject = (router, { method, url }) => (
+  router.stack
     .filter(layer => layer.route.methods[method] && layer.route.path === url)[0]
-    .route.stack[0];
-};
+    .route.stack[0]
+);
 
 describe('CRUD Operations', () => {
   it('should get a list', async () => {
