@@ -92,25 +92,25 @@ $ yarn install
 $ yarn start
 ```
 
-4. Compile and bundle code
+4. Compile code
 
 ```bash
 $ yarn build
 ```
 
-5. Check the code quality
+5. Check code quality
 
 ```bash
 $ yarn lint
 ```
 
-6. Run the unit tests
+6. Runs unit tests
 
 ```bash
 $ yarn unit
 ```
 
-7. Run the end-to-end tests
+7. Runs end-to-end tests
 
 ```bash
 $ yarn e2e
