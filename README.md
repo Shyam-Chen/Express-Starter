@@ -23,7 +23,9 @@ This seed repository provides the following features:
 * [x] Real-time bidirectional communication with [**Socket.IO**](https://socket.io/).
 * [x] In-memory data structure store with [**Redis**](https://redis.io/).
 * [X] Multi-protocol messaging broker with [**RabbitMQ**](https://www.rabbitmq.com/).
+* [x] Online payments with [**Stripe**](https://stripe.com/).
 * [x] Machine learning with [**TensorFlow**](https://js.tensorflow.org/).
+* [x] OpenAPI specification with [**Swagger**](https://swagger.io/).
 * ---------- **Tools** ----------
 * [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
 * [x] JavaScript static code analyzer with [**ESLint**](https://github.com/eslint/eslint).

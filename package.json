@@ -49,6 +49,7 @@
     "helmet": "3.16.0",
     "ioredis": "4.9.0",
     "joi": "14.3.1",
+    "jsdom": "14.0.0",
     "jsonwebtoken": "8.5.1",
     "lodash": "4.17.11",
     "merge-graphql-schemas": "1.5.8",
@@ -72,6 +73,8 @@
     "rxjs": "6.4.0",
     "sequelize": "5.6.1",
     "socket.io": "2.2.0",
+    "stripe": "6.29.0",
+    "swagger-ui-express": "4.0.2",
     "winston": "3.2.1"
   },
   "devDependencies": {
