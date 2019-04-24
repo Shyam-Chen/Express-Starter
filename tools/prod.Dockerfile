@@ -1,6 +1,6 @@
 FROM node:10
 
-ENV HOME /Backend-Starter-Kit
+ENV HOME /Express-Play
 
 WORKDIR ${HOME}
 ADD . $HOME

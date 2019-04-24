@@ -6,7 +6,7 @@ jobs:
     docker:
       - image: circleci/node:10
 
-    working_directory: ~/Backend-Starter-Kit
+    working_directory: ~/Express-Play
 
     steps:
       - checkout

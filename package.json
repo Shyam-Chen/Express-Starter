@@ -1,5 +1,5 @@
 {
-  "name": "backend-starter-kit",
+  "name": "express-play",
   "version": "1.0.0",
   "description": "A boilerplate for Node.js, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.",
   "engines": {
@@ -16,17 +16,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shyam-Chen/Backend-Starter-Kit.git"
+    "url": "git+https://github.com/Shyam-Chen/Express-Play.git"
   },
   "keywords": [
     "Node.js"
   ],
-  "author": "Yen-cheng Chen, 陳彥澄",
+  "author": "Shyam Chen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Shyam-Chen/Backend-Starter-Kit/issues"
+    "url": "https://github.com/Shyam-Chen/Express-Play/issues"
   },
-  "homepage": "https://github.com/Shyam-Chen/Backend-Starter-Kit#readme",
+  "homepage": "https://github.com/Shyam-Chen/Express-Play#readme",
   "dependencies": {
     "@tensorflow/tfjs": "1.0.4",
     "@tensorflow/tfjs-node": "1.0.3",

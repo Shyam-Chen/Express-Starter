@@ -1,12 +1,12 @@
-# Backend Starter Kit
+# Express Play
 
 :truck: A boilerplate for Node.js, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.
 
-[![Build Status](https://img.shields.io/circleci/project/github/Shyam-Chen/Backend-Starter-Kit/master.svg)](https://circleci.com/gh/Shyam-Chen/Backend-Starter-Kit)
-[![Coverage Status](https://img.shields.io/codecov/c/github/Shyam-Chen/Backend-Starter-Kit/master.svg)](https://codecov.io/gh/Shyam-Chen/Backend-Starter-Kit)
+[![Build Status](https://img.shields.io/circleci/project/github/Shyam-Chen/Express-Play/master.svg)](https://circleci.com/gh/Shyam-Chen/Express-Play)
+[![Coverage Status](https://img.shields.io/codecov/c/github/Shyam-Chen/Express-Play/master.svg)](https://codecov.io/gh/Shyam-Chen/Express-Play)
  //
-[![Dependency Status](https://img.shields.io/david/Shyam-Chen/Backend-Starter-Kit.svg)](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit)
-[![devDependency Status](https://img.shields.io/david/dev/Shyam-Chen/Backend-Starter-Kit.svg)](https://david-dm.org/Shyam-Chen/Backend-Starter-Kit?type=dev)
+[![Dependency Status](https://img.shields.io/david/Shyam-Chen/Express-Play.svg)](https://david-dm.org/Shyam-Chen/Express-Play)
+[![devDependency Status](https://img.shields.io/david/dev/Shyam-Chen/Express-Play.svg)](https://david-dm.org/Shyam-Chen/Express-Play?type=dev)
 
 :rainbow: [Live Demo](https://backend-starter-kit.herokuapp.com/)
 
@@ -52,17 +52,6 @@ This seed repository provides the following features:
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**CircleCI**](https://circleci.com/).
 
-Here are some related seed repositories:
-
-* ---------- **Client-side** ----------
-* [Web Starter Kit](https://github.com/Shyam-Chen/Frontend-Starter-Kit) - Progressive Web Apps.
-* [Mobile Starter Kit](https://github.com/Shyam-Chen/Mobile-Starter-Kit) - Cross-platform Mobile Apps.
-* [Desktop Starter Kit](https://github.com/Shyam-Chen/Desktop-Starter-Kit) - Cross-platform Desktop Apps.
-* ---------- **Server-side** ----------
-* [Platform Starter Kit](https://github.com/Shyam-Chen/Backend-Starter-Kit) - Flexible Cloud Platform.
-* [Functions Starter Kit](https://github.com/Shyam-Chen/Functions-Starter-Kit) - Serverless Cloud Functions.
-* [Infrastructure Starter Kit](https://github.com/Shyam-Chen/Infrastructure-Starter-Kit) - Containerized Cloud Infrastructure.
-
 ## Table of Contents
 
 * [Getting Started](#getting-started)
@@ -78,7 +67,7 @@ Follow steps to execute this boilerplate.
 1. Clone this boilerplate
 
 ```bash
-$ git clone --depth 1 https://github.com/Shyam-Chen/Backend-Starter-Kit.git <PROJECT_NAME>
+$ git clone --depth 1 https://github.com/Shyam-Chen/Express-Play.git <PROJECT_NAME>
 $ cd <PROJECT_NAME>
 ```
 
@@ -185,7 +174,7 @@ $ docker rmi <IMAGE_ID>
   echo "${HEROKU_TOKEN}" | docker login -u "${HEROKU_USERNAME}" --password-stdin registry.heroku.com
 - docker build -f ./tools/$DEPLOYMENT_ENVIRONMENT.Dockerfile -t $APP_NAME .
 + docker pull <DOCKER_ID_USER>/<IMAGE_NAME>:<IMAGE_TAG>
-- docker tag $APP_NAME registry.heroku.com/backend-starter-kit/web
+- docker tag $APP_NAME registry.heroku.com/$APP_NAME/web
 + docker tag <IMAGE_NAME>:<IMAGE_TAG> registry.heroku.com/<HEROKU_PROJECT>/web
   docker push registry.heroku.com/<HEROKU_PROJECT>/web
 ```
