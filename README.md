@@ -15,6 +15,7 @@ This seed repository provides the following features:
 * ---------- **Essentials** ----------
 * [x] Application routing with [**Express**](http://expressjs.com/).
 * [x] Data query language with [**GraphQL**](http://graphql.org/).
+* [x] Universal RPC with [**gRPC**](https://grpc.io/).
 * [x] Object document mapping with [**Mongoose**](http://mongoosejs.com/).
 * [x] Object relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
 * [x] GraphQL SDL to model with [**Prisma**](https://www.prisma.io/).
@@ -46,7 +47,7 @@ This seed repository provides the following features:
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 * [x] Cloud storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
 * [x] Cloud message queue hosting with [**CloudAMQP**](https://www.cloudamqp.com/).
-* [x] Log management service with [LogDNA](https://logdna.com/).
+* [x] Log management service with [**LogDNA**](https://logdna.com/).
 * [x] Error tracking service with [**Sentry**](https://sentry.io/).
 * [x] Performance and security with [**Cloudflare**](https://www.cloudflare.com/).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
