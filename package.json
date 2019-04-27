@@ -66,6 +66,7 @@
     "pg": "7.10.0",
     "pg-hstore": "2.3.2",
     "pm2": "3.5.0",
+    "prisma-binding": "2.3.10",
     "raven": "2.6.4",
     "rendertron-middleware": "0.1.5",
     "request": "2.88.0",

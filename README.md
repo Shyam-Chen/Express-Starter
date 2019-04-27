@@ -17,6 +17,7 @@ This seed repository provides the following features:
 * [x] Data query language with [**GraphQL**](http://graphql.org/).
 * [x] Object document mapping with [**Mongoose**](http://mongoosejs.com/).
 * [x] Object relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
+* [x] GraphQL SDL to model with [**Prisma**](https://www.prisma.io/).
 * [x] Utility functions with [**Lodash**](https://lodash.com/).
 * [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
 * [x] Authenticate requests with [**Passport**](http://passportjs.org/).
@@ -39,18 +40,19 @@ This seed repository provides the following features:
 * [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
 * [x] Version control with [**Git**](https://github.com/git/git).
 * [x] Code repository with [**GitHub**](https://github.com/).
-* [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
+* [x] Cloud application hosting with [**Now.sh**](https://zeit.co/now).
 * [x] Cloud NoSQL database hosting with [**mLab**](https://mlab.com/).
 * [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 * [x] Cloud storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
 * [x] Cloud message queue hosting with [**CloudAMQP**](https://www.cloudamqp.com/).
-* [x] Monitoring service with [**Librato**](https://www.librato.com/).
-* [x] Log management service with [**Papertrail**](https://papertrailapp.com/).
+* [x] Log management service with [LogDNA](https://logdna.com/).
 * [x] Error tracking service with [**Sentry**](https://sentry.io/).
 * [x] Performance and security with [**Cloudflare**](https://www.cloudflare.com/).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**CircleCI**](https://circleci.com/).
+
+Thinking in REST Stack / GraphQL Stack / Microservices.
 
 ## Table of Contents
 
