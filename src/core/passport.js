@@ -6,7 +6,7 @@ import { User } from '~/authorization/document';
 
 passport.use(new JWTStrategy(
   {
-    jwtFromRequest: ExtractJwt.fromHeader('token'),
+    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
     secretOrKey: SECRET,
   },
   async (jwtPayload, done) => {

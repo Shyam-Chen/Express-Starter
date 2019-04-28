@@ -65,7 +65,7 @@ router.post('/login', async (req, res) => {
 /**
  * @name profile - User profile
  *
- * @example GET /__/authorization/profile Header { token: ${token} }
+ * @example GET /__/authorization/profile Header { Authorization: `Bearer ${token}` }
  */
 router.get('/profile', passport.authenticate('jwt', { session: false }), async (req, res) => {
   const { user } = req;
