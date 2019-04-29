@@ -9,10 +9,14 @@ import mongoose, { Schema } from 'mongoose';
  *   role: 'user',
  *   permissions: [
  *     {
- *       route: '/blog',
- *       operations: ['create', 'read', 'update', 'delete']
- *     }
- *   ]
+ *       route: '/foo',
+ *       operations: ['create', 'read', 'update', 'delete'],
+ *     },
+ *     {
+ *       route: '/bar',
+ *       operations: ['read'],
+ *     },
+ *   ],
  * }
  */
 const userSchema = new Schema({
@@ -35,11 +39,18 @@ const userSchema = new Schema({
     },
     required: true,
   },
-  role: String,
+  role: {
+    type: String,
+    enum: ['admin', 'user'],
+    default: 'user',
+  },
   permissions: [
     {
       route: String,
-      operations: [String],
+      operations: {
+        type: [String],
+        enum: ['create', 'read', 'update', 'delete'],
+      },
     },
   ],
 });

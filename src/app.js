@@ -26,9 +26,9 @@ import {
   SENTRY_DSN, STATIC_FILES, RENDERTRON_URL,
 } from './env';
 
-const app = express();
-const server = http.Server(app);
-const io = socket(server);
+export const app = express();
+export const server = http.Server(app);
+export const io = socket(server);
 
 app.set('socket', io);
 
