@@ -38,7 +38,7 @@ export const listResolvers = {
     async list(root, { _id, text }) {
       const find = {};
 
-      if (_id) find._id = { _id };
+      if (_id) find._id = _id;
       if (text) find.text = { $regex: text, $options: 'i' };
 
       const data = await List.find(find).exec();
