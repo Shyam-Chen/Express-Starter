@@ -15,7 +15,6 @@ This seed repository provides the following features:
 * ---------- **Essentials** ----------
 * [x] Application routing with [**Express**](http://expressjs.com/).
 * [x] Data query language with [**GraphQL**](http://graphql.org/).
-* [x] Universal RPC with [**gRPC**](https://grpc.io/).
 * [x] Object document mapping with [**Mongoose**](http://mongoosejs.com/).
 * [x] Object relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
 * [x] GraphQL SDL to model with [**Prisma**](https://www.prisma.io/).
@@ -41,7 +40,7 @@ This seed repository provides the following features:
 * [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
 * [x] Version control with [**Git**](https://github.com/git/git).
 * [x] Code repository with [**GitHub**](https://github.com/).
-* [x] Cloud application hosting with [**Now.sh**](https://zeit.co/now).
+* [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
 * [x] Cloud NoSQL database hosting with [**mLab**](https://mlab.com/).
 * [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
@@ -52,8 +51,6 @@ This seed repository provides the following features:
 * [x] Performance and security with [**Cloudflare**](https://www.cloudflare.com/).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**CircleCI**](https://circleci.com/).
-
-Thinking in REST Stack / GraphQL Stack / Microservices.
 
 ## Table of Contents
 
