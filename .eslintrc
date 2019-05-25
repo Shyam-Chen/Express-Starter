@@ -27,6 +27,7 @@
     "import/prefer-default-export": "off",
 
     // Possible Errors
+    "no-console": "off",
 
     // Best Practices
     "no-multi-spaces": ["error", { "ignoreEOLComments": true }],
