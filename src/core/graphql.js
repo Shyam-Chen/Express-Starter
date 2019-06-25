@@ -15,6 +15,18 @@ const resolvers = mergeResolvers([
   listResolvers,
 ]);
 
+// const context = ({ req }) => {
+//   if (!req.user) throw new Error('You must be logged in to query this schema');
+
+//   return {
+//     user: req.user,
+//   };
+// };
+
 export const pubsub = new PubSub();
 
-export default new ApolloServer({ typeDefs, resolvers });
+export default new ApolloServer({
+  typeDefs,
+  resolvers,
+  // context,
+});
