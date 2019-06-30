@@ -2,6 +2,8 @@ import gql from 'graphql-tag';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
+import { SECRET } from '~/env';
+
 import { User } from './document';
 
 const typeDefs = gql`
@@ -12,7 +14,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    me: User
+    profile: User
   }
 
   type Mutation {
@@ -23,7 +25,7 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    async me(_, args, { user }) {
+    async profile(_, args, { user }) {
       if (!user) {
         throw new Error('You are not authenticated!');
       }
@@ -43,12 +45,12 @@ const resolvers = {
 
       return jwt.sign(
         { id: user.id, email: user.email },
-        process.env.JWT_SECRET,
+        SECRET,
         { expiresIn: '1y' },
       );
     },
     async login(_, { email, password }) {
-      const user = await User.findOne({ where: { email } });
+      const user = await User.findOne({ email });
 
       if (!user) {
         throw new Error('No user with that email');
@@ -62,7 +64,7 @@ const resolvers = {
 
       return jwt.sign(
         { id: user.id, email: user.email },
-        process.env.JWT_SECRET,
+        SECRET,
         { expiresIn: '1d' },
       );
     },
