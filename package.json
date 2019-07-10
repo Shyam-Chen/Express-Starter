@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A boilerplate for Node.js, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.",
   "engines": {
-    "node": "10"
+    "node": "12"
   },
   "scripts": {
     "start": "nodemon src/server.js --exec babel-node",
