@@ -17,13 +17,12 @@ This seed repository provides the following features:
 * [x] Data query language with [**GraphQL**](http://graphql.org/).
 * [x] Object document mapping with [**Mongoose**](http://mongoosejs.com/).
 * [x] Object relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
-* [x] GraphQL SDL to model with [**Prisma**](https://www.prisma.io/).
 * [x] Utility functions with [**Lodash**](https://lodash.com/).
 * [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
 * [x] Authenticate requests with [**Passport**](http://passportjs.org/).
 * [x] Real-time bidirectional communication with [**Socket.IO**](https://socket.io/).
 * [x] In-memory data structure store with [**Redis**](https://redis.io/).
-* [X] Multi-protocol messaging broker with [**RabbitMQ**](https://www.rabbitmq.com/).
+* [X] Jobs and messages with [**Bull**](https://www.rabbitmq.com/).
 * [x] Online payments with [**Stripe**](https://stripe.com/).
 * [x] Machine learning with [**TensorFlow**](https://js.tensorflow.org/).
 * [x] OpenAPI specification with [**Swagger**](https://swagger.io/).
@@ -45,7 +44,6 @@ This seed repository provides the following features:
 * [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 * [x] Cloud storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
-* [x] Cloud message queue hosting with [**CloudAMQP**](https://www.cloudamqp.com/).
 * [x] Log management service with [**LogDNA**](https://logdna.com/).
 * [x] Error tracking service with [**Sentry**](https://sentry.io/).
 * [x] Performance and security with [**Cloudflare**](https://www.cloudflare.com/).

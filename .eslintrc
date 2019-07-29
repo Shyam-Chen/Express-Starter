@@ -1,5 +1,7 @@
 {
-  "plugins": [],
+  "plugins": [
+    "prettier"
+  ],
   "env": {
     "node": true,
     "commonjs": true,
@@ -8,7 +10,8 @@
   },
   "globals": {},
   "extends": [
-    "airbnb-base"
+    "airbnb-base",
+    "prettier"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -25,6 +28,8 @@
   "rules": {
     // Plugins
     "import/prefer-default-export": "off",
+
+    "prettier/prettier": "off",
 
     // Possible Errors
     "no-console": "off",
