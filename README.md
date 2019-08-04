@@ -18,13 +18,11 @@ This seed repository provides the following features:
 * [x] Object document mapping with [**Mongoose**](http://mongoosejs.com/).
 * [x] Object relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
 * [x] Utility functions with [**Lodash**](https://lodash.com/).
-* [x] Reactive extensions with [**ReactiveX**](http://reactivex.io/).
 * [x] Authenticate requests with [**Passport**](http://passportjs.org/).
 * [x] Real-time bidirectional communication with [**Socket.IO**](https://socket.io/).
 * [x] In-memory data structure store with [**Redis**](https://redis.io/).
-* [X] Jobs and messages with [**Bull**](https://www.rabbitmq.com/).
+* [X] Jobs and messages with [**Bull**](https://github.com/OptimalBits/bull).
 * [x] Online payments with [**Stripe**](https://stripe.com/).
-* [x] Machine learning with [**TensorFlow**](https://js.tensorflow.org/).
 * [x] OpenAPI specification with [**Swagger**](https://swagger.io/).
 * ---------- **Tools** ----------
 * [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
@@ -42,13 +40,20 @@ This seed repository provides the following features:
 * [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
 * [x] Cloud NoSQL database hosting with [**mLab**](https://mlab.com/).
 * [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
-* [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 * [x] Cloud storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
-* [x] Log management service with [**LogDNA**](https://logdna.com/).
+* [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
+* [x] API gateway service with [**WSO2**](https://wso2.com/).
+* [x] Centralized logging and analysis service with [**LogDNA**](https://logdna.com/).
 * [x] Error tracking service with [**Sentry**](https://sentry.io/).
 * [x] Performance and security with [**Cloudflare**](https://www.cloudflare.com/).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**CircleCI**](https://circleci.com/).
+
+Thinking in ...
+
+* [x] REST Stack
+* [x] GraphQL Stack
+* [x] Microservices
 
 ## Table of Contents
 
@@ -368,38 +373,40 @@ The structure follows the LIFT Guidelines.
 ```coffee
 .
 ├── src
-│   ├── core  -> core feature module
-│   ├── <FEATURE>  -> feature modules
+│   ├── core -> core feature module
+│   ├── <FEATURE> -> feature modules
 │   │   ├── __tests__
 │   │   │   ├── <FEATURE>.e2e-spec.js
 │   │   │   └── <FEATURE>.spec.js
-│   │   ├── _<THING>  -> feature of private things
+│   │   ├── _<THING> -> feature of private things
 │   │   │   └── ...
 │   │   └── <FEATURE>.js
-│   ├── <GROUP>  -> module group
-│   │   └── <FEATURE>  -> feature modules
+│   ├── <GROUP> -> module group
+│   │   └── <FEATURE> -> feature modules
 │   │       ├── __tests__
 │   │       │   ├── <FEATURE>.e2e-spec.js
 │   │       │   └── <FEATURE>.spec.js
-│   │       ├── _<THING>  -> feature of private things
+│   │       ├── _<THING> -> feature of private things
 │   │       │   └── ...
 │   │       └── <FEATURE>.js
-│   ├── shared  -> shared feature module
+│   ├── shared -> shared feature module
 │   ├── app.js
-│   └── env.js
+│   ├── env.js
+│   └── server.js
 ├── tools
 │   └── ...
-├── .babelrc
 ├── .editorconfig
 ├── .eslintrc
 ├── .gitignore
-├── Dockerfile
-├── LICENSE
-├── README.md
+├── .prettierrc
+├── babel.config
 ├── circle.yml
 ├── docker-compose.yml
+├── Dockerfile
 ├── jest.config.js
+├── LICENSE
 ├── package.json
 ├── processes.js
+├── README.md
 └── yarn.lock
 ```
