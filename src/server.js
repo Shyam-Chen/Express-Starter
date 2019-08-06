@@ -20,6 +20,8 @@ apolloServer.installSubscriptionHandlers(server);
 server.listen(Number(PORT), HOST, () => {
   console.log(chalk.hex('#009688')(' [*] App: Bootstrap Succeeded.'));
   console.log(chalk.hex('#009688')(` [*] Host: http://${HOST}:${PORT}/.`));
+  console.log(`🚀 Server ready at http://localhost:${PORT}${apolloServer.graphqlPath}`)
+  console.log(`🚀 Subscriptions ready at ws://localhost:${PORT}${apolloServer.subscriptionsPath}`)
 
   mongoose.connection.once('open', () => console.log(chalk.hex('#009688')(' [*] Mongo: Connection Succeeded.')));
   mongoose.connection.on('error', err => console.error(err));
