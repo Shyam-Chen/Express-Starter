@@ -21,7 +21,7 @@
   "author": "Shyam Chen",
   "license": "MIT",
   "dependencies": {
-    "@tensorflow/tfjs": "1.2.1",
+    "@elastic/elasticsearch": "7.3.0",
     "@tensorflow/tfjs-node": "1.2.1",
     "apollo-server-express": "2.6.4",
     "bcrypt": "3.0.6",
@@ -58,6 +58,7 @@
     "pg": "7.11.0",
     "pg-hstore": "2.3.3",
     "pm2": "3.5.1",
+    "puppeteer": "1.19.0",
     "raven": "2.6.4",
     "rendertron-middleware": "0.1.5",
     "request": "2.88.0",
