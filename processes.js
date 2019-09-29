@@ -3,7 +3,7 @@ const pm2 = require('pm2');
 pm2.connect(() => {
   pm2.start(
     {
-      name: 'Express-Play',
+      name: 'Express-Starter',
       script: `${__dirname}/dist/server.js`,
       max_memory_restart: `${process.env.WEB_MEMORY || 512}M`,
       exec_mode: 'cluster',

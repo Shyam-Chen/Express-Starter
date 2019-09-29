@@ -1,5 +1,5 @@
 {
-  "name": "express-play",
+  "name": "express-starter",
   "version": "1.0.0",
   "description": "A boilerplate for Node.js, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.",
   "engines": {
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shyam-Chen/Express-Play.git"
+    "url": "git+https://github.com/Shyam-Chen/Express-Starter.git"
   },
   "author": "Shyam Chen",
   "license": "MIT",

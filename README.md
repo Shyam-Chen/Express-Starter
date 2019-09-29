@@ -1,12 +1,12 @@
-# Express Play
+# Express Starter
 
 :truck: A boilerplate for Node.js, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.
 
-[![Build Status](https://img.shields.io/circleci/project/github/Shyam-Chen/Express-Play/master.svg)](https://circleci.com/gh/Shyam-Chen/Express-Play)
-[![Coverage Status](https://img.shields.io/codecov/c/github/Shyam-Chen/Express-Play/master.svg)](https://codecov.io/gh/Shyam-Chen/Express-Play)
+[![Build Status](https://img.shields.io/circleci/project/github/Shyam-Chen/Express-Starter/master.svg)](https://circleci.com/gh/Shyam-Chen/Express-Starter)
+[![Coverage Status](https://img.shields.io/codecov/c/github/Shyam-Chen/Express-Starter/master.svg)](https://codecov.io/gh/Shyam-Chen/Express-Starter)
  //
-[![Dependency Status](https://img.shields.io/david/Shyam-Chen/Express-Play.svg)](https://david-dm.org/Shyam-Chen/Express-Play)
-[![devDependency Status](https://img.shields.io/david/dev/Shyam-Chen/Express-Play.svg)](https://david-dm.org/Shyam-Chen/Express-Play?type=dev)
+[![Dependency Status](https://img.shields.io/david/Shyam-Chen/Express-Starter.svg)](https://david-dm.org/Shyam-Chen/Express-Starter)
+[![devDependency Status](https://img.shields.io/david/dev/Shyam-Chen/Express-Starter.svg)](https://david-dm.org/Shyam-Chen/Express-Starter?type=dev)
 
 :rainbow: [Live Demo](https://backend-starter-kit.herokuapp.com/)
 
@@ -70,7 +70,7 @@ Follow steps to execute this boilerplate.
 1. Clone this boilerplate
 
 ```bash
-$ git clone --depth 1 https://github.com/Shyam-Chen/Express-Play.git <PROJECT_NAME>
+$ git clone --depth 1 https://github.com/Shyam-Chen/Express-Starter.git <PROJECT_NAME>
 $ cd <PROJECT_NAME>
 ```
 

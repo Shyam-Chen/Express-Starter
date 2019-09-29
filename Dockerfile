@@ -1,6 +1,6 @@
 FROM node:12
 
-ENV HOME /Express-Play
+ENV HOME /Express-Starter
 
 WORKDIR ${HOME}
 ADD . $HOME

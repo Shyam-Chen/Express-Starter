@@ -13,7 +13,7 @@ const router = Router();
  * @name register - Register an account
  * @return {Object<{ username: string, message: string }>}
  *
- * @example POST /__/authorization/register { username: ${username}, password: ${password} }
+ * @example POST /authorization/register { username: ${username}, password: ${password} }
  */
 router.post('/register', async (req, res) => {
   const { username, password, email } = req.body;
@@ -32,7 +32,7 @@ router.post('/register', async (req, res) => {
  * @name login - get user token
  * @return {Object<{ username: string, token: string, message: string }>}
  *
- * @example POST /__/authorization/login { username: ${username}, password: ${password} }
+ * @example POST /authorization/login { username: ${username}, password: ${password} }
  */
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
@@ -65,7 +65,7 @@ router.post('/login', async (req, res) => {
 /**
  * @name profile - User profile
  *
- * @example GET /__/authorization/profile Header { Authorization: `Bearer ${token}` }
+ * @example GET /authorization/profile Header { Authorization: `Bearer ${token}` }
  */
 router.get('/profile', passport.authenticate('jwt', { session: false }), async (req, res) => {
   const { user } = req;

@@ -47,12 +47,12 @@ if (NODE_ENV === 'production') app.use(Raven.requestHandler());
 /**
  * @name REST
  */
-app.use('/__', routes);
+app.use('/', routes);
 
 /**
  * @name GraphQL
  */
-apolloServer.applyMiddleware({ app, path: '/__/graphql' });
+apolloServer.applyMiddleware({ app });
 
 if (NODE_ENV === 'production') app.use(Raven.errorHandler());
 

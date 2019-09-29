@@ -3,7 +3,7 @@ import { Router } from 'express';
 const router = Router();
 
 /**
- * @example GET /__/hello-world
+ * @example GET /hello-world
  */
 router.get('/', (req, res) => {
   res.send('Hello, World!');
