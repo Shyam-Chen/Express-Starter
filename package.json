@@ -64,7 +64,7 @@
     "request": "2.88.0",
     "request-promise": "4.2.4",
     "rxjs": "6.5.3",
-    "sequelize": "5.8.11",
+    "sequelize": "5.15.1",
     "socket.io": "2.3.0",
     "stripe": "7.10.0",
     "swagger-ui-express": "4.1.2",
