@@ -1,7 +1,7 @@
 {
   "name": "express-starter",
   "version": "1.0.0",
-  "description": "A boilerplate for Node.js, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.",
+  "description": "A boilerplate for Node.js, Express, Mongoose, Heroku, Atlas, Nodemon, PM2, and Babel.",
   "engines": {
     "node": "12"
   },

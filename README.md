@@ -1,6 +1,6 @@
 # Express Starter
 
-:truck: A boilerplate for Node.js, Express, Mongoose, Heroku, mLab, Nodemon, PM2, and Babel.
+:truck: A boilerplate for Node.js, Express, Mongoose, Heroku, Atlas, Nodemon, PM2, and Babel.
 
 [![Build Status](https://img.shields.io/circleci/project/github/Shyam-Chen/Express-Starter/master.svg)](https://circleci.com/gh/Shyam-Chen/Express-Starter)
 [![Coverage Status](https://img.shields.io/codecov/c/github/Shyam-Chen/Express-Starter/master.svg)](https://codecov.io/gh/Shyam-Chen/Express-Starter)
@@ -38,7 +38,7 @@ This seed repository provides the following features:
 * [x] Version control with [**Git**](https://github.com/git/git).
 * [x] Code repository with [**GitHub**](https://github.com/).
 * [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
-* [x] Cloud NoSQL database hosting with [**mLab**](https://mlab.com/).
+* [x] Cloud NoSQL database hosting with [**Atlas**](https://www.mongodb.com/cloud/atlas).
 * [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
 * [x] Cloud storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
