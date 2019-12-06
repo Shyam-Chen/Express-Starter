@@ -23,6 +23,8 @@ This seed repository provides the following features:
 * [x] In-memory data structure store with [**Redis**](https://redis.io/).
 * [X] Jobs and messages with [**Bull**](https://github.com/OptimalBits/bull).
 * [x] Online payments with [**Stripe**](https://stripe.com/).
+* [x] Full-text search with [**Elasticsearch**](https://www.elastic.co/products/elasticsearch).
+* [x] Machine learning models with [**TensorFlow**](https://www.tensorflow.org/js/).
 * [x] OpenAPI specification with [**Swagger**](https://swagger.io/).
 * ---------- **Tools** ----------
 * [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
@@ -42,6 +44,8 @@ This seed repository provides the following features:
 * [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
 * [x] Cloud storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
+* [x] Search engine hosting with [**Bonsai**](https://bonsai.io/).
+* [x] Large-scale data processing with [**Spark**](https://spark.apache.org/).
 * [x] API gateway service with [**WSO2**](https://wso2.com/).
 * [x] Centralized logging and analysis service with [**LogDNA**](https://logdna.com/).
 * [x] Error tracking service with [**Sentry**](https://sentry.io/).
