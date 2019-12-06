@@ -4,8 +4,7 @@ module.exports = (api) => {
   return {
     presets: [
       [
-        '@babel/preset-env',
-        {
+        '@babel/preset-env', {
           targets: {
             node: 'current',
           },
@@ -14,11 +13,12 @@ module.exports = (api) => {
     ],
     plugins: [
       [
-        'babel-plugin-root-import',
-        {
+        'babel-plugin-root-import', {
           paths: [{ rootPathPrefix: '~', rootPathSuffix: 'src' }],
         },
       ],
+      '@babel/plugin-proposal-class-properties',
+      'lodash',
     ],
   };
 };
