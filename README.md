@@ -46,7 +46,7 @@ This seed repository provides the following features:
 * [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 * [x] Search engine hosting with [**Bonsai**](https://bonsai.io/).
 * [x] Large-scale data processing with [**Spark**](https://spark.apache.org/).
-* [x] API gateway service with [**WSO2**](https://wso2.com/).
+* [x] API gateway service with [**Tyk**](https://tyk.io/api-gateway/open-source/).
 * [x] Centralized logging and analysis service with [**LogDNA**](https://logdna.com/).
 * [x] Error tracking service with [**Sentry**](https://sentry.io/).
 * [x] Performance and security with [**Cloudflare**](https://www.cloudflare.com/).
