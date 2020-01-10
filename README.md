@@ -14,24 +14,25 @@ This seed repository provides the following features:
 
 * ---------- **Essentials** ----------
 * [x] Application routing with [**Express**](http://expressjs.com/).
-* [x] Data query language with [**GraphQL**](http://graphql.org/).
+* [x] Industry-standard GraphQL implementation with [**Apollo**](https://www.apollographql.com/).
 * [x] Object document mapping with [**Mongoose**](http://mongoosejs.com/).
 * [x] Object relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
-* [x] Utility functions with [**Lodash**](https://lodash.com/).
+* [x] In-memory data structure store with [**Redis**](https://redis.io/).
 * [x] Authenticate requests with [**Passport**](http://passportjs.org/).
 * [x] Real-time bidirectional communication with [**Socket.IO**](https://socket.io/).
-* [x] In-memory data structure store with [**Redis**](https://redis.io/).
+* [x] Real-time GraphQL queries and mutations with [**GraphQL.IO**](http://graphql-io.com/).
 * [X] Jobs and messages with [**Bull**](https://github.com/OptimalBits/bull).
 * [x] Online payments with [**Stripe**](https://stripe.com/).
 * [x] Full-text search with [**Elasticsearch**](https://www.elastic.co/products/elasticsearch).
 * [x] Machine learning models with [**TensorFlow**](https://www.tensorflow.org/js/).
-* [x] OpenAPI specification with [**Swagger**](https://swagger.io/).
 * ---------- **Tools** ----------
 * [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
+* [x] OpenAPI specification with [**Swagger**](https://swagger.io/).
 * [x] JavaScript static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
+* [x] Code formatter with [**Prettier**](https://prettier.io/).
+* [x] JavaScript static type checker with [**Flow**](https://flow.org/).
 * [x] Unit testing with [**Jest**](https://github.com/facebook/jest).
 * [x] End-to-End testing with [**Supertest**](https://github.com/visionmedia/supertest).
-* [x] Test coverage integration with [**Codecov**](https://codecov.io/).
 * [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
 * [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
 * ---------- **Environments** ----------
@@ -52,6 +53,7 @@ This seed repository provides the following features:
 * [x] Performance and security with [**Cloudflare**](https://www.cloudflare.com/).
 * [x] Software container with [**Docker**](https://github.com/docker/docker).
 * [x] Continuous integration with [**CircleCI**](https://circleci.com/).
+* [x] Test coverage integration with [**Codecov**](https://codecov.io/).
 
 Thinking in ...
 
