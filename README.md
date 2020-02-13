@@ -4,7 +4,7 @@
 
 [![Build Status](https://img.shields.io/circleci/project/github/Shyam-Chen/Express-Starter/master.svg)](https://circleci.com/gh/Shyam-Chen/Express-Starter)
 [![Coverage Status](https://img.shields.io/codecov/c/github/Shyam-Chen/Express-Starter/master.svg)](https://codecov.io/gh/Shyam-Chen/Express-Starter)
- //
+//
 [![Dependency Status](https://img.shields.io/david/Shyam-Chen/Express-Starter.svg)](https://david-dm.org/Shyam-Chen/Express-Starter)
 [![devDependency Status](https://img.shields.io/david/dev/Shyam-Chen/Express-Starter.svg)](https://david-dm.org/Shyam-Chen/Express-Starter?type=dev)
 
@@ -12,62 +12,63 @@
 
 This seed repository provides the following features:
 
-* ---------- **Essentials** ----------
-* [x] Application routing with [**Express**](http://expressjs.com/).
-* [x] Industry-standard GraphQL implementation with [**Apollo**](https://www.apollographql.com/).
-* [x] Object document mapping with [**Mongoose**](http://mongoosejs.com/).
-* [x] Object relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
-* [x] In-memory data structure store with [**Redis**](https://redis.io/).
-* [x] Authenticate requests with [**Passport**](http://passportjs.org/).
-* [x] Real-time bidirectional communication with [**Socket.IO**](https://socket.io/).
-* [x] Real-time GraphQL queries and mutations with [**GraphQL.IO**](http://graphql-io.com/).
-* [X] Jobs and messages with [**Bull**](https://github.com/OptimalBits/bull).
-* [x] Online payments with [**Stripe**](https://stripe.com/).
-* [x] Full-text search with [**Elasticsearch**](https://www.elastic.co/products/elasticsearch).
-* [x] Machine learning models with [**TensorFlow**](https://www.tensorflow.org/js/).
-* ---------- **Tools** ----------
-* [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
-* [x] OpenAPI specification with [**Swagger**](https://swagger.io/).
-* [x] JavaScript static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
-* [x] Code formatter with [**Prettier**](https://prettier.io/).
-* [x] JavaScript static type checker with [**Flow**](https://flow.org/).
-* [x] Unit testing with [**Jest**](https://github.com/facebook/jest).
-* [x] End-to-End testing with [**Supertest**](https://github.com/visionmedia/supertest).
-* [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
-* [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
-* ---------- **Environments** ----------
-* [x] JavaScript runtime with [**Node.js**](https://nodejs.org/).
-* [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
-* [x] Version control with [**Git**](https://github.com/git/git).
-* [x] Code repository with [**GitHub**](https://github.com/).
-* [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
-* [x] Cloud NoSQL database hosting with [**Atlas**](https://www.mongodb.com/cloud/atlas).
-* [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
-* [x] Cloud storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
-* [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
-* [x] Search engine hosting with [**Bonsai**](https://bonsai.io/).
-* [x] Large-scale data processing with [**Spark**](https://spark.apache.org/).
-* [x] API gateway service with [**Tyk**](https://tyk.io/api-gateway/open-source/).
-* [x] Centralized logging and analysis service with [**LogDNA**](https://logdna.com/).
-* [x] Error tracking service with [**Sentry**](https://sentry.io/).
-* [x] Performance and security with [**Cloudflare**](https://www.cloudflare.com/).
-* [x] Software container with [**Docker**](https://github.com/docker/docker).
-* [x] Continuous integration with [**CircleCI**](https://circleci.com/).
-* [x] Test coverage integration with [**Codecov**](https://codecov.io/).
+- ---------- **Essentials** ----------
+- [x] Application routing with [**Express**](http://expressjs.com/).
+- [x] Industry-standard GraphQL implementation with [**Apollo**](https://www.apollographql.com/).
+- [x] Object document mapping with [**Mongoose**](http://mongoosejs.com/).
+- [x] Object relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
+- [x] In-memory data structure store with [**Redis**](https://redis.io/).
+- [x] Authenticate requests with [**Passport**](http://passportjs.org/).
+- [x] Real-time bidirectional communication with [**Socket.IO**](https://socket.io/).
+- [x] Real-time GraphQL queries and mutations with [**GraphQL.IO**](http://graphql-io.com/).
+- [x] Jobs and messages with [**Bull**](https://github.com/OptimalBits/bull).
+- [x] Online payments with [**Stripe**](https://stripe.com/).
+- [x] Full-text search with [**Elasticsearch**](https://www.elastic.co/products/elasticsearch).
+- [x] Machine learning models with [**TensorFlow**](https://www.tensorflow.org/js/).
+- ---------- **Tools** ----------
+- [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
+- [x] OpenAPI specification with [**Swagger**](https://swagger.io/).
+- [x] JavaScript static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
+- [x] Code formatter with [**Prettier**](https://prettier.io/).
+- [x] JavaScript static type checker with [**Flow**](https://flow.org/).
+- [x] Unit testing with [**Jest**](https://github.com/facebook/jest).
+- [x] End-to-End testing with [**Supertest**](https://github.com/visionmedia/supertest).
+- [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
+- [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
+- ---------- **Environments** ----------
+- [x] JavaScript runtime with [**Node.js**](https://nodejs.org/).
+- [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
+- [x] Version control with [**Git**](https://github.com/git/git).
+- [x] Code repository with [**GitHub**](https://github.com/).
+- [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
+- [x] Cloud NoSQL database hosting with [**Atlas**](https://www.mongodb.com/cloud/atlas).
+- [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
+- [x] Cloud storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
+- [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
+- [x] Search engine hosting with [**Bonsai**](https://bonsai.io/).
+- [x] Large-scale data processing with [**Spark**](https://spark.apache.org/).
+- [x] API gateway service with [**Kong**](https://konghq.com/solutions/gateway/).
+- [x] Centralized logging and analysis service with [**LogDNA**](https://logdna.com/).
+- [x] Error tracking service with [**Sentry**](https://sentry.io/).
+- [x] Performance and security with [**Cloudflare**](https://www.cloudflare.com/).
+- [x] Software container with [**Docker**](https://github.com/docker/docker).
+- [x] Continuous integration with [**CircleCI**](https://circleci.com/).
+- [x] Test coverage integration with [**Codecov**](https://codecov.io/).
 
 Thinking in ...
 
-* [x] REST Stack
-* [x] GraphQL Stack
-* [x] Microservices
+- [x] REST Stack
+- [x] GraphQL Stack
+- [x] Microservices
 
 ## Table of Contents
 
-* [Getting Started](#getting-started)
-* [Dockerization](#dockerization)
-* [Configuration](#configuration)
-* [Using Libraries](#using-libraries)
-* [Directory Structure](#directory-structure)
+- [Getting Started](#getting-started)
+- [Dockerization](#dockerization)
+- [Configuration](#configuration)
+- [Using Libraries](#using-libraries)
+- [Directory Structure](#directory-structure)
+- Microservices
 
 ## Getting Started
 
@@ -313,10 +314,9 @@ export const RelationalList = sequelize.define('List', {
 import { of } from 'rxjs';
 import { lowerFirst, pad } from 'lodash';
 
-of(lowerFirst('Hello'), pad('World', 5))
-  .subscribe(value => console.log(value));
-  // hello
-  // World
+of(lowerFirst('Hello'), pad('World', 5)).subscribe(value => console.log(value));
+// hello
+// World
 ```
 
 6. Example of ReactiveX
@@ -331,28 +331,28 @@ timer(2000)
     combineAll(),
   )
   .subscribe(value => console.log(value));
-  // ["Hello"]
-  // ["World"]
+// ["Hello"]
+// ["World"]
 ```
 
 7. Example of Socket
 
 ```js
 connSocket.emit('A', { foo: 'bar' });
-connSocket.on('B', data => console.log(data));  // { foo: 'baz' }
+connSocket.on('B', data => console.log(data)); // { foo: 'baz' }
 ```
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
 <script>
-const socket = io('http://localhost:3000/');
+  const socket = io('http://localhost:3000/');
 
-socket.on('connect', () => console.log('Socket: Accept a connection.'));
+  socket.on('connect', () => console.log('Socket: Accept a connection.'));
 
-socket.on('A', (data) => {
-  console.log(data);  // { foo: 'bar' }
-  socket.emit('B', { foo: 'baz' });
-});
+  socket.on('A', data => {
+    console.log(data); // { foo: 'bar' }
+    socket.emit('B', { foo: 'baz' });
+  });
 </script>
 ```
 
@@ -416,3 +416,5 @@ The structure follows the LIFT Guidelines.
 ├── README.md
 └── yarn.lock
 ```
+
+## Microservices
