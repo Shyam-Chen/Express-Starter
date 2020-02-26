@@ -22,6 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "@elastic/elasticsearch": "7.5.0",
+    "@sentry/node": "5.12.4",
     "@tensorflow-models/coco-ssd": "2.0.1",
     "@tensorflow-models/mobilenet": "2.0.4",
     "@tensorflow/tfjs-node": "1.4.0",
@@ -61,7 +62,6 @@
     "pg-hstore": "2.3.3",
     "pm2": "3.5.1",
     "puppeteer": "1.20.0",
-    "raven": "2.6.4",
     "rendertron-middleware": "0.1.5",
     "request": "2.88.0",
     "request-promise": "4.2.4",

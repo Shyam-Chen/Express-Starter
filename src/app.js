@@ -9,7 +9,7 @@ import session from 'express-session';
 import connectRedis from 'connect-redis';
 import rendertron from 'rendertron-middleware';
 import history from 'express-history-api-fallback';
-import Raven from 'raven';
+import Sentry from '@sentry/node';
 
 import routes from '~/core/rest';
 import apolloServer from '~/core/graphql';
@@ -20,7 +20,7 @@ import { NODE_ENV, SECRET, RATE_LIMIT, SENTRY_DSN, STATIC_FILES, RENDERTRON_URL 
 
 const app = express();
 
-if (NODE_ENV === 'production') Raven.config(SENTRY_DSN).install();
+if (NODE_ENV === 'production') Sentry.init({ dsn: SENTRY_DSN });
 
 /**
  * @name middleware-functions
@@ -42,7 +42,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-if (NODE_ENV === 'production') app.use(Raven.requestHandler());
+if (NODE_ENV === 'production') app.use(Sentry.Handlers.requestHandler());
 
 /**
  * @name REST
@@ -54,7 +54,7 @@ app.use('/', routes);
  */
 apolloServer.applyMiddleware({ app });
 
-if (NODE_ENV === 'production') app.use(Raven.errorHandler());
+if (NODE_ENV === 'production') app.use(Sentry.Handlers.errorHandler());
 
 /**
  * @name static-files
