@@ -4,10 +4,10 @@ import { PubSub } from 'graphql-subscriptions';
 
 import { helloWorldTypeDefs, helloWorldResolvers } from '~/hello-world/graphql';
 import { listTypeDefs, listResolvers } from '~/crud-operations/graphql';
-import authorization from '~/authorization/graphql';
+import authentication from '~/authentication/graphql';
 
 const typeDefs = mergeTypes(
-  [helloWorldTypeDefs, listTypeDefs, authorization.typeDefs],
+  [helloWorldTypeDefs, listTypeDefs, authentication.typeDefs],
   {
     all: true,
   },
@@ -16,7 +16,7 @@ const typeDefs = mergeTypes(
 const resolvers = mergeResolvers([
   helloWorldResolvers,
   listResolvers,
-  authorization.resolvers,
+  authentication.resolvers,
 ]);
 
 const context = ({ req }) => {

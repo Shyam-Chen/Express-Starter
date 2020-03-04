@@ -2,7 +2,7 @@ import passport from 'passport';
 import { Strategy as JWTStrategy, ExtractJwt } from 'passport-jwt';
 
 import { SECRET } from '~/env';
-import { User } from '~/authorization/document';
+import { User } from '~/authentication/document';
 
 passport.use(new JWTStrategy(
   {

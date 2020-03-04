@@ -1,6 +1,6 @@
 import { User } from '../document';
 
-describe('Authorization', () => {
+describe('authentication', () => {
   it('test', async () => {
     const list = await new User({
       username: 'shyam-chen',
