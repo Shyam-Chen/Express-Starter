@@ -28,5 +28,6 @@ ENV WEB_CONCURRENCY 1
 # -- processes
 
 EXPOSE 3000
+EXPOSE $PORT
 
 CMD node processes.js
