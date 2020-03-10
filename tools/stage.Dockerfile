@@ -10,6 +10,8 @@ RUN yarn install && yarn build
 ENV NODE_ENV production
 
 # envs --
+ENV HOST 0.0.0.0
+
 ENV SECRET jbmpHPLoaV8N0nEpuLxlpT95FYakMPiu
 
 ENV MONGODB_URI mongodb://web-go-user:web-go-user@ds133961.mlab.com:33961/web-go-demo
