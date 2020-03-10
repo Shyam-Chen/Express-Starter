@@ -21,18 +21,21 @@ server.listen(Number(PORT), HOST, () => {
   console.log(chalk.hex('#009688')('🚀 App: Bootstrap Succeeded.'));
   console.log(chalk.hex('#009688')(`🚀 Host: http://${HOST}:${PORT}/.`));
 
-  mongoose.connection.once('open', () => console.log(chalk.hex('#009688')('🚀 Mongo: Connection Succeeded.')));
-  mongoose.connection.on('error', err => console.error(err));
+  mongoose.connection
+    .once('open', () => console.log(chalk.hex('#009688')('🚀 Mongo: Connection Succeeded.')))
+    .on('error', err => console.error(err));
 
-  sequelize.authenticate()
+  sequelize
+    .authenticate()
     .then(() => console.log(chalk.hex('#009688')('🚀 Postgres: Connection Succeeded.')))
     .catch(err => console.error(err));
 
-  redis.on('connect', () => console.log(chalk.hex('#009688')('🚀 Redis: Connection Succeeded.')));
-  redis.on('error', err => console.error(err));
+  redis
+    .on('connect', () => console.log(chalk.hex('#009688')('🚀 Redis: Connection Succeeded.')))
+    .on('error', err => console.error(err));
 });
 
-io.on('connection', (connSocket) => {
+io.on('connection', connSocket => {
   console.log(chalk.hex('#009688')('🚀 Socket: Connection Succeeded.'));
   connSocket.on('disconnect', () => console.log(chalk.hex('#009688')('🚀 Socket: Disconnected.')));
 });
