@@ -9,7 +9,7 @@ import session from 'express-session';
 import connectRedis from 'connect-redis';
 import rendertron from 'rendertron-middleware';
 import history from 'express-history-api-fallback';
-import Sentry from '@sentry/node';
+import * as Sentry from '@sentry/node';
 
 import routes from '~/core/rest';
 import apolloServer from '~/core/graphql';
