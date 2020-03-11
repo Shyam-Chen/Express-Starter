@@ -29,10 +29,6 @@ server.listen(Number(PORT), HOST, () => {
     .authenticate()
     .then(() => console.log(chalk.hex('#009688')('🚀 Postgres: Connection Succeeded.')))
     .catch(err => console.error(err));
-
-  redis
-    .on('connect', () => console.log(chalk.hex('#009688')('🚀 Redis: Connection Succeeded.')))
-    .on('error', err => console.error(err));
 });
 
 io.on('connection', connSocket => {
