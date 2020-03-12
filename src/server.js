@@ -5,7 +5,6 @@ import chalk from 'chalk';
 import apolloServer from '~/core/graphql';
 import mongoose from '~/core/mongoose';
 import sequelize from '~/core/sequelize';
-import redis from '~/core/redis';
 
 import { PORT, HOST } from './env';
 import app from './app';
