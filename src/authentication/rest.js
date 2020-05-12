@@ -80,6 +80,10 @@ router.put('/profile', async (req, res) => {
   res.json({});
 });
 
+router.post('/impression-password', async (req, res) => {
+  res.json({});
+});
+
 router.post('/forgot-password', async (req, res) => {
   res.json({});
 });

@@ -31,7 +31,7 @@ jobs:
           name: Code Specification
           command: |
             docker-compose exec app yarn unit
-            docker-compose exec app yarn _codecov --token=$CODECOV_TOKEN
+            docker-compose exec app yarn _codecov -t $CODECOV_TOKEN
 
       - run:
           name: E2E Specification
