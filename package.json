@@ -92,7 +92,7 @@
     "eslint-plugin-prettier": "3.1.0",
     "faker": "4.1.0",
     "graphql-tools": "4.0.5",
-    "heroku": "7.26.2",
+    "heroku": "7.42.1",
     "jest": "24.8.0",
     "nodemon": "1.19.1",
     "prettier": "1.18.2",

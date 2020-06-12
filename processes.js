@@ -11,8 +11,7 @@ pm2.connect(() => {
     },
     (err) => {
       if (err) {
-        console.error(`Error while launching applications ${err.stack || err}.`);
-        return;
+        throw new Error(`Error while launching applications ${err.stack || err}.`);
       }
 
       console.log('PM2 and application has been succesfully started.');
