@@ -31,7 +31,7 @@ app.use(rateLimit({ max: Number(RATE_LIMIT), windowMs: 15 * 60 * 1000 }));
 app.use(compression());
 app.use(morgan('tiny'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(session({
   store: new (connectRedis(session))({ client: redis }),
   name: 'sid',
