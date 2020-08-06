@@ -17,8 +17,8 @@ io.origins(['*:*']);
 apolloServer.installSubscriptionHandlers(server);
 
 server.listen(Number(PORT), HOST, () => {
-  console.log(chalk.hex('#009688')('🚀 App: Bootstrap Succeeded.'));
-  console.log(chalk.hex('#009688')(`🚀 Host: http://${HOST}:${PORT}/.`));
+  console.log(chalk.hex('#009688')('🚀  App: Bootstrap Succeeded.'));
+  console.log(chalk.hex('#009688')(`🚀  Host: http://${HOST}:${PORT}/.`));
 
   mongoose.connection
     .once('open', () => console.log(chalk.hex('#009688')('🚀 Mongo: Connection Succeeded.')))

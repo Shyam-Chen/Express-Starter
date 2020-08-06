@@ -20,7 +20,7 @@ This seed repository provides the following features:
 - [x] In-memory data structure store with [**Redis**](https://redis.io/).
 - [x] Authenticate requests with [**Passport**](http://passportjs.org/).
 - [x] Real-time bidirectional communication with [**Socket.IO**](https://socket.io/).
-- [x] Real-time GraphQL queries and mutations with [**GraphQL.IO**](http://graphql-io.com/).
+- [x] Real-time GraphQL queries and mutations with [**Apollo**](https://www.apollographql.com/).
 - [x] Jobs and messages with [**Bull**](https://github.com/OptimalBits/bull).
 - [x] Online payments with [**Stripe**](https://stripe.com/).
 - [x] Full-text search with [**Elasticsearch**](https://www.elastic.co/products/elasticsearch).
@@ -68,7 +68,7 @@ Thinking in ...
 - [Configuration](#configuration)
 - [Using Libraries](#using-libraries)
 - [Directory Structure](#directory-structure)
-- Microservices
+- [Microservices](#microservices)
 
 ## Getting Started
 
@@ -418,3 +418,7 @@ The structure follows the LIFT Guidelines.
 ```
 
 ## Microservices
+
+> The microservice architecture enables the rapid, frequent and reliable delivery of large, complex applications. It also enables an organization to evolve its technology stack.
+
+See [Server-side Micro-Fullstack](https://github.com/Shyam-Chen/Micro-Fullstack/tree/master/server) for instructions on how to create microservices from source.
