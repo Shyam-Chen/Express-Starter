@@ -20,7 +20,6 @@ This seed repository provides the following features:
 - [x] In-memory data structure store with [**Redis**](https://redis.io/).
 - [x] Authenticate requests with [**Passport**](http://passportjs.org/).
 - [x] Real-time bidirectional communication with [**Socket.IO**](https://socket.io/).
-- [x] Real-time GraphQL queries and mutations with [**Apollo**](https://www.apollographql.com/).
 - [x] Jobs and messages with [**Bull**](https://github.com/OptimalBits/bull).
 - [x] Online payments with [**Stripe**](https://stripe.com/).
 - [x] Full-text search with [**Elasticsearch**](https://www.elastic.co/products/elasticsearch).
@@ -47,7 +46,6 @@ This seed repository provides the following features:
 - [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 - [x] Search engine hosting with [**Bonsai**](https://bonsai.io/).
 - [x] Large-scale data processing with [**Spark**](https://spark.apache.org/).
-- [x] API gateway service with [**Kong**](https://konghq.com/solutions/gateway/).
 - [x] Centralized logging and analysis service with [**LogDNA**](https://logdna.com/).
 - [x] Error tracking service with [**Sentry**](https://sentry.io/).
 - [x] Performance and security with [**Cloudflare**](https://www.cloudflare.com/).
@@ -59,7 +57,6 @@ Thinking in ...
 
 - [x] REST Stack
 - [x] GraphQL Stack
-- [x] Microservices
 
 ## Table of Contents
 
