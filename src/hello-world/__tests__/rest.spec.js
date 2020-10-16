@@ -1,10 +1,14 @@
 import rest from '../rest';
 
+const inject = (router, { method, path }) => (
+  router.stack
+    .filter(layer => layer.route.methods[method] && layer.route.path === path)[0]
+    .route.stack[0]
+);
+
 describe('Hello World', () => {
   it('should get a `Hello, World!`', async () => {
-    const route = rest.stack
-      .filter(layer => layer.route.path === '/' && layer.route.methods.get)[0]
-      .route.stack[0];
+    const route = inject(rest, { method: 'get', path: '/' });
 
     const req = {};
 

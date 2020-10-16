@@ -3,15 +3,15 @@ import { fakeData } from '../__mocks__/document';
 
 jest.mock('../document');
 
-const inject = (router, { method, url }) => (
+const inject = (router, { method, path }) => (
   router.stack
-    .filter(layer => layer.route.methods[method] && layer.route.path === url)[0]
+    .filter(layer => layer.route.methods[method] && layer.route.path === path)[0]
     .route.stack[0]
 );
 
 describe('CRUD Operations', () => {
   it('should get a list', async () => {
-    const route = inject(rest, { method: 'get', url: '/' });
+    const route = inject(rest, { method: 'get', path: '/' });
 
     const req = { query: {} };
 
@@ -28,7 +28,7 @@ describe('CRUD Operations', () => {
   });
 
   it('should get a item from ID in list', async () => {
-    const route = inject(rest, { method: 'get', url: '/' });
+    const route = inject(rest, { method: 'get', path: '/' });
 
     const req = {
       query: {
@@ -49,7 +49,7 @@ describe('CRUD Operations', () => {
   });
 
   it('should search a text in list', async () => {
-    const route = inject(rest, { method: 'get', url: '/' });
+    const route = inject(rest, { method: 'get', path: '/' });
 
     const req = {
       query: {

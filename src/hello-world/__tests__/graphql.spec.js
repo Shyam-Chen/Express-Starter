@@ -1,5 +1,6 @@
 import { graphql } from 'graphql';
 import { makeExecutableSchema } from 'graphql-tools';
+import gql from 'graphql-tag';
 
 import { helloWorldTypeDefs, helloWorldResolvers } from '../graphql';
 
@@ -10,7 +11,7 @@ describe('Hello World', () => {
       resolvers: helloWorldResolvers,
     });
 
-    const query = 'query { helloWorld }';
+    const query = gql`query { helloWorld }`;
 
     const result = await graphql(schema, query);
 
