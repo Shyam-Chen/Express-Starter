@@ -7,7 +7,7 @@ import authentication from '~/authentication/rest';
 const router = Router();
 
 router.get('/', (req, res) => {
-  res.send('app-root');
+  res.send(`app-root, ${process.env.INDEX_NAME}`);
 });
 
 router.use('/hello-world', helloWorld);
