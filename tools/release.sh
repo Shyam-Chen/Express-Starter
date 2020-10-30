@@ -1,3 +1,4 @@
+# deprecated
 #!/bin/sh
 
 set -e
