@@ -46,6 +46,7 @@ This seed repository provides the following features:
 - [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 - [x] Search engine hosting with [**Bonsai**](https://bonsai.io/).
 - [x] Large-scale data processing with [**Spark**](https://spark.apache.org/).
+- [x] Log management, analysis & hosted ELK with [**Logit.io**](https://logit.io/).
 - [x] Centralized logging and analysis service with [**LogDNA**](https://logdna.com/).
 - [x] Error tracking service with [**Sentry**](https://sentry.io/).
 - [x] Performance and security with [**Cloudflare**](https://www.cloudflare.com/).
