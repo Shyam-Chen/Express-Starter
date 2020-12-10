@@ -42,30 +42,20 @@ jobs:
       - run:
           name: Deploy Application
           command: |
-            case "${CIRCLE_BRANCH}" in
-              "develop"|*"release"*|"master")
-                case "$CIRCLE_BRANCH" in
-                  "develop")
-                    APP_NAME=backend-starter-kit
-                    DEPLOYMENT_ENVIRONMENT=dev
-                    ;;
-                  *"release"*)
-                    APP_NAME=backend-starter-kit
-                    DEPLOYMENT_ENVIRONMENT=stage
-                    ;;
-                  "master")
-                    APP_NAME=backend-starter-kit
-                    DEPLOYMENT_ENVIRONMENT=prod
-                    ;;
-                esac
+            echo "${HEROKU_TOKEN}" | docker login -u "${HEROKU_USERNAME}" --password-stdin registry.heroku.com
 
-                echo "${HEROKU_TOKEN}" | docker login -u "${HEROKU_USERNAME}" --password-stdin registry.heroku.com
-                docker build -f ./tools/$DEPLOYMENT_ENVIRONMENT.Dockerfile -t $APP_NAME .
-                docker tag $APP_NAME registry.heroku.com/$APP_NAME/web
-                docker push registry.heroku.com/$APP_NAME/web
-                docker-compose exec -e HEROKU_API_KEY=$HEROKU_TOKEN app yarn _heroku container:release web -a $APP_NAME
-                ;;
-            esac
+            docker build \
+              -f ./tools/produce.Dockerfile \
+              --build-arg mongodb_uri=${MONGODB_URI} \
+              --build-arg postgres_url=${POSTGRES_URL} \
+              --build-arg redis_url=${REDIS_URL} \
+              --build-arg sentry_dsn=${SENTRY_DSN} \
+              --squash \
+              -t $APP_NAME .
+
+            docker tag $APP_NAME registry.heroku.com/$APP_NAME/web
+            docker push registry.heroku.com/$APP_NAME/web
+            docker-compose exec -e HEROKU_API_KEY=$HEROKU_TOKEN app yarn _heroku container:release web -a $APP_NAME
 
 workflows:
   version: 2
