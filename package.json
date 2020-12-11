@@ -26,7 +26,7 @@
     "@tensorflow-models/coco-ssd": "2.0.1",
     "@tensorflow-models/mobilenet": "2.0.4",
     "@tensorflow/tfjs-node": "1.4.0",
-    "apollo-server-express": "2.9.14",
+    "apollo-server-express": "2.14.2",
     "base64-to-uint8array": "1.0.0",
     "bcrypt": "4.0.1",
     "bull": "3.13.0",
