@@ -47,7 +47,7 @@
     "ioredis": "4.16.0",
     "jsdom": "15.2.1",
     "jsonwebtoken": "8.5.1",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "merge-graphql-schemas": "1.7.3",
     "mongoose": "5.8.1",
     "morgan": "1.9.1",
