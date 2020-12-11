@@ -81,7 +81,7 @@ $ cd <PROJECT_NAME>
 2. Install dependencies
 
 ```bash
-$ yarn install
+$ npm install
 ```
 
 3. Start a local server
@@ -142,7 +142,7 @@ $ docker-compose rm -fs
 $ docker-compose up -d --build app
 ```
 
-5. Push images to Docker Cloud
+<!-- 5. Push images to Docker Cloud
 
 ```diff
 # .gitignore
@@ -184,7 +184,7 @@ $ docker rmi <IMAGE_ID>
 - docker tag $APP_NAME registry.heroku.com/$APP_NAME/web
 + docker tag <IMAGE_NAME>:<IMAGE_TAG> registry.heroku.com/<HEROKU_PROJECT>/web
   docker push registry.heroku.com/<HEROKU_PROJECT>/web
-```
+``` -->
 
 ## Configuration
 

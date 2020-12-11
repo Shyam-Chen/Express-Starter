@@ -5,6 +5,6 @@ ENV HOME /Express-Starter
 WORKDIR ${HOME}
 ADD . $HOME
 
-RUN yarn install --frozen-lockfile
+RUN npm install
 
 EXPOSE 3000
