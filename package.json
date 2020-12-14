@@ -22,11 +22,13 @@
   "license": "MIT",
   "dependencies": {
     "@elastic/elasticsearch": "7.5.0",
+    "@graphql-tools/merge": "^6.2.6",
+    "@graphql-tools/schema": "^7.1.2",
     "@sentry/node": "5.12.4",
     "@tensorflow-models/coco-ssd": "2.0.1",
     "@tensorflow-models/mobilenet": "2.0.4",
     "@tensorflow/tfjs-node": "1.4.0",
-    "apollo-server-express": "2.9.14",
+    "apollo-server-express": "^2.19.0",
     "base64-to-uint8array": "1.0.0",
     "bcrypt": "4.0.1",
     "bull": "3.13.0",
@@ -69,6 +71,7 @@
     "sequelize": "5.15.1",
     "socket.io": "2.3.0",
     "stripe": "7.10.0",
+    "subscriptions-transport-ws": "^0.9.18",
     "swagger-ui-express": "4.1.2",
     "winston": "3.2.1"
   },

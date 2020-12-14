@@ -17,24 +17,34 @@ export const CLOUDINARY_CONFIG = {
 };
 
 export const AUTH = {
+  JWT: {
+    secretKey: process.env.SECRET || '',
+  },
   GOOGLE: {
-    clientID: process.env.GOOGLE_ID || '584431831746-9b5743ro43sn7p6nfgbui0kqhj557kvt.apps.googleusercontent.com',
+    clientID:
+      process.env.GOOGLE_ID ||
+      '584431831746-9b5743ro43sn7p6nfgbui0kqhj557kvt.apps.googleusercontent.com',
     clientSecret: process.env.GOOGLE_SECRET || 'stZ7p0BC_oQrUvJKsvqAxehT',
   },
+  APPLE: {
+    clientID: process.env.APPLE_ID,
+    teamId: '',
+    keyId: '',
+  },
   FACEBOOK: {
-    clientID: process.env.FACEBOOK_ID || '...',
-    clientSecret: process.env.FACEBOOK_SECRET || '...',
+    clientID: process.env.FACEBOOK_ID,
+    clientSecret: process.env.FACEBOOK_SECRET,
   },
   TWITTER: {
-    consumerKey: process.env.TWITTER_KEY || '...',
-    consumerSecret: process.env.TWITTER_SECRET || '...',
+    consumerKey: process.env.TWITTER_KEY,
+    consumerSecret: process.env.TWITTER_SECRET,
+  },
+  GITHUB: {
+    clientID: process.env.GITHUB_ID,
+    clientSecret: process.env.GITHUB_SECRET,
   },
 };
-
-export const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY || '...';
 
 export const RATE_LIMIT = process.env.RATE_LIMIT || 0;
 
 export const SENTRY_DSN = process.env.SENTRY_DSN || 'https://70484e0dda784a1081081ca9c8237792:51b5a95ee1e545efba3aba9103c6193e@sentry.io/236866';
-export const STATIC_FILES = process.env.STATIC_FILES || null;
-export const RENDERTRON_URL = process.env.RENDERTRON_URL || 'https://render-tron.appspot.com/render';

@@ -1,4 +1,3 @@
-import { join } from 'path';
 import express from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
@@ -7,8 +6,6 @@ import compression from 'compression';
 import morgan from 'morgan';
 import session from 'express-session';
 import connectRedis from 'connect-redis';
-import rendertron from 'rendertron-middleware';
-import history from 'express-history-api-fallback';
 import * as Sentry from '@sentry/node';
 
 import routes from '~/core/rest';
@@ -16,7 +13,7 @@ import apolloServer from '~/core/graphql';
 import passport from '~/core/passport';
 import redis from '~/core/redis';
 
-import { NODE_ENV, SECRET, RATE_LIMIT, SENTRY_DSN, STATIC_FILES, RENDERTRON_URL } from './env';
+import { NODE_ENV, SECRET, RATE_LIMIT, SENTRY_DSN } from './env';
 
 const app = express();
 
@@ -55,21 +52,5 @@ app.use('/', routes);
 apolloServer.applyMiddleware({ app });
 
 if (NODE_ENV === 'production') app.use(Sentry.Handlers.errorHandler());
-
-/**
- * @name static-files
- */
-if (STATIC_FILES) {
-  const root = join(__dirname, `../${STATIC_FILES}`);
-
-  // seo friendly
-  app.use(rendertron.makeMiddleware({ proxyUrl: RENDERTRON_URL }));
-
-  // serve static
-  app.use(express.static(root));
-
-  // spa friendly
-  app.use(history('index.html', { root }));
-}
 
 export default app;
