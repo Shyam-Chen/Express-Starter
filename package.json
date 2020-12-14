@@ -6,7 +6,7 @@
     "node": "14"
   },
   "scripts": {
-    "serve": "nodemon src/server.js --exec babel-node",
+    "serve": "nodemon src/server.js --exec babel-node --ignore **/__tests__/** --ignore **/__mocks__/**",
     "build": "babel src -d dist --ignore **/__tests__/**,**/__mocks__/**",
     "lint": "eslint 'src/**/*.js'",
     "unit": "jest \"src/.*\\.js$\" --coverage --forceExit",
@@ -99,6 +99,6 @@
     "jest": "24.8.0",
     "nodemon": "1.19.1",
     "prettier": "1.18.2",
-    "supertest": "4.0.2"
+    "supertest": "6.0.1"
   }
 }

@@ -1,15 +1,22 @@
 import request from 'supertest';
-import gql from 'graphql-tag';
+import { print } from 'graphql';
+import { gql } from 'apollo-server-express';
 
 describe('Hello World', () => {
   it('should get a `Hello, World!`', async () => {
-    const { statusCode, body } = await request(global.API_URL)
+    const query = gql`
+      query {
+        helloWorld
+      }
+    `;
+
+    const response = await request(global.API_URL)
       .post('/graphql')
-      .send({ query: gql`query { helloWorld }` });
+      .send({ query: print(query) });
 
-    expect(statusCode).toEqual(200);
+    expect(response.statusCode).toEqual(200);
 
-    expect(body).toEqual({
+    expect(response.body).toEqual({
       data: {
         helloWorld: 'Hello, World!',
       },
