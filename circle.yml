@@ -50,7 +50,7 @@ jobs:
               --build-arg postgres_url=${POSTGRES_URL} \
               --build-arg redis_url=${REDIS_URL} \
               --build-arg sentry_dsn=${SENTRY_DSN} \
-              --squash \
+              # --squash \
               -t $APP_NAME .
 
             docker tag $APP_NAME registry.heroku.com/$APP_NAME/web
