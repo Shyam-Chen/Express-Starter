@@ -10,8 +10,8 @@ const router = Router();
 
 /**
  * @name list - get a list
- * @param {string} [_id] - get a item by ID
- * @param {string} [text] - search for text in list
+ * @param {string} [_id] - get a item by ID in list
+ * @param {string} [text] - search a text in list
  * @return {Object<{ data: List[], message: string }>}
  *
  * @example GET /crud-operations
@@ -32,8 +32,8 @@ router.get('/', async (req, res) => {
 });
 
 /**
- * @name item - get a item
- * @param {string} id - get a item by ID
+ * @name item
+ * @param {string} id - get a item by ID from params in list
  * @return {Object<{ data: List[], message: string }>}
  *
  * @example GET /crud-operations/${id}

@@ -27,7 +27,7 @@ describe('CRUD Operations', () => {
     await route.handle(req, res);
   });
 
-  it('should get a item from ID in list', async () => {
+  it('should get a item by ID in list', async () => {
     const route = inject(rest, { method: 'get', path: '/' });
 
     const req = {
@@ -68,4 +68,40 @@ describe('CRUD Operations', () => {
 
     await route.handle(req, res);
   });
+
+  it('should get a item by ID from params in list', async () => {
+    const route = inject(rest, { method: 'get', path: '/item/:id' });
+
+    const req = {
+      params: {
+        id: 'vn3RecDbwMQTjttnluZW',
+      },
+    };
+
+    const res = {
+      json(obj) {
+        expect(obj).toEqual({
+          data: [{ _id: 'vn3RecDbwMQTjttnluZW', text: 'Front-end' }],
+          message: 'Data obtained.',
+        });
+      },
+    };
+
+    await route.handle(req, res);
+  });
+
+  it('should get a list length', async () => {
+    const route = inject(rest, { method: 'get', path: '/count' });
+
+    const res = {
+      json(obj) {
+        expect(obj).toEqual({
+          data: 2,
+          message: 'Data obtained.',
+        });
+      },
+    };
+
+    await route.handle({}, res);
+  })
 });

@@ -1,6 +1,6 @@
-import { graphql } from 'graphql';
-import { makeExecutableSchema } from 'graphql-tools';
-import gql from 'graphql-tag';
+import { graphql, print } from 'graphql';
+import { gql } from 'apollo-server-express';
+import { makeExecutableSchema } from '@graphql-tools/schema';
 
 import { helloWorldTypeDefs, helloWorldResolvers } from '../graphql';
 
@@ -11,9 +11,13 @@ describe('Hello World', () => {
       resolvers: helloWorldResolvers,
     });
 
-    const query = gql`query { helloWorld }`;
+    const query = gql`
+      query {
+        helloWorld
+      }
+    `;
 
-    const result = await graphql(schema, query);
+    const result = await graphql(schema, print(query));
 
     expect(result).toEqual({
       data: {

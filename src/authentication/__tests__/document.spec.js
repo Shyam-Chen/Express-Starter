@@ -2,12 +2,26 @@ import { User } from '../document';
 
 describe('authentication', () => {
   it('test', async () => {
-    const list = await new User({
+    const user = await new User({
       username: 'shyam-chen',
       password: '3345678',
       email: 'shyam.chen@gmail.com',
     });
 
-    expect(list).toBeTruthy();
+    expect(user).toBeTruthy();
+  });
+
+  it('test', async () => {
+    const user = await new User({
+      username: 'shyam-chen',
+      password: '3345678',
+      email: 'shyam.chen',
+    });
+
+    try {
+      await user.validate();
+    } catch ({ errors }) {
+      expect(errors.email.message).toEqual('shyam.chen is not a valid email format');
+    }
   });
 });

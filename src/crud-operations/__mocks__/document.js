@@ -21,4 +21,9 @@ export const List = {
       exec: () => new Promise(res => res(fakeData)),
     };
   },
+  count() {
+    return {
+      exec: () => new Promise(res => res(fakeData.length)),
+    };
+  },
 };
