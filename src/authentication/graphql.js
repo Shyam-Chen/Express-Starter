@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-import { SECRET } from '~/env';
+import { SECRET_KEY } from '~/env';
 
 import { User } from './document';
 
@@ -45,7 +45,7 @@ const resolvers = {
 
       return jwt.sign(
         { id: user.id, email: user.email },
-        SECRET,
+        SECRET_KEY,
         { expiresIn: '1y' },
       );
     },
@@ -64,7 +64,7 @@ const resolvers = {
 
       return jwt.sign(
         { id: user.id, email: user.email },
-        SECRET,
+        SECRET_KEY,
         { expiresIn: '1d' },
       );
     },

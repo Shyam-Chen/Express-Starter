@@ -13,7 +13,7 @@ import apolloServer from '~/core/graphql';
 import passport from '~/core/passport';
 import redis from '~/core/redis';
 
-import { NODE_ENV, SECRET, RATE_LIMIT, SENTRY_DSN } from './env';
+import { NODE_ENV, SECRET_KEY, RATE_LIMIT, SENTRY_DSN } from './env';
 
 const app = express();
 
@@ -34,7 +34,7 @@ app.use(session({
   name: 'sid',
   resave: true,
   saveUninitialized: true,
-  secret: SECRET,
+  secret: SECRET_KEY,
 }));
 app.use(passport.initialize());
 app.use(passport.session());

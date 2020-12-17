@@ -1,13 +1,13 @@
 import passport from 'passport';
 import { Strategy as JWTStrategy, ExtractJwt } from 'passport-jwt';
 
-import { SECRET } from '~/env';
+import { SECRET_KEY } from '~/env';
 import { User } from '~/authentication/document';
 
 passport.use(new JWTStrategy(
   {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: SECRET,
+    secretOrKey: SECRET_KEY,
   },
   async (jwtPayload, done) => {
     try {

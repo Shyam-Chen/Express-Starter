@@ -12,8 +12,8 @@ ENV NODE_ENV production
 # envs --
 ENV HOST 0.0.0.0
 
-ARG secret
-ENV SECRET=$secret
+ARG secret_key
+ENV SECRET_KEY=$secret_key
 
 ARG mongodb_uri
 ARG postgres_url

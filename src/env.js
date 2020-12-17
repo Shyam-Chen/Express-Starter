@@ -4,7 +4,7 @@ export const INDEX_NAME = process.env.INDEX_NAME || 'local';
 export const HOST = process.env.HOST || '0.0.0.0';
 export const PORT = process.env.PORT || 3000;
 
-export const SECRET = process.env.SECRET || 'jbmpHPLoaV8N0nEpuLxlpT95FYakMPiu';
+export const SECRET_KEY = process.env.SECRET_KEY || 'jbmpHPLoaV8N0nEpuLxlpT95FYakMPiu';
 
 export const MONGODB_URI =
   process.env.MONGODB_URI ||
@@ -24,7 +24,7 @@ export const CLOUDINARY_CONFIG = {
 
 export const AUTH = {
   JWT: {
-    secretKey: process.env.SECRET || '',
+    secretKey: process.env.SECRET_KEY || '',
   },
   GOOGLE: {
     clientID:

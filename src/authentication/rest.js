@@ -3,7 +3,7 @@ import passport from 'passport';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-import { SECRET } from '~/env';
+import { SECRET_KEY } from '~/env';
 
 import { User } from './document';
 
@@ -50,7 +50,7 @@ router.post('/login', async (req, res) => {
       req.login(payload, { session: false }, (error) => {
         if (error) res.status(400).json({ message: error });
 
-        const token = jwt.sign(JSON.stringify(payload), SECRET);
+        const token = jwt.sign(JSON.stringify(payload), SECRET_KEY);
 
         res.status(200).json({ username: user.username, token, message: 'Sign in suceesfully' });
       });
