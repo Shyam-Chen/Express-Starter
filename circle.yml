@@ -46,7 +46,7 @@ jobs:
 
       - run:
           name: Docker Build
-          command: >-
+          command: >
             docker build
               -f ./tools/produce.Dockerfile
               --build-arg secret_key=${SECRET_KEY}
