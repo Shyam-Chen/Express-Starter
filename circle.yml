@@ -4,7 +4,7 @@ jobs:
 
   build-test-deploy:
     docker:
-      - image: circleci/classic:edge
+      - image: cimg/base:stable
 
     working_directory: ~/Express-Starter
 
@@ -47,13 +47,15 @@ jobs:
       - run:
           name: Docker Build
           command: >-
-            docker build -f ./tools/produce.Dockerfile
+            docker build
+              -f ./tools/produce.Dockerfile
               --build-arg secret_key=${SECRET_KEY}
               --build-arg mongodb_uri=${MONGODB_URI}
               --build-arg postgres_url=${POSTGRES_URL}
               --build-arg redis_url=${REDIS_URL}
               --build-arg sentry_dsn=${SENTRY_DSN}
-              --squash -t $APP_NAME .
+              # --squash
+              -t $APP_NAME .
 
       - run:
           name: Heroku App
