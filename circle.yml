@@ -47,6 +47,7 @@ jobs:
       - run:
           name: Docker Build
           command: |
+            docker-compose exec app sh -c "chmod +x ./tools/produce.sh"
             docker-compose exec app sh -c "./tools/produce.sh"
 
       - run:
