@@ -44,6 +44,7 @@ jobs:
           command: |
             echo "${HEROKU_TOKEN}" | docker login -u "${HEROKU_USERNAME}" --password-stdin registry.heroku.com
 
+      # https://github.com/circleci/encrypted-files
       - run:
           name: Docker Build
           command: >
@@ -54,7 +55,6 @@ jobs:
               --build-arg postgres_url=${POSTGRES_URL}
               --build-arg redis_url=${REDIS_URL}
               --build-arg sentry_dsn=${SENTRY_DSN}
-              # --squash
               -t $APP_NAME .
 
       - run:
