@@ -172,7 +172,6 @@ export const REDIS_HOST = process.env.REDIS_HOST || '<PUT_YOUR_REDIS_HOST_HERE>'
 
 ### Continuous integration environments
 
-
 ```yml
 # circle.yml
 
