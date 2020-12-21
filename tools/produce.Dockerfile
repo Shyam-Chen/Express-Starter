@@ -5,7 +5,8 @@ ENV HOME /Express-Starter
 WORKDIR ${HOME}
 ADD . $HOME
 
-RUN yarn install && yarn build
+RUN npm install
+RUN yarn build
 
 ENV NODE_ENV production
 
