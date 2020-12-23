@@ -172,19 +172,6 @@ export const REDIS_HOST = process.env.REDIS_HOST || '<PUT_YOUR_REDIS_HOST_HERE>'
 
 ### Continuous integration environments
 
-```yml
-# circle.yml
-
-            - >-
-              docker build -f ./tools/produce.Dockerfile
-                --build-arg secret_key=${SECRET_KEY}
-                --build-arg mongodb_uri=${MONGODB_URI}
-                --build-arg postgres_url=${POSTGRES_URL}
-                --build-arg redis_url=${REDIS_URL}
-                --build-arg sentry_dsn=${SENTRY_DSN}
-                --squash -t $APP_NAME .
-```
-
 Add environment variables to the CircleCI build.
 
 ```sh
@@ -221,7 +208,7 @@ export default router;
 2. Example of GraphQL
 
 ```js
-import gql from 'graphql-tag';
+import { gql } from 'apollo-server-express';
 
 import { List } from './document';
 
@@ -342,8 +329,8 @@ redis.hgetall('thing', (err, object) => {
 - [Hello World](./src/hello-world)
 - [CRUD Operations](./src/crud-operations)
 - [Authentication](./src/authentication)
-- File Uploads
-- Realtime Data
+- [File Uploads](./src/file-uploads)
+- [Realtime Data](./src/realtime-data)
 
 ## Directory Structure
 

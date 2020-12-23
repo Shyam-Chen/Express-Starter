@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { Op } from 'sequelize';
 import { from } from 'rxjs';
-import request from 'request-promise';
+import axios from 'axios';
 
 import { List } from './document';
 import { RelationalList } from './relational';
@@ -69,7 +69,7 @@ router.get('/pagination', async (req, res) => {
 
   const page = Number(req.query.page) || 1;
   const row = Number(req.query.row) || 5;
-  const count = await request(`${baseUrl}/count`);
+  const count = await axios.get(`${baseUrl}/count`);
   const total = JSON.parse(count).data;
 
   for (let i = 0, l = total; i < l / row; i++) {
