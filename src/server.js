@@ -1,5 +1,5 @@
 import http from 'http';
-import socket from 'socket.io';
+import WebSocket from 'ws';
 import { execute, subscribe } from 'graphql';
 import { SubscriptionServer } from 'subscriptions-transport-ws';
 import chalk from 'chalk';
@@ -11,12 +11,11 @@ import sequelize from '~/core/sequelize';
 import { PORT, HOST } from './env';
 import app from './app';
 
-const server = http.Server(app);
-const io = socket(server);
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server });
+
 const teal500 = chalk.hex('#009688');
 
-app.set('socket', io);
-io.origins(['*:*']);
 apolloServer.installSubscriptionHandlers(server);
 
 server.listen(Number(PORT), HOST, () => {
@@ -34,9 +33,18 @@ server.listen(Number(PORT), HOST, () => {
     .catch(err => console.error(err));
 });
 
-io.on('connection', connSocket => {
-  console.log(teal500('🚀 Socket: Connection Succeeded.'));
-  connSocket.on('disconnect', () => console.log(teal500('🚀 Socket: Disconnected.')));
+wss.on('connection', () => {
+  console.log(teal500('🚀 WebSocket: Connection Succeeded.'));
 });
 
-SubscriptionServer.create({ execute, subscribe, schema }, { server, path: '/graphql' });
+SubscriptionServer.create(
+  {
+    execute,
+    subscribe,
+    schema,
+    onConnect() {
+      console.log(teal500('🚀 GraphQL: Connection Succeeded.'));
+    },
+  },
+  { server, path: '/graphql' },
+);

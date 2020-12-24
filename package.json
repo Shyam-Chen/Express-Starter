@@ -54,9 +54,9 @@
     "pm2": "3.5.1",
     "rxjs": "6.5.3",
     "sequelize": "5.15.1",
-    "socket.io": "2.3.0",
     "subscriptions-transport-ws": "^0.9.18",
-    "winston": "3.2.1"
+    "winston": "3.2.1",
+    "ws": "^7.4.1"
   },
   "devDependencies": {
     "@babel/cli": "7.12.10",
