@@ -7,6 +7,7 @@ import chalk from 'chalk';
 import apolloServer, { schema } from '~/core/graphql';
 import mongoose from '~/core/mongoose';
 import sequelize from '~/core/sequelize';
+import redis from '~/core/redis';
 
 import { PORT, HOST } from './env';
 import app from './app';
@@ -24,17 +25,21 @@ server.listen(Number(PORT), HOST, () => {
   console.log(teal500(`🚀  GraphQL: http://${HOST}:${PORT}${apolloServer.graphqlPath}`));
 
   mongoose.connection
-    .once('open', () => console.log(teal500('🚀 Mongo: Connection Succeeded.')))
+    .once('open', () => console.log(teal500('🚀  MongoDB: Connection Succeeded')))
     .on('error', err => console.error(err));
 
   sequelize
     .authenticate()
-    .then(() => console.log(teal500('🚀 Postgres: Connection Succeeded.')))
+    .then(() => console.log(teal500('🚀  PostgreSQL: Connection Succeeded')))
     .catch(err => console.error(err));
+
+  redis.on('connect', () => {
+    console.log(teal500('🚀  Redis: Connection Succeeded'));
+  });
 });
 
 wss.on('connection', () => {
-  console.log(teal500('🚀 WebSocket: Connection Succeeded.'));
+  console.log(teal500('🚀  WebSocket: Connection Succeeded'));
 });
 
 SubscriptionServer.create(
@@ -43,7 +48,7 @@ SubscriptionServer.create(
     subscribe,
     schema,
     onConnect() {
-      console.log(teal500('🚀 GraphQL: Connection Succeeded.'));
+      console.log(teal500('🚀  GraphQL Subscriptions: Connection Succeeded'));
     },
   },
   { server, path: '/graphql' },

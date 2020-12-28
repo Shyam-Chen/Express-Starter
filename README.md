@@ -105,6 +105,83 @@ $ yarn unit
 $ yarn e2e
 ```
 
+- MongoDB
+
+```sh
+$ brew tap mongodb/brew
+$ brew install mongodb-community
+$ mongo --version
+# MongoDB shell version v4.4.1
+# Build Info: {
+#     "version": "4.4.1",
+#     "gitVersion": "ad91a93a5a31e175f5cbf8c69561e788bbc55ce1",
+#     "modules": [],
+#     "allocator": "system",
+#     "environment": {
+#         "distarch": "x86_64",
+#         "target_arch": "x86_64"
+#     }
+# }
+```
+
+```sh
+# Starting MongoDB
+$ brew services run mongodb-community
+$ brew services list
+
+# Stopping MongoDB
+$ brew services stop mongodb-community
+```
+
+- PostgreSQL
+
+```sh
+$ brew install postgresql
+$ psql --version
+# psql (PostgreSQL) 13.1
+
+$ brew services start postgresql
+$ brew services list
+```
+
+```sh
+$ psql postgres
+```
+
+```sh
+CREATE DATABASE test;
+CREATE USER tester WITH PASSWORD '12345678' CREATEDB;
+
+# get a list of all databases
+\l
+
+# connect
+\c test
+
+# exit
+\q
+```
+
+```sh
+$ brew services stop redis
+```
+
+- Redis
+
+```sh
+$ brew install redis
+
+$ brew services start redis
+$ brew services list
+
+$ redis-cli ping
+# PONG
+```
+
+```sh
+$ brew services stop redis
+```
+
 ## Dockerization
 
 Dockerize an application.
@@ -131,6 +208,12 @@ $ docker-compose rm -fs
 
 ```bash
 $ docker-compose up -d --build app
+```
+
+Local Databases
+
+```bash
+$ docker-compose up -d mongodb postgresql redis
 ```
 
 ## Configuration
