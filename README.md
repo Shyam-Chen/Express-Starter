@@ -163,7 +163,7 @@ CREATE USER tester WITH PASSWORD '12345678' CREATEDB;
 ```
 
 ```sh
-$ brew services stop redis
+$ brew services stop postgresql
 ```
 
 - Redis

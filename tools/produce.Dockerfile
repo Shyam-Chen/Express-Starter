@@ -13,6 +13,9 @@ ENV NODE_ENV production
 # envs --
 ENV HOST 0.0.0.0
 
+ARG index_name
+ENV INDEX_NAME=$index_name
+
 ARG secret_key
 ENV SECRET_KEY=$secret_key
 
@@ -34,3 +37,7 @@ ENV WEB_CONCURRENCY 1
 # -- processes
 
 CMD node processes.js
+
+# FROM caddy:2-alpine
+
+# COPY Caddyfile /etc/caddy/Caddyfile

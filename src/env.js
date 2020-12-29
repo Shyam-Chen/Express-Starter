@@ -4,6 +4,8 @@ export const INDEX_NAME = process.env.INDEX_NAME || 'local';
 export const HOST = process.env.HOST || '0.0.0.0';
 export const PORT = process.env.PORT || 3000;
 
+// ---
+
 export const SECRET_KEY = process.env.SECRET_KEY || 'jbmpHPLoaV8N0nEpuLxlpT95FYakMPiu';
 
 export const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/test';
@@ -13,16 +15,16 @@ export const REDIS_URL = process.env.REDIS_URL || 'redis://127.0.0.1:6379/4';
 
 export const AUTH = {
   JWT: {
-    secretKey: process.env.SECRET_KEY || '',
+    secretKey: SECRET_KEY,
   },
   GOOGLE: {
-    clientID: process.env.GOOGLE_ID || '...',
-    clientSecret: process.env.GOOGLE_SECRET || '...',
+    clientID: process.env.GOOGLE_ID,
+    clientSecret: process.env.GOOGLE_SECRET,
   },
   APPLE: {
     clientID: process.env.APPLE_ID,
-    teamId: '',
-    keyId: '',
+    teamID: process.env.APPLE_TEAM,
+    keyID: process.env.APPLE_KEY,
   },
   FACEBOOK: {
     clientID: process.env.FACEBOOK_ID,
@@ -38,12 +40,11 @@ export const AUTH = {
   },
 };
 
-export const CLOUDINARY_CONFIG = {
-  cloud_name: process.env.CLOUDINARY_NAME || 'sample',
-  api_key: process.env.CLOUDINARY_KRY || '874837483274837',
-  api_secret: process.env.CLOUDINARY_SECRET || 'a676b67565c6767a6767d6767f676fe1',
-};
+export const CLOUDINARY_URL =
+  process.env.CLOUDINARY_URL || 'cloudinary://my_key:my_secret@my_cloud_name';
+
+// ---
 
 export const RATE_LIMIT = process.env.RATE_LIMIT || 0;
 
-export const SENTRY_DSN = process.env.SENTRY_DSN || '';
+export const SENTRY_DSN = process.env.SENTRY_DSN || null;

@@ -9,3 +9,18 @@ services:
     ports:
       - '3000:3000'
     tty: true
+
+  dev:
+    image: dev
+    build:
+      context: ./tools
+      dockerfile: develop.Dockerfile
+    ports:
+      - '3000:3000'
+    tty: true
+
+  prod:
+    image: prod
+    build:
+      context: ./tools
+      dockerfile: produce.Dockerfile

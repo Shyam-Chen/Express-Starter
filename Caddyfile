@@ -1,0 +1,3 @@
+{$SITE_ADDRESS} {
+  reverse_proxy {$HOST}:{$PORT}
+}
