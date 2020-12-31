@@ -1,7 +1,7 @@
-import rest from '../rest';
-import { fakeData } from '../__mocks__/document';
+import controller from '../controller';
+import { fakeData } from '../__mocks__/collection';
 
-jest.mock('../document');
+jest.mock('../collection');
 
 const inject = (router, { method, path }) => (
   router.stack
@@ -11,7 +11,7 @@ const inject = (router, { method, path }) => (
 
 describe('CRUD Operations', () => {
   it('should get a list', async () => {
-    const route = inject(rest, { method: 'get', path: '/' });
+    const route = inject(controller, { method: 'get', path: '/' });
 
     const req = { query: {} };
 
@@ -28,7 +28,7 @@ describe('CRUD Operations', () => {
   });
 
   it('should get a item by ID in list', async () => {
-    const route = inject(rest, { method: 'get', path: '/' });
+    const route = inject(controller, { method: 'get', path: '/' });
 
     const req = {
       query: {
@@ -49,7 +49,7 @@ describe('CRUD Operations', () => {
   });
 
   it('should search a text in list', async () => {
-    const route = inject(rest, { method: 'get', path: '/' });
+    const route = inject(controller, { method: 'get', path: '/' });
 
     const req = {
       query: {
@@ -70,7 +70,7 @@ describe('CRUD Operations', () => {
   });
 
   it('should get a item by ID from params in list', async () => {
-    const route = inject(rest, { method: 'get', path: '/item/:id' });
+    const route = inject(controller, { method: 'get', path: '/item/:id' });
 
     const req = {
       params: {
@@ -91,7 +91,7 @@ describe('CRUD Operations', () => {
   });
 
   it('should get a list length', async () => {
-    const route = inject(rest, { method: 'get', path: '/count' });
+    const route = inject(controller, { method: 'get', path: '/count' });
 
     const res = {
       json(obj) {

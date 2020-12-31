@@ -1,8 +1,8 @@
 import { gql } from 'apollo-server-express';
 
-import { List } from './document';
+import { ListColl } from './collection';
 
-export const listTypeDefs = gql`
+export const typeDef = gql`
   type List {
     _id: ID!
     text: String!
@@ -19,7 +19,7 @@ export const listTypeDefs = gql`
   }
 `;
 
-export const listResolvers = {
+export default {
   /**
    * @example
    * query {
@@ -41,7 +41,7 @@ export const listResolvers = {
       if (_id) find._id = _id;
       if (text) find.text = { $regex: text, $options: 'i' };
 
-      const data = await List.find(find).exec();
+      const data = await ListColl.find(find).exec();
 
       return data;
     },
@@ -63,7 +63,7 @@ export const listResolvers = {
    */
   Mutation: {
     async addText(root, { text }) {
-      const list = await new List({ text });
+      const list = await new ListColl({ text });
       const data = await list.save();
 
       return data;
@@ -73,12 +73,12 @@ export const listResolvers = {
       const update = { $set: { text } };
       const options = { new: true, upsert: true };
 
-      const data = await List.findOneAndUpdate(conditions, update, options).exec();
+      const data = await ListColl.findOneAndUpdate(conditions, update, options).exec();
 
       return data;
     },
     async deleteText(root, { _id }) {
-      const data = await List.findByIdAndRemove(_id);
+      const data = await ListColl.findByIdAndRemove(_id);
       return data;
     },
   },

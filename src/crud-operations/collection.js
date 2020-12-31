@@ -7,4 +7,4 @@ const listSchema = new Schema({
   },
 });
 
-export const List = mongoose.model('List', listSchema);
+export const ListColl = mongoose.model('List', listSchema);

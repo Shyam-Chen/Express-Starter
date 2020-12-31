@@ -2,7 +2,7 @@ import { Router } from 'express';
 
 import { INDEX_NAME } from '~/env';
 import helloWorld from '~/hello-world';
-import crudOperations from '~/crud-operations/rest';
+import crudOperations from '~/crud-operations';
 import authentication from '~/authentication/rest';
 
 const router = Router();
@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 });
 
 router.use(helloWorld.prefix, helloWorld);
-router.use('/crud-operations', crudOperations);
+router.use(crudOperations.prefix, crudOperations);
 router.use('/authentication', authentication);
 
 export default router;

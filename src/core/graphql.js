@@ -4,13 +4,13 @@ import { makeExecutableSchema } from '@graphql-tools/schema';
 import { PubSub } from 'graphql-subscriptions';
 
 import { HelloWorld } from '~/hello-world';
-import { listTypeDefs, listResolvers } from '~/crud-operations/graphql';
+import { CrudOperations } from '~/crud-operations';
 import authentication from '~/authentication/graphql';
 
 const typeDefs = mergeTypeDefs(
   [
     HelloWorld.typeDef,
-    listTypeDefs,
+    CrudOperations.typeDef,
     authentication.typeDefs,
     // ...
   ],
@@ -21,7 +21,7 @@ const typeDefs = mergeTypeDefs(
 
 const resolvers = mergeResolvers([
   HelloWorld.resolver,
-  listResolvers,
+  CrudOperations.resolver,
   authentication.resolvers,
   // ...
 ]);

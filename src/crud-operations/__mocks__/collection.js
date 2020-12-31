@@ -3,7 +3,7 @@ export const fakeData = [
   { _id: '5a4b49309fc9ad8fa4dfe51f', text: 'Back-end' },
 ];
 
-export const List = {
+export const ListColl = {
   find(query) {
     if (query._id) {
       return {

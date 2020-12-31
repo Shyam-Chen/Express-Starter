@@ -2,6 +2,6 @@ import Sequelize from 'sequelize';
 
 import sequelize from '~/core/sequelize';
 
-export const RelationalList = sequelize.define('List', {
+export const ListTable = sequelize.define('List', {
   text: Sequelize.STRING,
 });
