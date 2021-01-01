@@ -20,7 +20,7 @@ const app = express();
 if (NODE_ENV === 'production') Sentry.init({ dsn: SENTRY_DSN });
 
 /**
- * @name middleware-functions
+ * @name middlewares
  */
 app.use(helmet());
 app.use(cors());

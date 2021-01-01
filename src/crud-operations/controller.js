@@ -1,7 +1,5 @@
 import { Router } from 'express';
 import { Op } from 'sequelize';
-import { from } from 'rxjs';
-import axios from 'axios';
 
 import { ListColl } from './collection';
 import { ListTable } from './table';
@@ -37,12 +35,11 @@ const controller = (() => {
    * @param {string} id - get a item by ID from params in list
    * @return {Object<{ data: ListColl[], message: string }>}
    *
-   * @example GET /crud-operations/${id}
+   * @example GET /crud-operations/item/${id}
    */
-  router.get('/item/:id', (req, res) => {
-    from(ListColl.find({ _id: req.params.id }).exec()).subscribe(data =>
-      res.json({ data, message: 'Data obtained.' }),
-    );
+  router.get('/item/:id', async (req, res) => {
+    const data = await ListColl.find({ _id: req.params.id }).exec();
+    res.json({ data, message: 'Data obtained.' });
   });
 
   /**
@@ -51,8 +48,9 @@ const controller = (() => {
    *
    * @example GET /crud-operations/count
    */
-  router.get('/count', (req, res) => {
-    from(ListColl.count().exec()).subscribe(data => res.json({ data, message: 'Data obtained.' }));
+  router.get('/count', async (req, res) => {
+    const data = await ListColl.count().exec();
+    res.json({ data, message: 'Data obtained.' });
   });
 
   /**
@@ -64,16 +62,13 @@ const controller = (() => {
    * @example GET /crud-operations/pagination?page=${page}&row=${row}
    */
   router.get('/pagination', async (req, res) => {
-    const baseUrl = `${req.protocol}://${req.get('host')}${req.baseUrl}`;
-
     const data = [];
 
     const page = Number(req.query.page) || 1;
     const row = Number(req.query.row) || 5;
-    const count = await axios.get(`${baseUrl}/count`);
-    const total = JSON.parse(count).data;
+    const count = await ListColl.count().exec();
 
-    for (let i = 0, l = total; i < l / row; i++) {
+    for (let i = 0, l = count; i < l / row; i += 1) {
       if (page === i + 1) {
         data.push(
           ListColl.find({})
@@ -85,7 +80,7 @@ const controller = (() => {
 
     res.json({
       data: [...(await Promise.all(data))],
-      total,
+      total: count,
       message: 'Data obtained.',
     });
   });

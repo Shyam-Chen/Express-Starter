@@ -1,55 +1,61 @@
 version: 2
 
 jobs:
-
   build-test-deploy:
     docker:
       - image: cimg/base:stable
-
     working_directory: ~/Express-Starter
-
     steps:
       - checkout
-
       - setup_remote_docker
-
       - run:
           name: Combat Preparation
           command: |
             docker-compose up -d app
             docker-compose exec -d app yarn serve
-
       - run:
           name: Compile Code
           command: docker-compose exec app yarn build
-
       - run:
           name: Code Quality
           command: docker-compose exec app yarn lint
-
       - run:
           name: Code Specification
           command: |
             docker-compose exec app yarn unit
             docker-compose exec app yarn _codecov -t $CODECOV_TOKEN
-
       - run:
           name: E2E Specification
           command: |
             docker-compose exec app sh -c "sleep 10"
             # docker-compose exec app yarn e2e
-
       - run:
           name: Deploy Application
-          command: |
-            echo "${HEROKU_TOKEN}" | docker login -u "${HEROKU_USERNAME}" --password-stdin registry.heroku.com
+          command: >
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+
+            echo "${HEROKU_TOKEN}" |
+            docker login -u "${HEROKU_USERNAME}" --password-stdin registry.heroku.com
 
             APP_NAME=backend-starter-kit
-            docker build -f ./tools/produce.Dockerfile --build-arg index_name=${INDEX_NAME} --build-arg secret_key=${SECRET_KEY} --build-arg mongodb_uri=${MONGODB_URI} --build-arg postgres_url=${POSTGRES_URL} --build-arg redis_url=${REDIS_URL} --build-arg sentry_dsn=${SENTRY_DSN} -t $APP_NAME .
+
+            docker build -f ./tools/produce.Dockerfile
+            --build-arg index_name=${INDEX_NAME}
+            --build-arg secret_key=${SECRET_KEY}
+            --build-arg mongodb_uri=${MONGODB_URI}
+            --build-arg postgres_url=${POSTGRES_URL}
+            --build-arg redis_url=${REDIS_URL}
+            --build-arg sentry_dsn=${SENTRY_DSN}
+            -t $APP_NAME .
 
             docker tag $APP_NAME registry.heroku.com/$APP_NAME/web
+
             docker push registry.heroku.com/$APP_NAME/web
-            docker-compose exec -e HEROKU_API_KEY=$HEROKU_TOKEN app yarn _heroku container:release web -a $APP_NAME
+
+            docker-compose exec -e HEROKU_API_KEY=$HEROKU_TOKEN app
+            yarn _heroku container:release web -a $APP_NAME
+
+            fi
 
 workflows:
   version: 2

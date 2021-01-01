@@ -15,25 +15,20 @@ This seed repository provides the following features:
 - ---------- **Essentials** ----------
 - [x] Application routing with [**Express**](http://expressjs.com/).
 - [x] Industry-standard GraphQL implementation with [**Apollo**](https://www.apollographql.com/).
-- [x] Object document mapping with [**Mongoose**](http://mongoosejs.com/).
-- [x] Object relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
+- [x] Object-document mapping with [**Mongoose**](http://mongoosejs.com/).
+- [x] Object-relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
 - [x] In-memory data structure store with [**Redis**](https://redis.io/).
-- [x] Authenticate requests with [**Passport**](http://passportjs.org/).
+- [x] Authenticated request with [**Passport**](http://passportjs.org/).
 - ---------- **Tools** ----------
 - [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
-- [x] OpenAPI specification with [**Swagger**](https://swagger.io/).
 - [x] JavaScript static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
 - [x] Code formatter with [**Prettier**](https://prettier.io/).
-- [x] JavaScript static type checker with [**Flow**](https://flow.org/).
 - [x] Unit testing with [**Jest**](https://github.com/facebook/jest).
 - [x] End-to-End testing with [**Supertest**](https://github.com/visionmedia/supertest).
 - [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
 - [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
+- [x] Reverse proxy with [**Caddy**](https://caddyserver.com/).
 - ---------- **Environments** ----------
-- [x] JavaScript runtime with [**Node.js**](https://nodejs.org/).
-- [x] Fast and deterministic builds with [**Yarn**](https://github.com/yarnpkg/yarn).
-- [x] Version control with [**Git**](https://github.com/git/git).
-- [x] Code repository with [**GitHub**](https://github.com/).
 - [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
 - [x] Cloud NoSQL database hosting with [**Atlas**](https://www.mongodb.com/cloud/atlas).
 - [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
@@ -75,31 +70,31 @@ $ cd <PROJECT_NAME>
 $ npm install
 ```
 
-3. Start a local server
+3. Start a development server
 
 ```bash
 $ yarn serve
 ```
 
-4. Compile code
+4. Produce a production-ready bundle
 
 ```bash
 $ yarn build
 ```
 
-5. Check code quality
+5. Lint and fix files
 
 ```bash
 $ yarn lint
 ```
 
-6. Runs unit tests
+6. Run unit tests
 
 ```bash
 $ yarn unit
 ```
 
-7. Runs end-to-end tests
+7. Run end-to-end tests
 
 ```bash
 $ yarn e2e
@@ -150,7 +145,7 @@ $ psql postgres
 
 ```sh
 CREATE DATABASE test;
-CREATE USER tester WITH PASSWORD '12345678' CREATEDB;
+CREATE USER tester WITH PASSWORD '123' CREATEDB;
 
 # get a list of all databases
 \l
@@ -228,19 +223,26 @@ Set your local environment variables.
 // src/env.js
 
 export const NODE_ENV = process.env.NODE_ENV || 'development';
+export const INDEX_NAME = process.env.INDEX_NAME || 'local';
 
 export const HOST = process.env.HOST || '0.0.0.0';
 export const PORT = process.env.PORT || 3000;
 
-export const SECRET_KEY = process.env.SECRET_KEY || 'PUT_YOUR_SECRET_KEY_HERE';
+// ---
 
-export const MONGODB_URI = process.env.MONGODB_URI || '<PUT_YOUR_MONGODB_URI_HERE>';
-export const POSTGRES_URL = process.env.POSTGRES_URL || 'PUT_YOUR_POSTGRES_URL_HERE';
+export const SECRET_KEY = process.env.SECRET_KEY || 'jbmpHPLoaV8N0nEpuLxlpT95FYakMPiu';
 
-export const REDIS_PORT = process.env.REDIS_PORT || '<PUT_YOUR_REDIS_PORT_HERE>';
-export const REDIS_HOST = process.env.REDIS_HOST || '<PUT_YOUR_REDIS_HOST_HERE>';
+export const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/test';
+export const POSTGRES_URL = process.env.POSTGRES_URL || 'postgres://tester:123@127.0.0.1:5432/test';
+export const REDIS_URL = process.env.REDIS_URL || 'redis://127.0.0.1:6379/4';
 
-// ...
+// ---
+
+export const CLOUDINARY_URL = process.env.CLOUDINARY_URL || 'cloudinary://key:secret@domain_name';
+
+export const RATE_LIMIT = process.env.RATE_LIMIT || 0;
+
+export const SENTRY_DSN = process.env.SENTRY_DSN || null;
 ```
 
 ### Continuous integration environments
@@ -274,23 +276,41 @@ The structure follows the LIFT Guidelines.
 ```coffee
 .
 ├── src
-│   ├── core -> core feature module
+│   ├── core
+│   │   └── ...
 │   ├── <FEATURE> -> feature modules
 │   │   ├── __tests__
-│   │   │   ├── <FEATURE>.e2e-spec.js
-│   │   │   └── <FEATURE>.spec.js
-│   │   ├── _<THING> -> feature of private things
-│   │   │   └── ...
-│   │   └── <FEATURE>.js
+│   │   │   ├── controller.spec.js
+│   │   │   ├── resolver.spec.js
+│   │   │   ├── collection.spec.js
+│   │   │   ├── table.spec.js
+│   │   │   ├── service.spec.js
+│   │   │   ├── rest.e2e-spec.js
+│   │   │   └── graphql.e2e-spec.js
+│   │   ├── controller.js -> rest controller
+│   │   ├── resolver.js -> graphql resolver
+│   │   ├── collection.js -> mongodb odm
+│   │   ├── table.js -> postgresql orm
+│   │   ├── service.js -> provider
+│   │   └── index.js
 │   ├── <GROUP> -> module group
 │   │   └── <FEATURE> -> feature modules
 │   │       ├── __tests__
-│   │       │   ├── <FEATURE>.e2e-spec.js
-│   │       │   └── <FEATURE>.spec.js
-│   │       ├── _<THING> -> feature of private things
-│   │       │   └── ...
-│   │       └── <FEATURE>.js
-│   ├── shared -> shared feature module
+│   │       │   ├── controller.spec.js
+│   │       │   ├── resolver.spec.js
+│   │       │   ├── collection.spec.js
+│   │       │   ├── table.spec.js
+│   │       │   ├── service.spec.js
+│   │       │   ├── rest.e2e-spec.js
+│   │       │   └── graphql.e2e-spec.js
+│   │       ├── controller.js -> rest controller
+│   │       ├── resolver.js -> graphql resolver
+│   │       ├── collection.js -> mongodb odm
+│   │       ├── table.js -> postgresql orm
+│   │       ├── service.js -> provider
+│   │       └── index.js
+│   ├── shared
+│   │   └── ...
 │   ├── app.js
 │   ├── env.js
 │   └── server.js
@@ -301,15 +321,16 @@ The structure follows the LIFT Guidelines.
 ├── .gitignore
 ├── .prettierrc
 ├── babel.config
+├── Caddyfile
 ├── circle.yml
 ├── docker-compose.yml
 ├── Dockerfile
 ├── jest.config.js
 ├── LICENSE
+├── package-lock.json
 ├── package.json
 ├── processes.js
-├── README.md
-└── yarn.lock
+└── README.md
 ```
 
 ## Microservices
