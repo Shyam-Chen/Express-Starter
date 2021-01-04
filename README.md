@@ -17,8 +17,10 @@ This seed repository provides the following features:
 - [x] Industry-standard GraphQL implementation with [**Apollo**](https://www.apollographql.com/).
 - [x] Object-document mapping with [**Mongoose**](http://mongoosejs.com/).
 - [x] Object-relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
-- [x] In-memory data structure store with [**Redis**](https://redis.io/).
 - [x] Authenticated request with [**Passport**](http://passportjs.org/).
+- [x] File upload with [**Multer**](https://github.com/expressjs/multer).
+- [x] Real-time communication with [**WS**](https://github.com/websockets/ws).
+- [x] In-memory data structure store with [**Redis**](https://redis.io/).
 - ---------- **Tools** ----------
 - [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
 - [x] JavaScript static code analyzer with [**ESLint**](https://github.com/eslint/eslint).

@@ -1,20 +1,20 @@
 import { Router } from 'express';
-import multer from 'multer';
+
+import multer from '~/core/multer';
 
 const router = Router();
-const upload = multer({ dest: 'uploads/' });
 
 /**
  * @example POST /upload/single
  */
-router.post('/single', upload.single('photo'), (req, res) => {
+router.post('/single', multer.single('photo'), (req, res) => {
   res.json({ file: req.file });
 });
 
 /**
  * @example POST /upload/multiple
  */
-router.post('/multiple', upload.array('photos', 10), (req, res) => {
+router.post('/multiple', multer.array('photos', 10), (req, res) => {
   res.json({ files: req.files });
 });
 
