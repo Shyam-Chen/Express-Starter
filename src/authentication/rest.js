@@ -47,7 +47,7 @@ router.post('/login', async (req, res) => {
         expires: Date.now() + 3 * 60 * 60 * 1000,
       };
 
-      req.login(payload, { session: false }, (error) => {
+      req.login(payload, { session: false }, error => {
         if (error) res.status(400).json({ message: error });
 
         const token = jwt.sign(JSON.stringify(payload), SECRET_KEY);
@@ -94,6 +94,16 @@ router.post('/change-email', async (req, res) => {
 
 router.post('/change-password', async (req, res) => {
   res.json({});
+});
+
+/**
+ * @name facebook-auth
+ * @return {Object<{ user: Object }>}
+ *
+ * @example GET /authentication/profile/facebook?access_token=${accessToken}
+ */
+router.get('/facebook/token', passport.authenticate('facebook-token'), (req, res) => {
+  res.json({ user: req.user });
 });
 
 export default router;
