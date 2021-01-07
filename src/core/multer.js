@@ -6,11 +6,11 @@ import { CloudinaryStorage } from 'multer-storage-cloudinary';
 import { NODE_ENV, CLOUDINARY_URL } from '~/env';
 
 let storage = multer.diskStorage({
-  destination(req, file, cb) {
-    cb(null, './uploads');
+  destination(req, file, done) {
+    done(null, './uploads');
   },
-  filename(req, file, cb) {
-    cb(null, file.originalname);
+  filename(req, file, done) {
+    done(null, file.originalname);
   },
 });
 

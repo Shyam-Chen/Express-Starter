@@ -100,9 +100,19 @@ router.post('/change-password', async (req, res) => {
  * @name facebook-auth
  * @return {Object<{ user: Object }>}
  *
- * @example GET /authentication/profile/facebook?access_token=${accessToken}
+ * @example POST /authentication/facebook/token { access_token: ${accessToken} }
  */
-router.get('/facebook/token', passport.authenticate('facebook-token'), (req, res) => {
+router.post('/facebook/token', passport.authenticate('facebook-token'), (req, res) => {
+  res.json({ user: req.user });
+});
+
+/**
+ * @name google-auth
+ * @return {Object<{ user: Object }>}
+ *
+ * @example POST /authentication/google/token { access_token: ${accessToken} }
+ */
+router.post('/google/token', passport.authenticate('google-token'), (req, res) => {
   res.json({ user: req.user });
 });
 
