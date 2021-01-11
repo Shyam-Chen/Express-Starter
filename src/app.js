@@ -23,7 +23,7 @@ if (NODE_ENV === 'production') Sentry.init({ dsn: SENTRY_DSN });
  * @name middlewares
  */
 app.use(helmet());
-app.use(cors());
+app.use(cors({ credentials: true }));
 app.use(rateLimit({ max: Number(RATE_LIMIT), windowMs: 15 * 60 * 1000 }));
 app.use(compression());
 app.use(morgan('tiny'));

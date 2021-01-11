@@ -1,7 +1,8 @@
 import passport from 'passport';
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt';
-import FacebookStrategy from 'passport-facebook-token';
-import GoogleStrategy from '@smth-for/passport-google-access-token';
+import { Strategy as FacebookStrategy } from 'passport-facebook';
+import FacebookTokenStrategy from 'passport-facebook-token';
+import GoogleTokenStrategy from '@smth-for/passport-google-access-token';
 
 import {
   SECRET_KEY,
@@ -36,6 +37,19 @@ passport.use(
     {
       clientID: FACEBOOK_APP_ID,
       clientSecret: FACEBOOK_APP_SECRET,
+      callbackURL: '/authentication/facebook/callback',
+    },
+    (accessToken, refreshToken, profile, done) => {
+      return done(null, profile);
+    },
+  ),
+);
+
+passport.use(
+  new FacebookTokenStrategy(
+    {
+      clientID: FACEBOOK_APP_ID,
+      clientSecret: FACEBOOK_APP_SECRET,
       fbGraphVersion: 'v9.0',
     },
     (accessToken, refreshToken, profile, done) => {
@@ -45,7 +59,7 @@ passport.use(
 );
 
 passport.use(
-  new GoogleStrategy(
+  new GoogleTokenStrategy(
     {
       clientID: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,

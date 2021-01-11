@@ -97,6 +97,26 @@ router.post('/change-password', async (req, res) => {
 });
 
 /**
+ * URL /authentication/facebook/login
+ * @example <a href="<HOST_NAME>/authentication/facebook/login">
+ */
+router.get('/facebook/login', (req, res, next) => {
+  // set data in session
+  // req.session
+  passport.authenticate('facebook')(req, res, next);
+});
+
+router.get(
+  '/facebook/callback',
+  passport.authenticate('facebook', {
+    failureRedirect: 'http://localhost:8000/authentication/login',
+  }),
+  (req, res) => {
+    res.redirect('http://localhost:8000/');
+  },
+);
+
+/**
  * @name facebook-auth
  * @return {Object<{ user: Object }>}
  *
