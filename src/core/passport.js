@@ -16,7 +16,7 @@ import {
   APPLE_SERVICES_ID,
   APPLE_TEAM_ID,
   APPLE_KEY_ID,
-  APPLE_KEY_DATA,
+  APPLE_PRIVATE_KEY,
 } from '~/env';
 import { User } from '~/authentication/document';
 
@@ -98,7 +98,7 @@ passport.use(
       clientID: APPLE_SERVICES_ID,
       teamID: APPLE_TEAM_ID,
       keyID: APPLE_KEY_ID,
-      privateKeyLocation: APPLE_KEY_DATA,
+      key: APPLE_PRIVATE_KEY,
       callbackURL: '/authentication/apple/callback',
     },
     (accessToken, refreshToken, profile, done) => {
