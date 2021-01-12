@@ -2,6 +2,7 @@ import { Router } from 'express';
 import passport from 'passport';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+// import otp from 'otplib';
 
 import { SECRET_KEY } from '~/env';
 
@@ -62,6 +63,29 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.post('/login/2fa-send');
+
+router.post('/login/2fa-verify');
+
+/**
+ * Two-factor authentication
+ */
+
+router.get('/2fa/settings', (req, res) => {
+  res.json({});
+});
+
+router.post('/2fa/setup', (req, res) => {
+  // Authenticator app (HOTP) or SMS (TOTP)
+  // req.body
+
+  res.json({});
+});
+
+router.post('/2fa/setup-send');
+
+router.post('/2fa/setup-verify');
+
 /**
  * @name profile - User profile
  *
@@ -79,6 +103,8 @@ router.get('/profile', passport.authenticate('jwt', { session: false }), async (
 router.put('/profile', async (req, res) => {
   res.json({});
 });
+
+router.post('/profile/auth-passport');
 
 router.post('/impression-password', async (req, res) => {
   res.json({});
@@ -133,6 +159,10 @@ router.post('/facebook/token', passport.authenticate('facebook-token'), (req, re
  * @example POST /authentication/google/token { access_token: ${accessToken} }
  */
 router.post('/google/token', passport.authenticate('google-token'), (req, res) => {
+  res.json({ user: req.user });
+});
+
+router.post('/apple/token', passport.authenticate('apple-token'), (req, res) => {
   res.json({ user: req.user });
 });
 

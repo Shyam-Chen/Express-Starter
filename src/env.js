@@ -18,6 +18,11 @@ export const FACEBOOK_APP_SECRET = process.env.FACEBOOK_APP_SECRET || 'XXX';
 export const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || 'XXX';
 export const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET || 'XXX';
 
+export const APPLE_SERVICES_ID = process.env.APPLE_SERVICES_ID || 'XXX';
+export const APPLE_TEAM_ID = process.env.APPLE_TEAM_ID || 'XXX';
+export const APPLE_KEY_ID = process.env.APPLE_KEY_ID || 'XXX';
+export const APPLE_KEY_DATA = process.env.APPLE_KEY_DATA || 'XXX';
+
 export const CLOUDINARY_URL = process.env.CLOUDINARY_URL || 'cloudinary://key:secret@domain_name';
 
 export const RATE_LIMIT = process.env.RATE_LIMIT || 0;

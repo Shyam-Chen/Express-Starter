@@ -2,7 +2,10 @@ import passport from 'passport';
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt';
 import { Strategy as FacebookStrategy } from 'passport-facebook';
 import FacebookTokenStrategy from 'passport-facebook-token';
+import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import GoogleTokenStrategy from '@smth-for/passport-google-access-token';
+import AppleStrategy from '@nicokaiser/passport-apple';
+import AppleTokenStrategy from '@mrbatista/passport-apple-token';
 
 import {
   SECRET_KEY,
@@ -10,6 +13,10 @@ import {
   FACEBOOK_APP_SECRET,
   GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET,
+  APPLE_SERVICES_ID,
+  APPLE_TEAM_ID,
+  APPLE_KEY_ID,
+  APPLE_KEY_DATA,
 } from '~/env';
 import { User } from '~/authentication/document';
 
@@ -45,6 +52,7 @@ passport.use(
   ),
 );
 
+// https://developers.facebook.com/docs/facebook-login/web
 passport.use(
   new FacebookTokenStrategy(
     {
@@ -59,10 +67,51 @@ passport.use(
 );
 
 passport.use(
+  new GoogleStrategy(
+    {
+      clientID: GOOGLE_CLIENT_ID,
+      clientSecret: GOOGLE_CLIENT_SECRET,
+      callbackURL: '/authentication/google/callback',
+    },
+    (accessToken, refreshToken, profile, done) => {
+      return done(null, profile);
+    },
+  ),
+);
+
+// https://developers.google.com/identity/protocols/oauth2/javascript-implicit-flow
+passport.use(
   new GoogleTokenStrategy(
     {
       clientID: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
+    },
+    (accessToken, refreshToken, profile, done) => {
+      return done(null, profile);
+    },
+  ),
+);
+
+passport.use(
+  new AppleStrategy(
+    {
+      clientID: APPLE_SERVICES_ID,
+      teamID: APPLE_TEAM_ID,
+      keyID: APPLE_KEY_ID,
+      privateKeyLocation: APPLE_KEY_DATA,
+      callbackURL: '/authentication/apple/callback',
+    },
+    (accessToken, refreshToken, profile, done) => {
+      return done(null, profile);
+    },
+  ),
+);
+
+// https://developer.apple.com/documentation/sign_in_with_apple/sign_in_with_apple_js
+passport.use(
+  new AppleTokenStrategy(
+    {
+      clientID: APPLE_SERVICES_ID,
     },
     (accessToken, refreshToken, profile, done) => {
       return done(null, profile);
