@@ -1,5 +1,6 @@
 import http from 'http';
 import WebSocket from 'ws';
+import expressWs from '@small-tech/express-ws';
 import { execute, subscribe } from 'graphql';
 import { SubscriptionServer } from 'subscriptions-transport-ws';
 import chalk from 'chalk';
@@ -17,6 +18,7 @@ const wss = new WebSocket.Server({ server });
 
 const teal500 = chalk.hex('#009688');
 
+expressWs(app, server);
 apolloServer.installSubscriptionHandlers(server);
 
 server.listen(Number(PORT), HOST, () => {

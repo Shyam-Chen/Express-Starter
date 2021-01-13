@@ -26,6 +26,7 @@
     "@mrbatista/passport-apple-token": "^1.0.0",
     "@nicokaiser/passport-apple": "^0.2.1",
     "@sentry/node": "5.12.4",
+    "@small-tech/express-ws": "^1.0.1",
     "@smth-for/passport-google-access-token": "^1.0.3",
     "apollo-server-express": "^2.19.0",
     "bcrypt": "5.0.0",
