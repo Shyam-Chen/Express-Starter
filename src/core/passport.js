@@ -18,7 +18,7 @@ import {
   APPLE_KEY_ID,
   APPLE_PRIVATE_KEY,
 } from '~/env';
-import { User } from '~/authentication/document';
+import { Authentication } from '~/authentication';
 
 passport.use(
   new JwtStrategy(
@@ -29,8 +29,8 @@ passport.use(
     async (jwtPayload, done) => {
       try {
         if (Date.now() > jwtPayload.expires) return done('Token expired');
-
-        const user = await User.findOne({ username: jwtPayload.username }).exec();
+        const find = { username: jwtPayload.username };
+        const user = await Authentication.UserColl.findOne(find).exec();
         return done(null, user);
       } catch (error) {
         return done(error);

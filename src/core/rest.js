@@ -3,7 +3,7 @@ import { Router } from 'express';
 import { INDEX_NAME } from '~/env';
 import helloWorld from '~/hello-world';
 import crudOperations from '~/crud-operations';
-import authentication from '~/authentication/rest';
+import authentication from '~/authentication';
 // import fileUploads from '~/file-uploads';
 // import realtimeData from '~/realtime-data';
 
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 
 router.use(helloWorld.prefix, helloWorld);
 router.use(crudOperations.prefix, crudOperations);
-router.use('/authentication', authentication);
+router.use(authentication.prefix, authentication);
 // router.use(fileUploads.prefix, fileUploads);
 // router.use(realtimeData.prefix, realtimeData);
 
