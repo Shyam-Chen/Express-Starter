@@ -1,8 +1,8 @@
-import { User } from '../document';
+import { UserColl } from '../collection';
 
 describe('authentication', () => {
   it('test', async () => {
-    const user = await new User({
+    const user = await new UserColl({
       username: 'shyam-chen',
       password: '3345678',
       email: 'shyam.chen@gmail.com',
@@ -12,7 +12,7 @@ describe('authentication', () => {
   });
 
   it('test', async () => {
-    const user = await new User({
+    const user = await new UserColl({
       username: 'shyam-chen',
       password: '3345678',
       email: 'shyam.chen',

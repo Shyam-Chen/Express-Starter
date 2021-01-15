@@ -20,6 +20,7 @@ This seed repository provides the following features:
 - [x] Authenticated request with [**Passport**](http://passportjs.org/).
 - [x] File upload with [**Multer**](https://github.com/expressjs/multer).
 - [x] Real-time communication with [**WS**](https://github.com/websockets/ws).
+- [x] PubSub systems with [**GraphQL Subscriptions**](https://github.com/apollographql/graphql-subscriptions).
 - [x] In-memory data structure store with [**Redis**](https://redis.io/).
 - ---------- **Tools** ----------
 - [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
@@ -27,6 +28,7 @@ This seed repository provides the following features:
 - [x] Code formatter with [**Prettier**](https://prettier.io/).
 - [x] Unit testing with [**Jest**](https://github.com/facebook/jest).
 - [x] End-to-End testing with [**Supertest**](https://github.com/visionmedia/supertest).
+- [x] Mocking external requests with [**Nock**](https://github.com/nock/nock).
 - [x] Automatically restart application with [**Nodemon**](https://github.com/remy/nodemon).
 - [x] Keeping application alive with [**PM2**](https://github.com/Unitech/pm2).
 - [x] Reverse proxy with [**Caddy**](https://caddyserver.com/).
