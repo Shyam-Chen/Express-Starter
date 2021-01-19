@@ -1,4 +1,7 @@
-version: 2
+version: 2.1
+
+orbs:
+  snyk: snyk/snyk@0.0.12
 
 jobs:
   build-test-deploy:
@@ -27,8 +30,7 @@ jobs:
       - run:
           name: E2E Specification
           command: |
-            docker-compose exec app sh -c "sleep 10"
-            # docker-compose exec app yarn e2e
+            docker-compose exec app yarn e2e
       - run:
           name: Deploy Application
           command: >

@@ -9,8 +9,8 @@
     "serve": "nodemon src/server.js --exec babel-node --ignore **/__tests__/** --ignore **/__mocks__/**",
     "build": "babel src -d dist --ignore **/__tests__/**,**/__mocks__/**",
     "lint": "eslint 'src/**/*.js'",
-    "unit": "jest \"src/.*\\.js$\" --coverage --forceExit",
-    "e2e": "cross-env JEST_ENV=e2e jest \"src/.*\\.js$\" --forceExit",
+    "unit": "jest \"src/.*\\.js$\" --coverage --forceExit --detectOpenHandles",
+    "e2e": "cross-env JEST_ENV=e2e jest \"src/.*\\.js$\" --forceExit --detectOpenHandles",
     "_codecov": "codecov",
     "_heroku": "heroku"
   },

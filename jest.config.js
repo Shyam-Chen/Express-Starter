@@ -1,12 +1,8 @@
 module.exports = {
-  coveragePathIgnorePatterns: [
-    '/node_modules/',
-    '/tools/',
-  ],
+  coveragePathIgnorePatterns: ['/node_modules/'],
   moduleNameMapper: {
     '~(.*)': '<rootDir>/src$1',
   },
-  setupFilesAfterEnv: ['<rootDir>/tools/setup-test.js'],
   testEnvironment: 'node',
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',

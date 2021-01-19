@@ -13,7 +13,7 @@ services:
   dev:
     image: dev
     build:
-      context: ./tools
+      context: .
       dockerfile: develop.Dockerfile
     ports:
       - '3000:3000'
@@ -22,5 +22,5 @@ services:
   prod:
     image: prod
     build:
-      context: ./tools
+      context: .
       dockerfile: produce.Dockerfile

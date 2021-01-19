@@ -1,11 +1,21 @@
 import request from 'supertest';
 
+import app from '~/app';
+
 describe('Hello World', () => {
   it('should get a `Hello, World!`', async () => {
-    const { statusCode, text } = await request(global.API_URL)
-      .get('/hello-world');
+    const response = await request(app).post('/hello-world');
 
-    expect(statusCode).toEqual(200);
-    expect(text).toEqual('Hello, World!');
+    expect(response.statusCode).toEqual(200);
+    expect(response.body).toEqual({ data: 'Hello, World!' });
+  });
+
+  it('should get a `Hello, Express!`', async () => {
+    const response = await request(app)
+      .post('/hello-world')
+      .send({ data: 'Express' });
+
+    expect(response.statusCode).toEqual(200);
+    expect(response.body).toEqual({ data: 'Hello, Express!' });
   });
 });
