@@ -41,7 +41,7 @@ jobs:
 
             APP_NAME=backend-starter-kit
 
-            docker build -f ./tools/produce.Dockerfile
+            docker build -f produce.Dockerfile
             --build-arg index_name=${INDEX_NAME}
             --build-arg secret_key=${SECRET_KEY}
             --build-arg mongodb_uri=${MONGODB_URI}
@@ -58,6 +58,8 @@ jobs:
             yarn _heroku container:release web -a $APP_NAME
 
             fi
+      - snyk/scan:
+          docker-image-name: $APP_NAME
 
 workflows:
   version: 2
