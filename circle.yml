@@ -58,8 +58,10 @@ jobs:
             yarn _heroku container:release web -a $APP_NAME
 
             fi
-      - snyk/scan:
-          docker-image-name: $APP_NAME
+      # - snyk/scan:
+      #     docker-image-name: $APP_NAME
+      #     fail-on-issues: false
+      #     token-variable: $SNYK_TOKEN
 
 workflows:
   version: 2
