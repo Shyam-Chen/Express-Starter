@@ -1,4 +1,5 @@
 import express from 'express';
+import enableWs from '@small-tech/express-ws';
 import helmet from 'helmet';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
@@ -16,6 +17,7 @@ import redis from '~/core/redis';
 import { NODE_ENV, SECRET_KEY, RATE_LIMIT, SENTRY_DSN } from './env';
 
 const app = express();
+enableWs(app);
 
 if (NODE_ENV === 'production') Sentry.init({ dsn: SENTRY_DSN });
 
