@@ -1,3 +1,4 @@
+import fs from 'fs';
 import url from 'url';
 import multer from 'multer';
 import { v2 as cloudinary } from 'cloudinary';
@@ -7,7 +8,9 @@ import { NODE_ENV, CLOUDINARY_URL } from '~/env';
 
 let storage = multer.diskStorage({
   destination(req, file, done) {
-    done(null, './uploads');
+    const dist = './uploads';
+    if (!fs.existsSync(dist)) fs.mkdirSync(dist);
+    return done(null, dist);
   },
   filename(req, file, done) {
     done(null, file.originalname);

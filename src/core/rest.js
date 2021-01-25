@@ -5,7 +5,7 @@ import { INDEX_NAME } from '~/env';
 import helloWorld from '~/hello-world';
 import crudOperations from '~/crud-operations';
 import authentication from '~/authentication';
-// import fileUploads from '~/file-uploads';
+import fileUploads from '~/file-uploads';
 import realtimeData from '~/realtime-data';
 
 const router = Router();
@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 router.use(helloWorld.prefix, helloWorld);
 router.use(crudOperations.prefix, crudOperations);
 router.use(authentication.prefix, authentication);
-// router.use(fileUploads.prefix, fileUploads);
+router.use(fileUploads.prefix, fileUploads);
 router.use(realtimeData.prefix, realtimeData);
 
 export default router;

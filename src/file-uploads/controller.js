@@ -2,20 +2,30 @@ import { Router } from 'express';
 
 import multer from '~/core/multer';
 
-const router = Router();
+const controller = (() => {
+  const router = Router();
 
-/**
- * @example POST /upload/single
- */
-router.post('/single', multer.single('photo'), (req, res) => {
-  res.json({ file: req.file });
-});
+  /**
+   * @example POST /file-uploads/single
+   *
+   * const formData = new FormData();
+   * formData.append('photo', <FILE>)
+   */
+  router.post('/single', multer.single('photo'), (req, res) => {
+    console.log(req.file, req.files);
+    res.json({ file: req.file });
+  });
 
-/**
- * @example POST /upload/multiple
- */
-router.post('/multiple', multer.array('photos', 10), (req, res) => {
-  res.json({ files: req.files });
-});
+  /**
+   * @example POST /file-uploads/multiple
+   */
+  router.post('/multiple', multer.array('photos', 10), (req, res) => {
+    res.json({ files: req.files });
+  });
 
-export default router;
+  return router;
+})();
+
+controller.prefix = '/file-uploads';
+
+export default controller;
