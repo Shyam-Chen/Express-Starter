@@ -7,7 +7,6 @@ export const PORT = process.env.PORT || 3000;
 export const SECRET_KEY = process.env.SECRET_KEY || 'jbmpHPLoaV8N0nEpuLxlpT95FYakMPiu';
 
 export const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/test';
-export const POSTGRES_URL = process.env.POSTGRES_URL || 'postgres://tester:123@127.0.0.1:5432/test';
 export const REDIS_URL = process.env.REDIS_URL || 'redis://127.0.0.1:6379/4';
 
 // ---
