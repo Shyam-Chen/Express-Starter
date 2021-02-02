@@ -14,13 +14,10 @@ This seed repository provides the following features:
 
 - ---------- **Essentials** ----------
 - [x] Application routing with [**Express**](http://expressjs.com/).
-- [x] Industry-standard GraphQL implementation with [**Apollo**](https://www.apollographql.com/).
 - [x] Object-document mapping with [**Mongoose**](http://mongoosejs.com/).
-- [x] Object-relational mapping with [**Sequelize**](http://docs.sequelizejs.com/).
 - [x] Authenticated request with [**Passport**](http://passportjs.org/).
 - [x] File upload with [**Multer**](https://github.com/expressjs/multer).
 - [x] Real-time communication with [**WS**](https://github.com/websockets/ws).
-- [x] PubSub systems with [**GraphQL Subscriptions**](https://github.com/apollographql/graphql-subscriptions).
 - [x] In-memory data structure store with [**Redis**](https://redis.io/).
 - ---------- **Tools** ----------
 - [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
@@ -35,18 +32,12 @@ This seed repository provides the following features:
 - ---------- **Environments** ----------
 - [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
 - [x] Cloud NoSQL database hosting with [**Atlas**](https://www.mongodb.com/cloud/atlas).
-- [x] Cloud SQL database hosting with [**ElephantSQL**](https://www.elephantsql.com/).
 - [x] Cloud storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
 - [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 - [x] Error tracking service with [**Sentry**](https://sentry.io/).
 - [x] Software container with [**Docker**](https://github.com/docker/docker).
 - [x] Continuous integration with [**CircleCI**](https://circleci.com/).
 - [x] Test coverage integration with [**Codecov**](https://codecov.io/).
-
-Thinking in ...
-
-- [x] REST Stack
-- [x] GraphQL Stack
 
 ## Table of Contents
 
@@ -132,39 +123,6 @@ $ brew services list
 $ brew services stop mongodb-community
 ```
 
-- PostgreSQL
-
-```sh
-$ brew install postgresql
-$ psql --version
-# psql (PostgreSQL) 13.1
-
-$ brew services start postgresql
-$ brew services list
-```
-
-```sh
-$ psql postgres
-```
-
-```sh
-CREATE DATABASE test;
-CREATE USER tester WITH PASSWORD '123' CREATEDB;
-
-# get a list of all databases
-\l
-
-# connect
-\c test
-
-# exit
-\q
-```
-
-```sh
-$ brew services stop postgresql
-```
-
 - Redis
 
 ```sh
@@ -212,7 +170,7 @@ $ docker-compose up -d --build app
 Local Databases
 
 ```bash
-$ docker-compose up -d mongodb postgresql redis
+$ docker-compose up -d mongodb redis
 ```
 
 ## Configuration
@@ -235,7 +193,6 @@ export const PORT = process.env.PORT || 3000;
 export const SECRET_KEY = process.env.SECRET_KEY || 'jbmpHPLoaV8N0nEpuLxlpT95FYakMPiu';
 
 export const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/test';
-export const POSTGRES_URL = process.env.POSTGRES_URL || 'postgres://tester:123@127.0.0.1:5432/test';
 export const REDIS_URL = process.env.REDIS_URL || 'redis://127.0.0.1:6379/4';
 
 // ---
@@ -257,7 +214,6 @@ Add environment variables to the CircleCI build.
 SECRET_KEY
 
 MONGODB_URI
-POSTGRES_URL
 REDIS_URL
 
 SENTRY_DSN
@@ -283,33 +239,23 @@ The structure follows the LIFT Guidelines.
 │   ├── <FEATURE> -> feature modules
 │   │   ├── __tests__
 │   │   │   ├── controller.spec.js
-│   │   │   ├── resolver.spec.js
 │   │   │   ├── collection.spec.js
-│   │   │   ├── table.spec.js
 │   │   │   ├── service.spec.js
-│   │   │   ├── rest.e2e-spec.js
-│   │   │   └── graphql.e2e-spec.js
-│   │   ├── controller.js -> rest controller
-│   │   ├── resolver.js -> graphql resolver
-│   │   ├── collection.js -> mongodb odm
-│   │   ├── table.js -> postgresql orm
-│   │   ├── service.js -> provider
+│   │   │   └── rest|<FLOW>.e2e-spec.js
+│   │   ├── controller.js
+│   │   ├── collection.js
+│   │   ├── service.js
 │   │   └── index.js
 │   ├── <GROUP> -> module group
 │   │   └── <FEATURE> -> feature modules
 │   │       ├── __tests__
 │   │       │   ├── controller.spec.js
-│   │       │   ├── resolver.spec.js
 │   │       │   ├── collection.spec.js
-│   │       │   ├── table.spec.js
 │   │       │   ├── service.spec.js
-│   │       │   ├── rest.e2e-spec.js
-│   │       │   └── graphql.e2e-spec.js
-│   │       ├── controller.js -> rest controller
-│   │       ├── resolver.js -> graphql resolver
-│   │       ├── collection.js -> mongodb odm
-│   │       ├── table.js -> postgresql orm
-│   │       ├── service.js -> provider
+│   │       │   └── rest|<FLOW>.e2e-spec.js
+│   │       ├── controller.js
+│   │       ├── collection.js
+│   │       ├── service.js
 │   │       └── index.js
 │   ├── shared
 │   │   └── ...
