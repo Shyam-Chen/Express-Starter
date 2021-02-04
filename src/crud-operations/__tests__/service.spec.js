@@ -1,5 +1,3 @@
 describe('CRUD Operations', () => {
-  it('test', async () => {
-
-  });
+  it('test', async () => {});
 });

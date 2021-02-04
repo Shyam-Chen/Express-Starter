@@ -1,7 +1,7 @@
+/* eslint-disable no-console */
 import chalk from 'chalk';
 
 import mongoose from '~/core/mongoose';
-import redis from '~/core/redis';
 
 import { PORT, HOST } from './env';
 import app from './app';
@@ -14,9 +14,5 @@ app.listen(Number(PORT), HOST, () => {
 
   mongoose.connection
     .on('open', () => console.log(teal500('🚀  MongoDB: Connection Succeeded')))
-    .on('error', err => console.error(err));
-
-  redis
-    .on('connect', () => console.log(teal500('🚀  Redis: Connection Succeeded')))
     .on('error', err => console.error(err));
 });

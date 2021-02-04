@@ -27,9 +27,3 @@ services:
 
   # mongodb:
   #   image: mongo:4
-
-  # postgresql:
-  #   image: postgres:13
-
-  # redis:
-  #   image: redis:6

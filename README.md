@@ -18,7 +18,6 @@ This seed repository provides the following features:
 - [x] Authenticated request with [**Passport**](http://passportjs.org/).
 - [x] File upload with [**Multer**](https://github.com/expressjs/multer).
 - [x] Real-time communication with [**WS**](https://github.com/websockets/ws).
-- [x] In-memory data structure store with [**Redis**](https://redis.io/).
 - ---------- **Tools** ----------
 - [x] Next generation JavaScript with [**Babel**](https://github.com/babel/babel).
 - [x] JavaScript static code analyzer with [**ESLint**](https://github.com/eslint/eslint).
@@ -33,10 +32,10 @@ This seed repository provides the following features:
 - [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
 - [x] Cloud NoSQL database hosting with [**Atlas**](https://www.mongodb.com/cloud/atlas).
 - [x] Cloud storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
-- [x] Cloud memory cache hosting with [**RedisLabs**](https://redislabs.com/).
 - [x] Error tracking service with [**Sentry**](https://sentry.io/).
 - [x] Software container with [**Docker**](https://github.com/docker/docker).
 - [x] Continuous integration with [**CircleCI**](https://circleci.com/).
+- [x] [**Snyk**](https://snyk.io/).
 - [x] Test coverage integration with [**Codecov**](https://codecov.io/).
 
 ## Table of Contents
@@ -123,22 +122,6 @@ $ brew services list
 $ brew services stop mongodb-community
 ```
 
-- Redis
-
-```sh
-$ brew install redis
-
-$ brew services start redis
-$ brew services list
-
-$ redis-cli ping
-# PONG
-```
-
-```sh
-$ brew services stop redis
-```
-
 ## Dockerization
 
 Dockerize an application.
@@ -170,7 +153,7 @@ $ docker-compose up -d --build app
 Local Databases
 
 ```bash
-$ docker-compose up -d mongodb redis
+$ docker-compose up -d mongodb
 ```
 
 ## Configuration

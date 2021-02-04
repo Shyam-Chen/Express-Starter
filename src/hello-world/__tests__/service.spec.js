@@ -1,4 +1,3 @@
 describe('Hello World', () => {
-  it('should get a `Hello, World!`', async () => {
-  });
+  it('should get a `Hello, World!`', async () => {});
 });

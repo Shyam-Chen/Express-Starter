@@ -33,7 +33,9 @@ const userSchema = new Schema({
     type: String,
     validate: {
       validator(value) {
-        return /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i.test(value);
+        return /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i.test(
+          value,
+        );
       },
       message: ({ value }) => `${value} is not a valid email format`,
     },

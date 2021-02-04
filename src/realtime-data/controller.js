@@ -19,8 +19,7 @@ const controller = (() => {
    * };
    */
   router.ws('/', ws => {
-    ws.on('message', msg => {
-      console.log(msg);
+    ws.on('message', () => {
       ws.send('Realtime Data');
     });
   });

@@ -3,11 +3,9 @@ import { fakeData } from '../__mocks__/collection';
 
 jest.mock('../collection');
 
-const inject = (router, { method, path }) => (
-  router.stack
-    .filter(layer => layer.route.methods[method] && layer.route.path === path)[0]
-    .route.stack[0]
-);
+const inject = (router, { method, path }) =>
+  router.stack.filter(layer => layer.route.methods[method] && layer.route.path === path)[0].route
+    .stack[0];
 
 describe('CRUD Operations', () => {
   it('should get a list', async () => {
@@ -103,5 +101,5 @@ describe('CRUD Operations', () => {
     };
 
     await route.handle({}, res);
-  })
+  });
 });

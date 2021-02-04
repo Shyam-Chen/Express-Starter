@@ -6,12 +6,12 @@ import rateLimit from 'express-rate-limit';
 import compression from 'compression';
 import morgan from 'morgan';
 import session from 'express-session';
-import connectRedis from 'connect-redis';
+import MongoStore from 'connect-mongo';
 import * as Sentry from '@sentry/node';
 
 import routes from '~/core/rest';
 import passport from '~/core/passport';
-import redis from '~/core/redis';
+import mongoose from '~/core/mongoose';
 
 import { NODE_ENV, SECRET_KEY, RATE_LIMIT, SENTRY_DSN } from './env';
 
@@ -27,13 +27,15 @@ app.use(compression());
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(session({
-  store: new (connectRedis(session))({ client: redis }),
-  name: 'sid',
-  resave: true,
-  saveUninitialized: true,
-  secret: SECRET_KEY,
-}));
+app.use(
+  session({
+    secret: SECRET_KEY,
+    store: new (MongoStore(session))({ mongooseConnection: mongoose.connection }),
+    cookie: { maxAge: 1000 * 60 * 60 * 24 * 7 * 2 },
+    resave: true,
+    saveUninitialized: true,
+  }),
+);
 app.use(passport.initialize());
 app.use(passport.session());
 

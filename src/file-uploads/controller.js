@@ -12,7 +12,6 @@ const controller = (() => {
    * formData.append('photo', <FILE>)
    */
   router.post('/single', multer.single('photo'), (req, res) => {
-    console.log(req.file, req.files);
     res.json({ file: req.file });
   });
 

@@ -1,7 +1,5 @@
 {
-  "plugins": [
-    "prettier"
-  ],
+  "plugins": ["prettier"],
   "env": {
     "node": true,
     "commonjs": true,
@@ -9,10 +7,7 @@
     "jest": true
   },
   "globals": {},
-  "extends": [
-    "airbnb-base",
-    "prettier"
-  ],
+  "extends": ["airbnb-base", "prettier"],
   "parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module"
@@ -26,29 +21,8 @@
     }
   },
   "rules": {
-    // Plugins
     "import/prefer-default-export": "off",
-
-    "prettier/prettier": "off",
-
-    // Possible Errors
-    "no-console": "off",
-
-    // Best Practices
-    "no-multi-spaces": ["error", { "ignoreEOLComments": true }],
-
-    // Variables
-
-    // no-restricted-globals
-
-    // Node.js and CommonJS
-
-    // Stylistic Issues
-    "max-len": "off",
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-    "no-underscore-dangle": "off",
-    "object-curly-newline": ["error", { "consistent": true }]
-
-    // JS.Next
+    "prettier/prettier": "error",
+    "no-underscore-dangle": "off"
   }
 }

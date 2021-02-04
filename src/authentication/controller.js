@@ -49,7 +49,7 @@ const controller = (() => {
           expires: Date.now() + 3 * 60 * 60 * 1000,
         };
 
-        req.login(payload, { session: false }, (error) => {
+        req.login(payload, { session: false }, error => {
           if (error) res.status(400).json({ message: error });
 
           const token = jwt.sign(JSON.stringify(payload), SECRET_KEY);

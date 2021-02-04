@@ -13,7 +13,14 @@ export const ListColl = {
 
     if (query.text) {
       return {
-        exec: () => new Promise(res => res(fakeData.filter(item => item.text.toLowerCase().indexOf(query.text.$regex.toLowerCase()) > -1))),
+        exec: () =>
+          new Promise(res =>
+            res(
+              fakeData.filter(
+                item => item.text.toLowerCase().indexOf(query.text.$regex.toLowerCase()) > -1,
+              ),
+            ),
+          ),
       };
     }
 
