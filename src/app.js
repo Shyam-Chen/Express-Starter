@@ -9,9 +9,10 @@ import session from 'express-session';
 import MongoStore from 'connect-mongo';
 import * as Sentry from '@sentry/node';
 
-import routes from '~/core/rest';
+import routes from '~/core/routes';
 import passport from '~/core/passport';
 import mongoose from '~/core/mongoose';
+import winston from '~/core/winston';
 
 import { NODE_ENV, SECRET_KEY, RATE_LIMIT, SENTRY_DSN } from './env';
 
@@ -24,7 +25,7 @@ app.use(helmet());
 app.use(cors({ credentials: true }));
 app.use(rateLimit({ max: Number(RATE_LIMIT), windowMs: 15 * 60 * 1000 }));
 app.use(compression());
-app.use(morgan('tiny'));
+app.use(morgan('combined', { stream: winston.stream }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(

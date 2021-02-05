@@ -45,8 +45,6 @@ jobs:
             --build-arg index_name=${INDEX_NAME}
             --build-arg secret_key=${SECRET_KEY}
             --build-arg mongodb_uri=${MONGODB_URI}
-            --build-arg postgres_url=${POSTGRES_URL}
-            --build-arg redis_url=${REDIS_URL}
             --build-arg sentry_dsn=${SENTRY_DSN}
             -t $APP_NAME .
 

@@ -20,11 +20,7 @@ ARG secret_key
 ENV SECRET_KEY=$secret_key
 
 ARG mongodb_uri
-ARG postgres_url
-ARG redis_url
 ENV MONGODB_URI=$mongodb_uri
-ENV POSTGRES_URL=$postgres_url
-ENV REDIS_URL=$redis_url
 
 ARG sentry_dsn
 ENV SENTRY_DSN=$sentry_dsn

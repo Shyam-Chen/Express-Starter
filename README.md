@@ -13,9 +13,9 @@
 This seed repository provides the following features:
 
 - ---------- **Essentials** ----------
-- [x] Application routing with [**Express**](http://expressjs.com/).
+- [x] Web application framework with [**Express**](http://expressjs.com/).
 - [x] Object-document mapping with [**Mongoose**](http://mongoosejs.com/).
-- [x] Authenticated request with [**Passport**](http://passportjs.org/).
+- [x] Make authenticated requests with [**Passport**](http://passportjs.org/).
 - [x] File upload with [**Multer**](https://github.com/expressjs/multer).
 - [x] Real-time communication with [**WS**](https://github.com/websockets/ws).
 - ---------- **Tools** ----------
@@ -35,7 +35,7 @@ This seed repository provides the following features:
 - [x] Error tracking service with [**Sentry**](https://sentry.io/).
 - [x] Software container with [**Docker**](https://github.com/docker/docker).
 - [x] Continuous integration with [**CircleCI**](https://circleci.com/).
-- [x] [**Snyk**](https://snyk.io/).
+- [x] Fix and prevent known vulnerabilities with [**Snyk**](https://snyk.io/).
 - [x] Test coverage integration with [**Codecov**](https://codecov.io/).
 
 ## Table of Contents
@@ -195,10 +195,7 @@ Add environment variables to the CircleCI build.
 # Project Settings > Environment Variables > Add Environment Variable
 
 SECRET_KEY
-
 MONGODB_URI
-REDIS_URL
-
 SENTRY_DSN
 ```
 
@@ -240,8 +237,6 @@ The structure follows the LIFT Guidelines.
 │   │       ├── collection.js
 │   │       ├── service.js
 │   │       └── index.js
-│   ├── shared
-│   │   └── ...
 │   ├── app.js
 │   ├── env.js
 │   └── server.js
