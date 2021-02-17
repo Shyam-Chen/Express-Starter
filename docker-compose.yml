@@ -9,6 +9,10 @@ services:
     ports:
       - '3000:3000'
     tty: true
+    links:
+      - mongodb
+    depends_on:
+      - mongodb
 
   dev:
     image: dev
@@ -27,9 +31,8 @@ services:
 
   mongodb:
     image: mongo:4
-    # environment:
-    #   MONGO_INITDB_ROOT_USERNAME: root
-    #   MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/test
     ports:
       - '27017:27017'
     volumes:
