@@ -111,9 +111,7 @@ $ mongo --version
 #         "target_arch": "x86_64"
 #     }
 # }
-```
 
-```sh
 # Starting MongoDB
 $ brew services run mongodb-community
 $ brew services list

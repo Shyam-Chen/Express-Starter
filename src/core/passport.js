@@ -5,7 +5,7 @@ import FacebookTokenStrategy from 'passport-facebook-token';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import GoogleTokenStrategy from '@smth-for/passport-google-access-token';
 import AppleStrategy from '@nicokaiser/passport-apple';
-import AppleTokenStrategy from '@mrbatista/passport-apple-token';
+import AppleTokenStrategy from '@mrbatista/passport-apple-token'; // TODO: new passport-apple-token
 
 import {
   SECRET_KEY,
@@ -112,6 +112,9 @@ passport.use(
   new AppleTokenStrategy(
     {
       clientID: APPLE_SERVICES_ID,
+      teamID: APPLE_TEAM_ID,
+      keyID: APPLE_KEY_ID,
+      key: APPLE_PRIVATE_KEY,
     },
     (accessToken, refreshToken, profile, done) => {
       return done(null, profile);
