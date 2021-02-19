@@ -7,6 +7,7 @@ import jwt from 'jsonwebtoken';
 import { SECRET_KEY } from '~/env';
 
 import { UserColl } from './collection';
+import service from './service';
 
 const controller = (() => {
   const router = Router();
@@ -51,16 +52,20 @@ const controller = (() => {
           expires: Date.now() + 3 * 60 * 60 * 1000,
         };
 
-        req.login(payload, { session: false }, error => {
+        req.login(payload, { session: false }, async error => {
           if (error) res.status(400).json({ message: error });
 
           // TODO: expiresIn
-          const accessToken = jwt.sign(JSON.stringify(payload), SECRET_KEY);
-          // const refreshToken = ...
+          const accessToken = jwt.sign(JSON.stringify(payload), SECRET_KEY, { expiresIn: '7d' });
 
-          res.status(200).json({
+          // TODO: refreshToken
+          const refreshToken = service.generateRefreshToken(user, req.ip);
+          await refreshToken.save();
+
+          res.json({
             username: user.username,
             accessToken,
+            refreshToken,
             message: 'Sign in suceesfully',
           });
         });
@@ -70,6 +75,16 @@ const controller = (() => {
     } catch (error) {
       res.status(400).json({ message: error });
     }
+  });
+
+  // TODO: generating the new access token
+  router.post('/token', async (req, res) => {
+    res.json({ accessToken: '...' });
+  });
+
+  // TODO: revoking a token
+  router.post('/revoke', async (req, res) => {
+    res.json({});
   });
 
   router.post('/login/2fa-send');

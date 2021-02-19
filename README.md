@@ -217,23 +217,23 @@ The structure follows the LIFT Guidelines.
 │   ├── <FEATURE> -> feature modules
 │   │   ├── __tests__
 │   │   │   ├── controller.spec.js
-│   │   │   ├── collection.spec.js
 │   │   │   ├── service.spec.js
+│   │   │   ├── model.spec.js
 │   │   │   └── rest|<FLOW>.e2e-spec.js
 │   │   ├── controller.js
-│   │   ├── collection.js
 │   │   ├── service.js
+│   │   ├── model.js
 │   │   └── index.js
 │   ├── <GROUP> -> module group
 │   │   └── <FEATURE> -> feature modules
 │   │       ├── __tests__
 │   │       │   ├── controller.spec.js
-│   │       │   ├── collection.spec.js
 │   │       │   ├── service.spec.js
+│   │       │   ├── model.spec.js
 │   │       │   └── rest|<FLOW>.e2e-spec.js
 │   │       ├── controller.js
-│   │       ├── collection.js
 │   │       ├── service.js
+│   │       ├── model.js
 │   │       └── index.js
 │   ├── app.js
 │   ├── env.js

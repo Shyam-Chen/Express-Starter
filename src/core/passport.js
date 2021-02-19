@@ -28,10 +28,14 @@ passport.use(
     },
     async (jwtPayload, done) => {
       try {
+        // TODO: remove it
         if (Date.now() > jwtPayload.expires) return done('Token expired');
+
         const find = { username: jwtPayload.username };
         const user = await Authentication.UserColl.findOne(find).exec();
         return done(null, user);
+
+        // const refreshTokens = await Authentication.model.RefreshToken.find({ user: user.id });
       } catch (error) {
         return done(error);
       }

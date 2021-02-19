@@ -58,3 +58,24 @@ const userSchema = new Schema({
 });
 
 export const UserColl = mongoose.model('User', userSchema);
+
+const refreshTokenSchema = new Schema({
+  user: { type: Schema.Types.ObjectId, ref: 'User' },
+  token: String,
+  expires: Date,
+  revoked: Date,
+  ipAddress: String,
+});
+
+refreshTokenSchema.virtual('isExpired').get(() => {
+  return Date.now() >= this.expires;
+});
+
+refreshTokenSchema.virtual('isActive').get(() => {
+  return !this.revoked && !this.isExpired;
+});
+
+export default {
+  User: UserColl,
+  RefreshToken: mongoose.model('RefreshToken', refreshTokenSchema),
+};
