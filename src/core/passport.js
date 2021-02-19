@@ -112,6 +112,7 @@ passport.use(
   new AppleTokenStrategy(
     {
       clientID: APPLE_SERVICES_ID,
+      // Generate clientSecret for accessToken and refreshToken
       teamID: APPLE_TEAM_ID,
       keyID: APPLE_KEY_ID,
       key: APPLE_PRIVATE_KEY,

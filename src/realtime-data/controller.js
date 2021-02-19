@@ -8,7 +8,7 @@ const controller = (() => {
   enableWs(router);
 
   /**
-   * const client = new WebSocket('ws://localhost:3000/realtime-data');
+   * const client = new WebSocket('ws://localhost:3000/realtime-data/echo');
    *
    * client.on('open', () => {
    *   client.send('Hello, RealtimeData!');
@@ -18,9 +18,9 @@ const controller = (() => {
    *   console.log(event.data);
    * };
    */
-  router.ws('/', ws => {
-    ws.on('message', () => {
-      ws.send('Realtime Data');
+  router.ws('/echo', ws => {
+    ws.on('message', msg => {
+      ws.send(msg);
     });
   });
 

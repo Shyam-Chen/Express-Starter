@@ -46,15 +46,23 @@ const controller = (() => {
       if (passwordsMatch) {
         const payload = {
           username: user.username,
+
+          // TODO: remove it
           expires: Date.now() + 3 * 60 * 60 * 1000,
         };
 
         req.login(payload, { session: false }, error => {
           if (error) res.status(400).json({ message: error });
 
-          const token = jwt.sign(JSON.stringify(payload), SECRET_KEY);
+          // TODO: expiresIn
+          const accessToken = jwt.sign(JSON.stringify(payload), SECRET_KEY);
+          // const refreshToken = ...
 
-          res.status(200).json({ username: user.username, token, message: 'Sign in suceesfully' });
+          res.status(200).json({
+            username: user.username,
+            accessToken,
+            message: 'Sign in suceesfully',
+          });
         });
       } else {
         res.status(400).json({ message: 'Incorrect Username / Password' });
