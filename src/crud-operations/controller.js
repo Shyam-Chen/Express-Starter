@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { ListColl } from './collection';
+import { ListColl } from './model';
 
 const controller = (() => {
   const router = Router();

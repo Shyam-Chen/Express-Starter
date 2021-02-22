@@ -1,4 +1,4 @@
-import { ListColl } from '../collection';
+import { ListColl } from '../model';
 
 describe('CRUD Operations', () => {
   it('test', async () => {

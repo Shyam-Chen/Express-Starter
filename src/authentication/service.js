@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 
-import model from './collection';
+import model from './model';
 
 export default {
   generateRefreshToken(user, ipAddress) {

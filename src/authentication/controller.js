@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 
 import { SECRET_KEY } from '~/env';
 
-import { UserColl } from './collection';
+import { UserColl } from './model';
 import service from './service';
 
 const controller = (() => {

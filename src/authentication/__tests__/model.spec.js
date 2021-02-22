@@ -1,4 +1,4 @@
-import { UserColl } from '../collection';
+import { UserColl } from '../model';
 
 describe('authentication', () => {
   it('test', async () => {

@@ -1,7 +1,7 @@
 import controller from '../controller';
-import { fakeData } from '../__mocks__/collection';
+import { fakeData } from '../__mocks__/model';
 
-jest.mock('../collection');
+jest.mock('../model');
 
 const inject = (router, { method, path }) =>
   router.stack.filter(layer => layer.route.methods[method] && layer.route.path === path)[0].route
