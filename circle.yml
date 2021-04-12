@@ -15,7 +15,7 @@ jobs:
           name: Combat Preparation
           command: |
             docker-compose up -d app mongodb
-            docker-compose exec -d app yarn serve
+            # docker-compose exec -d app yarn serve
       - run:
           name: Compile Code
           command: docker-compose exec app yarn build
@@ -30,7 +30,7 @@ jobs:
       - run:
           name: E2E Specification
           command: |
-            # docker-compose exec app yarn e2e
+            docker-compose exec app yarn e2e
       - run:
           name: Deploy Application
           command: >

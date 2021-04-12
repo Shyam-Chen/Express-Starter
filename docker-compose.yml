@@ -9,10 +9,8 @@ services:
     ports:
       - '3000:3000'
     tty: true
-    links:
-      - mongodb
-    depends_on:
-      - mongodb
+    networks:
+      - app-network
 
   dev:
     image: dev
@@ -30,13 +28,17 @@ services:
       dockerfile: produce.Dockerfile
 
   mongodb:
-    image: mongo:4
-    environment:
-      MONGODB_URI: mongodb://mongo:27017/test
+    image: mongo:4.1
     ports:
       - '27017:27017'
+    networks:
+      - app-network
     volumes:
-      - mongodb_data_container:/data/db
+      - ./mongodb_data_container:/data/db
+
+networks:
+  app-network:
+    driver: bridge
 
 volumes:
   mongodb_data_container:

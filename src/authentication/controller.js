@@ -77,19 +77,23 @@ const controller = (() => {
     }
   });
 
-  // TODO: generating the new access token
-  router.post('/token', async (req, res) => {
-    res.json({ accessToken: '...' });
+  // TODO:
+  router.post('/token', passport.authenticate('jwt'), async (req, res) => {
+    res.json({ user: req.user });
   });
 
-  // TODO: revoking a token
+  // TODO:
   router.post('/revoke', async (req, res) => {
     res.json({});
   });
 
-  router.post('/login/2fa-send');
+  router.post('/login/2fa-send', async (req, res) => {
+    res.json({});
+  });
 
-  router.post('/login/2fa-verify');
+  router.post('/login/2fa-verify', async (req, res) => {
+    res.json({});
+  });
 
   /**
    * Two-factor authentication
@@ -106,9 +110,13 @@ const controller = (() => {
     res.json({});
   });
 
-  router.post('/2fa/setup-send');
+  router.post('/2fa/setup-send', async (req, res) => {
+    res.json({});
+  });
 
-  router.post('/2fa/setup-verify');
+  router.post('/2fa/setup-verify', async (req, res) => {
+    res.json({});
+  });
 
   /**
    * @name profile - User profile
