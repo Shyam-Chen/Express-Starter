@@ -40,84 +40,80 @@ This seed repository provides the following features:
 
 ## Table of Contents
 
-- [Getting Started](#getting-started)
+- [Project Setup](#project-setup)
 - [Dockerization](#dockerization)
 - [Configuration](#configuration)
 - [Examples](#examples)
 - [Directory Structure](#directory-structure)
 - [Microservices](#microservices)
 
-## Getting Started
+## Project Setup
 
 Follow steps to execute this boilerplate.
 
-1. Clone this boilerplate
+### Install dependencies
 
-```bash
-$ git clone --depth 1 https://github.com/Shyam-Chen/Express-Starter.git <PROJECT_NAME>
-$ cd <PROJECT_NAME>
-```
-
-2. Install dependencies
-
-```bash
+```sh
 $ npm install
 ```
 
-3. Start a development server
+### Start a development server
 
-```bash
+```sh
+$ brew services start mongodb-community
 $ yarn serve
 ```
 
-4. Produce a production-ready bundle
+### Produce a production-ready bundle
 
-```bash
+```sh
 $ yarn build
 ```
 
-5. Lint and fix files
+### Lints and fixes files
 
-```bash
+```sh
 $ yarn lint
 ```
 
-6. Run unit tests
+### Runs unit tests
 
-```bash
+Files: `src/**/*.spec.js`
+
+```sh
 $ yarn unit
 ```
 
-7. Run end-to-end tests
+### Runs end-to-end tests
 
-```bash
+Files: `e2e/**/*.spec.js`
+
+```sh
 $ yarn e2e
 ```
 
-- MongoDB
+### Measures APIs
+
+Files: `e2e/**/*.meas.js`
 
 ```sh
-$ brew tap mongodb/brew
-$ brew install mongodb-community
-$ mongo --version
-# MongoDB shell version v4.4.1
-# Build Info: {
-#     "version": "4.4.1",
-#     "gitVersion": "ad91a93a5a31e175f5cbf8c69561e788bbc55ce1",
-#     "modules": [],
-#     "allocator": "system",
-#     "environment": {
-#         "distarch": "x86_64",
-#         "target_arch": "x86_64"
-#     }
-# }
+# Before running the `meas` command, make sure to run the following commands.
+$ yarn build
+$ yarn preview
 
-# Starting MongoDB
-$ brew services run mongodb-community
-$ brew services list
+# If it's not setup, run it.
+$ yarn setup
 
-# Stopping MongoDB
-$ brew services stop mongodb-community
+$ yarn meas
+```
+
+### Mocks Third-party APIs
+
+```sh
+# If it's not active, run it.
+$ yarn active
+
+$ yarn mock
 ```
 
 ## Dockerization
@@ -195,6 +191,53 @@ Add environment variables to the CircleCI build.
 SECRET_KEY
 MONGODB_URI
 SENTRY_DSN
+```
+
+### File-based environments
+
+If you want to set environment variables from a file.
+
+```ts
+.
+├── envs
+│   ├── dev.js
+│   ├── stage.js
+│   └── prod.js
+└── src
+```
+
+```js
+// envs/<ENV_NAME>.js
+
+function Environment() {
+  this.NODE_ENV = 'production';
+}
+
+module.exports = new Environment();
+```
+
+```sh
+$ npm install babel-plugin-transform-inline-environment-variables env-cmd -D
+```
+
+```js
+// babel.config.js
+
+    plugins: [
+      // ...
+      'transform-inline-environment-variables',
+    ],
+```
+
+```js
+// package.json
+
+  "scripts": {
+    // "env-cmd -f ./envs/<ENV_NAME>.js" + "yarn build"
+    "build:dev": "env-cmd -f ./envs/dev.js yarn build",
+    "build:stage": "env-cmd -f ./envs/stage.js yarn build",
+    "build:prod": "env-cmd -f ./envs/prod.js yarn build",
+  },
 ```
 
 ## Examples
