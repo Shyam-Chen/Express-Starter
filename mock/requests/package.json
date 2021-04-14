@@ -1,0 +1,25 @@
+{
+  "name": "mock-requests",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "webpack -w"
+  },
+  "dependencies": {
+    "@koa/cors": "^3.1.0",
+    "@koa/router": "^9.4.0",
+    "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-logger": "^3.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "babel-loader": "^8.0.5",
+    "process-envify": "^0.1.3",
+    "start-server-webpack-plugin": "^2.2.5",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-node-externals": "^2.5.2"
+  }
+}
