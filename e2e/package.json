@@ -10,10 +10,7 @@
   },
   "dependencies": {
     "autocannon": "^7.0.5",
-    "lighthouse": "^7.3.0",
-    "mockiavelli": "^1.1.1",
     "nock": "^13.0.11",
-    "playwright": "^1.9.2",
     "supertest": "^6.1.3"
   },
   "devDependencies": {

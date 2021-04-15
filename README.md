@@ -89,6 +89,13 @@ $ yarn unit
 Files: `e2e/**/*.spec.js`
 
 ```sh
+# Before running the `meas` command, make sure to run the following commands.
+$ yarn build
+$ yarn preview
+
+# If it's not setup, run it.
+$ yarn setup
+
 $ yarn e2e
 ```
 

@@ -102,4 +102,108 @@ describe('CRUD Operations', () => {
 
     await route.handle({}, res);
   });
+
+  it('should get a list of paging', async () => {
+    const route = inject(controller, { method: 'get', path: '/pagination' });
+
+    const req = {
+      query: {
+        page: 1,
+        row: 5,
+      },
+    };
+
+    const res = {
+      json(obj) {
+        expect(obj).toEqual({
+          data: [fakeData],
+          total: 2,
+          message: 'Data obtained.',
+        });
+      },
+    };
+
+    await route.handle(req, res);
+  });
+
+  it('should create a item', async () => {
+    const route = inject(controller, { method: 'post', path: '/' });
+
+    const req = {
+      body: {
+        text: 'Express',
+      },
+    };
+
+    const res = {
+      json(obj) {
+        expect(obj).toEqual({
+          message: 'List saved',
+        });
+      },
+    };
+
+    await route.handle(req, res);
+  });
+
+  it('should update a item', async () => {
+    const route = inject(controller, { method: 'put', path: '/:id' });
+
+    const req = {
+      params: {
+        id: 'vn3RecDbwMQTjttnluZW',
+      },
+      body: {},
+    };
+
+    const res = {
+      json(obj) {
+        expect(obj).toEqual({
+          message: 'List updated',
+        });
+      },
+    };
+
+    await route.handle(req, res);
+  });
+
+  it('should remove a item', async () => {
+    const route = inject(controller, { method: 'delete', path: '/:id' });
+
+    const req = {
+      params: {
+        id: 'vn3RecDbwMQTjttnluZW',
+      },
+    };
+
+    const res = {
+      json(obj) {
+        expect(obj).toEqual({
+          message: 'List deleted',
+        });
+      },
+    };
+
+    await route.handle(req, res);
+  });
+
+  it('should remove selected items', async () => {
+    const route = inject(controller, { method: 'delete', path: '/' });
+
+    const req = {
+      body: {
+        selected: ['vn3RecDbwMQTjttnluZW'],
+      },
+    };
+
+    const res = {
+      json(obj) {
+        expect(obj).toEqual({
+          message: 'List deleted',
+        });
+      },
+    };
+
+    await route.handle(req, res);
+  });
 });
