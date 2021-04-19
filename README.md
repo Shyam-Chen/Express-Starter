@@ -114,7 +114,7 @@ $ yarn setup
 $ yarn meas
 ```
 
-### Mocks Third-party APIs
+### Mocks third-party APIs
 
 ```sh
 # If it's not active, run it.
@@ -130,7 +130,7 @@ Dockerize an application.
 1. Build and run the container in the background
 
 ```bash
-$ docker-compose up -d app
+$ docker-compose up -d mongodb app
 ```
 
 2. Run a command in a running container
@@ -151,19 +151,13 @@ $ docker-compose rm -fs
 $ docker-compose up -d --build app
 ```
 
-Local Databases
-
-```bash
-$ docker-compose up -d mongodb
-```
-
 ## Configuration
 
 Control the environment.
 
 ### Default environments
 
-Set your local environment variables.
+Set your local environment variables. (use `export const <ENV_NAME> = process.env.<ENV_NAME> || <LOCAL_ENV>;`)
 
 ```js
 // src/env.js
@@ -177,9 +171,19 @@ export const PORT = process.env.PORT || 3000;
 export const SECRET_KEY = process.env.SECRET_KEY || 'jbmpHPLoaV8N0nEpuLxlpT95FYakMPiu';
 
 export const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/test';
-export const REDIS_URL = process.env.REDIS_URL || 'redis://127.0.0.1:6379/4';
 
 // ---
+
+export const FACEBOOK_APP_ID = process.env.FACEBOOK_APP_ID || 'XXX';
+export const FACEBOOK_APP_SECRET = process.env.FACEBOOK_APP_SECRET || 'XXX';
+
+export const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || 'XXX';
+export const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET || 'XXX';
+
+export const APPLE_SERVICES_ID = process.env.APPLE_SERVICES_ID || 'XXX';
+export const APPLE_TEAM_ID = process.env.APPLE_TEAM_ID || 'XXX';
+export const APPLE_KEY_ID = process.env.APPLE_KEY_ID || 'XXX';
+export const APPLE_PRIVATE_KEY = process.env.APPLE_PRIVATE_KEY || 'XXX';
 
 export const CLOUDINARY_URL = process.env.CLOUDINARY_URL || 'cloudinary://key:secret@domain_name';
 
@@ -197,6 +201,7 @@ Add environment variables to the CircleCI build.
 
 SECRET_KEY
 MONGODB_URI
+CLOUDINARY_URL
 SENTRY_DSN
 ```
 
@@ -206,10 +211,12 @@ If you want to set environment variables from a file.
 
 ```ts
 .
+├── e2e
 ├── envs
 │   ├── dev.js
 │   ├── stage.js
 │   └── prod.js
+├── mock
 └── src
 ```
 
@@ -218,6 +225,7 @@ If you want to set environment variables from a file.
 
 function Environment() {
   this.NODE_ENV = 'production';
+  // more...
 }
 
 module.exports = new Environment();
@@ -261,6 +269,10 @@ The structure follows the LIFT Guidelines.
 
 ```coffee
 .
+├── e2e
+├── mock
+│   ├── requests
+│   └── responses
 ├── src
 │   ├── core
 │   │   └── ...
@@ -268,8 +280,7 @@ The structure follows the LIFT Guidelines.
 │   │   ├── __tests__
 │   │   │   ├── controller.spec.js
 │   │   │   ├── service.spec.js
-│   │   │   ├── model.spec.js
-│   │   │   └── rest|<FLOW>.e2e-spec.js
+│   │   │   └── model.spec.js
 │   │   ├── controller.js
 │   │   ├── service.js
 │   │   ├── model.js
@@ -279,8 +290,7 @@ The structure follows the LIFT Guidelines.
 │   │       ├── __tests__
 │   │       │   ├── controller.spec.js
 │   │       │   ├── service.spec.js
-│   │       │   ├── model.spec.js
-│   │       │   └── rest|<FLOW>.e2e-spec.js
+│   │       │   └── model.spec.js
 │   │       ├── controller.js
 │   │       ├── service.js
 │   │       ├── model.js
@@ -295,6 +305,7 @@ The structure follows the LIFT Guidelines.
 ├── babel.config
 ├── Caddyfile
 ├── circle.yml
+├── develop.Dockerfile
 ├── docker-compose.yml
 ├── Dockerfile
 ├── jest.config.js
@@ -302,6 +313,7 @@ The structure follows the LIFT Guidelines.
 ├── package-lock.json
 ├── package.json
 ├── processes.js
+├── produce.Dockerfile
 └── README.md
 ```
 

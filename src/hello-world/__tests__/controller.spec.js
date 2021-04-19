@@ -19,4 +19,22 @@ describe('Hello World', () => {
 
     await route.handle(req, res);
   });
+
+  it('should get a `Hello, Express!`', async () => {
+    const route = inject(controller, { method: 'post', path: '/' });
+
+    const req = {
+      body: {
+        data: 'Express',
+      },
+    };
+
+    const res = {
+      json(body) {
+        expect(body).toEqual({ data: 'Hello, Express!' });
+      },
+    };
+
+    await route.handle(req, res);
+  });
 });
