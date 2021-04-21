@@ -2,11 +2,8 @@
 
 :truck: A boilerplate for Node.js, Express, Mongoose, Heroku, Atlas, Nodemon, PM2, and Babel.
 
-[![Build Status](https://img.shields.io/circleci/project/github/Shyam-Chen/Express-Starter/master.svg)](https://circleci.com/gh/Shyam-Chen/Express-Starter)
-[![Coverage Status](https://img.shields.io/codecov/c/github/Shyam-Chen/Express-Starter/master.svg)](https://codecov.io/gh/Shyam-Chen/Express-Starter)
-//
-[![Dependency Status](https://img.shields.io/david/Shyam-Chen/Express-Starter.svg)](https://david-dm.org/Shyam-Chen/Express-Starter)
-[![devDependency Status](https://img.shields.io/david/dev/Shyam-Chen/Express-Starter.svg)](https://david-dm.org/Shyam-Chen/Express-Starter?type=dev)
+![Build Status](https://img.shields.io/circleci/build/github/Shyam-Chen/Express-Starter/main)
+![Coverage Status](https://img.shields.io/codecov/c/github/Shyam-Chen/Express-Starter/main)
 
 :rainbow: [Live Demo](https://backend-starter-kit.herokuapp.com/)
 

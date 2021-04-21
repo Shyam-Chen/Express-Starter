@@ -1,25 +1,21 @@
 {
   "name": "express-starter",
   "version": "1.0.0",
-  "description": "A boilerplate for Node.js, Express, Mongoose, Heroku, Atlas, Nodemon, PM2, and Babel.",
-  "engines": {
-    "node": "14"
-  },
+  "private": true,
   "scripts": {
     "serve": "nodemon src/server.js --exec babel-node --ignore **/__tests__/** --ignore **/__mocks__/**",
     "build": "babel src -d dist --ignore **/__tests__/**,**/__mocks__/**",
     "lint": "eslint 'src/**/*.js'",
     "unit": "jest --coverage",
-    "e2e": "cross-env JEST_ENV=e2e jest \"src/.*\\.js$\" --forceExit --detectOpenHandles",
+    "preview": "caddy run",
+    "setup": "cd e2e && yarn install",
+    "e2e": "cd e2e && yarn test",
+    "meas": "cd e2e && yarn perf",
+    "active": "cd mock/requests && yarn install",
+    "mock": "cd mock/requests && yarn serve",
     "_codecov": "codecov",
     "_heroku": "heroku"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Shyam-Chen/Express-Starter.git"
-  },
-  "author": "Shyam Chen",
-  "license": "MIT",
   "dependencies": {
     "@mrbatista/passport-apple-token": "^1.0.0",
     "@nicokaiser/passport-apple": "^0.2.1",
