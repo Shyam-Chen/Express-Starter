@@ -1,0 +1,1 @@
+import autocannon from 'autocannon';
