@@ -28,7 +28,7 @@ This seed repository provides the following features:
 - ---------- **Environments** ----------
 - [x] Cloud application hosting with [**Heroku**](https://www.heroku.com/).
 - [x] Cloud NoSQL database hosting with [**Atlas**](https://www.mongodb.com/cloud/atlas).
-- [x] Cloud storage‎ hosting with [**Cloudinary**](https://cloudinary.com/).
+- [x] Cloud storage hosting with [**Cloudinary**](https://cloudinary.com/).
 - [x] Error tracking service with [**Sentry**](https://sentry.io/).
 - [x] Software container with [**Docker**](https://github.com/docker/docker).
 - [x] Continuous integration with [**CircleCI**](https://circleci.com/).
@@ -36,8 +36,6 @@ This seed repository provides the following features:
 - [x] Test coverage integration with [**Codecov**](https://codecov.io/).
 
 [Performance (Fastify)](https://github.com/Shyam-Chen/Fastify-Starter)
-
-> By default, Nest makes use of the Express framework. As mentioned earlier, Nest also provides compatibility with other libraries such as, for example, Fastify. Nest achieves this framework independence by implementing a framework adapter whose primary function is to proxy middleware and handlers to appropriate library-specific implementations.
 
 ## Table of Contents
 
