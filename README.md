@@ -35,6 +35,10 @@ This seed repository provides the following features:
 - [x] Fix and prevent known vulnerabilities with [**Snyk**](https://snyk.io/).
 - [x] Test coverage integration with [**Codecov**](https://codecov.io/).
 
+[Performance (Fastify)](https://github.com/Shyam-Chen/Fastify-Starter)
+
+> By default, Nest makes use of the Express framework. As mentioned earlier, Nest also provides compatibility with other libraries such as, for example, Fastify. Nest achieves this framework independence by implementing a framework adapter whose primary function is to proxy middleware and handlers to appropriate library-specific implementations.
+
 ## Table of Contents
 
 - [Project Setup](#project-setup)

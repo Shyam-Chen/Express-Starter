@@ -60,24 +60,13 @@ const controller = (() => {
    * @example GET /crud-operations/pagination?page=${page}&row=${row}
    */
   router.get('/pagination', async (req, res) => {
-    const data = [];
-
     const page = Number(req.query.page) || 1;
     const row = Number(req.query.row) || 5;
+    const data = await ListColl.find({}).limit(rows).skip(rows * (page - 1)).exec();
     const count = await ListColl.count().exec();
 
-    for (let i = 0, l = count; i < l / row; i += 1) {
-      if (page === i + 1) {
-        data.push(
-          ListColl.find({})
-            .skip(i * row)
-            .limit(row),
-        );
-      }
-    }
-
     res.json({
-      data: [...(await Promise.all(data))],
+      data,
       total: count,
       message: 'Data obtained.',
     });
