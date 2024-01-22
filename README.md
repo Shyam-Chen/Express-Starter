@@ -35,12 +35,14 @@
 - [x] Fix and prevent known vulnerabilities with [**Snyk**](https://snyk.io/).
 - [x] Test coverage integration with [**Codecov**](https://codecov.io/).
 
-:thinking: Think about next-generation application development:
-
-- [Fastify](https://github.com/fastify/fastify) is one of the fastest Node.js web frameworks.
-- [Nest](https://github.com/nestjs/nest) uses a modular architecture and allows the choice of either Express or Fastify as the server framework.
-
-If you're interested in Fastify, you can refer to my [Fastify Starter](https://github.com/Shyam-Chen/Fastify-Starter).
+> [!NOTE]
+>
+> :thinking: Think about next-generation application development:
+>
+> - [Fastify](https://github.com/fastify/fastify) is one of the fastest Node.js web frameworks.
+> - [Nest](https://github.com/nestjs/nest) uses a modular architecture and allows the choice of either Express or **Fastify** as the server framework.
+>
+> If you're interested in Fastify, you can refer to my [Fastify Starter](https://github.com/Shyam-Chen/Fastify-Starter).
 
 ## Table of Contents
 
