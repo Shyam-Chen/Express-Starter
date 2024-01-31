@@ -67,7 +67,7 @@
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-prettier": "3.1.0",
     "faker": "4.1.0",
-    "heroku": "7.42.1",
+    "heroku": "8.0.0",
     "jest": "24.8.0",
     "nodemon": "1.19.1",
     "prettier": "1.18.2"
